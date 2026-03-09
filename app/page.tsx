@@ -286,61 +286,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══════ GALLERY ══════ */}
-      <section className="py-20 md:py-28 px-6 bg-haram-cream relative">
-        <div className="absolute inset-0 bg-pattern opacity-30" />
-        <div className="max-w-6xl mx-auto relative">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fade}
-            className="text-center mb-14">
-            <p className="section-label section-label-center justify-center mb-6">Gallery</p>
-            <h2 className="text-[28px] md:text-[38px] text-haram-dark font-light">하람의 순간들</h2>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.1} variants={fadeScale}
-            className="gallery-grid">
-            {[
-              { src: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1000&q=80', alt: 'Wedding decor' },
-              { src: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80', alt: 'Wedding ceremony' },
-              { src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80', alt: 'Wedding bouquet' },
-              { src: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=600&q=80', alt: 'Wedding setup' },
-              { src: 'https://images.unsplash.com/photo-1550005809-91ad75fb315f?auto=format&fit=crop&w=600&q=80', alt: 'Wedding rings' },
-            ].map((img, i) => (
-              <div key={i} className="gallery-item relative overflow-hidden group img-overlay-zoom">
-                <Image src={img.src} alt={img.alt} fill className="object-cover" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ══════ STATS ══════ */}
-      <section className="py-24 md:py-32 px-6 bg-haram-dark relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-haram-gold/[0.02] via-transparent to-haram-gold/[0.02]" />
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-haram-gold/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-haram-gold/20 to-transparent" />
-        <div className="max-w-5xl mx-auto relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {[
-              { num: '500+', label: '누적 예식' },
-              { num: '30+', label: '제휴 예식장' },
-              { num: '98%', label: '고객 만족도' },
-              { num: '3년+', label: '업력' },
-            ].map((stat, i) => (
-              <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                custom={i * 0.1} variants={fade}
-                className="text-center relative">
-                {i > 0 && <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[1px] h-10 bg-white/10" />}
-                <p className="text-[44px] md:text-[60px] font-serif font-light text-white leading-none mb-4 tracking-wide">
-                  {stat.num}
-                </p>
-                <p className="text-[10px] tracking-[0.2em] text-gray-500 uppercase">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ══════ PROCESS ══════ */}
       <section className="py-28 md:py-40 px-6">
         <div className="max-w-5xl mx-auto">
