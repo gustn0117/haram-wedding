@@ -36,17 +36,19 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          showBg ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
+          showBg
+            ? 'bg-white/97 backdrop-blur-lg shadow-[0_1px_0_rgba(0,0,0,0.04)]'
+            : 'bg-gradient-to-b from-black/30 to-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-7 h-7 opacity-80 group-hover:opacity-100 transition-opacity">
               <Image
                 src="https://framerusercontent.com/images/lVHB6hvbITPzgZZf9kn72Ij4vE.png"
                 alt="HARAM"
                 fill
-                className="object-contain"
+                className={`object-contain transition-all duration-300 ${showBg ? '' : 'brightness-200'}`}
               />
             </div>
             <div className="flex flex-col">
@@ -55,8 +57,8 @@ export default function Navbar() {
               }`}>
                 HARAM
               </span>
-              <span className={`text-[9px] tracking-[0.08em] font-light transition-colors ${
-                showBg ? 'text-gray-400' : 'text-white/60'
+              <span className={`text-[8px] tracking-[0.08em] font-light transition-colors ${
+                showBg ? 'text-gray-400' : 'text-white/50'
               }`}>
                 Precious Person in Heaven
               </span>
@@ -64,16 +66,16 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-9">
             {links.map((link) => (
               <Link key={link.href} href={link.href}
-                className={`relative text-[13px] tracking-[0.02em] transition-all duration-300 hover:opacity-100 ${
-                  showBg ? 'text-gray-600 hover:text-gray-900' : 'text-white/80 hover:text-white'
-                } ${pathname === link.href ? 'opacity-100 font-medium' : 'font-light opacity-80'}`}>
+                className={`relative text-[12.5px] tracking-[0.03em] transition-all duration-300 hover:opacity-100 ${
+                  showBg ? 'text-gray-500 hover:text-gray-900' : 'text-white/70 hover:text-white'
+                } ${pathname === link.href ? 'opacity-100 font-medium' : 'font-light opacity-85'}`}>
                 {link.label}
                 {pathname === link.href && (
                   <motion.div layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-[1px] bg-haram-gold" />
+                    className="absolute -bottom-1.5 left-0 right-0 h-[1px] bg-haram-gold" />
                 )}
               </Link>
             ))}
@@ -106,16 +108,19 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.08, duration: 0.4 }}>
                   <Link href={link.href}
-                    className="block py-5 text-2xl font-light text-gray-900 border-b border-gray-100"
+                    className={`block py-5 text-2xl font-light border-b border-gray-100 transition-colors ${
+                      pathname === link.href ? 'text-haram-gold' : 'text-gray-900'
+                    }`}
                     onClick={() => setMobileOpen(false)}>
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
-                className="mt-12 text-sm text-gray-400 font-light">
-                <p>Tel. 010-7930-1332</p>
-                <p className="mt-1">평일 10시 ~ 18시</p>
+                className="mt-12">
+                <p className="text-[11px] tracking-[0.2em] text-haram-gold mb-3 font-montserrat uppercase">Contact</p>
+                <p className="text-lg text-gray-900 font-light">010-7930-1332</p>
+                <p className="mt-1 text-sm text-gray-400 font-light">평일 10시 ~ 18시</p>
               </motion.div>
             </div>
           </motion.div>

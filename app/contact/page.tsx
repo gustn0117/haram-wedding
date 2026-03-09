@@ -28,17 +28,21 @@ export default function ContactPage() {
   return (
     <main className="w-full">
       {/* Hero */}
-      <section className="relative pt-32 pb-20 px-6 bg-white overflow-hidden">
+      <section className="relative pt-36 pb-24 px-6 bg-white overflow-hidden">
         <div className="absolute inset-0 watermark-overlay" />
         <div className="relative max-w-3xl mx-auto text-center">
           <motion.p initial="hidden" animate="visible" custom={0} variants={fadeUp}
-            className="text-[11px] tracking-[0.35em] text-haram-gold mb-5 font-montserrat">CONTACT</motion.p>
+            className="text-[10px] tracking-[0.4em] text-haram-gold mb-6 font-montserrat uppercase">Contact</motion.p>
           <motion.h1 initial="hidden" animate="visible" custom={0.2} variants={fadeUp}
-            className="text-4xl md:text-[48px] font-light leading-[1.3] text-gray-900 mb-8">
+            className="text-[36px] md:text-[48px] font-light leading-[1.3] text-gray-900 mb-8">
             문의하기
           </motion.h1>
           <motion.div initial="hidden" animate="visible" custom={0.35} variants={fadeUp}>
-            <div className="gold-divider mx-auto mb-8" />
+            <div className="flex items-center justify-center gap-6 mb-10">
+              <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-haram-gold/60" />
+              <div className="w-1.5 h-1.5 rounded-full bg-haram-gold/50" />
+              <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-haram-gold/60" />
+            </div>
           </motion.div>
           <motion.p initial="hidden" animate="visible" custom={0.45} variants={fadeUp}
             className="text-[15px] text-gray-400 font-light leading-[2]">
@@ -59,33 +63,34 @@ export default function ContactPage() {
           ].map((item, i) => (
             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
               custom={i * 0.1} variants={fadeUp}
-              className="text-center py-8 md:py-6 md:px-8">
-              <p className="text-[10px] tracking-[0.25em] text-haram-gold mb-3 font-montserrat uppercase">{item.label}</p>
-              <p className="text-[16px] font-light text-gray-900 mb-1">{item.value}</p>
-              <p className="text-[12px] text-gray-400 font-light">{item.sub}</p>
+              className="text-center py-8 md:py-6 md:px-10">
+              <p className="text-[9px] tracking-[0.3em] text-haram-gold mb-4 font-montserrat uppercase">{item.label}</p>
+              <p className="text-[16px] font-light text-gray-900 mb-2">{item.value}</p>
+              <p className="text-[11px] text-gray-400 font-light">{item.sub}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Form */}
-      <section className="py-24 px-6 bg-[#fafaf7]">
+      <section className="py-28 px-6 bg-[#fafaf7]">
         <div className="max-w-2xl mx-auto">
           <motion.form initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
-            onSubmit={handleSubmit} className="bg-white p-10 md:p-14 rounded-2xl border border-gray-100 shadow-sm shadow-black/5">
+            onSubmit={handleSubmit} className="bg-white p-10 md:p-14 rounded-2xl border border-gray-100 shadow-sm shadow-black/5 relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-haram-gold/40 to-transparent" />
 
-            <p className="text-[11px] tracking-[0.25em] text-haram-gold mb-3 font-montserrat uppercase">Inquiry Form</p>
-            <h3 className="text-2xl font-light text-gray-900 mb-2">문의 양식</h3>
+            <p className="text-[10px] tracking-[0.3em] text-haram-gold mb-3 font-montserrat uppercase">Inquiry Form</p>
+            <h3 className="text-[22px] font-light text-gray-900 mb-2">문의 양식</h3>
             <div className="gold-divider mb-10" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
               <div>
-                <label className="block text-[11px] text-gray-400 tracking-wider mb-2 uppercase">성명</label>
+                <label className="block text-[10px] text-gray-400 tracking-[0.15em] mb-2.5 uppercase font-montserrat">성명</label>
                 <input type="text" name="name" value={formData.name} onChange={handleChange} required
                   className="w-full px-4 py-3.5 bg-[#fafaf7] border border-gray-100 rounded-xl text-[14px] font-light focus:outline-none focus:border-haram-gold/40 transition-colors" />
               </div>
               <div>
-                <label className="block text-[11px] text-gray-400 tracking-wider mb-2 uppercase">전화번호</label>
+                <label className="block text-[10px] text-gray-400 tracking-[0.15em] mb-2.5 uppercase font-montserrat">전화번호</label>
                 <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required
                   placeholder="010-0000-0000"
                   className="w-full px-4 py-3.5 bg-[#fafaf7] border border-gray-100 rounded-xl text-[14px] font-light focus:outline-none focus:border-haram-gold/40 transition-colors placeholder:text-gray-300" />
@@ -94,7 +99,7 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
               <div>
-                <label className="block text-[11px] text-gray-400 tracking-wider mb-2 uppercase">서비스</label>
+                <label className="block text-[10px] text-gray-400 tracking-[0.15em] mb-2.5 uppercase font-montserrat">서비스</label>
                 <select name="service" value={formData.service} onChange={handleChange}
                   className="w-full px-4 py-3.5 bg-[#fafaf7] border border-gray-100 rounded-xl text-[14px] font-light focus:outline-none focus:border-haram-gold/40 transition-colors appearance-none">
                   <option value="">선택해주세요</option>
@@ -105,31 +110,32 @@ export default function ContactPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-[11px] text-gray-400 tracking-wider mb-2 uppercase">예식 예정일</label>
+                <label className="block text-[10px] text-gray-400 tracking-[0.15em] mb-2.5 uppercase font-montserrat">예식 예정일</label>
                 <input type="date" name="date" value={formData.date} onChange={handleChange}
                   className="w-full px-4 py-3.5 bg-[#fafaf7] border border-gray-100 rounded-xl text-[14px] font-light focus:outline-none focus:border-haram-gold/40 transition-colors" />
               </div>
             </div>
 
             <div className="mb-5">
-              <label className="block text-[11px] text-gray-400 tracking-wider mb-2 uppercase">이메일</label>
+              <label className="block text-[10px] text-gray-400 tracking-[0.15em] mb-2.5 uppercase font-montserrat">이메일</label>
               <input type="email" name="email" value={formData.email} onChange={handleChange}
                 className="w-full px-4 py-3.5 bg-[#fafaf7] border border-gray-100 rounded-xl text-[14px] font-light focus:outline-none focus:border-haram-gold/40 transition-colors" />
             </div>
 
-            <div className="mb-8">
-              <label className="block text-[11px] text-gray-400 tracking-wider mb-2 uppercase">메시지</label>
+            <div className="mb-10">
+              <label className="block text-[10px] text-gray-400 tracking-[0.15em] mb-2.5 uppercase font-montserrat">메시지</label>
               <textarea name="message" value={formData.message} onChange={handleChange} required rows={5}
                 placeholder="궁금한 점이나 요청사항을 자유롭게 입력해주세요."
                 className="w-full px-4 py-3.5 bg-[#fafaf7] border border-gray-100 rounded-xl text-[14px] font-light focus:outline-none focus:border-haram-gold/40 transition-colors resize-none placeholder:text-gray-300" />
             </div>
 
             <button type="submit"
-              className="w-full bg-haram-gold text-white py-4 rounded-full text-[13px] tracking-[0.05em] hover:opacity-90 transition-opacity">
+              className="w-full bg-haram-gold text-white py-4 rounded-full text-[12px] tracking-[0.1em] uppercase font-montserrat
+                hover:bg-[#c9a96e] transition-colors duration-400 shadow-lg shadow-haram-gold/20">
               메시지 보내기
             </button>
 
-            <p className="text-[11px] text-gray-400 text-center mt-6 font-light">
+            <p className="text-[10px] text-gray-400 text-center mt-8 font-light">
               입력하신 정보는 문의 응답 목적으로만 사용됩니다.
             </p>
           </motion.form>
@@ -137,12 +143,12 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-28 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
             className="text-center mb-16">
-            <p className="text-[11px] tracking-[0.3em] text-haram-gold mb-4 font-montserrat uppercase">FAQ</p>
-            <h2 className="text-3xl md:text-[36px] font-light text-gray-900">자주 묻는 질문</h2>
+            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-4 font-montserrat uppercase">FAQ</p>
+            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900">자주 묻는 질문</h2>
           </motion.div>
 
           <div className="space-y-3">
@@ -154,12 +160,12 @@ export default function ContactPage() {
             ].map((faq, i) => (
               <motion.details key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 custom={i * 0.05} variants={fadeUp}
-                className="bg-[#fafaf7] p-6 rounded-xl border border-gray-100 group [&[open]]:bg-white [&[open]]:shadow-sm [&[open]]:shadow-black/5 transition-all">
+                className="bg-[#fafaf7] p-7 rounded-xl border border-gray-100 group [&[open]]:bg-white [&[open]]:shadow-md [&[open]]:shadow-black/[0.03] [&[open]]:border-gray-100 transition-all">
                 <summary className="cursor-pointer font-light text-gray-900 text-[15px] flex justify-between items-center">
                   {faq.q}
                   <span className="text-haram-gold text-lg ml-4 shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
                 </summary>
-                <p className="mt-4 pt-4 border-t border-gray-100 text-[14px] text-gray-400 font-light leading-[1.8]">{faq.a}</p>
+                <p className="mt-5 pt-5 border-t border-gray-100 text-[13px] text-gray-400 font-light leading-[1.9]">{faq.a}</p>
               </motion.details>
             ))}
           </div>

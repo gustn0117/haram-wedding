@@ -14,6 +14,7 @@ module.exports = {
         sans: ['Noto Sans KR', 'sans-serif'],
         display: ['Lustria', 'serif'],
         montserrat: ['Montserrat', 'sans-serif'],
+        figtree: ['Figtree', 'sans-serif'],
       },
     },
   },
