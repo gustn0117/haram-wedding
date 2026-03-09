@@ -23,7 +23,7 @@ export default function Navbar() {
   const showBg = scrolled || !isHome;
 
   const links = [
-    { href: '/concierge', label: '컨시어지(예식도우미)' },
+    { href: '/concierge', label: '컨시어지' },
     { href: '/photobooth', label: '포토부스' },
     { href: '/host', label: '전문사회' },
     { href: '/contact', label: '문의하기' },
@@ -32,18 +32,18 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           showBg
-            ? 'bg-white/95 backdrop-blur-2xl shadow-[0_1px_0_rgba(0,0,0,0.04)]'
-            : 'bg-gradient-to-b from-black/40 via-black/10 to-transparent'
+            ? 'bg-white/95 backdrop-blur-xl border-b border-gray-100'
+            : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-7 h-7 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="max-w-6xl mx-auto px-6 h-[68px] flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="relative w-6 h-6">
               <Image
                 src="https://framerusercontent.com/images/lVHB6hvbITPzgZZf9kn72Ij4vE.png"
                 alt="HARAM"
@@ -51,94 +51,65 @@ export default function Navbar() {
                 className={`object-contain transition-all duration-500 ${showBg ? '' : 'brightness-200'}`}
               />
             </div>
-            <div className="flex flex-col">
-              <span className={`text-[13px] font-semibold tracking-[0.18em] transition-colors duration-500 font-display ${
-                showBg ? 'text-gray-900' : 'text-white'
-              }`}>
-                HARAM
-              </span>
-              <span className={`text-[7px] tracking-[0.08em] font-light transition-colors duration-500 font-montserrat ${
-                showBg ? 'text-gray-400' : 'text-white/40'
-              }`}>
-                Precious Person in Heaven
-              </span>
-            </div>
+            <span className={`text-[14px] font-medium tracking-[0.15em] transition-colors duration-500 ${
+              showBg ? 'text-haram-dark' : 'text-white'
+            }`}>
+              HARAM
+            </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-9">
+          <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
               <Link key={link.href} href={link.href}
-                className={`relative text-[12px] tracking-[0.04em] transition-all duration-500 hover:opacity-100 py-1 ${
-                  showBg ? 'text-gray-500 hover:text-gray-900' : 'text-white/60 hover:text-white'
-                } ${pathname === link.href ? 'opacity-100 font-medium' : 'font-light opacity-85'}`}>
+                className={`text-[13px] transition-colors duration-300 ${
+                  showBg
+                    ? pathname === link.href ? 'text-haram-dark font-normal' : 'text-gray-400 hover:text-haram-dark'
+                    : pathname === link.href ? 'text-white font-normal' : 'text-white/50 hover:text-white'
+                }`}>
                 {link.label}
-                {pathname === link.href && (
-                  <motion.div layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-haram-gold"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  />
-                )}
               </Link>
             ))}
-            <Link href="/contact"
-              className={`ml-2 text-[10px] tracking-[0.15em] font-montserrat uppercase px-5 py-2 rounded-full border transition-all duration-500 ${
-                showBg
-                  ? 'border-haram-gold/30 text-haram-gold-dark hover:bg-haram-gold hover:text-white hover:border-haram-gold'
-                  : 'border-white/20 text-white/70 hover:border-white/50 hover:text-white'
-              }`}>
-              상담
-            </Link>
           </div>
 
-          {/* Mobile Hamburger */}
-          <button className="md:hidden relative w-8 h-8 flex items-center justify-center"
+          <button className="md:hidden relative w-7 h-7 flex items-center justify-center"
             onClick={() => setMobileOpen(!mobileOpen)}>
-            <span className={`absolute block w-5 h-[1px] transition-all duration-300 ${showBg ? 'bg-gray-900' : 'bg-white'} ${mobileOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
-            <span className={`absolute block w-5 h-[1px] transition-all duration-300 ${showBg ? 'bg-gray-900' : 'bg-white'} ${mobileOpen ? 'opacity-0' : ''}`} />
-            <span className={`absolute block w-5 h-[1px] transition-all duration-300 ${showBg ? 'bg-gray-900' : 'bg-white'} ${mobileOpen ? '-rotate-45' : 'translate-y-1.5'}`} />
+            <span className={`absolute block w-4.5 h-[1.5px] transition-all duration-300 rounded-full ${showBg ? 'bg-haram-dark' : 'bg-white'} ${mobileOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
+            <span className={`absolute block w-4.5 h-[1.5px] transition-all duration-300 rounded-full ${showBg ? 'bg-haram-dark' : 'bg-white'} ${mobileOpen ? 'opacity-0' : ''}`} />
+            <span className={`absolute block w-4.5 h-[1.5px] transition-all duration-300 rounded-full ${showBg ? 'bg-haram-dark' : 'bg-white'} ${mobileOpen ? '-rotate-45' : 'translate-y-1.5'}`} />
           </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 bg-white"
           >
-            <div className="pt-28 px-8 h-full flex flex-col">
-              <div className="flex-1">
+            <div className="pt-24 px-8 h-full flex flex-col">
+              <div className="flex-1 space-y-0">
                 {links.map((link, i) => (
                   <motion.div key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.08, duration: 0.4 }}>
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.06, duration: 0.3 }}>
                     <Link href={link.href}
-                      className={`block py-5 text-[20px] font-light border-b border-gray-100 transition-colors ${
-                        pathname === link.href ? 'text-haram-gold' : 'text-gray-900'
+                      className={`block py-5 text-[18px] border-b border-gray-100 ${
+                        pathname === link.href ? 'text-haram-gold font-normal' : 'text-haram-dark'
                       }`}
                       onClick={() => setMobileOpen(false)}>
-                      <span className="text-[10px] text-haram-gold/50 font-montserrat tracking-wider mr-3">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
               </div>
-
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
-                className="pb-12">
-                <div className="w-8 h-[1px] bg-haram-gold/40 mb-6" />
-                <p className="text-[10px] tracking-[0.2em] text-haram-gold mb-3 font-montserrat uppercase">Contact</p>
-                <p className="text-[20px] text-gray-900 font-light font-montserrat tracking-wide">010-7930-1332</p>
-                <p className="mt-2 text-[12px] text-gray-400 font-light">평일 10시 ~ 18시</p>
-              </motion.div>
+              <div className="pb-10">
+                <p className="text-[18px] text-haram-dark tracking-wide">010-7930-1332</p>
+                <p className="mt-1 text-[12px] text-gray-400">평일 10시 ~ 18시</p>
+              </div>
             </div>
           </motion.div>
         )}
