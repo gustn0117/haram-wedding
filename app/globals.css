@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&family=Lustria&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&family=Lustria&family=Urbanist:wght@300;400;500;600&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -12,9 +12,40 @@ body {
   background-color: #ffffff;
   color: #1a1a1a;
   font-family: 'Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
   background: #DDC18C;
   color: #fff;
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #DDC18C;
+  border-radius: 3px;
+}
+
+/* Gold divider utility */
+.gold-divider {
+  width: 40px;
+  height: 1px;
+  background: #DDC18C;
+}
+
+/* Watermark pattern overlay */
+.watermark-overlay {
+  background-image: url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png');
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 154px auto;
+  opacity: 0.06;
+  pointer-events: none;
 }
