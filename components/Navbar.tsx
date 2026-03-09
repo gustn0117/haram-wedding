@@ -37,7 +37,7 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
           showBg
-            ? 'bg-white/98 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.04)]'
+            ? 'bg-white/95 backdrop-blur-2xl shadow-[0_1px_0_rgba(0,0,0,0.04)]'
             : 'bg-gradient-to-b from-black/40 via-black/10 to-transparent'
         }`}
       >
@@ -57,7 +57,7 @@ export default function Navbar() {
               }`}>
                 HARAM
               </span>
-              <span className={`text-[7.5px] tracking-[0.1em] font-light transition-colors duration-500 ${
+              <span className={`text-[7px] tracking-[0.08em] font-light transition-colors duration-500 font-montserrat ${
                 showBg ? 'text-gray-400' : 'text-white/40'
               }`}>
                 Precious Person in Heaven
@@ -66,21 +66,29 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-9">
             {links.map((link) => (
               <Link key={link.href} href={link.href}
-                className={`relative text-[12px] tracking-[0.04em] transition-all duration-500 hover:opacity-100 ${
+                className={`relative text-[12px] tracking-[0.04em] transition-all duration-500 hover:opacity-100 py-1 ${
                   showBg ? 'text-gray-500 hover:text-gray-900' : 'text-white/60 hover:text-white'
                 } ${pathname === link.href ? 'opacity-100 font-medium' : 'font-light opacity-85'}`}>
                 {link.label}
                 {pathname === link.href && (
                   <motion.div layoutId="activeNav"
-                    className="absolute -bottom-1.5 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-haram-gold to-transparent"
+                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-haram-gold"
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                   />
                 )}
               </Link>
             ))}
+            <Link href="/contact"
+              className={`ml-2 text-[10px] tracking-[0.15em] font-montserrat uppercase px-5 py-2 rounded-full border transition-all duration-500 ${
+                showBg
+                  ? 'border-haram-gold/30 text-haram-gold-dark hover:bg-haram-gold hover:text-white hover:border-haram-gold'
+                  : 'border-white/20 text-white/70 hover:border-white/50 hover:text-white'
+              }`}>
+              상담
+            </Link>
           </div>
 
           {/* Mobile Hamburger */}
@@ -97,9 +105,9 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-white"
           >
@@ -111,10 +119,13 @@ export default function Navbar() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.08, duration: 0.4 }}>
                     <Link href={link.href}
-                      className={`block py-5 text-[22px] font-light border-b border-gray-100 transition-colors ${
+                      className={`block py-5 text-[20px] font-light border-b border-gray-100 transition-colors ${
                         pathname === link.href ? 'text-haram-gold' : 'text-gray-900'
                       }`}
                       onClick={() => setMobileOpen(false)}>
+                      <span className="text-[10px] text-haram-gold/50 font-montserrat tracking-wider mr-3">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
                       {link.label}
                     </Link>
                   </motion.div>
@@ -123,10 +134,10 @@ export default function Navbar() {
 
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
                 className="pb-12">
-                <div className="w-8 h-[1px] bg-haram-gold/40 mb-5" />
+                <div className="w-8 h-[1px] bg-haram-gold/40 mb-6" />
                 <p className="text-[10px] tracking-[0.2em] text-haram-gold mb-3 font-montserrat uppercase">Contact</p>
-                <p className="text-[18px] text-gray-900 font-light font-montserrat">010-7930-1332</p>
-                <p className="mt-1 text-[12px] text-gray-400 font-light">평일 10시 ~ 18시</p>
+                <p className="text-[20px] text-gray-900 font-light font-montserrat tracking-wide">010-7930-1332</p>
+                <p className="mt-2 text-[12px] text-gray-400 font-light">평일 10시 ~ 18시</p>
               </motion.div>
             </div>
           </motion.div>
