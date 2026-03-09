@@ -31,21 +31,23 @@ export default function ConciergePage() {
       {/* HERO */}
       <section className="relative h-[85vh] md:h-screen flex items-center justify-center overflow-hidden bg-haram-dark">
         <div className="absolute inset-0">
-          <Image src="https://framerusercontent.com/images/nWAdkvqfbxvcttAg2x2PWOqDosI.png"
+          <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80"
             alt="컨시어지" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-black/70" />
         </div>
-        <div className="absolute top-28 left-8 md:left-16 w-20 h-20 border-l border-t border-white/[0.08]" />
-        <div className="absolute bottom-24 right-8 md:right-16 w-20 h-20 border-r border-b border-white/[0.08]" />
+        <div className="absolute top-28 left-8 md:left-16 w-24 h-24 border-l border-t border-white/[0.08]" />
+        <div className="absolute bottom-24 right-8 md:right-16 w-24 h-24 border-r border-b border-white/[0.08]" />
 
         <div className="relative z-10 text-center text-white px-6 max-w-3xl">
           <motion.p initial="hidden" animate="visible" custom={0} variants={fade}
             className="section-label section-label-center justify-center text-haram-gold/60 mb-10">Concierge</motion.p>
           <motion.h1 initial="hidden" animate="visible" custom={0.1} variants={fade}
-            className="text-[26px] md:text-[46px] leading-[1.4] mb-8 font-light">
+            className="text-[26px] md:text-[46px] leading-[1.4] mb-6 font-light">
             하람의 전문 매니저가 실시간으로
             <br className="hidden md:block" />예식의 흐름을 조율합니다
           </motion.h1>
+          <motion.div initial="hidden" animate="visible" custom={0.2} variants={fade}
+            className="divider-diamond my-8"><span /></motion.div>
           <motion.div initial="hidden" animate="visible" custom={0.3} variants={fade}>
             <Link href="/contact" className="btn-primary">
               <span>제휴 문의하기</span>
@@ -56,30 +58,52 @@ export default function ConciergePage() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-[1]" />
       </section>
 
-      {/* ABOUT – editorial split */}
+      {/* ABOUT – editorial split with image */}
       <section className="py-28 md:py-40 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fade}
-              className="md:col-span-5">
+              className="md:col-span-7">
               <p className="section-label mb-8">About</p>
-              <h2 className="text-[32px] md:text-[42px] font-serif font-light text-haram-dark leading-[1.3] mb-6">
+              <h2 className="text-[32px] md:text-[42px] font-serif font-light text-haram-dark leading-[1.3] mb-8">
                 예식장과
                 <br />직접 계약하는
                 <br /><span className="text-gradient-gold">B2B</span> 서비스
               </h2>
-              <div className="w-14 h-[1px] bg-haram-gold/50" />
-            </motion.div>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.15} variants={fade}
-              className="md:col-span-7">
+              <div className="w-14 h-[1px] bg-haram-gold/50 mb-8" />
               <p className="text-[16px] md:text-[18px] leading-[2.2] text-gray-500 font-light">
                 하람 컨시어지는 예식장의 운영을 보완하는 전문 파견 서비스입니다.
                 단순한 행사 인력이 아니라, <span className="text-haram-dark font-normal">예식장 내부 구조, 동선, 운영 흐름에 대한 이해</span>를 바탕으로
                 실행 중심의 현장 매니저를 제공합니다.
               </p>
             </motion.div>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.15} variants={fadeScale}
+              className="md:col-span-5 relative">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+                  alt="Wedding couple" fill className="object-cover" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-28 h-28 border-r border-b border-haram-gold/20" />
+              <div className="floating-badge -left-6 md:-left-12 bottom-12 hidden md:block">
+                <p className="text-[28px] font-serif text-haram-gold leading-none">30<span className="text-[14px]">+</span></p>
+                <p className="text-[9px] text-gray-400 tracking-wider mt-1">제휴 예식장</p>
+              </div>
+            </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* IMAGE BREAK */}
+      <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
+        <Image src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?auto=format&fit=crop&w=1600&q=80"
+          alt="Wedding details" fill className="object-cover" />
+        <div className="absolute inset-0 bg-black/40" />
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeScale}
+          className="absolute inset-0 flex items-center justify-center">
+          <p className="text-[22px] md:text-[32px] font-serif text-white/80 font-light text-center px-8 leading-[1.8]">
+            예식장의 품격은<br />보이지 않는 곳에서 완성됩니다
+          </p>
+        </motion.div>
       </section>
 
       {/* FEATURES */}
@@ -102,7 +126,8 @@ export default function ConciergePage() {
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 custom={i * 0.06} variants={fadeScale}
-                className="card-hover card-shine bg-white p-8 md:p-9 border border-gray-100 group">
+                className="card-hover card-shine bg-white p-8 md:p-9 border border-gray-100 group relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-haram-gold/[0.04] to-transparent" />
                 <span className="text-[28px] font-serif font-light text-haram-gold/15 group-hover:text-haram-gold/35 transition-colors duration-500">{item.num}</span>
                 <h3 className="text-[15px] text-haram-dark font-normal mt-3 mb-3">{item.title}</h3>
                 <p className="text-[13px] text-gray-400 leading-[2]">{item.desc}</p>
@@ -155,7 +180,8 @@ export default function ConciergePage() {
             ].map((t, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 custom={i * 0.1} variants={fadeScale}
-                className="bg-white p-9 border border-gray-100 card-hover">
+                className="bg-white p-9 border border-gray-100 card-hover relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-haram-gold/[0.04] to-transparent" />
                 <div className="text-[48px] font-serif text-haram-gold/10 leading-none mb-4">&ldquo;</div>
                 <p className="text-[13px] text-gray-500 leading-[2.1] mb-8">{t.review}</p>
                 <div className="flex items-center gap-3 pt-5 border-t border-gray-100">
@@ -175,6 +201,7 @@ export default function ConciergePage() {
       {/* CTA */}
       <section className="py-32 md:py-44 px-6 bg-haram-dark text-center relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-haram-gold/20 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-haram-gold/[0.02] rounded-full blur-3xl" />
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeScale}
           className="max-w-2xl mx-auto relative">
           <h2 className="text-[28px] md:text-[42px] text-white leading-[1.5] mb-6 font-light">

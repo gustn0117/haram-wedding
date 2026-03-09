@@ -19,6 +19,7 @@ module.exports = {
       fontFamily: {
         sans: ['Noto Sans KR', 'sans-serif'],
         serif: ['Cormorant Garamond', 'serif'],
+        display: ['Playfair Display', 'serif'],
       },
       keyframes: {
         'fade-up': {
@@ -41,6 +42,14 @@ module.exports = {
           '0%, 100%': { opacity: '0.4' },
           '50%': { opacity: '0.8' },
         },
+        'slide-right': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'count-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.8s ease-out forwards',
@@ -48,6 +57,8 @@ module.exports = {
         'line-expand': 'line-expand 1.2s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
         'pulse-gold': 'pulse-gold 3s ease-in-out infinite',
+        'slide-right': 'slide-right 0.6s ease-out forwards',
+        'count-up': 'count-up 0.6s ease-out forwards',
       },
     },
   },

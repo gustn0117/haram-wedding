@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -40,24 +41,34 @@ export default function ContactPage() {
 
   return (
     <main>
-      {/* HERO */}
-      <section className="pt-40 pb-20 px-6 text-center relative">
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[1px] h-12 bg-gradient-to-b from-transparent to-haram-gold/30" />
-        <motion.p initial="hidden" animate="visible" custom={0} variants={fade}
-          className="section-label section-label-center justify-center mb-8">Contact</motion.p>
-        <motion.h1 initial="hidden" animate="visible" custom={0.1} variants={fade}
-          className="text-[36px] md:text-[52px] font-serif text-haram-dark leading-[1.3] mb-7 font-light">
-          문의하기
-        </motion.h1>
-        <motion.p initial="hidden" animate="visible" custom={0.2} variants={fade}
-          className="text-[15px] text-gray-400 leading-[2] font-light">
-          궁금한 점은 언제든 편하게 물어보세요.
-          <br />하람은 항상 당신의 특별한 날을 응원합니다.
-        </motion.p>
+      {/* HERO with image */}
+      <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden bg-haram-dark">
+        <div className="absolute inset-0">
+          <Image src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1600&q=80"
+            alt="Contact" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70" />
+        </div>
+        <div className="absolute top-28 left-8 md:left-16 w-20 h-20 border-l border-t border-white/[0.08]" />
+        <div className="absolute bottom-20 right-8 md:right-16 w-20 h-20 border-r border-b border-white/[0.08]" />
+
+        <div className="relative z-10 text-center text-white px-6">
+          <motion.p initial="hidden" animate="visible" custom={0} variants={fade}
+            className="section-label section-label-center justify-center text-haram-gold/60 mb-8">Contact</motion.p>
+          <motion.h1 initial="hidden" animate="visible" custom={0.1} variants={fade}
+            className="text-[36px] md:text-[52px] font-serif text-white leading-[1.3] mb-6 font-light">
+            문의하기
+          </motion.h1>
+          <motion.p initial="hidden" animate="visible" custom={0.2} variants={fade}
+            className="text-[15px] text-white/40 leading-[2] font-light">
+            궁금한 점은 언제든 편하게 물어보세요.
+            <br />하람은 항상 당신의 특별한 날을 응원합니다.
+          </motion.p>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent z-[1]" />
       </section>
 
       {/* CONTACT INFO */}
-      <section className="pb-20 px-6">
+      <section className="py-16 md:py-20 px-6">
         <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-100">
           {[
             { label: '전화', value: '010-7930-1332', sub: '평일 10:00 ~ 18:00' },
@@ -81,7 +92,7 @@ export default function ContactPage() {
         <div className="max-w-xl mx-auto relative">
           <motion.form initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeScale}
             onSubmit={handleSubmit} className="bg-white p-9 md:p-14 border border-gray-100 shadow-sm shadow-black/[0.02] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-haram-gold/[0.04] to-transparent" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-haram-gold/[0.04] to-transparent" />
 
             <h3 className="text-[26px] font-serif text-haram-dark mb-2 font-light">문의 양식</h3>
             <p className="section-label mb-10">Inquiry Form</p>
