@@ -1,209 +1,128 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import ScrollAnimation from '@/components/ScrollAnimation';
+import { motion } from 'framer-motion';
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (delay: number) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.8, delay, ease: 'easeOut' },
+  }),
+};
 
 export default function ConciergePage() {
   return (
-    <main className="w-full">
-      {/* Hero Section */}
-      <section className="relative w-full h-screen flex items-center mt-0">
+    <main className="w-full pt-20">
+      {/* Hero */}
+      <section className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://framerusercontent.com/images/qrDW2av5Tu0YgzisKviZ93qgpE.png"
-            alt="Concierge Hero"
+            src="https://framerusercontent.com/images/nWAdkvqfbxvcttAg2x2PWOqDosI.png"
+            alt="컨시어지"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/35"></div>
+          <div className="absolute inset-0 bg-black/45" />
         </div>
+        <div className="relative z-10 text-center text-white px-6">
+          <motion.p initial="hidden" animate="visible" custom={0} variants={fadeIn}
+            className="text-sm tracking-[0.3em] text-haram-gold mb-4 font-montserrat">CONCIERGE</motion.p>
+          <motion.h1 initial="hidden" animate="visible" custom={0.2} variants={fadeIn}
+            className="text-4xl md:text-5xl font-light leading-tight">
+            준비부터 마무리까지<br />하람이 책임집니다
+          </motion.h1>
+        </div>
+      </section>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="text-white">
-            <div className="mb-6">
-              <div className="w-12 h-1 bg-haram-gold mb-4"></div>
-              <h2 className="text-2xl font-serif font-bold mb-2">HARAM CONCIERGE</h2>
-            </div>
-            <h1 className="text-5xl font-bold mb-6 leading-tight">
-              완벽한 하루를 위한 최고의 선택, 하람 컨시어지
-            </h1>
-            <p className="text-lg text-gray-100">
-              결혼식 당일을 완벽하게 관리하고, 예식의 품질을 높이는 최고의 파트너입니다.
+      {/* Intro */}
+      <section className="py-28 px-6 bg-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeIn}>
+            <h2 className="text-3xl font-light text-gray-900 mb-8">
+              예식장과 직접 계약하는 B2B 서비스
+            </h2>
+            <p className="text-[15px] md:text-[17px] leading-[2.2] text-gray-500 font-light">
+              하람 컨시어지는 예식장과 직접 계약하여 진행되는 B2B 서비스입니다.
+              <br />
+              결혼식 당일 현장에서 발생하는 모든 변수를 관리하고,
+              <br />
+              예식의 품질을 보장합니다.
+              <br /><br />
+              예식장의 품격을 높이고, 신부신랑과 하객들이
+              <br />
+              만족할 수 있는 완벽한 하루를 만들어냅니다.
             </p>
-          </div>
-
-          {/* Right Logo */}
-          <div className="flex items-center justify-center">
-            <div className="relative w-72 h-72">
-              <Image
-                src="https://framerusercontent.com/images/G8F9Yul7jpSbk2uctO4inp2txc.png"
-                alt="HARAM Concierge Logo"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* B2B Section */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 gap-12 items-center">
-            {/* Left Text */}
-            <ScrollAnimation>
-              <div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                  예식장과 직접 계약하는 B2B 서비스입니다
-                </h3>
-                <p className="text-lg text-haram-gold font-bold mb-6">
-                  웨딩홀의 품격을 높이는 현장 파트너
-                </p>
-                <h4 className="text-4xl font-bold text-haram-gold mb-6">
-                  하람 컨시어지
-                </h4>
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  하람 컨시어지는 예식장과 직접 계약하여 진행되는 B2B 서비스입니다. 결혼식 당일 현장에서 발생하는 모든 변수를 관리하고, 예식의 품질을 보장합니다. 예식장의 품격을 높이고, 신부신랑과 하객들이 만족할 수 있는 완벽한 하루를 만들어냅니다.
-                </p>
-              </div>
-            </ScrollAnimation>
+      {/* Features */}
+      <section className="py-24 px-6 bg-[#fafaf7]">
+        <div className="max-w-5xl mx-auto">
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeIn}
+            className="text-3xl font-light text-gray-900 mb-16 text-center">
+            하람 컨시어지의 특징
+          </motion.h2>
 
-            {/* Right Image */}
-            <ScrollAnimation delay={0.1}>
-              <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="https://framerusercontent.com/images/C2rsGbpi0ZqznAojpgdRZrJQA.jpeg"
-                  alt="Concierge Service"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </ScrollAnimation>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <span className="inline-block text-xs font-bold text-haram-gold tracking-widest mb-4">● FEATURE</span>
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                예식장의 품격, 하람과 함께 완성하세요
-              </h2>
-            </div>
-          </ScrollAnimation>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              '실시간 예식 흐름 통제',
-              '예식장 전용 메뉴얼 제공',
-              '이미지 통일성 확보',
-              '인력 교육 및 지속적 트레이닝 시스템',
-              '계약형 B2B 안정성 보장',
-              '전담 운영 매니저 배정',
-            ].map((feature, index) => (
-              <ScrollAnimation key={index} delay={index * 0.1}>
-                <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-haram-gold/10 rounded-full flex items-center justify-center mb-6">
-                    <span className="text-2xl text-haram-gold">◆</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">{feature}</h3>
-                  <p className="text-sm text-gray-600">
-                    리허설부터 입장 타이밍, 사회자등 관계자 연결까지. 완벽한 과정을 만들어냅니다.
-                  </p>
-                </div>
-              </ScrollAnimation>
+              { title: '실시간 예식 흐름 통제', desc: '리허설부터 입장 타이밍, 사회자 연결까지 완벽하게 관리합니다.' },
+              { title: '예식장 전용 매뉴얼 제공', desc: '각 예식장에 맞는 맞춤형 운영 매뉴얼을 제작하여 제공합니다.' },
+              { title: '이미지 통일성 확보', desc: '스태프 복장부터 운영 방식까지 통일된 이미지로 품격을 높입니다.' },
+              { title: '인력 교육 시스템', desc: '지속적인 트레이닝 시스템으로 전문성을 유지합니다.' },
+              { title: 'B2B 안정성 보장', desc: '계약형 서비스로 안정적이고 지속적인 파트너십을 제공합니다.' },
+              { title: '전담 운영 매니저 배정', desc: '각 예식장에 전담 매니저를 배정하여 밀착 관리합니다.' },
+            ].map((item, i) => (
+              <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.1} variants={fadeIn}
+                className="bg-white p-8 rounded-2xl border border-gray-100">
+                <h3 className="text-lg font-medium text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-sm text-gray-500 font-light leading-relaxed">{item.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services Process Section */}
+      {/* Process */}
       <section className="py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <ScrollAnimation>
-            <div className="mb-16">
-              <span className="text-xs font-bold text-haram-gold tracking-widest mb-4 block">services</span>
-              <h2 className="text-4xl font-bold text-gray-900">
-                제휴부터 현장 운영까지, 전 과정 안내
-              </h2>
-            </div>
-          </ScrollAnimation>
+        <div className="max-w-4xl mx-auto">
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeIn}
+            className="text-3xl font-light text-gray-900 mb-16 text-center">
+            제휴부터 현장 운영까지
+          </motion.h2>
 
-          <div className="space-y-8">
+          <div className="space-y-0">
             {[
               { step: '01', title: '상담 및 제휴 제안' },
-              { step: '02', title: '맞춤 메뉴얼 설계' },
+              { step: '02', title: '맞춤 매뉴얼 설계' },
               { step: '03', title: '현장 리허설 및 시뮬레이션' },
               { step: '04', title: '웨딩 전담 인력 투입' },
-            ].map((item, index) => (
-              <ScrollAnimation key={index} delay={index * 0.1}>
-                <div className="flex items-center gap-8 pb-8 border-b border-gray-200 last:border-b-0">
-                  <div className="flex-shrink-0">
-                    <span className="text-5xl font-bold text-haram-gold">{item.step}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">{item.title}</h3>
-                  </div>
-                </div>
-              </ScrollAnimation>
+            ].map((item, i) => (
+              <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i * 0.1} variants={fadeIn}
+                className="flex items-center gap-8 py-8 border-b border-gray-100">
+                <span className="text-4xl font-light text-haram-gold font-montserrat w-16">{item.step}</span>
+                <h3 className="text-xl font-light text-gray-900">{item.title}</h3>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <ScrollAnimation>
-            <div className="text-center mb-16">
-              <span className="inline-block text-xs font-bold text-haram-gold tracking-widest mb-4">● TESTIMONIAL</span>
-              <h2 className="text-4xl font-bold text-gray-900">
-                "하람과 함께 한 예식장의 이야기"
-              </h2>
-            </div>
-          </ScrollAnimation>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: '안산 0000웨딩', review: '하람과의 협력으로 예식장의 신뢰도가 크게 향상되었습니다. 신부신랑과 하객들로부터 긍정적인 평가를 받았습니다.' },
-              { name: '천안 0웨딩', review: '현장 운영이 훨씬 더 체계적이고 효율적이 되었습니다. 스태프들도 하람의 교육을 받으며 전문성이 높아졌습니다.' },
-              { name: '평택 0000웨딩', review: '하람 컨시어지 덕분에 예식장의 이미지가 한 단계 업그레이드 되었습니다. 계속 함께하고 싶은 파트너입니다.' },
-            ].map((testimonial, index) => (
-              <ScrollAnimation key={index} delay={index * 0.1}>
-                <div className="bg-white p-8 rounded-lg shadow-md">
-                  <div className="text-haram-gold text-4xl mb-4">"</div>
-                  <p className="text-gray-700 mb-6 leading-relaxed">{testimonial.review}</p>
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-haram-gold text-lg">★</span>
-                    ))}
-                  </div>
-                  <p className="font-bold text-gray-900">{testimonial.name}</p>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <ScrollAnimation>
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">
+      {/* CTA */}
+      <section className="py-24 px-6 bg-[#fafaf7]">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeIn}>
+            <h2 className="text-3xl font-light text-gray-900 mb-8">
               예식장의 품격을 높이는 가장 확실한 방법
             </h2>
-            <Link
-              href="/contact"
-              className="inline-block bg-haram-gold text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition-all"
-            >
+            <Link href="/contact"
+              className="inline-block bg-haram-gold text-white px-10 py-4 rounded-full text-sm tracking-wide hover:opacity-90 transition-opacity">
               문의하기
             </Link>
-          </ScrollAnimation>
+          </motion.div>
         </div>
       </section>
     </main>

@@ -7,12 +7,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'haram-gold': '#C5A55A',
-        'haram-navy': '#1B2340',
+        'haram-gold': '#DDC18C',
+        'haram-navy': '#162249',
       },
       fontFamily: {
-        'sans': ['Noto Sans KR', 'sans-serif'],
-        'serif': ['Montserrat', 'serif'],
+        sans: ['Noto Sans KR', 'sans-serif'],
+        display: ['Lustria', 'serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
     },
   },
