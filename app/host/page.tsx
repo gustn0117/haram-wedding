@@ -8,7 +8,15 @@ const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (delay: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 1, delay, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 1.1, delay, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: (delay: number) => ({
+    opacity: 1, scale: 1,
+    transition: { duration: 1.2, delay, ease: [0.25, 0.46, 0.45, 0.94] },
   }),
 };
 
@@ -16,41 +24,50 @@ export default function HostPage() {
   return (
     <main className="w-full">
       {/* Hero */}
-      <section className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0">
           <Image src="https://framerusercontent.com/images/QymrN1DNcUPDOCnpsHJcitDswrk.png"
             alt="전문사회" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60" />
-          <div className="absolute inset-0 watermark-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/70" />
+          <div className="absolute inset-0 watermark-overlay opacity-[0.03]" />
         </div>
+
+        <div className="absolute top-24 left-8 w-20 h-20 border-t border-l border-haram-gold/15 hidden md:block" />
+        <div className="absolute bottom-24 right-8 w-20 h-20 border-b border-r border-haram-gold/15 hidden md:block" />
+
         <div className="relative z-10 text-center text-white px-6 max-w-4xl">
           <motion.p initial="hidden" animate="visible" custom={0} variants={fadeUp}
-            className="text-[10px] tracking-[0.4em] text-haram-gold/90 mb-6 font-montserrat uppercase">Haram Host</motion.p>
+            className="text-[10px] tracking-[0.5em] text-haram-gold/80 mb-8 font-montserrat uppercase font-light">Haram Host</motion.p>
           <motion.h1 initial="hidden" animate="visible" custom={0.2} variants={fadeUp}
-            className="text-[28px] md:text-[40px] font-light leading-[1.5] mb-8">
+            className="text-[26px] md:text-[40px] font-light leading-[1.6] mb-8 font-serif">
             마이크를 잡는 순간부터 마지막 퇴장까지,
             <br className="hidden md:block" />
             격식과 감동 사이의 완벽한 균형
           </motion.h1>
           <motion.div initial="hidden" animate="visible" custom={0.5} variants={fadeUp}>
             <div className="flex items-center justify-center gap-6">
-              <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-haram-gold/60" />
-              <div className="w-1.5 h-1.5 rounded-full bg-haram-gold/50" />
-              <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-haram-gold/60" />
+              <div className="w-20 h-[1px] bg-gradient-to-r from-transparent to-haram-gold/50" />
+              <div className="w-2 h-2 rounded-full border border-haram-gold/40" />
+              <div className="w-20 h-[1px] bg-gradient-to-l from-transparent to-haram-gold/50" />
             </div>
           </motion.div>
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-[1]" />
       </section>
 
       {/* Philosophy */}
-      <section className="relative py-36 px-6 bg-white overflow-hidden">
+      <section className="relative py-36 md:py-44 px-6 bg-white overflow-hidden">
         <div className="absolute inset-0 watermark-overlay" />
+        <div className="hidden md:block absolute left-[10%] top-1/2 -translate-y-1/2 w-[1px] h-[200px] bg-gradient-to-b from-transparent via-haram-gold/15 to-transparent" />
+        <div className="hidden md:block absolute right-[10%] top-1/2 -translate-y-1/2 w-[1px] h-[200px] bg-gradient-to-b from-transparent via-haram-gold/15 to-transparent" />
+
         <div className="relative max-w-3xl mx-auto text-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
-            <div className="gold-divider mx-auto mb-14" />
+            <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-haram-gold to-transparent mx-auto mb-14" />
           </motion.div>
           <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.15} variants={fadeUp}
-            className="text-[15px] md:text-[18px] leading-[2.2] text-gray-500 font-light">
+            className="text-[16px] md:text-[19px] leading-[2.2] text-gray-500 font-light">
             예식이 시작되기 전, 마이크를 잡은 사회자의 한마디는
             <br />
             하객의 표정을 바꾸고, 부모님의 긴장을 풀고,
@@ -58,23 +75,23 @@ export default function HostPage() {
             신랑신부의 떨림을 안정시킵니다.
           </motion.p>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.3} variants={fadeUp}
-            className="my-10">
-            <div className="w-[1px] h-14 bg-haram-gold/30 mx-auto" />
+            className="my-12">
+            <div className="w-[1px] h-16 bg-gradient-to-b from-haram-gold/40 to-transparent mx-auto" />
           </motion.div>
           <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.4} variants={fadeUp}
-            className="text-[15px] md:text-[18px] leading-[2.2] text-gray-500 font-light">
+            className="text-[16px] md:text-[19px] leading-[2.2] text-gray-500 font-light">
             하람의 전문 사회자는 단순히 멘트를 읽는 사람이 아니라,
             <br />
             감정의 흐름과 예식의 리듬을 설계하는 조율자이자
             <br />
-            그날 예식장의 품격을 완성하는 목소리입니다.
+            그날 예식장의 <span className="text-gray-900">품격을 완성하는 목소리</span>입니다.
           </motion.p>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.55} variants={fadeUp}
-            className="my-10">
-            <div className="w-[1px] h-14 bg-haram-gold/30 mx-auto" />
+            className="my-12">
+            <div className="w-[1px] h-16 bg-gradient-to-b from-haram-gold/40 to-transparent mx-auto" />
           </motion.div>
           <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.65} variants={fadeUp}
-            className="text-[17px] md:text-[20px] leading-[1.8] text-gray-900 font-light">
+            className="text-[18px] md:text-[22px] leading-[1.9] text-gray-900 font-light font-serif">
             우리는 사회자가 예식의 공기, 흐름, 감정, 실수를
             <br />
             모두 조율하는 <span className="text-haram-gold italic">가장 조용한 리더</span>라고 믿습니다.
@@ -83,36 +100,31 @@ export default function HostPage() {
       </section>
 
       {/* Key Message */}
-      <section className="relative py-24 px-6 bg-haram-navy text-center overflow-hidden">
-        <div className="absolute inset-0 watermark-overlay opacity-[0.03]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-haram-navy via-[#1a2a55] to-haram-navy" />
+      <section className="relative py-28 md:py-32 px-6 bg-haram-navy text-center overflow-hidden">
+        <div className="absolute inset-0 watermark-overlay opacity-[0.02]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-haram-navy via-haram-navy-light/30 to-haram-navy" />
+        <div className="absolute top-8 left-8 w-16 h-16 border-t border-l border-haram-gold/15" />
+        <div className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-haram-gold/15" />
+
         <div className="relative">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="w-12 h-[1px] bg-haram-gold/40" />
-              <div className="w-1 h-1 rounded-full bg-haram-gold/50" />
-              <div className="w-12 h-[1px] bg-haram-gold/40" />
-            </div>
-            <p className="text-[22px] md:text-[30px] font-light text-white/90 tracking-wide font-display leading-[1.6]">
-              결혼식의 품격은 <span className="text-haram-gold">목소리</span>에서 시작됩니다.
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={scaleIn}>
+            <div className="text-haram-gold/20 text-[60px] md:text-[80px] font-serif leading-none mb-4">&ldquo;</div>
+            <p className="text-[22px] md:text-[32px] font-light text-white/90 tracking-wide font-serif leading-[1.6]">
+              결혼식의 품격은 <span className="text-haram-gold italic">목소리</span>에서 시작됩니다.
             </p>
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <div className="w-12 h-[1px] bg-haram-gold/40" />
-              <div className="w-1 h-1 rounded-full bg-haram-gold/50" />
-              <div className="w-12 h-[1px] bg-haram-gold/40" />
-            </div>
+            <div className="text-haram-gold/20 text-[60px] md:text-[80px] font-serif leading-none mt-2 rotate-180">&ldquo;</div>
           </motion.div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-32 px-6 bg-[#fafaf7]">
+      <section className="py-32 md:py-40 px-6 bg-haram-cream">
         <div className="max-w-5xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
             className="text-center mb-20">
-            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-4 font-montserrat uppercase">Feature</p>
-            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900">
-              하람 전문사회의 특징
+            <p className="text-[10px] tracking-[0.5em] text-haram-gold mb-5 font-montserrat uppercase font-light">Feature</p>
+            <h2 className="text-[26px] md:text-[40px] font-light text-gray-900">
+              하람 전문사회의 <span className="font-serif italic text-haram-gold-dark">특징</span>
             </h2>
           </motion.div>
 
@@ -124,7 +136,10 @@ export default function HostPage() {
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 custom={i * 0.1} variants={fadeUp}
-                className="bg-white p-9 rounded-2xl border border-gray-100 hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 group text-center">
+                className="group bg-white p-9 rounded-2xl border border-gray-100 text-center relative overflow-hidden
+                  hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] transition-all duration-700">
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-haram-gold/0 to-transparent
+                  group-hover:via-haram-gold/40 transition-all duration-700" />
                 <div className="w-12 h-12 rounded-full border border-haram-gold/25 flex items-center justify-center mx-auto mb-7
                   group-hover:border-haram-gold/60 group-hover:bg-haram-gold/5 transition-all duration-500">
                   <span className="text-haram-gold font-montserrat text-[12px] font-medium">{String(i + 1).padStart(2, '0')}</span>
@@ -138,25 +153,25 @@ export default function HostPage() {
       </section>
 
       {/* MC Profile */}
-      <section className="py-32 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-32 md:py-40 px-6 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 watermark-overlay opacity-[0.03]" />
+        <div className="relative max-w-4xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
             className="text-center mb-16">
-            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-4 font-montserrat uppercase">Professional Host</p>
-            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900">하람 전문사회자</h2>
+            <p className="text-[10px] tracking-[0.5em] text-haram-gold mb-5 font-montserrat uppercase font-light">Professional Host</p>
+            <h2 className="text-[26px] md:text-[40px] font-light text-gray-900 font-serif">하람 전문사회자</h2>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.15} variants={fadeUp}
-            className="bg-[#fafaf7] rounded-2xl p-10 md:p-14 border border-gray-100 relative overflow-hidden">
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-haram-gold/40 to-transparent" />
-            <h3 className="text-[24px] font-light text-gray-900 mb-3">유상혁</h3>
-            <div className="gold-divider mb-10" />
+            className="bg-haram-cream rounded-2xl p-10 md:p-14 border border-gray-100 relative overflow-hidden
+              hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.06)] transition-all duration-700">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-haram-gold/30 to-transparent" />
+            <h3 className="text-[26px] font-light text-gray-900 mb-4 font-serif">유상혁</h3>
+            <div className="w-10 h-[1px] bg-gradient-to-r from-haram-gold to-transparent mb-10" />
             <div className="space-y-6 text-[15px] text-gray-500 font-light leading-[2]">
+              <p>안녕하세요. 하람 웨딩 전문사회자 유상혁입니다.</p>
               <p>
-                안녕하세요. 하람 웨딩 전문사회자 유상혁입니다.
-              </p>
-              <p>
-                <span className="text-gray-700 font-normal">한 사람의 인생에서 단 한 번뿐인 장면을 책임지는 일</span>이라는
+                <span className="text-gray-800 font-normal">한 사람의 인생에서 단 한 번뿐인 장면을 책임지는 일</span>이라는
                 마음으로 무대에 서고 있습니다.
               </p>
               <p>
@@ -164,7 +179,7 @@ export default function HostPage() {
                 예식 전체의 흐름을 안전하게 이끌고,
                 하객의 감정이 자연스럽게 이어지도록 돕는 것이라 생각합니다.
               </p>
-              <p className="text-gray-700 italic text-[16px]">
+              <p className="text-gray-800 font-serif italic text-[17px] leading-[1.8]">
                 &ldquo;조용하지만 단단한 존재감으로 예식장의 품격을 유지하는 사회자가 되고자 합니다.&rdquo;
               </p>
             </div>
@@ -173,23 +188,28 @@ export default function HostPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-32 px-6 bg-[#fafaf7] overflow-hidden">
-        <div className="absolute inset-0 watermark-overlay" />
+      <section className="relative py-36 md:py-44 px-6 bg-haram-navy overflow-hidden">
+        <div className="absolute inset-0 watermark-overlay opacity-[0.02]" />
+        <div className="absolute top-12 left-12 w-24 h-24 border border-haram-gold/8 rounded-full hidden md:block" />
+        <div className="absolute bottom-12 right-12 w-32 h-32 border border-haram-gold/5 rounded-full hidden md:block" />
+
         <div className="relative max-w-3xl mx-auto text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
-            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-4 font-montserrat uppercase">How we can help you</p>
-            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900 mb-4">
-              예식을 이끄는 품격, 목소리에서 시작됩니다
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={scaleIn}>
+            <p className="text-[10px] tracking-[0.5em] text-haram-gold/70 mb-6 font-montserrat uppercase font-light">How we can help you</p>
+            <h2 className="text-[26px] md:text-[42px] font-light text-white mb-5 leading-[1.4] font-serif">
+              예식을 이끄는 품격,
+              <br />
+              <span className="text-haram-gold italic">목소리</span>에서 시작됩니다
             </h2>
-            <p className="text-[13px] text-gray-400 font-light mb-6">
+            <p className="text-[13px] text-white/40 font-light mb-6">
               정기 일정 배정, 리허설 대응, 리뷰 관리까지 통합 제공합니다
             </p>
-            <p className="text-[28px] font-light text-haram-gold mb-12 font-montserrat tracking-[0.05em]">
+            <p className="text-[30px] md:text-[36px] font-light text-haram-gold mb-14 font-montserrat tracking-[0.08em]">
               0507-1379-7249
             </p>
             <Link href="/contact"
-              className="inline-block bg-haram-gold text-white px-12 py-4 rounded-full text-[12px] tracking-[0.1em] uppercase font-montserrat
-                hover:bg-[#c9a96e] transition-colors duration-400 shadow-lg shadow-haram-gold/20">
+              className="inline-block bg-haram-gold text-haram-navy px-14 py-4 rounded-full text-[11px] tracking-[0.2em] uppercase font-montserrat font-medium
+                hover:bg-haram-gold-light transition-all duration-500 shadow-2xl shadow-haram-gold/20">
               문의하기
             </Link>
           </motion.div>

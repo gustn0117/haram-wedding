@@ -8,7 +8,15 @@ const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (delay: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 1, delay, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 1.1, delay, ease: [0.25, 0.46, 0.45, 0.94] },
+  }),
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: (delay: number) => ({
+    opacity: 1, scale: 1,
+    transition: { duration: 1.2, delay, ease: [0.25, 0.46, 0.45, 0.94] },
   }),
 };
 
@@ -16,50 +24,60 @@ export default function ConciergePage() {
   return (
     <main className="w-full">
       {/* Hero */}
-      <section className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
         <div className="absolute inset-0">
           <Image src="https://framerusercontent.com/images/nWAdkvqfbxvcttAg2x2PWOqDosI.png"
             alt="컨시어지" fill className="object-cover" priority />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60" />
-          <div className="absolute inset-0 watermark-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/70" />
+          <div className="absolute inset-0 watermark-overlay opacity-[0.03]" />
         </div>
+
+        {/* Corner decorations */}
+        <div className="absolute top-24 left-8 w-20 h-20 border-t border-l border-haram-gold/15 hidden md:block" />
+        <div className="absolute bottom-24 right-8 w-20 h-20 border-b border-r border-haram-gold/15 hidden md:block" />
+
         <div className="relative z-10 text-center text-white px-6 max-w-4xl">
           <motion.p initial="hidden" animate="visible" custom={0} variants={fadeUp}
-            className="text-[10px] tracking-[0.4em] text-haram-gold/90 mb-6 font-montserrat uppercase">Haram Concierge</motion.p>
+            className="text-[10px] tracking-[0.5em] text-haram-gold/80 mb-8 font-montserrat uppercase font-light">Haram Concierge</motion.p>
           <motion.h1 initial="hidden" animate="visible" custom={0.2} variants={fadeUp}
-            className="text-[28px] md:text-[40px] font-light leading-[1.5] mb-8">
+            className="text-[26px] md:text-[40px] font-light leading-[1.6] mb-8 font-serif">
             하람의 전문 매니저가 실시간으로 예식의 흐름을 조율하며
             <br className="hidden md:block" />
             현장 책임자로서 역할을 수행합니다
           </motion.h1>
           <motion.div initial="hidden" animate="visible" custom={0.5} variants={fadeUp}>
             <div className="flex items-center justify-center gap-6">
-              <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-haram-gold/60" />
-              <div className="w-1.5 h-1.5 rounded-full bg-haram-gold/50" />
-              <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-haram-gold/60" />
+              <div className="w-20 h-[1px] bg-gradient-to-r from-transparent to-haram-gold/50" />
+              <div className="w-2 h-2 rounded-full border border-haram-gold/40" />
+              <div className="w-20 h-[1px] bg-gradient-to-l from-transparent to-haram-gold/50" />
             </div>
           </motion.div>
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-[1]" />
       </section>
 
-      {/* B2B Section */}
-      <section className="relative py-36 px-6 bg-white overflow-hidden">
+      {/* B2B About */}
+      <section className="relative py-36 md:py-44 px-6 bg-white overflow-hidden">
         <div className="absolute inset-0 watermark-overlay" />
+        <div className="hidden md:block absolute left-[10%] top-1/2 -translate-y-1/2 w-[1px] h-[200px] bg-gradient-to-b from-transparent via-haram-gold/15 to-transparent" />
+        <div className="hidden md:block absolute right-[10%] top-1/2 -translate-y-1/2 w-[1px] h-[200px] bg-gradient-to-b from-transparent via-haram-gold/15 to-transparent" />
+
         <div className="relative max-w-4xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
             className="text-center mb-16">
-            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-5 font-montserrat uppercase">About</p>
-            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900 leading-[1.4] mb-8">
-              예식장과 직접 계약하는 B2B 서비스입니다
+            <p className="text-[10px] tracking-[0.5em] text-haram-gold mb-6 font-montserrat uppercase font-light">About</p>
+            <h2 className="text-[26px] md:text-[40px] font-light text-gray-900 leading-[1.4] mb-8 font-serif">
+              예식장과 직접 계약하는 <span className="text-haram-gold-dark italic">B2B 서비스</span>
             </h2>
-            <div className="gold-divider mx-auto mb-10" />
+            <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-haram-gold to-transparent mx-auto mb-12" />
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2} variants={fadeUp}
             className="text-center">
-            <p className="text-[15px] md:text-[18px] leading-[2.2] text-gray-500 font-light">
+            <p className="text-[16px] md:text-[19px] leading-[2.2] text-gray-500 font-light">
               하람 컨시어지는 예식장의 운영을 보완하는 전문 컨시어지 파견 서비스입니다.
               <br className="hidden md:block" />
-              단순한 행사 인력이 아니라, 예식장 내부 구조, 동선, 운영 흐름에 대한 이해를 바탕으로
+              단순한 행사 인력이 아니라, <span className="text-gray-900">예식장 내부 구조, 동선, 운영 흐름에 대한 이해</span>를 바탕으로
               <br className="hidden md:block" />
               실행 중심의 현장 매니저를 제공합니다.
             </p>
@@ -68,13 +86,13 @@ export default function ConciergePage() {
       </section>
 
       {/* Features */}
-      <section className="py-32 px-6 bg-[#fafaf7]">
+      <section className="py-32 md:py-40 px-6 bg-haram-cream">
         <div className="max-w-6xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
             className="text-center mb-20">
-            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-4 font-montserrat uppercase">Feature</p>
-            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900">
-              예식장의 품격, 하람과 함께 완성하세요
+            <p className="text-[10px] tracking-[0.5em] text-haram-gold mb-5 font-montserrat uppercase font-light">Feature</p>
+            <h2 className="text-[26px] md:text-[40px] font-light text-gray-900">
+              예식장의 품격, 하람과 함께 <span className="font-serif italic text-haram-gold-dark">완성</span>하세요
             </h2>
           </motion.div>
 
@@ -89,7 +107,10 @@ export default function ConciergePage() {
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 custom={i * 0.08} variants={fadeUp}
-                className="bg-white p-9 rounded-2xl border border-gray-100 hover:shadow-xl hover:shadow-black/[0.04] transition-all duration-500 group">
+                className="group bg-white p-9 rounded-2xl border border-gray-100
+                  hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)] transition-all duration-700 relative overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-haram-gold/0 to-transparent
+                  group-hover:via-haram-gold/40 transition-all duration-700" />
                 <div className="w-10 h-10 rounded-full border border-haram-gold/25 flex items-center justify-center mb-7
                   group-hover:border-haram-gold/60 group-hover:bg-haram-gold/5 transition-all duration-500">
                   <span className="text-haram-gold font-montserrat text-[11px] font-medium">{String(i + 1).padStart(2, '0')}</span>
@@ -103,13 +124,14 @@ export default function ConciergePage() {
       </section>
 
       {/* Process */}
-      <section className="py-32 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-32 md:py-40 px-6 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 watermark-overlay opacity-[0.03]" />
+        <div className="relative max-w-4xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
             className="mb-20">
-            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-4 font-montserrat uppercase">Services</p>
-            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900">
-              제휴부터 현장 운영까지, 전 과정 안내
+            <p className="text-[10px] tracking-[0.5em] text-haram-gold mb-5 font-montserrat uppercase font-light">Services</p>
+            <h2 className="text-[26px] md:text-[40px] font-light text-gray-900">
+              제휴부터 현장 운영까지
             </h2>
           </motion.div>
 
@@ -121,9 +143,9 @@ export default function ConciergePage() {
           ].map((item, i) => (
             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
               custom={i * 0.1} variants={fadeUp}
-              className="flex gap-8 md:gap-14 py-10 border-b border-gray-100 group">
-              <span className="text-[42px] font-light text-haram-gold/40 font-montserrat w-16 shrink-0
-                group-hover:text-haram-gold/80 transition-colors duration-500">{item.step}</span>
+              className="flex gap-8 md:gap-14 py-10 border-b border-gray-100 group hover:border-haram-gold/20 transition-colors duration-500">
+              <span className="text-[44px] font-light text-haram-gold/30 font-montserrat w-16 shrink-0
+                group-hover:text-haram-gold/70 transition-colors duration-500">{item.step}</span>
               <div>
                 <h3 className="text-[18px] font-light text-gray-900 mb-3">{item.title}</h3>
                 <p className="text-[13px] text-gray-400 font-light leading-[1.9]">{item.desc}</p>
@@ -134,12 +156,12 @@ export default function ConciergePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-32 px-6 bg-[#fafaf7]">
+      <section className="py-32 md:py-40 px-6 bg-haram-cream">
         <div className="max-w-6xl mx-auto">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}
             className="text-center mb-20">
-            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-4 font-montserrat uppercase">Testimonial</p>
-            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900">
+            <p className="text-[10px] tracking-[0.5em] text-haram-gold mb-5 font-montserrat uppercase font-light">Testimonial</p>
+            <h2 className="text-[26px] md:text-[40px] font-light text-gray-900 font-serif">
               &ldquo;하람과 함께한 예식장의 이야기&rdquo;
             </h2>
           </motion.div>
@@ -151,44 +173,51 @@ export default function ConciergePage() {
               { name: '평택 0000웨딩', review: '하람이 전담한 이후엔 응대 매너부터 동선 통제까지 훨씬 더 체계적으로 운영되고 있어요. 현장 실장 입장에서는 정말 마음이 편해졌습니다.' },
             ].map((t, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                custom={i * 0.1} variants={fadeUp}
-                className="bg-white p-9 rounded-2xl border border-gray-100 hover:shadow-lg hover:shadow-black/[0.04] transition-all duration-500">
-                <div className="text-haram-gold text-[40px] font-display mb-3 opacity-30 leading-none">&ldquo;</div>
-                <p className="text-[14px] text-gray-500 font-light leading-[2] mb-8">{t.review}</p>
+                custom={i * 0.12} variants={fadeUp}
+                className="bg-white p-9 rounded-2xl border border-gray-100 relative overflow-hidden
+                  hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.06)] transition-all duration-700">
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-haram-gold/30 to-transparent" />
+                <div className="text-haram-gold/20 text-[50px] font-serif leading-none mb-2">&ldquo;</div>
+                <p className="text-[13px] text-gray-500 font-light leading-[2] mb-8">{t.review}</p>
                 <div className="flex items-center gap-3 pt-5 border-t border-gray-100">
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, j) => (
                       <span key={j} className="text-haram-gold text-[10px]">&#9733;</span>
                     ))}
                   </div>
-                  <span className="text-[12px] font-medium text-gray-700">{t.name}</span>
+                  <span className="text-[11px] font-medium text-gray-700">{t.name}</span>
                 </div>
               </motion.div>
             ))}
           </div>
 
           <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.4} variants={fadeUp}
-            className="text-center text-[13px] text-gray-400 font-light mt-14">
+            className="text-center text-[12px] text-gray-400 font-light mt-14">
             위 웨딩홀을 제외하고도 수많은 예식장의 중요한 날을 하람이 함께하고 있습니다
           </motion.p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="relative py-32 px-6 bg-white overflow-hidden">
-        <div className="absolute inset-0 watermark-overlay" />
+      <section className="relative py-36 md:py-44 px-6 bg-haram-navy overflow-hidden">
+        <div className="absolute inset-0 watermark-overlay opacity-[0.02]" />
+        <div className="absolute top-12 left-12 w-24 h-24 border border-haram-gold/8 rounded-full hidden md:block" />
+        <div className="absolute bottom-12 right-12 w-32 h-32 border border-haram-gold/5 rounded-full hidden md:block" />
+
         <div className="relative max-w-3xl mx-auto text-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fadeUp}>
-            <p className="text-[10px] tracking-[0.35em] text-haram-gold mb-4 font-montserrat uppercase">How we can help you</p>
-            <h2 className="text-[28px] md:text-[38px] font-light text-gray-900 mb-4">
-              예식장의 품격을 높이는 가장 확실한 방법
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={scaleIn}>
+            <p className="text-[10px] tracking-[0.5em] text-haram-gold/70 mb-6 font-montserrat uppercase font-light">How we can help you</p>
+            <h2 className="text-[26px] md:text-[42px] font-light text-white mb-5 leading-[1.4] font-serif">
+              예식장의 품격을 높이는
+              <br />
+              가장 확실한 <span className="text-haram-gold italic">방법</span>
             </h2>
-            <p className="text-[13px] text-gray-400 font-light mb-12">
+            <p className="text-[13px] text-white/40 font-light mb-14">
               간단한 문의만으로도 컨시어지 서비스 전반을 안내드립니다.
             </p>
             <Link href="/contact"
-              className="inline-block bg-haram-gold text-white px-12 py-4 rounded-full text-[12px] tracking-[0.1em] uppercase font-montserrat
-                hover:bg-[#c9a96e] transition-colors duration-400 shadow-lg shadow-haram-gold/20">
+              className="inline-block bg-haram-gold text-haram-navy px-14 py-4 rounded-full text-[11px] tracking-[0.2em] uppercase font-montserrat font-medium
+                hover:bg-haram-gold-light transition-all duration-500 shadow-2xl shadow-haram-gold/20">
               문의하기
             </Link>
           </motion.div>
