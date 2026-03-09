@@ -33,28 +33,187 @@ body {
   border-radius: 2px;
 }
 
-/* ─── Elegant Utility Classes ─── */
+/* ═══════════════════════════════════════
+   BUTTON SYSTEM
+   ═══════════════════════════════════════ */
 
-.gold-line {
+/* Primary Button – Gold filled */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #C4A46C, #D4BA8A);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.08em;
   position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.gold-line::after {
+.btn-primary::before {
   content: '';
   position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 1px;
-  background: #C4A46C;
+  inset: 0;
+  background: linear-gradient(135deg, #D4BA8A, #C4A46C);
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(196, 164, 108, 0.3);
+}
+.btn-primary:hover::before {
+  opacity: 1;
+}
+.btn-primary span,
+.btn-primary svg {
+  position: relative;
+  z-index: 1;
+}
+.btn-primary .btn-arrow {
+  transition: transform 0.4s ease;
+}
+.btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Secondary Button – Dark filled */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: #111111;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-secondary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(135deg, #C4A46C, #D4BA8A);
+  transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 0;
+}
+.btn-secondary:hover::after {
+  height: 100%;
+}
+.btn-secondary span,
+.btn-secondary svg {
+  position: relative;
+  z-index: 1;
+}
+.btn-secondary .btn-arrow {
+  transition: transform 0.4s ease;
+}
+.btn-secondary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Outline Button – Bordered */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 36px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(196, 164, 108, 0.1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-outline:hover {
+  border-color: #C4A46C;
+  color: #C4A46C;
+}
+.btn-outline:hover::before {
+  transform: scaleX(1);
+}
+.btn-outline span {
+  position: relative;
+  z-index: 1;
+}
+.btn-outline .btn-arrow {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+.btn-outline:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Outline Dark – for light backgrounds */
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 36px;
+  border: 1px solid #ddd;
+  color: #111;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-outline-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #111;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn-outline-dark:hover {
+  border-color: #111;
+  color: #fff;
+}
+.btn-outline-dark:hover::before {
+  transform: scaleX(1);
+}
+.btn-outline-dark span, .btn-outline-dark .btn-arrow {
+  position: relative;
+  z-index: 1;
+}
+.btn-outline-dark .btn-arrow {
+  transition: transform 0.4s ease;
+}
+.btn-outline-dark:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════
+   CARD SYSTEM
+   ═══════════════════════════════════════ */
 
 .card-hover {
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .card-hover:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
 }
 
 .card-shine {
@@ -76,15 +235,15 @@ body {
   left: 100%;
 }
 
+/* ═══════════════════════════════════════
+   TEXT & DECORATION
+   ═══════════════════════════════════════ */
+
 .text-gradient-gold {
   background: linear-gradient(135deg, #C4A46C, #D4BA8A, #C4A46C);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
-
-.border-gradient {
-  border-image: linear-gradient(135deg, transparent, #C4A46C, transparent) 1;
 }
 
 .img-overlay-zoom {
@@ -97,34 +256,6 @@ body {
   transform: scale(1.06);
 }
 
-.section-divider {
-  position: relative;
-}
-.section-divider::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, #C4A46C, transparent);
-}
-
-/* ─── Glass Effect ─── */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.glass-dark {
-  background: rgba(17, 17, 17, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-/* ─── Decorative Corner ─── */
 .corner-deco {
   position: relative;
 }
@@ -150,29 +281,64 @@ body {
   border-right: 1px solid;
 }
 
-/* ─── Number Decoration ─── */
-.num-serif {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  color: rgba(196,164,108,0.25);
-}
-
-/* ─── Subtle Background Pattern ─── */
 .bg-pattern {
   background-image: radial-gradient(circle at 1px 1px, rgba(196,164,108,0.06) 1px, transparent 0);
   background-size: 40px 40px;
 }
 
-/* ─── Image Gradient Overlays ─── */
-.overlay-elegant::after {
+/* ═══════════════════════════════════════
+   LOGO
+   ═══════════════════════════════════════ */
+
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-size: 22px;
+  line-height: 1;
+}
+.logo-divider {
+  width: 1px;
+  height: 20px;
+  background: linear-gradient(to bottom, transparent, currentColor, transparent);
+  opacity: 0.3;
+}
+.logo-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════
+   SECTION LABEL
+   ═══════════════════════════════════════ */
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #C4A46C;
+}
+.section-label::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0.1) 0%,
-    rgba(0,0,0,0.02) 30%,
-    rgba(0,0,0,0.02) 50%,
-    rgba(0,0,0,0.6) 100%
-  );
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+.section-label-center {
+  justify-content: center;
+}
+.section-label-center::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
 }
