@@ -35,30 +35,34 @@ export default function Home() {
       <div className="scroll-progress" style={{ transform: `scaleX(${progress})` }} />
 
       {/* ────── HERO ────── */}
-      <section ref={heroRef} className="relative h-screen flex items-end pb-24 md:pb-32 overflow-hidden bg-black">
+      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
         <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroSc }}>
           <Image src="https://framerusercontent.com/images/CWkUc0kVkEmNhMQZVago8hE.png"
             alt="HARAM Wedding" fill className="object-cover" priority />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70" />
 
-        <motion.div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12" style={{ opacity: heroOp }}>
+        <motion.div className="relative z-10 text-center px-6" style={{ opacity: heroOp }}>
           <motion.p initial="hidden" animate="show" custom={0} variants={fade}
-            className="tag mb-5">Wedding Management</motion.p>
+            className="tag mb-6">Wedding Management</motion.p>
 
           <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
-            className="text-[42px] md:text-[72px] lg:text-[88px] text-white font-extralight leading-[1.1] tracking-tight mb-6">
-            당신의 결혼식을<br />완벽하게
+            className="heading-en text-[56px] md:text-[90px] lg:text-[120px] text-white font-light tracking-[0.12em] leading-[1] mb-4">
+            HARAM
           </motion.h1>
 
-          <motion.p initial="hidden" animate="show" custom={0.2} variants={fade}
-            className="text-[15px] md:text-[17px] text-white/50 font-light mb-10 max-w-md leading-relaxed">
-            예식의 품질은 현장에서 결정됩니다.
-            하람이 당일의 모든 순간을 책임집니다.
+          <motion.p initial="hidden" animate="show" custom={0.18} variants={fade}
+            className="heading-en text-[13px] md:text-[15px] text-white/30 tracking-[0.4em] uppercase mb-10">
+            Precious Person in Heaven
+          </motion.p>
+
+          <motion.p initial="hidden" animate="show" custom={0.25} variants={fade}
+            className="text-[15px] md:text-[17px] text-white/50 font-light mb-12 max-w-md mx-auto leading-relaxed">
+            예식의 품질은 현장에서 결정됩니다
           </motion.p>
 
           <motion.div initial="hidden" animate="show" custom={0.35} variants={fade}
-            className="flex flex-wrap gap-4">
+            className="flex flex-wrap justify-center gap-4">
             <Link href="/contact" className="btn-gold">
               <span>상담 문의</span><Arr />
             </Link>
@@ -67,6 +71,8 @@ export default function Home() {
             </Link>
           </motion.div>
         </motion.div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-[1]" />
       </section>
 
       {/* ────── INTRO ────── */}
