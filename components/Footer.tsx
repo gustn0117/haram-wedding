@@ -1,91 +1,52 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
-  visible: (d: number) => ({
+  show: (d: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.8, delay: d, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, delay: d, ease: [0.25, 0.46, 0.45, 0.94] },
   }),
 };
 
 export default function Footer() {
   return (
-    <footer className="bg-haram-dark text-white relative overflow-hidden">
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-haram-gold/25 to-transparent" />
-
-      {/* Pre-footer image band */}
-      <div className="relative h-[200px] md:h-[280px] overflow-hidden">
-        <Image src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80"
-          alt="Wedding" fill className="object-cover opacity-15" />
-        <div className="absolute inset-0 bg-gradient-to-b from-haram-dark via-transparent to-haram-dark" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fade}
-            className="text-center">
-            <p className="text-[22px] md:text-[32px] font-serif italic text-white/15 tracking-wide leading-[1.6]">
-              &ldquo;Precious Person in Heaven&rdquo;
-            </p>
-            <div className="ornament-line mt-6">
-              <span className="w-1.5 h-1.5 border border-haram-gold/20 rotate-45" />
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-8">
+    <footer className="bg-[#111] text-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {/* Brand */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0} variants={fade}
-            className="md:col-span-4">
-            <div className="flex items-center gap-3.5 mb-8">
-              <span className="logo-text text-white">H</span>
-              <span className="logo-divider text-white" />
-              <div className="flex flex-col">
-                <span className="text-[11px] font-medium tracking-[0.2em] text-white">HARAM</span>
-                <span className="logo-sub text-white">Wedding</span>
-              </div>
-            </div>
-            <p className="text-[13px] text-gray-500 leading-[2] mb-8 max-w-[260px]">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}>
+            <p className="heading-en text-[20px] font-medium mb-2">HARAM</p>
+            <p className="text-[10px] text-gray-500 tracking-[0.1em] mb-6">Wedding Management</p>
+            <p className="text-[13px] text-gray-500 leading-[1.9]">
               예식의 품질은 현장에서 결정됩니다.
-              하람은 당신의 특별한 날을 완벽하게 만듭니다.
             </p>
-            <div className="flex gap-3">
-              <a href="https://www.instagram.com/haram_wedding" target="_blank" rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/8 flex items-center justify-center hover:border-haram-gold/50 hover:text-haram-gold transition-all duration-300 text-gray-500 text-[11px] tracking-wider">
-                IG
-              </a>
-              <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer"
-                className="w-10 h-10 border border-white/8 flex items-center justify-center hover:border-haram-gold/50 hover:text-haram-gold transition-all duration-300 text-gray-500 text-[11px] tracking-wider">
-                N
-              </a>
-            </div>
           </motion.div>
 
-          {/* Company Info */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.08} variants={fade}
-            className="md:col-span-3 text-[12px] text-gray-500 space-y-3">
-            <p className="section-label mb-6 text-haram-gold/40">Company</p>
+          {/* Company */}
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.05} variants={fade}
+            className="text-[12px] text-gray-500 space-y-2.5">
+            <p className="text-[10px] text-[#b89d6a] tracking-[0.1em] mb-4">Company</p>
             <p>상호명: 하람 · 대표: 김영진</p>
             <p>사업자등록번호: 412-21-01283</p>
             <p>통신판매업: 2025-용인기흥-01511</p>
           </motion.div>
 
           {/* Contact */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.16} variants={fade}
-            className="md:col-span-2 text-[12px] text-gray-500 space-y-3">
-            <p className="section-label mb-6 text-haram-gold/40">Contact</p>
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fade}
+            className="text-[12px] text-gray-500 space-y-2.5">
+            <p className="text-[10px] text-[#b89d6a] tracking-[0.1em] mb-4">Contact</p>
             <p>경기도 수원시 영통구</p>
-            <p className="text-white/70 text-[18px] font-serif tracking-wider !mt-5">010-7930-1332</p>
-            <p className="text-gray-600 text-[11px]">평일 10시 ~ 18시</p>
+            <p className="heading-en text-[18px] text-white/70 !mt-4">010-7930-1332</p>
+            <p className="text-[11px] text-gray-600">평일 10시 ~ 18시</p>
           </motion.div>
 
-          {/* Services */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.24} variants={fade}
-            className="md:col-span-3 flex flex-col gap-3.5">
-            <p className="section-label mb-4 text-haram-gold/40">Services</p>
+          {/* Links */}
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.15} variants={fade}
+            className="flex flex-col gap-3">
+            <p className="text-[10px] text-[#b89d6a] tracking-[0.1em] mb-2">Services</p>
             {[
               { href: '/concierge', label: '컨시어지' },
               { href: '/photobooth', label: '포토부스' },
@@ -93,17 +54,21 @@ export default function Footer() {
               { href: '/contact', label: '문의하기' },
             ].map((link) => (
               <Link key={link.href} href={link.href}
-                className="group flex items-center gap-3 text-[12px] text-gray-500 hover:text-white transition-colors duration-300 w-fit">
-                <span className="w-3 h-[1px] bg-gray-700 group-hover:bg-haram-gold group-hover:w-6 transition-all duration-300" />
+                className="text-[12px] text-gray-500 hover:text-white transition-colors w-fit">
                 {link.label}
               </Link>
             ))}
           </motion.div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[10px] text-gray-600">&copy; 2025 HARAM. All Rights Reserved.</p>
-          <p className="text-[10px] text-gray-700 tracking-[0.25em] uppercase">Wedding Management</p>
+          <div className="flex gap-4">
+            <a href="https://www.instagram.com/haram_wedding" target="_blank" rel="noopener noreferrer"
+              className="text-[10px] text-gray-600 hover:text-white transition-colors">Instagram</a>
+            <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer"
+              className="text-[10px] text-gray-600 hover:text-white transition-colors">Blog</a>
+          </div>
         </div>
       </div>
     </footer>
