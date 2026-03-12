@@ -157,7 +157,7 @@ export default function Home() {
             {[
               { href: '/photobooth', img: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80', title: '포토부스', sub: 'Photobooth', desc: '하객에게 추억을, 부부에게 감동을 선물합니다' },
               { href: '/host', img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80', title: '전문사회', sub: 'Host', desc: '격식과 감동 사이, 완벽한 균형의 MC' },
-              { href: '/concierge', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80', title: '컨시어지', sub: 'Concierge', desc: '예식 현장의 모든 흐름을 조율합니다' },
+              { href: '/concierge', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80', title: '컨시어지', sub: 'Concierge · B2B', desc: '예식장과 제휴하여 현장 운영을 책임집니다' },
             ].map((card, i) => (
               <motion.div key={card.href} initial="hidden" whileInView="show"
                 viewport={{ once: true }} custom={i * 0.1} variants={fade}>
@@ -211,7 +211,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
               { n: '01', title: '현장 중심의 실전 경험', desc: '500회 이상의 예식 현장에서 어떤 변수에도 흔들리지 않는 안정적인 서비스를 제공합니다.' },
-              { n: '02', title: '통합 서비스 원스톱 관리', desc: '컨시어지, 포토부스, 전문사회를 하나의 팀이 관리하여 퀄리티를 일관되게 유지합니다.' },
+              { n: '02', title: '통합 서비스 원스톱 관리', desc: '포토부스, 전문사회를 하나의 팀이 관리하고, 예식장 제휴 컨시어지로 현장을 완성합니다.' },
               { n: '03', title: '맞춤형 운영 설계', desc: '예식장 구조, 하객 규모, 부부의 취향을 반영한 1:1 맞춤형 운영 매뉴얼을 설계합니다.' },
               { n: '04', title: '검증된 파트너십', desc: '30곳 이상의 예식장과 정식 제휴, 98%의 고객 만족도를 기록하고 있습니다.' },
             ].map((item, i) => (
@@ -270,7 +270,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { name: '김○○', loc: '강남', service: '컨시어지 + 포토부스', text: '하람 덕분에 예식 당일 아무런 걱정 없이 즐길 수 있었어요. 하객분들도 너무 좋았다고 칭찬하셨습니다.' },
+              { name: '김○○', loc: '강남', service: '포토부스 + 전문사회', text: '하람 덕분에 예식 당일 아무런 걱정 없이 즐길 수 있었어요. 하객분들도 너무 좋았다고 칭찬하셨습니다.' },
               { name: '이○○', loc: '판교', service: '포토부스', text: '포토부스가 정말 인기 있었어요! 하객분들이 줄 서서 찍으셨고, 포토북도 너무 예쁘게 나왔어요.' },
               { name: '박○○', loc: '수원', service: '전문사회', text: '사회자분의 진행이 자연스럽고 격식 있었어요. 부모님도 너무 만족하셨습니다. 강력 추천합니다!' },
             ].map((t, i) => (
