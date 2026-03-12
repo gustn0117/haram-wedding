@@ -128,7 +128,110 @@ body {
   position: fixed;
   top: 0; left: 0;
   height: 2px;
-  background: #b89d6a;
+  background: linear-gradient(90deg, #b89d6a, #d4b87a, #b89d6a);
   z-index: 100;
   transform-origin: left;
+}
+
+/* ═══════════ PREMIUM EFFECTS ═══════════ */
+
+/* Gold gradient border card */
+.card-gold-border {
+  position: relative;
+  background: #fff;
+  transition: all 0.5s ease;
+}
+.card-gold-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 40%, rgba(184,157,106,0.3) 50%, transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.card-gold-border:hover::before {
+  opacity: 1;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-gold {
+  background: linear-gradient(90deg, transparent 0%, rgba(184,157,106,0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+/* Elegant divider */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,157,106,0.2), transparent);
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Stat counter glow */
+.stat-glow {
+  text-shadow: 0 0 40px rgba(184,157,106,0.15);
+}
+
+/* Timeline line gradient */
+.timeline-line {
+  background: linear-gradient(180deg, rgba(184,157,106,0.1) 0%, rgba(184,157,106,0.4) 50%, rgba(184,157,106,0.1) 100%);
+}
+
+/* Comparison table row hover */
+.compare-row {
+  transition: background 0.3s ease;
+}
+.compare-row:hover {
+  background: rgba(184,157,106,0.03);
+}
+
+/* FAQ item */
+.faq-item {
+  transition: all 0.4s ease;
+  border-left: 2px solid transparent;
+}
+.faq-item:hover {
+  border-left-color: #b89d6a;
+  padding-left: calc(1.75rem + 2px);
+}
+
+/* Testimonial card premium */
+.testimonial-premium {
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-premium::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #b89d6a, transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.testimonial-premium:hover::after {
+  opacity: 1;
+}
+
+/* Dark section subtle pattern */
+.dark-pattern {
+  background-image: radial-gradient(rgba(184,157,106,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
 }

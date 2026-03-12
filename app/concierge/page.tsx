@@ -191,16 +191,16 @@ export default function ConciergePage() {
 
           {/* Stats row */}
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
-            className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-gray-100">
+            className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-gray-100 shimmer-gold">
             {[
               { num: '30+', label: '제휴 예식장', sub: 'Partner Venues' },
               { num: '500+', label: '누적 진행 예식', sub: 'Weddings Managed' },
               { num: '98%', label: '예식장 만족도', sub: 'Satisfaction Rate' },
               { num: '24h', label: '전담 매니저 배치', sub: 'Dedicated Manager' },
             ].map((s, i) => (
-              <div key={i} className={`text-center py-10 px-4 ${i < 3 ? 'border-r border-gray-100' : ''} ${i < 2 ? 'border-b md:border-b-0 border-gray-100' : i === 2 ? 'border-b md:border-b-0 border-gray-100' : ''}`}>
-                <p className="heading-en text-[36px] md:text-[42px] text-[#b89d6a]">{s.num}</p>
-                <p className="text-[13px] font-normal mt-2">{s.label}</p>
+              <div key={i} className={`text-center py-12 px-6 group hover:bg-[#FAF8F5] transition-colors ${i < 3 ? 'border-r border-gray-100' : ''} ${i < 2 ? 'border-b md:border-b-0 border-gray-100' : i === 2 ? 'border-b md:border-b-0 border-gray-100' : ''}`}>
+                <p className="heading-en text-[40px] md:text-[48px] text-[#b89d6a] stat-glow group-hover:scale-110 transition-transform duration-500">{s.num}</p>
+                <p className="text-[13px] font-normal mt-3">{s.label}</p>
                 <p className="heading-en text-[10px] text-gray-300 tracking-[0.1em] mt-1">{s.sub}</p>
               </div>
             ))}
@@ -244,7 +244,7 @@ export default function ConciergePage() {
             ].map((card, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.1} variants={scaleIn}
-                className="bg-white overflow-hidden group">
+                className="bg-white overflow-hidden group card-gold-border">
                 <div className="relative h-[220px] md:h-[260px] overflow-hidden">
                   <Image src={card.img} alt={card.title} fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -330,7 +330,7 @@ export default function ConciergePage() {
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.06} variants={fade}
-                className="bg-white p-8 card-lift group">
+                className="bg-white p-8 card-lift card-gold-border group">
                 <div className="w-14 h-14 rounded-full bg-[#FAF8F5] group-hover:bg-[#b89d6a]/10 flex items-center justify-center mb-6 transition-colors duration-500 text-gray-300 group-hover:text-[#b89d6a]">
                   {item.icon}
                 </div>
@@ -362,7 +362,7 @@ export default function ConciergePage() {
 
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-gray-200 md:-translate-x-[0.5px]" />
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] timeline-line md:-translate-x-[0.5px]" />
 
             {[
               { time: 'D-7', title: '사전 점검 & 리허설', desc: '예식장을 방문하여 시설 상태, 동선, 음향 장비를 점검하고, 당일 운영 시나리오를 리허설합니다. 업체들과 최종 타임라인을 확정합니다.', align: 'left' },
@@ -467,7 +467,7 @@ export default function ConciergePage() {
       {/* ══════════════════════════════════════════
           BENEFITS — Dark premium section
       ══════════════════════════════════════════ */}
-      <section className="py-32 md:py-48 px-6 bg-[#111]">
+      <section className="py-32 md:py-48 px-6 bg-[#111] dark-pattern">
         <div className="max-w-6xl mx-auto">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
             className="text-center mb-6">
@@ -569,7 +569,7 @@ export default function ConciergePage() {
                 { item: '운영 매뉴얼', before: '없음 또는 범용', after: '예식장 전용 매뉴얼' },
                 { item: '사후 관리', before: '없음', after: '예식별 리포트 + 월간 분석' },
               ].map((row, i) => (
-                <div key={i} className={`grid grid-cols-3 ${i < 5 ? 'border-b border-gray-50' : ''}`}>
+                <div key={i} className={`grid grid-cols-3 compare-row ${i < 5 ? 'border-b border-gray-50' : ''}`}>
                   <div className="p-5 md:p-6 text-[13px] font-normal">{row.item}</div>
                   <div className="p-5 md:p-6 text-[13px] text-gray-400 text-center border-x border-gray-50">{row.before}</div>
                   <div className="p-5 md:p-6 text-[13px] text-[#b89d6a] text-center font-normal">{row.after}</div>
@@ -601,7 +601,7 @@ export default function ConciergePage() {
             ].map((t, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.08} variants={fade}
-                className="p-8 md:p-10 bg-[#FAF8F5] relative">
+                className="p-8 md:p-10 bg-[#FAF8F5] relative testimonial-premium">
                 <svg className="absolute top-5 right-6 w-12 h-12 text-[#b89d6a]/8" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 24c-3.3 0-6-2.7-6-6s2.7-6 6-6c1 0 2 .2 2.8.7C18.7 10.3 21 6 21 6l3 1.5S19.5 16 14 24zm18 0c-3.3 0-6-2.7-6-6s2.7-6 6-6c1 0 2 .2 2.8.7C36.7 10.3 39 6 39 6l3 1.5S37.5 16 32 24z" />
                 </svg>
@@ -632,7 +632,7 @@ export default function ConciergePage() {
             ].map((t, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.08} variants={fade}
-                className="p-7 border border-gray-100 group hover:border-[#b89d6a]/20 transition-colors">
+                className="p-7 border border-gray-100 group hover:border-[#b89d6a]/20 transition-colors testimonial-premium">
                 <p className="text-[13px] text-gray-500 leading-[1.9] mb-6">{t.text}</p>
                 <div className="pt-4 border-t border-gray-100">
                   <p className="text-[13px] font-normal">{t.venue}</p>
@@ -669,7 +669,7 @@ export default function ConciergePage() {
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.04} variants={fade}
-                className="bg-white p-7 md:p-8 group hover:shadow-sm transition-shadow">
+                className="bg-white p-7 md:p-8 faq-item group hover:shadow-sm transition-shadow">
                 <h4 className="text-[15px] font-normal mb-4 flex items-start gap-3">
                   <span className="heading-en text-[#b89d6a] shrink-0 text-[15px]">Q.</span>
                   {item.q}
