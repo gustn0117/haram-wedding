@@ -38,14 +38,15 @@ const slideRight = {
 };
 
 const Arr = () => (
-  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 12h16m0 0l-6-6m6 6l-6 6" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const CheckIcon = () => (
-  <svg className="w-4 h-4 text-[#b89d6a] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+  <svg className="w-[18px] h-[18px] text-[#b89d6a] shrink-0 mt-[1px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={1} opacity={0.25} />
+    <path d="M8 12.5l2.5 2.5 5.5-6" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -111,9 +112,12 @@ export default function ConciergePage() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white to-transparent z-[1]" />
 
         <motion.div initial="hidden" animate="show" custom={0.5} variants={fade}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-[1px] h-12 bg-white/20 mx-auto mb-2" />
-          <span className="heading-en text-[10px] text-white/30 tracking-[0.2em] uppercase">Scroll</span>
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
+          <svg className="w-5 h-8 text-white/25 mb-2" viewBox="0 0 20 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="18" height="30" rx="9" stroke="currentColor" strokeWidth={1} />
+            <line x1="10" y1="8" x2="10" y2="14" stroke="currentColor" strokeWidth={1} strokeLinecap="round" className="animate-pulse" />
+          </svg>
+          <span className="heading-en text-[9px] text-white/20 tracking-[0.25em] uppercase">Scroll</span>
         </motion.div>
       </section>
 
@@ -125,8 +129,10 @@ export default function ConciergePage() {
           className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12">
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 rounded-full bg-[#b89d6a]/10 flex items-center justify-center shrink-0">
-              <svg className="w-5 h-5 text-[#b89d6a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 0h.008v.008h-.008V7.5Z" />
+              <svg className="w-5 h-5 text-[#b89d6a]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 16.5l-2.25-2.25m0 0L15 11.5l-2.5 2.5-4-4L2 16.5" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M12 3.5L7 7H4a1 1 0 00-1 1v12a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1h-3l-5-3.5z" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" strokeLinejoin="round" />
+                <circle cx="12" cy="12" r="2.5" stroke="currentColor" strokeWidth={1.2} />
               </svg>
             </div>
             <p className="text-[13px] text-gray-500">
@@ -266,8 +272,11 @@ export default function ConciergePage() {
             {[
               {
                 icon: (
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.25-8.25-3.286Zm0 13.036h.008v.008H12v-.008Z" />
+                  <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 4l-1.5 1.2C10 9 5 11.5 5 17c0 4.5 3 8.5 7.5 10.2.7.3 1.5.5 2.2.6.5.1 1 .2 1.3.2s.8-.1 1.3-.2c.7-.1 1.5-.3 2.2-.6C24 25.5 27 21.5 27 17c0-5.5-5-8-9.5-11.8L16 4z" stroke="currentColor" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M16 11v5" stroke="currentColor" strokeWidth={1.2} strokeLinecap="round" />
+                    <circle cx="16" cy="20" r="1" fill="currentColor" />
+                    <path d="M10 17h2m8 0h2" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" opacity={0.4} />
                   </svg>
                 ),
                 title: '돌발 상황 즉각 대응',
@@ -275,8 +284,15 @@ export default function ConciergePage() {
               },
               {
                 icon: (
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                  <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="8" width="14" height="11" rx="2" stroke="currentColor" strokeWidth={1} />
+                    <path d="M17 12h8a2 2 0 012 2v7a2 2 0 01-2 2h-8" stroke="currentColor" strokeWidth={1} strokeLinecap="round" />
+                    <circle cx="10" cy="13.5" r="1.5" stroke="currentColor" strokeWidth={0.8} />
+                    <path d="M7 17.5c0-1 .8-2 3-2s3 1 3 2" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" />
+                    <circle cx="22" cy="15.5" r="1.5" stroke="currentColor" strokeWidth={0.8} />
+                    <path d="M19 19.5c0-1 .8-2 3-2s3 1 3 2" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" />
+                    <path d="M10 26v-3m12 3v-3" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" opacity={0.4} />
+                    <path d="M14 13l3 2-3 2" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" strokeLinejoin="round" opacity={0.5} />
                   </svg>
                 ),
                 title: '업체 간 실시간 소통',
@@ -284,8 +300,14 @@ export default function ConciergePage() {
               },
               {
                 icon: (
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15a2.25 2.25 0 0 1 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                  <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 4h12a2 2 0 012 2v20a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="currentColor" strokeWidth={1} />
+                    <path d="M10 4V2h8v2" stroke="currentColor" strokeWidth={1} strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M10 10h8m-8 3.5h6m-6 3.5h7m-7 3.5h5" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" opacity={0.5} />
+                    <path d="M24 8v16" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" strokeDasharray="2 2" opacity={0.3} />
+                    <path d="M26 10l-2-2-2 2m2-2v6" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" strokeLinejoin="round" opacity={0.4} />
+                    <rect x="9" y="9" width="2" height="2" rx="0.5" fill="currentColor" opacity={0.2} />
+                    <rect x="9" y="12.5" width="2" height="2" rx="0.5" fill="currentColor" opacity={0.2} />
                   </svg>
                 ),
                 title: '예식장 전용 매뉴얼',
@@ -293,8 +315,13 @@ export default function ConciergePage() {
               },
               {
                 icon: (
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                  <svg className="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="10" r="4" stroke="currentColor" strokeWidth={1} />
+                    <path d="M8 24c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" strokeWidth={1} strokeLinecap="round" />
+                    <path d="M23.5 8.5l3 3m0 0l3-3m-3 3V5" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" strokeLinejoin="round" opacity={0.4} />
+                    <path d="M12 27l1.5-3h5l1.5 3" stroke="currentColor" strokeWidth={0.8} strokeLinecap="round" strokeLinejoin="round" opacity={0.3} />
+                    <circle cx="16" cy="10" r="1.5" stroke="currentColor" strokeWidth={0.6} opacity={0.2} />
+                    <path d="M4 27h24" stroke="currentColor" strokeWidth={0.6} strokeLinecap="round" opacity={0.15} />
                   </svg>
                 ),
                 title: 'VIP 하객 의전',
@@ -304,7 +331,7 @@ export default function ConciergePage() {
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.06} variants={fade}
                 className="bg-white p-8 card-lift group">
-                <div className="w-12 h-12 rounded-full bg-[#FAF8F5] group-hover:bg-[#b89d6a]/10 flex items-center justify-center mb-5 transition-colors text-gray-300 group-hover:text-[#b89d6a]">
+                <div className="w-14 h-14 rounded-full bg-[#FAF8F5] group-hover:bg-[#b89d6a]/10 flex items-center justify-center mb-6 transition-colors duration-500 text-gray-300 group-hover:text-[#b89d6a]">
                   {item.icon}
                 </div>
                 <h3 className="text-[15px] font-normal mb-3">{item.title}</h3>
@@ -350,8 +377,13 @@ export default function ConciergePage() {
                 className={`relative flex items-start gap-8 mb-12 last:mb-0 pl-12 md:pl-0 ${
                   item.align === 'left' ? 'md:flex-row md:text-right' : 'md:flex-row-reverse md:text-left'
                 }`}>
-                {/* Dot */}
-                <div className="absolute left-[11px] md:left-1/2 md:-translate-x-1/2 top-1 w-[10px] h-[10px] rounded-full bg-[#b89d6a] border-2 border-white z-10" />
+                {/* Timeline marker */}
+                <div className="absolute left-[7px] md:left-1/2 md:-translate-x-1/2 top-0 z-10">
+                  <svg className="w-[18px] h-[18px] text-[#b89d6a]" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="9" cy="9" r="4" fill="currentColor" />
+                    <circle cx="9" cy="9" r="8" stroke="currentColor" strokeWidth={0.8} opacity={0.2} />
+                  </svg>
+                </div>
 
                 <div className={`md:w-1/2 ${item.align === 'left' ? 'md:pr-16' : 'md:pl-16'}`}>
                   <span className="heading-en text-[13px] text-[#b89d6a] tracking-[0.1em]">{item.time}</span>
@@ -380,10 +412,18 @@ export default function ConciergePage() {
           <p className="text-[24px] md:text-[38px] text-white font-extralight leading-[1.8] max-w-2xl mx-auto tracking-tight">
             결혼식은 한 번뿐이기에,<br />한 치의 빈틈도 허용하지 않습니다
           </p>
-          <div className="flex items-center justify-center gap-4 mt-10">
-            <span className="w-12 h-[1px] bg-[#b89d6a]/40" />
-            <span className="w-2 h-2 rounded-full bg-[#b89d6a]/40" />
-            <span className="w-12 h-[1px] bg-[#b89d6a]/40" />
+          <div className="flex items-center justify-center gap-3 mt-10">
+            <svg className="w-16 h-4 text-[#b89d6a]/30" viewBox="0 0 64 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0" y1="8" x2="24" y2="8" stroke="currentColor" strokeWidth={0.5} />
+              <path d="M28 8l4-3v6l-4-3z" fill="currentColor" opacity={0.5} />
+            </svg>
+            <svg className="w-5 h-5 text-[#b89d6a]/30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2l2.47 5.01L18 7.75l-4 3.9.94 5.5L10 14.39l-4.94 2.76.94-5.5-4-3.9 5.53-.74L10 2z" stroke="currentColor" strokeWidth={0.8} strokeLinejoin="round" />
+            </svg>
+            <svg className="w-16 h-4 text-[#b89d6a]/30 rotate-180" viewBox="0 0 64 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="0" y1="8" x2="24" y2="8" stroke="currentColor" strokeWidth={0.5} />
+              <path d="M28 8l4-3v6l-4-3z" fill="currentColor" opacity={0.5} />
+            </svg>
           </div>
         </motion.div>
       </section>
@@ -562,10 +602,14 @@ export default function ConciergePage() {
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.08} variants={fade}
                 className="p-8 md:p-10 bg-[#FAF8F5] relative">
-                <span className="heading-en text-[72px] text-[#b89d6a]/8 absolute top-4 right-6 leading-none">&ldquo;</span>
-                <div className="flex gap-0.5 mb-6">
+                <svg className="absolute top-5 right-6 w-12 h-12 text-[#b89d6a]/8" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 24c-3.3 0-6-2.7-6-6s2.7-6 6-6c1 0 2 .2 2.8.7C18.7 10.3 21 6 21 6l3 1.5S19.5 16 14 24zm18 0c-3.3 0-6-2.7-6-6s2.7-6 6-6c1 0 2 .2 2.8.7C36.7 10.3 39 6 39 6l3 1.5S37.5 16 32 24z" />
+                </svg>
+                <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, j) => (
-                    <span key={j} className="text-[#b89d6a] text-[12px]">&#9733;</span>
+                    <svg key={j} className="w-4 h-4 text-[#b89d6a]" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 1.5l1.85 3.75 4.15.6-3 2.93.71 4.12L8 10.88 4.29 12.9l.71-4.12-3-2.93 4.15-.6L8 1.5z" />
+                    </svg>
                   ))}
                 </div>
                 <p className="text-[14px] text-gray-500 leading-[2] mb-8">{t.text}</p>
