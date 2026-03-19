@@ -40,9 +40,24 @@ body {
   font-weight: 400;
   letter-spacing: 0.02em;
   transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transition: left 0.6s ease;
+}
+.btn-gold:hover::before {
+  left: 100%;
 }
 .btn-gold:hover {
   background: #b89d6a;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(184,157,106,0.25);
 }
 
 .btn-ghost {
@@ -61,6 +76,7 @@ body {
 .btn-ghost:hover {
   border-color: #b89d6a;
   color: #b89d6a;
+  background: rgba(184,157,106,0.05);
 }
 
 .btn-dark-outline {
@@ -80,6 +96,8 @@ body {
   border-color: #1a1a1a;
   background: #1a1a1a;
   color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
 /* ═══════════ UTILITIES ═══════════ */
@@ -131,6 +149,79 @@ body {
   background: linear-gradient(90deg, #b89d6a, #d4b87a, #b89d6a);
   z-index: 100;
   transform-origin: left;
+}
+
+/* ═══════════ HERO PATTERNS ═══════════ */
+
+/* Geometric diamond pattern overlay */
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image:
+    linear-gradient(45deg, #b89d6a 1px, transparent 1px),
+    linear-gradient(-45deg, #b89d6a 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px;
+}
+
+/* Radial vignette on hero */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Soft noise texture overlay */
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* Decorative corner ornaments */
+.hero-corner-ornament::before,
+.hero-corner-ornament::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-corner-ornament::before {
+  top: 40px; left: 40px;
+  width: 80px; height: 80px;
+  border-top: 1px solid rgba(184,157,106,0.2);
+  border-left: 1px solid rgba(184,157,106,0.2);
+}
+.hero-corner-ornament::after {
+  bottom: 40px; right: 40px;
+  width: 80px; height: 80px;
+  border-bottom: 1px solid rgba(184,157,106,0.2);
+  border-right: 1px solid rgba(184,157,106,0.2);
+}
+
+/* Side border lines */
+.hero-side-lines::before,
+.hero-side-lines::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  background: rgba(184,157,106,0.1);
+}
+.hero-side-lines::before {
+  top: 15%; bottom: 15%; left: 24px; width: 1px;
+}
+.hero-side-lines::after {
+  top: 15%; bottom: 15%; right: 24px; width: 1px;
 }
 
 /* ═══════════ PREMIUM EFFECTS ═══════════ */
@@ -234,4 +325,111 @@ body {
 .dark-pattern {
   background-image: radial-gradient(rgba(184,157,106,0.03) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+
+/* Section background noise */
+.bg-noise {
+  position: relative;
+}
+.bg-noise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* Gold accent underline */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, #b89d6a, transparent);
+}
+
+/* Floating gold particles keyframes */
+@keyframes float-up {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+
+/* Section separator with ornament */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px 0;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,157,106,0.3));
+}
+.ornament-divider::after {
+  background: linear-gradient(90deg, rgba(184,157,106,0.3), transparent);
+}
+
+/* Image reveal on scroll */
+.img-reveal {
+  position: relative;
+  overflow: hidden;
+}
+.img-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184,157,106,0.1), transparent 60%);
+  pointer-events: none;
+}
+
+/* Premium card inner glow */
+.card-inner-glow {
+  position: relative;
+  overflow: hidden;
+}
+.card-inner-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(184,157,106,0.04), transparent 60%);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+.card-inner-glow:hover::after {
+  opacity: 1;
+}
+
+/* Elegant quote styling */
+.premium-quote {
+  position: relative;
+}
+.premium-quote::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  color: rgba(184,157,106,0.15);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Footer premium line */
+.footer-gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,157,106,0.3), transparent);
 }

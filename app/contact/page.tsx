@@ -32,21 +32,27 @@ export default function ContactPage() {
     setForm({ name: '', phone: '', service: '', date: '', email: '', message: '' });
   };
 
-  const inputClass = 'w-full px-4 py-3.5 bg-[#FAF8F5] border border-gray-100 text-[14px] focus:outline-none focus:border-[#b89d6a]/40 transition-colors';
+  const inputClass = 'w-full px-5 py-4 bg-[#FAF8F5] border border-gray-100 text-[14px] focus:outline-none focus:border-[#b89d6a]/40 transition-all duration-300 focus:bg-white';
 
   return (
     <main>
       {/* HERO */}
-      <section className="relative h-[50vh] md:h-[60vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-black">
+      <section className="relative h-[50vh] md:h-[60vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-black hero-corner-ornament">
         <div className="absolute inset-0">
           <Image src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1600&q=80"
             alt="Contact" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
         </div>
+        <div className="hero-pattern" />
+        <div className="hero-vignette" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-          <motion.span initial="hidden" animate="show" custom={0} variants={fade} className="tag">Contact</motion.span>
+          <motion.div initial="hidden" animate="show" custom={0} variants={fade}
+            className="flex items-center gap-3 mb-4">
+            <span className="w-8 h-[1px] bg-[#b89d6a]/40" />
+            <span className="tag">Contact</span>
+          </motion.div>
           <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
-            className="text-[36px] md:text-[56px] text-white font-extralight leading-[1.2] mt-4 tracking-tight">
+            className="text-[36px] md:text-[56px] text-white font-extralight leading-[1.2] tracking-tight">
             문의하기
           </motion.h1>
           <motion.p initial="hidden" animate="show" custom={0.2} variants={fade}
@@ -60,14 +66,40 @@ export default function ContactPage() {
       <section className="py-16 md:py-20 px-6">
         <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-100">
           {[
-            { label: '전화', value: '010-7930-1332', sub: '평일 10:00 ~ 18:00' },
-            { label: '이메일', value: 'contact@haram.kr', sub: '전화 문의 권장' },
-            { label: '위치', value: '경기도 수원시 영통구', sub: '온/오프라인 상담 가능' },
+            {
+              icon: (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1}>
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.35 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.56 2.81.68a2 2 0 011.72 2.03z" />
+                </svg>
+              ),
+              label: '전화', value: '010-7930-1332', sub: '평일 10:00 ~ 18:00',
+            },
+            {
+              icon: (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1}>
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M22 7l-10 6L2 7" />
+                </svg>
+              ),
+              label: '이메일', value: 'contact@haram.kr', sub: '전화 문의 권장',
+            },
+            {
+              icon: (
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1}>
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              ),
+              label: '위치', value: '경기도 수원시 영통구', sub: '온/오프라인 상담 가능',
+            },
           ].map((item, i) => (
             <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
               custom={i * 0.08} variants={fade}
-              className={`text-center py-10 px-6 hover:bg-[#FAF8F5] transition-colors ${i < 2 ? 'md:border-r border-b md:border-b-0 border-gray-100' : ''}`}>
-              <p className="tag text-[10px] mb-4">{item.label}</p>
+              className={`text-center py-12 px-6 hover:bg-[#FAF8F5] transition-colors group ${i < 2 ? 'md:border-r border-b md:border-b-0 border-gray-100' : ''}`}>
+              <div className="w-10 h-10 rounded-full bg-[#FAF8F5] group-hover:bg-[#b89d6a]/10 flex items-center justify-center mx-auto mb-4 transition-colors text-gray-300 group-hover:text-[#b89d6a]">
+                {item.icon}
+              </div>
+              <p className="tag text-[10px] mb-3">{item.label}</p>
               <p className="text-[15px] mb-1">{item.value}</p>
               <p className="text-[11px] text-gray-400">{item.sub}</p>
             </motion.div>
@@ -76,12 +108,15 @@ export default function ContactPage() {
       </section>
 
       {/* FORM */}
-      <section className="py-20 md:py-28 px-6 bg-[#FAF8F5]">
-        <div className="max-w-xl mx-auto">
+      <section className="py-20 md:py-28 px-6 bg-[#FAF8F5] relative bg-noise">
+        <div className="max-w-xl mx-auto relative z-10">
           <motion.form initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
-            onSubmit={handleSubmit} className="bg-white p-8 md:p-12 border border-gray-100">
+            onSubmit={handleSubmit} className="bg-white p-8 md:p-12 border border-gray-100 card-inner-glow">
 
-            <span className="tag">Inquiry Form</span>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-6 h-[1px] bg-[#b89d6a]/40" />
+              <span className="tag">Inquiry Form</span>
+            </div>
             <h3 className="text-[24px] font-extralight mt-3 mb-10 tracking-tight">문의 양식</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

@@ -22,16 +22,22 @@ export default function PhotoboothPage() {
   return (
     <main>
       {/* HERO */}
-      <section className="relative h-[60vh] md:h-[70vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-black">
+      <section className="relative h-[65vh] md:h-[75vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-black hero-corner-ornament">
         <div className="absolute inset-0">
           <Image src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1600&q=80"
             alt="Photobooth" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
         </div>
+        <div className="hero-pattern" />
+        <div className="hero-vignette" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
-          <motion.span initial="hidden" animate="show" custom={0} variants={fade} className="tag">Photobooth</motion.span>
+          <motion.div initial="hidden" animate="show" custom={0} variants={fade}
+            className="flex items-center gap-3 mb-4">
+            <span className="w-8 h-[1px] bg-[#b89d6a]/40" />
+            <span className="tag">Photobooth</span>
+          </motion.div>
           <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
-            className="text-[36px] md:text-[56px] text-white font-extralight leading-[1.2] mt-4 tracking-tight">
+            className="text-[36px] md:text-[56px] text-white font-extralight leading-[1.2] tracking-tight">
             포토부스
           </motion.h1>
           <motion.p initial="hidden" animate="show" custom={0.2} variants={fade}
@@ -42,7 +48,7 @@ export default function PhotoboothPage() {
       </section>
 
       {/* ABOUT */}
-      <section className="py-24 md:py-36 px-6">
+      <section className="py-28 md:py-40 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}>
             <span className="tag">About</span>
@@ -63,17 +69,21 @@ export default function PhotoboothPage() {
           </motion.div>
 
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fade}>
-            <div className="aspect-[4/5] relative overflow-hidden">
-              <Image src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80"
-                alt="Photobooth service" fill className="object-cover" />
+            <div className="relative">
+              <div className="aspect-[4/5] relative overflow-hidden img-reveal">
+                <Image src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80"
+                  alt="Photobooth service" fill className="object-cover" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#b89d6a]/15 -z-10" />
+              <div className="absolute -top-3 -left-3 w-12 h-12 border-t border-l border-[#b89d6a]/20" />
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* FEATURES */}
-      <section className="py-24 md:py-36 px-6 bg-[#FAF8F5]">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-28 md:py-40 px-6 bg-[#FAF8F5] relative bg-noise">
+        <div className="max-w-5xl mx-auto relative z-10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
             className="text-center mb-16">
             <span className="tag">Features</span>
@@ -84,13 +94,49 @@ export default function PhotoboothPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { title: '프리미엄 디자인', desc: '예식 컨셉에 맞춘 맞춤형 프레임과 배경을 제공합니다.' },
-              { title: '즉석 인화', desc: '촬영 즉시 고품질 사진으로 인화하여 하객에게 전달합니다.' },
-              { title: '디지털 제공', desc: '모든 촬영 데이터를 디지털 파일로도 제공합니다.' },
+              {
+                icon: (
+                  <svg className="w-7 h-7" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1}>
+                    <rect x="3" y="6" width="22" height="16" rx="2" />
+                    <circle cx="14" cy="14" r="4" />
+                    <circle cx="14" cy="14" r="1.5" strokeWidth={0.8} />
+                    <circle cx="20" cy="9" r="1" fill="currentColor" opacity={0.3} />
+                  </svg>
+                ),
+                title: '프리미엄 디자인',
+                desc: '예식 컨셉에 맞춘 맞춤형 프레임과 배경을 제공합니다. 부부의 이름, 날짜, 로고까지 반영한 디자인입니다.',
+              },
+              {
+                icon: (
+                  <svg className="w-7 h-7" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1}>
+                    <rect x="5" y="3" width="18" height="22" rx="1" />
+                    <path d="M9 10h10M9 14h7" strokeWidth={0.8} opacity={0.4} />
+                    <path d="M5 19h18" strokeWidth={0.8} />
+                    <circle cx="14" cy="22" r="1" fill="currentColor" opacity={0.3} />
+                  </svg>
+                ),
+                title: '즉석 인화',
+                desc: '촬영 즉시 고품질 사진으로 인화하여 하객에게 전달합니다. 기다림 없는 빠른 인화 시스템입니다.',
+              },
+              {
+                icon: (
+                  <svg className="w-7 h-7" viewBox="0 0 28 28" fill="none" stroke="currentColor" strokeWidth={1}>
+                    <rect x="6" y="4" width="16" height="20" rx="2" />
+                    <path d="M10 24v-4h8v4" strokeWidth={0.8} />
+                    <circle cx="14" cy="12" r="3" />
+                    <path d="M11 18c0-1.5 1.3-2 3-2s3 .5 3 2" strokeWidth={0.8} />
+                  </svg>
+                ),
+                title: '디지털 제공',
+                desc: '모든 촬영 데이터를 디지털 파일로도 제공합니다. SNS 공유까지 간편하게 지원합니다.',
+              },
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.08} variants={fade}
-                className="bg-white p-8 md:p-10 card-lift">
+                className="bg-white p-8 md:p-10 card-lift card-inner-glow group">
+                <div className="w-14 h-14 rounded-full bg-[#FAF8F5] group-hover:bg-[#b89d6a]/10 flex items-center justify-center mb-6 transition-colors duration-500 text-gray-300 group-hover:text-[#b89d6a]">
+                  {item.icon}
+                </div>
                 <h3 className="text-[16px] font-normal mb-3">{item.title}</h3>
                 <p className="text-[13px] text-gray-400 leading-[1.9]">{item.desc}</p>
               </motion.div>
@@ -100,25 +146,37 @@ export default function PhotoboothPage() {
       </section>
 
       {/* QUOTE */}
-      <section className="relative py-28 md:py-36 overflow-hidden">
+      <section className="relative py-32 md:py-44 overflow-hidden hero-corner-ornament">
         <div className="absolute inset-0">
           <Image src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1600&q=80"
             alt="Wedding" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/55" />
         </div>
+        <div className="hero-pattern" />
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
-          className="relative z-10 text-center px-6">
-          <p className="text-[22px] md:text-[32px] text-white font-extralight leading-[1.8] max-w-xl mx-auto tracking-tight">
+          className="relative z-10 text-center px-6 premium-quote">
+          <p className="text-[22px] md:text-[34px] text-white font-extralight leading-[1.8] max-w-xl mx-auto tracking-tight">
             순간의 즐거움이<br />영원한 추억이 됩니다
           </p>
+          <div className="flex items-center justify-center gap-4 mt-10">
+            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#b89d6a]/30" />
+            <svg className="w-4 h-4 text-[#b89d6a]/25" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 0l2 6h6l-5 3.5 2 6.5-5-4-5 4 2-6.5L0 6h6z" />
+            </svg>
+            <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#b89d6a]/30" />
+          </div>
         </motion.div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-36 px-6">
+      <section className="py-28 md:py-40 px-6">
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
           className="max-w-2xl mx-auto text-center">
-          <span className="tag">Contact</span>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="w-8 h-[1px] bg-[#b89d6a]/30" />
+            <span className="tag">Contact</span>
+            <span className="w-8 h-[1px] bg-[#b89d6a]/30" />
+          </div>
           <h2 className="text-[28px] md:text-[38px] font-extralight leading-[1.5] mt-4 mb-6 tracking-tight">
             포토부스 서비스 문의
           </h2>

@@ -13,7 +13,10 @@ const fade = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111] text-white">
+    <footer className="bg-[#111] text-white dark-pattern">
+      {/* Gold accent line */}
+      <div className="footer-gold-line" />
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {/* Brand */}
@@ -54,20 +57,29 @@ export default function Footer() {
               { href: '/contact', label: '문의하기' },
             ].map((link) => (
               <Link key={link.href} href={link.href}
-                className="text-[12px] text-gray-500 hover:text-white transition-colors w-fit">
+                className="text-[12px] text-gray-500 hover:text-[#b89d6a] transition-colors w-fit">
                 {link.label}
               </Link>
             ))}
           </motion.div>
         </div>
 
-        <div className="mt-16 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="footer-gold-line mt-16 mb-6" />
+
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[10px] text-gray-600">&copy; 2025 HARAM. All Rights Reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex gap-6">
             <a href="https://www.instagram.com/haram_wedding" target="_blank" rel="noopener noreferrer"
-              className="text-[10px] text-gray-600 hover:text-white transition-colors">Instagram</a>
+              className="text-[10px] text-gray-600 hover:text-[#b89d6a] transition-colors flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+              </svg>
+              Instagram
+            </a>
             <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer"
-              className="text-[10px] text-gray-600 hover:text-white transition-colors">Blog</a>
+              className="text-[10px] text-gray-600 hover:text-[#b89d6a] transition-colors">Blog</a>
           </div>
         </div>
       </div>

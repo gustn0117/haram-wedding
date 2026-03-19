@@ -68,12 +68,15 @@ export default function ConciergePage() {
       {/* ══════════════════════════════════════════
           HERO — Full viewport, cinematic
       ══════════════════════════════════════════ */}
-      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-black hero-corner-ornament">
         <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>
           <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=80"
             alt="Concierge" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/80" />
         </motion.div>
+        <div className="hero-pattern" />
+        <div className="hero-vignette" />
+        <div className="hero-noise" />
 
         <motion.div className="relative z-10 text-center px-6" style={{ opacity: heroOp }}>
           <motion.div initial="hidden" animate="show" custom={0} variants={fade}
