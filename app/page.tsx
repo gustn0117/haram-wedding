@@ -101,19 +101,6 @@ export default function Home() {
               <span className="text-[#1a1a1a] font-normal"> 경험을 바탕으로 관리하는 회사</span>입니다.
             </p>
 
-            <div className="flex gap-12 py-8 border-y border-gray-100 mb-10">
-              {[
-                { n: '500+', l: '누적 예식' },
-                { n: '30+', l: '제휴 예식장' },
-                { n: '98%', l: '고객 만족도' },
-              ].map((s, i) => (
-                <div key={i}>
-                  <p className="heading-en text-[28px] text-[#1a1a1a]">{s.n}</p>
-                  <p className="text-[11px] text-gray-400 mt-1">{s.l}</p>
-                </div>
-              ))}
-            </div>
-
             <Link href="/contact" className="btn-dark-outline">
               <span>자세히 알아보기</span><Arr />
             </Link>
@@ -210,10 +197,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
-              { n: '01', title: '현장 중심의 실전 경험', desc: '500회 이상의 예식 현장에서 어떤 변수에도 흔들리지 않는 안정적인 서비스를 제공합니다.' },
+              { n: '01', title: '현장 중심의 실전 경험', desc: '수많은 예식 현장에서 쌓은 경험으로 어떤 변수에도 흔들리지 않는 안정적인 서비스를 제공합니다.' },
               { n: '02', title: '통합 서비스 원스톱 관리', desc: '포토부스, 전문사회를 하나의 팀이 관리하고, 예식장 제휴 컨시어지로 현장을 완성합니다.' },
               { n: '03', title: '맞춤형 운영 설계', desc: '예식장 구조, 하객 규모, 부부의 취향을 반영한 1:1 맞춤형 운영 매뉴얼을 설계합니다.' },
-              { n: '04', title: '검증된 파트너십', desc: '30곳 이상의 예식장과 정식 제휴, 98%의 고객 만족도를 기록하고 있습니다.' },
+              { n: '04', title: '검증된 파트너십', desc: '다수의 예식장과 정식 제휴를 맺고, 높은 고객 만족도를 유지하고 있습니다.' },
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.08} variants={fade}
