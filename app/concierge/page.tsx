@@ -216,13 +216,13 @@ export default function ConciergePage() {
               {
                 title: '하객 동선 설계 & 현장 안내',
                 desc: '하객이 예식장에 도착하는 순간부터 퇴장까지의 모든 동선을 사전에 설계합니다. 축의금 접수대, 식사 공간, 대기실, 주차 안내까지 — 하객 한 분도 헤매지 않도록 체계적으로 관리합니다.',
-                details: ['축의금 접수 및 방명록 관리', '하객 대기실 운영 및 음료 서비스 조율', '주차 안내 및 셔틀 운영 관리', '피로연장 좌석 배치 및 동선 안내'],
+                details: ['축의금 접수 및 방명록 관리', '하객 대기실 운영 및 음료 서비스 조율', '주차 안내 및 셔틀 운영 관리', '하객 퇴장 동선 안내 및 정리'],
                 img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
               },
               {
                 title: '식순 타임라인 완벽 조율',
                 desc: '예식의 모든 순서를 분 단위로 관리하며, 각 파트가 매끄럽게 이어지도록 조율합니다. 지연이 발생해도 전체 흐름에 영향이 없도록 실시간으로 타임라인을 조정합니다.',
-                details: ['입장-주례-축가-세리머니 타임라인 관리', '예식-촬영-폐백-피로연 간 전환 조율', '지연 발생 시 실시간 스케줄 재조정', '리허설 진행 및 사전 동선 점검'],
+                details: ['입장-주례-축가-세리머니 타임라인 관리', '예식-촬영-폐백 간 전환 조율', '지연 발생 시 실시간 스케줄 재조정', '리허설 진행 및 사전 동선 점검'],
                 img: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80',
               },
             ].map((card, i) => (
@@ -354,7 +354,7 @@ export default function ConciergePage() {
               { time: '-2h', title: '업체 브리핑 & 동선 확인', desc: '사진, 영상, 꽃, 사회자 등 모든 협력 업체에게 당일 타임라인과 주의사항을 전달합니다. 각 업체의 위치와 역할을 최종 확인합니다.', align: 'left' },
               { time: '-1h', title: '하객 맞이 시작', desc: '축의금 접수대를 오픈하고, 하객 안내를 시작합니다. VIP 하객과 양가 부모님의 의전을 준비하며, 대기 공간 음료 서비스를 시작합니다.', align: 'right' },
               { time: '본식', title: '식순 진행 총괄', desc: '입장부터 폐백까지 모든 식순을 실시간으로 관리합니다. 사회자, 음향, 조명과 즉각적으로 소통하며 매끄러운 진행을 이끕니다.', align: 'left' },
-              { time: '+1h', title: '피로연 & 마무리', desc: '피로연장 동선을 관리하고, 하객 질서를 유지합니다. 모든 하객이 퇴장한 후 현장을 정리하고, 예식 운영 리포트를 작성합니다.', align: 'right' },
+              { time: '+1h', title: '현장 정리 & 마무리', desc: '모든 하객이 퇴장한 후 현장을 깔끔하게 정리하고, 예식 운영 리포트를 작성하여 예식장에 전달합니다.', align: 'right' },
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={0} variants={item.align === 'left' ? slideLeft : slideRight}
