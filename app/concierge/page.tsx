@@ -189,22 +189,6 @@ export default function ConciergePage() {
             </motion.div>
           </div>
 
-          {/* Stats row */}
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
-            className="grid grid-cols-2 md:grid-cols-4 gap-0 border border-gray-100 shimmer-gold">
-            {[
-              { num: '30+', label: '제휴 예식장', sub: 'Partner Venues' },
-              { num: '500+', label: '누적 진행 예식', sub: 'Weddings Managed' },
-              { num: '98%', label: '예식장 만족도', sub: 'Satisfaction Rate' },
-              { num: '24h', label: '전담 매니저 배치', sub: 'Dedicated Manager' },
-            ].map((s, i) => (
-              <div key={i} className={`text-center py-12 px-6 group hover:bg-[#FAF8F5] transition-colors ${i < 3 ? 'border-r border-gray-100' : ''} ${i < 2 ? 'border-b md:border-b-0 border-gray-100' : i === 2 ? 'border-b md:border-b-0 border-gray-100' : ''}`}>
-                <p className="heading-en text-[40px] md:text-[48px] text-[#b89d6a] stat-glow group-hover:scale-110 transition-transform duration-500">{s.num}</p>
-                <p className="text-[13px] font-normal mt-3">{s.label}</p>
-                <p className="heading-en text-[10px] text-gray-300 tracking-[0.1em] mt-1">{s.sub}</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
@@ -487,20 +471,20 @@ export default function ConciergePage() {
               {
                 n: '01',
                 title: '고객 만족도 & 재추천율 상승',
-                desc: '전문 매니저의 세심한 현장 관리로 예식장 이용 고객의 만족도가 평균 23% 향상됩니다. 높은 만족도는 자연스러운 입소문으로 이어집니다.',
-                highlight: '만족도 23% 향상',
+                desc: '전문 매니저의 세심한 현장 관리로 예식장 이용 고객의 만족도가 눈에 띄게 향상됩니다. 높은 만족도는 자연스러운 입소문으로 이어집니다.',
+                highlight: '만족도 향상',
               },
               {
                 n: '02',
                 title: '운영 리스크 제로화',
                 desc: '돌발 상황에 대한 즉각적 대응 체계와 사전 시나리오 플랜으로, 예식 현장에서 발생할 수 있는 모든 리스크를 사전에 차단합니다.',
-                highlight: '사고 발생률 0%',
+                highlight: '리스크 사전 차단',
               },
               {
                 n: '03',
                 title: '프리미엄 브랜드 포지셔닝',
                 desc: '컨시어지 서비스를 예식장 패키지에 포함시켜 프리미엄 이미지를 구축합니다. 타 예식장과 차별화된 부가가치를 제공합니다.',
-                highlight: '프리미엄 전환율 30%↑',
+                highlight: '프리미엄 차별화',
               },
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -727,7 +711,7 @@ export default function ConciergePage() {
             {['서울 L웨딩홀', '강남 S컨벤션', '판교 가든웨딩', '수원 그랜드홀', '일산 W하우스'].map((v, i) => (
               <span key={i} className="hidden md:inline text-[11px] text-white/20 heading-en tracking-wide">{v}</span>
             ))}
-            <span className="md:hidden text-[11px] text-white/20">30+ 제휴 예식장</span>
+            <span className="md:hidden text-[11px] text-white/20">제휴 예식장</span>
           </div>
         </motion.div>
       </section>
