@@ -197,6 +197,72 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ────── PACKAGE ────── */}
+      <section className="py-28 md:py-40 px-6 bg-[#FAF8F5] relative bg-noise">
+        <div className="max-w-5xl mx-auto relative z-10">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
+            className="text-center mb-16">
+            <span className="tag">Package</span>
+            <h2 className="text-[28px] md:text-[38px] font-extralight leading-[1.4] mt-4 tracking-tight">
+              통합 패키지 서비스
+            </h2>
+            <p className="text-[14px] text-gray-400 mt-4 max-w-lg mx-auto leading-relaxed">
+              포토부스, 전문사회를 함께 이용하시면 하나의 팀이 현장 전체를 관리하여<br className="hidden md:inline" />
+              더 높은 퀄리티와 효율성을 경험하실 수 있습니다
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                title: '포토부스 단독',
+                items: ['맞춤 디자인 프레임', '무제한 촬영 + 즉석 인화', '전문 스태프 운영', '디지털 데이터 제공', '소품 세트 포함'],
+              },
+              {
+                title: '전문사회 단독',
+                items: ['사전 미팅 & 스토리 파악', '맞춤형 식순 구성', '리허설 참여', '음향·조명 연동 관리', '당일 현장 진행'],
+              },
+              {
+                title: '통합 패키지',
+                highlight: true,
+                items: ['포토부스 + 전문사회 전체 포함', '하나의 팀이 통합 운영', '현장 커뮤니케이션 일원화', '패키지 할인 적용', '우선 예약 배정'],
+              },
+            ].map((pkg, i) => (
+              <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
+                custom={i * 0.08} variants={fade}
+                className={`p-8 md:p-10 card-inner-glow group ${
+                  pkg.highlight
+                    ? 'bg-[#1a1a1a] text-white'
+                    : 'bg-white border border-gray-100'
+                }`}>
+                {pkg.highlight && (
+                  <span className="inline-block px-3 py-1 bg-[#b89d6a] text-white text-[10px] tracking-wide mb-4">RECOMMEND</span>
+                )}
+                <h3 className="text-[18px] font-normal mb-6">{pkg.title}</h3>
+                <ul className="space-y-3 mb-8">
+                  {pkg.items.map((item, j) => (
+                    <li key={j} className={`flex items-start gap-3 text-[13px] leading-[1.7] ${
+                      pkg.highlight ? 'text-white/60' : 'text-gray-400'
+                    }`}>
+                      <svg className={`w-4 h-4 shrink-0 mt-[2px] ${pkg.highlight ? 'text-[#b89d6a]' : 'text-[#b89d6a]/60'}`}
+                        viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                        <path d="M3 8l4 4 6-7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/contact" className={`inline-flex items-center gap-2 text-[12px] ${
+                  pkg.highlight ? 'text-[#b89d6a] hover:text-white' : 'text-[#b89d6a]'
+                } transition-colors`}>
+                  상담 문의 <Arr />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ────── QUOTE BREAK ────── */}
       <section className="relative py-36 md:py-48 overflow-hidden hero-corner-ornament">
         <div className="absolute inset-0">
@@ -311,6 +377,41 @@ export default function Home() {
                 <div className="pt-5 border-t border-gray-200/60">
                   <p className="text-[13px] font-normal">{t.name} · {t.loc}</p>
                   <p className="text-[11px] text-gray-400 mt-1">{t.service}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ────── FAQ ────── */}
+      <section className="py-28 md:py-40 px-6 bg-[#FAF8F5]">
+        <div className="max-w-3xl mx-auto">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
+            className="text-center mb-16">
+            <span className="tag">FAQ</span>
+            <h2 className="text-[28px] md:text-[38px] font-extralight leading-[1.4] mt-4 tracking-tight">
+              자주 묻는 질문
+            </h2>
+          </motion.div>
+
+          <div className="space-y-3">
+            {[
+              { q: '예약은 얼마나 전에 해야 하나요?', a: '결혼식 2~3개월 전에 예약하시는 것을 권장합니다. 인기 시즌(봄, 가을)에는 더 일찍 예약해 주시면 원활한 준비가 가능합니다.' },
+              { q: '서비스를 개별로 이용할 수 있나요?', a: '물론입니다. 포토부스, 전문사회를 각각 개별로 이용하실 수 있으며, 통합 패키지로 함께 이용하시면 할인이 적용됩니다.' },
+              { q: '지방 예식장에서도 이용 가능한가요?', a: '서울, 경기 외 지역도 진행 가능합니다. 상담 시 예식장 위치를 알려주시면 진행 가능 여부와 세부 사항을 안내해 드립니다.' },
+              { q: '예식장이 정해지지 않았는데 상담받을 수 있나요?', a: '가능합니다. 예식장 결정 전이라도 미리 상담받으시면 서비스 구성과 예산 계획에 도움을 드릴 수 있습니다.' },
+              { q: '취소나 날짜 변경이 가능한가요?', a: '가능한 범위 내에서 유연하게 대응해 드립니다. 자세한 변경·취소 정책은 상담 시 안내드립니다.' },
+            ].map((item, i) => (
+              <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
+                custom={i * 0.04} variants={fade}
+                className="bg-white p-7 md:p-8 faq-item group hover:shadow-sm transition-shadow">
+                <h4 className="text-[15px] font-normal mb-4 flex items-start gap-3">
+                  <span className="heading-en text-[#b89d6a] shrink-0 text-[15px]">Q.</span>
+                  {item.q}
+                </h4>
+                <div className="pl-7 border-l-2 border-[#b89d6a]/15">
+                  <p className="text-[13px] text-gray-400 leading-[1.9]">{item.a}</p>
                 </div>
               </motion.div>
             ))}
