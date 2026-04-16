@@ -26,10 +26,27 @@ export default function ContactPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('문의가 접수되었습니다. 빠른 시간 내에 연락드리겠습니다.');
-    setForm({ name: '', phone: '', service: '', date: '', email: '', message: '' });
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        alert('문의가 접수되었습니다. 빠른 시간 내에 연락드리겠습니다.');
+        setForm({ name: '', phone: '', service: '', date: '', email: '', message: '' });
+      } else {
+        alert('문의 접수에 실패했습니다. 전화로 문의해주세요.');
+      }
+    } catch {
+      alert('문의 접수에 실패했습니다. 전화로 문의해주세요.');
+    }
+    setSubmitting(false);
   };
 
   const inputClass = 'w-full px-5 py-4 bg-[#FAF8F5] border border-gray-100 text-[14px] focus:outline-none focus:border-[#b89d6a]/40 transition-all duration-300 focus:bg-white';
@@ -160,8 +177,8 @@ export default function ContactPage() {
                 className={inputClass + ' resize-none placeholder:text-gray-300'} />
             </div>
 
-            <button type="submit" className="btn-gold w-full justify-center">
-              <span>메시지 보내기</span><Arr />
+            <button type="submit" disabled={submitting} className="btn-gold w-full justify-center disabled:opacity-50">
+              <span>{submitting ? '접수 중...' : '메시지 보내기'}</span>{!submitting && <Arr />}
             </button>
 
             <p className="text-[10px] text-gray-400 text-center mt-6">
