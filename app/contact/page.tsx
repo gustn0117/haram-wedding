@@ -56,7 +56,7 @@ export default function ContactPage() {
       {/* HERO */}
       <section className="relative h-[50vh] md:h-[60vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-black hero-corner-ornament">
         <div className="absolute inset-0">
-          <Image src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1600&q=80"
+          <Image src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?auto=format&fit=crop&w=1600&q=80"
             alt="Contact" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
         </div>

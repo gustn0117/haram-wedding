@@ -266,7 +266,7 @@ export default function Home() {
       {/* ────── QUOTE BREAK ────── */}
       <section className="relative py-36 md:py-48 overflow-hidden hero-corner-ornament">
         <div className="absolute inset-0">
-          <Image src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1600&q=80"
+          <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80"
             alt="Wedding" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/55" />
         </div>

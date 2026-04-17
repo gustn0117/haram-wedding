@@ -226,7 +226,7 @@ export default function ConciergePage() {
                 title: '식순 타임라인 완벽 조율',
                 desc: '예식의 모든 순서를 분 단위로 관리하며, 각 파트가 매끄럽게 이어지도록 조율합니다. 지연이 발생해도 전체 흐름에 영향이 없도록 실시간으로 타임라인을 조정합니다.',
                 details: ['입장-주례-축가-세리머니 타임라인 관리', '예식-촬영-폐백 간 전환 조율', '지연 발생 시 실시간 스케줄 재조정', '리허설 진행 및 사전 동선 점검'],
-                img: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80',
+                img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
               },
             ].map((card, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
