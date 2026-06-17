@@ -98,7 +98,7 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}>
             <div className="relative">
               <div className="aspect-[4/5] relative overflow-hidden img-reveal">
-                <Image src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+                <Image src="/images/main/intro-wedding-hall.png"
                   alt="Wedding" fill className="object-cover" />
               </div>
               <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#b89d6a]/15 -z-10" />
@@ -167,9 +167,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { href: '/photobooth', img: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80', title: '포토부스', sub: 'Photobooth', desc: '하객에게 추억을, 부부에게 감동을 선물합니다' },
-              { href: '/host', img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80', title: '전문사회', sub: 'Host', desc: '격식과 감동 사이, 완벽한 균형의 MC' },
-              { href: '/concierge', img: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80', title: '컨시어지', sub: 'Concierge · B2B', desc: '예식장과 제휴하여 현장 운영을 책임집니다' },
+              { href: '/photobooth', img: '/images/main/service-photobooth.png', title: '포토부스', sub: 'Photobooth', desc: '하객에게 추억을, 부부에게 감동을 선물합니다' },
+              { href: '/host', img: '/images/main/service-host.png', title: '전문사회', sub: 'Host', desc: '격식과 감동 사이, 완벽한 균형의 MC' },
+              { href: '/concierge', img: '/images/main/service-concierge.png', title: '컨시어지', sub: 'Concierge · B2B', desc: '예식장과 제휴하여 현장 운영을 책임집니다' },
             ].map((card, i) => (
               <motion.div key={card.href} initial="hidden" whileInView="show"
                 viewport={{ once: true }} custom={i * 0.1} variants={fade}>
@@ -266,7 +266,7 @@ export default function Home() {
       {/* ────── QUOTE BREAK ────── */}
       <section className="relative py-36 md:py-48 overflow-hidden hero-corner-ornament">
         <div className="absolute inset-0">
-          <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80"
+          <Image src="/images/main/quote-wedding-hall.png"
             alt="Wedding" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/55" />
         </div>
@@ -422,7 +422,7 @@ export default function Home() {
       {/* ────── CTA ────── */}
       <section className="relative py-32 md:py-44 px-6 overflow-hidden bg-[#111] dark-pattern hero-side-lines">
         <div className="absolute inset-0 opacity-10">
-          <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=80"
+          <Image src="/images/main/cta-wedding-details.png"
             alt="" fill className="object-cover" />
         </div>
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
