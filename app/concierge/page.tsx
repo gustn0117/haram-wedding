@@ -70,7 +70,7 @@ export default function ConciergePage() {
       ══════════════════════════════════════════ */}
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-black hero-corner-ornament">
         <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroScale }}>
-          <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=80"
+          <Image src="/images/hotel-white/concierge-hero.png"
             alt="Concierge" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/80" />
         </motion.div>
@@ -179,7 +179,7 @@ export default function ConciergePage() {
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.15} variants={slideRight}>
               <div className="relative">
                 <div className="aspect-[3/4] relative overflow-hidden">
-                  <Image src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+                  <Image src="/images/hotel-white/concierge-about.png"
                     alt="Concierge service" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
@@ -220,13 +220,13 @@ export default function ConciergePage() {
                 title: '하객 동선 설계 & 현장 안내',
                 desc: '하객이 예식장에 도착하는 순간부터 퇴장까지의 모든 동선을 사전에 설계합니다. 축의금 접수대, 식사 공간, 대기실, 주차 안내까지 — 하객 한 분도 헤매지 않도록 체계적으로 관리합니다.',
                 details: ['축의금 접수 및 방명록 관리', '하객 대기실 운영 및 음료 서비스 조율', '주차 안내 및 셔틀 운영 관리', '하객 퇴장 동선 안내 및 정리'],
-                img: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
+                img: '/images/hotel-white/concierge-guest-flow.png',
               },
               {
                 title: '식순 타임라인 완벽 조율',
                 desc: '예식의 모든 순서를 분 단위로 관리하며, 각 파트가 매끄럽게 이어지도록 조율합니다. 지연이 발생해도 전체 흐름에 영향이 없도록 실시간으로 타임라인을 조정합니다.',
                 details: ['입장-주례-축가-세리머니 타임라인 관리', '예식-촬영-폐백 간 전환 조율', '지연 발생 시 실시간 스케줄 재조정', '리허설 진행 및 사전 동선 점검'],
-                img: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80',
+                img: '/images/hotel-white/concierge-timeline.png',
               },
             ].map((card, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
@@ -389,7 +389,7 @@ export default function ConciergePage() {
       ══════════════════════════════════════════ */}
       <section className="relative py-36 md:py-52 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?auto=format&fit=crop&w=2000&q=80"
+          <Image src="/images/hotel-white/concierge-quote.png"
             alt="Wedding" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/65" />
         </div>
@@ -675,7 +675,7 @@ export default function ConciergePage() {
       ══════════════════════════════════════════ */}
       <section className="relative py-36 md:py-52 px-6 overflow-hidden bg-black">
         <div className="absolute inset-0 opacity-25">
-          <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=80"
+          <Image src="/images/hotel-white/concierge-cta.png"
             alt="" fill className="object-cover" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />

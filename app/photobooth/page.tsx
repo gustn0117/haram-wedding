@@ -31,7 +31,7 @@ export default function PhotoboothPage() {
       {/* HERO */}
       <section className="relative h-[65vh] md:h-[75vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-black hero-corner-ornament">
         <div className="absolute inset-0">
-          <Image src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1600&q=80"
+          <Image src="/images/hotel-white/photobooth-hero.png"
             alt="Photobooth" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
         </div>
@@ -83,7 +83,7 @@ export default function PhotoboothPage() {
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fade}>
             <div className="relative">
               <div className="aspect-[4/5] relative overflow-hidden img-reveal">
-                <Image src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80"
+                <Image src="/images/hotel-white/photobooth-about.png"
                   alt="Photobooth service" fill className="object-cover" />
               </div>
               <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#b89d6a]/15 -z-10" />
@@ -245,7 +245,7 @@ export default function PhotoboothPage() {
       {/* QUOTE */}
       <section className="relative py-32 md:py-44 overflow-hidden hero-corner-ornament">
         <div className="absolute inset-0">
-          <Image src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1600&q=80"
+          <Image src="/images/hotel-white/photobooth-quote.png"
             alt="Wedding" fill className="object-cover" />
           <div className="absolute inset-0 bg-black/55" />
         </div>
