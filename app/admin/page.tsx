@@ -26,6 +26,7 @@ export default function AdminPage() {
   const [authed, setAuthed] = useState(false);
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [selected, setSelected] = useState<Inquiry | null>(null);
   const [filter, setFilter] = useState<'all' | 'unread' | 'read'>('all');
 
@@ -42,15 +43,29 @@ export default function AdminPage() {
   }, [password]);
 
   const handleLogin = async () => {
-    const res = await fetch('/api/admin', {
-      headers: { 'x-admin-password': password },
-    });
-    if (res.ok) {
-      setAuthed(true);
-      const data = await res.json();
-      setInquiries(data);
-    } else {
-      alert('비밀번호가 올바르지 않습니다.');
+    setError('');
+    try {
+      const res = await fetch('/api/admin', {
+        headers: { 'x-admin-password': password },
+      });
+      if (res.ok) {
+        setAuthed(true);
+        const data = await res.json();
+        setInquiries(data);
+        return;
+      }
+      if (res.status === 401) {
+        setError('비밀번호가 올바르지 않습니다.');
+      } else {
+        const body = await res.json().catch(() => null);
+        setError(
+          body?.error
+            ? `서버 오류: ${body.error}`
+            : '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'
+        );
+      }
+    } catch {
+      setError('서버에 연결하지 못했습니다. 네트워크를 확인해주세요.');
     }
   };
 
@@ -104,12 +119,15 @@ export default function AdminPage() {
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => { setPassword(e.target.value); setError(''); }}
               onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
-              className="w-full px-4 py-3 bg-[#FAF8F5] border border-gray-100 text-[14px] focus:outline-none focus:border-[#b89d6a]/40 mb-6"
+              className="w-full px-4 py-3 bg-[#FAF8F5] border border-gray-100 text-[14px] focus:outline-none focus:border-[#b89d6a]/40 mb-3"
               placeholder="비밀번호를 입력하세요"
               autoFocus
             />
+            {error && (
+              <p className="text-[12px] text-red-500 mb-4">{error}</p>
+            )}
             <button
               onClick={handleLogin}
               className="w-full py-3 bg-[#1a1a1a] text-white text-[13px] hover:bg-[#b89d6a] transition-colors"
