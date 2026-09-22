@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Hatch from '@/components/Hatch';
 import { IconArrowUpRight, IconCamera, IconChart, IconClipboard, IconMic, IconMusic, IconSparkle } from '@/components/icons';
 import { SERVICES, type ServiceSlug } from '@/lib/services';
 
@@ -15,13 +14,7 @@ const ICONS: Record<ServiceSlug, typeof IconSparkle> = {
 export default function IntroSection() {
   return (
     <section className="relative overflow-hidden bg-white">
-      <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,720px)_minmax(0,1fr)] lg:min-h-[640px]">
-        <Hatch
-          label="플라워 장식이 놓인 웨딩홀 입구"
-          src="/images/editorial-2026/intro-vertical.png"
-          className="hidden lg:block"
-        />
-
+      <div className="max-w-[1008px] mx-auto">
         <div className="px-6 py-24 md:py-28 lg:py-32 text-center flex flex-col items-center justify-center">
           <h2 className="text-[28px] md:text-[40px] font-light leading-[1.4] tracking-[-0.03em] text-ink break-keep">
             예식 현장부터 예식장 운영까지,<br />
@@ -50,11 +43,6 @@ export default function IntroSection() {
           </ul>
         </div>
 
-        <Hatch
-          label="웨딩 포토부스와 인화 사진"
-          src="/images/editorial-2026/photobooth.png"
-          className="hidden lg:block"
-        />
       </div>
     </section>
   );
