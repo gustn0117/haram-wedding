@@ -10,7 +10,8 @@ export default function ReviewsPage() {
         crumb="고객후기"
         title="하람과 함께한 예식 이야기"
         description="신랑신부와 제휴 예식장이 남긴 후기입니다."
-        image="후기 대표 이미지 · 예식 현장"
+        image="웨딩 링과 예식 준비 소품"
+        imageSrc="/images/hotel-white/main-cta-wedding-details.png"
       />
       <ReviewList />
       <CtaBand

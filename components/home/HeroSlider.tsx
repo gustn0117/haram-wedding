@@ -15,6 +15,7 @@ type Slide = {
   primary: { href: string; label: string };
   secondary: { href: string; label: string };
   image: string;
+  imageSrc: string;
 };
 
 const SLIDES: Slide[] = [
@@ -25,7 +26,8 @@ const SLIDES: Slide[] = [
     body: '컨시어지, 사회, 축가, 포토부스부터 마케팅과 운영 프로그램까지. 하람이 예식장의 운영 파트너가 됩니다.',
     primary: { href: '/services', label: '서비스 둘러보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
-    image: '메인 비주얼 · 호텔 웨딩홀 전경',
+    image: '화이트 플라워로 장식한 호텔 웨딩홀 전경',
+    imageSrc: '/images/hotel-white/main-quote-hotel-ballroom.png',
   },
   {
     tab: '예식 컨시어지',
@@ -34,7 +36,8 @@ const SLIDES: Slide[] = [
     body: '항공·호텔 서비스 계열 인력 중 자체 교육을 통과한 예식도우미만 투입합니다. 하객 안내부터 퇴장까지 현장 전체를 맡습니다.',
     primary: { href: '/concierge', label: '예식 컨시어지 보기' },
     secondary: { href: '/partnership', label: '예식장 제휴 문의' },
-    image: '예식도우미 하객 안내 장면',
+    image: '예식장 로비의 안내 동선과 플라워 장식',
+    imageSrc: '/images/hotel-white/concierge-hero.png',
   },
   {
     tab: '사회 · 축가',
@@ -43,7 +46,8 @@ const SLIDES: Slide[] = [
     body: '대본을 함께 다듬는 예식사회자와, 곡목과 키를 미리 맞추는 라이브 축가. 음향팀과 1초 단위로 맞물려 진행합니다.',
     primary: { href: '/host', label: '예식사회자 보기' },
     secondary: { href: '/vocal', label: '축가 보기' },
-    image: '예식사회자 · 축가 진행 장면',
+    image: '웨딩홀 무대의 사회자용 마이크와 큐시트',
+    imageSrc: '/images/hotel-white/host-hero.png',
   },
   {
     tab: '웨딩 포토부스',
@@ -52,7 +56,8 @@ const SLIDES: Slide[] = [
     body: '운영 스태프가 상주해 촬영 안내부터 즉석 인화, 소모품 관리까지 맡습니다. 건당 운영과 월 대여 중 고를 수 있습니다.',
     primary: { href: '/photobooth', label: '웨딩 포토부스 보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
-    image: '포토부스 설치 · 하객 촬영 장면',
+    image: '웨딩홀에 설치한 포토부스와 인화 사진',
+    imageSrc: '/images/hotel-white/photobooth-hero.png',
   },
   {
     tab: '예식장 솔루션',
@@ -61,7 +66,8 @@ const SLIDES: Slide[] = [
     body: '예약률을 올리는 웨딩홀 마케팅과, 예약·식순·스태프 정보를 한 화면에 모으는 예식 취합 프로그램을 운영합니다.',
     primary: { href: '/marketing', label: '웨딩홀 마케팅 보기' },
     secondary: { href: '/program', label: '예식 취합 프로그램 보기' },
-    image: '웨딩홀 운영 · 관리 화면',
+    image: '예식장 운영 서류와 체크리스트',
+    imageSrc: '/images/hotel-white/contact-hero.png',
   },
 ];
 
@@ -104,7 +110,7 @@ export default function HeroSlider() {
       onTouchStart={(e) => setTouchX(e.touches[0].clientX)}
       onTouchEnd={(e) => onTouchEnd(e.changedTouches[0].clientX)}
     >
-      {/* 배경 이미지 (빗금 자리) */}
+      {/* 배경 이미지 */}
       <AnimatePresence initial={false}>
         <motion.div
           key={index}
@@ -120,7 +126,12 @@ export default function HeroSlider() {
             animate={{ scale: 1 }}
             transition={{ duration: reduceMotion ? 0 : DURATION / 1000 + 1, ease: 'linear' }}
           >
-            <Hatch tone="dark" label={slide.image} size="1920×1080" className="absolute inset-0" captionPosition="hero" />
+            <Hatch
+              label={slide.image}
+              src={slide.imageSrc}
+              className="absolute inset-0"
+              priority={index === 0}
+            />
           </motion.div>
         </motion.div>
       </AnimatePresence>

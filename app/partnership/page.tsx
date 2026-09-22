@@ -28,6 +28,7 @@ export default function PartnershipPage() {
         title="예식장 현장 운영, 하람에 맡기세요"
         description="예식장 전용 B2B 예식 컨시어지입니다. 제휴 예식장에는 교육받은 예식도우미가 전담으로 배치됩니다."
         image="제휴 예식장 · 로비 전경"
+        imageSrc="/images/hotel-white/concierge-hero.png"
       />
 
       <Section title="제휴하면 달라지는 것">
@@ -56,7 +57,11 @@ export default function PartnershipPage() {
 
       <Section title="현장 운영 방식이 궁금하다면">
         <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-center">
-          <Hatch label="예식 컨시어지 운영 장면" size="1200×800" className="aspect-[3/2] rounded-2xl" />
+          <Hatch
+            label="하객 동선을 안내하는 예식장 입구"
+            src="/images/hotel-white/concierge-guest-flow.png"
+            className="aspect-[3/2] rounded-2xl"
+          />
           <div>
             <p className="text-[16px] md:text-[17px] leading-[1.8] text-ink/70 break-keep">
               하객 동선 설계, 분 단위 식순 관리, 업체 간 소통, VIP 의전까지 예식 컨시어지가 하는 일을 자세히 정리했습니다.

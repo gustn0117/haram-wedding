@@ -44,7 +44,8 @@ export default function AboutPage() {
         crumb="하람소개"
         title="현장에 흐름을 입히는, 예식장의 운영 파트너"
         description="예식의 인상은 공간이 아니라 흐름에서 결정됩니다. 하람은 그 흐름을 설계하고 운영합니다."
-        image="대표 이미지 · 예식 현장 팀"
+        image="화이트 플라워로 장식한 호텔 웨딩홀"
+        imageSrc="/images/hotel-white/main-quote-hotel-ballroom.png"
       />
 
       <Section title="하람이 하는 일">
@@ -59,7 +60,11 @@ export default function AboutPage() {
               운영 매뉴얼은 남아, 시간이 지날수록 예식장의 운영 품질이 단단해집니다.
             </p>
           </div>
-          <Hatch label="현장 운영 장면" size="1200×800" className="aspect-[3/2] rounded-2xl" />
+          <Hatch
+            label="예식 운영 체크리스트와 현장 비품"
+            src="/images/hotel-white/concierge-timeline.png"
+            className="aspect-[3/2] rounded-2xl"
+          />
         </div>
       </Section>
 
@@ -88,7 +93,7 @@ export default function AboutPage() {
           {SERVICES.map((s) => (
             <li key={s.slug}>
               <Link href={s.path} className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-line hover:border-ink/30 transition-colors">
-                <Hatch label={s.image} size="800×600" className="aspect-[4/3]" />
+                <Hatch label={s.image} src={s.imageSrc} className="aspect-[4/3]" />
                 <span className="p-6 flex-1 flex flex-col">
                   <span className="flex items-start justify-between gap-4">
                     <span className="text-[18px] font-bold text-ink break-keep">{s.name}</span>

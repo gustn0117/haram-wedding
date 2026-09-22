@@ -16,7 +16,11 @@ export default function IntroSection() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,720px)_minmax(0,1fr)] lg:min-h-[640px]">
-        <Hatch label="신부대기실 디테일" size="600×900" className="hidden lg:block" />
+        <Hatch
+          label="플라워 장식이 놓인 웨딩홀 입구"
+          src="/images/hotel-white/main-intro-hotel-hall.png"
+          className="hidden lg:block"
+        />
 
         <div className="px-6 py-24 md:py-28 lg:py-32 text-center flex flex-col items-center justify-center">
           <h2 className="text-[28px] md:text-[40px] font-light leading-[1.4] tracking-[-0.03em] text-ink break-keep">
@@ -46,7 +50,11 @@ export default function IntroSection() {
           </ul>
         </div>
 
-        <Hatch label="포토부스 프레임 디테일" size="600×900" className="hidden lg:block" />
+        <Hatch
+          label="웨딩 포토부스와 인화 사진"
+          src="/images/hotel-white/photobooth-about.png"
+          className="hidden lg:block"
+        />
       </div>
     </section>
   );

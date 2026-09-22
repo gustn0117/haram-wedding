@@ -167,7 +167,13 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
 
   return (
     <main>
-      <PageHero crumb={s.name} title={s.name} description={s.short} image={s.image} />
+      <PageHero
+        crumb={s.name}
+        title={s.name}
+        description={s.short}
+        image={s.image}
+        imageSrc={s.heroImageSrc}
+      />
 
       {/* 소개 + 핵심 정보 */}
       <Wrap>
@@ -181,7 +187,7 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
             </p>
             <p className="mt-6 text-[16px] md:text-[17px] leading-[1.85] text-ink/65 break-keep">{s.summary}</p>
           </div>
-          <Hatch label={s.image} size="1200×900" className="aspect-[4/3] rounded-2xl" />
+          <Hatch label={s.image} src={s.imageSrc} className="aspect-[4/3] rounded-2xl" />
         </div>
 
         <dl className="mt-14 grid grid-cols-2 lg:grid-cols-4 border-y-2 border-ink">

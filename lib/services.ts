@@ -26,6 +26,8 @@ export type Service = {
   funnel?: { stage: string; work: string }[];
   ledger?: { time: string; hall: string; staff: string; state: '완료' | '진행' | '대기' }[];
   image: string;
+  imageSrc: string;
+  heroImageSrc: string;
 };
 
 export const SERVICES: Service[] = [
@@ -63,7 +65,9 @@ export const SERVICES: Service[] = [
       { when: '3단계', what: '관리 프로그램 개설, 전용 계정 지급' },
       { when: '예식 당일', what: '현장 전체 운영, 종료 후 디브리프' },
     ],
-    image: '예식도우미 하객 안내 장면',
+    image: '예식장 안내 데스크와 운영 체크리스트',
+    imageSrc: '/images/hotel-white/main-service-concierge.png',
+    heroImageSrc: '/images/hotel-white/concierge-hero.png',
   },
   {
     slug: 'host',
@@ -106,7 +110,9 @@ export const SERVICES: Service[] = [
       { when: 'D-3', what: '큐 시트를 음향팀과 맞춤' },
       { when: '예식 당일', what: '본식 진행, 종료 직후 디브리프' },
     ],
-    image: '예식사회자 진행 장면',
+    image: '웨딩홀 마이크와 사회자 큐시트',
+    imageSrc: '/images/hotel-white/main-service-host.png',
+    heroImageSrc: '/images/hotel-white/host-hero.png',
   },
   {
     slug: 'vocal',
@@ -149,7 +155,9 @@ export const SERVICES: Service[] = [
       { when: 'D-1', what: '사운드 체크, 리허설' },
       { when: '예식 당일', what: '본식 라이브 공연' },
     ],
-    image: '축가 라이브 공연 장면',
+    image: '웨딩홀 무대와 공연용 마이크',
+    imageSrc: '/images/hotel-white/host-about.png',
+    heroImageSrc: '/images/hotel-white/host-hero.png',
   },
   {
     slug: 'photobooth',
@@ -184,7 +192,9 @@ export const SERVICES: Service[] = [
       { when: '예식 당일', what: '스태프 상주 운영, 즉석 인화' },
       { when: '매월', what: '정기 점검, 데이터 백업, 정산' },
     ],
-    image: '포토부스 설치 · 하객 촬영 장면',
+    image: '웨딩 포토부스와 즉석 인화 사진',
+    imageSrc: '/images/hotel-white/main-service-photobooth.png',
+    heroImageSrc: '/images/hotel-white/photobooth-hero.png',
   },
   {
     slug: 'marketing',
@@ -221,7 +231,9 @@ export const SERVICES: Service[] = [
       { when: '매월', what: '정기 업로드, 광고 집행, 문의 응대' },
       { when: '월말', what: '성과 리포트, 다음 달 운영안 확정' },
     ],
-    image: '웨딩홀 홍보 콘텐츠 촬영 장면',
+    image: '플라워 장식이 놓인 웨딩홀 전경',
+    imageSrc: '/images/hotel-white/main-intro-hotel-hall.png',
+    heroImageSrc: '/images/hotel-white/main-quote-hotel-ballroom.png',
   },
   {
     slug: 'program',
@@ -258,7 +270,9 @@ export const SERVICES: Service[] = [
       { when: '3단계', what: '담당자 교육, 운영 기준 세팅' },
       { when: '매월', what: '상시 운영, 데이터 백업' },
     ],
-    image: '예식 취합 프로그램 화면',
+    image: '예식 운영 서류와 체크리스트',
+    imageSrc: '/images/hotel-white/concierge-about.png',
+    heroImageSrc: '/images/hotel-white/contact-hero.png',
   },
 ];
 

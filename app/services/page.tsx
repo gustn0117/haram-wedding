@@ -27,6 +27,7 @@ export default function ServicesPage() {
         title="예식의 흐름부터 예식장 운영까지"
         description="컨시어지, 사회, 축가, 포토부스, 마케팅, 운영 프로그램까지 한 파트너가 맡습니다. 필요한 것만 골라 이용하세요."
         image="서비스 대표 이미지 · 예식 현장"
+        imageSrc="/images/hotel-white/concierge-cta.png"
       />
 
       {GROUPS.map((g, gi) => (
@@ -39,7 +40,7 @@ export default function ServicesPage() {
                 <li key={s.slug}>
                   <Link href={s.path}
                     className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-line hover:border-ink/30 transition-colors">
-                    <Hatch label={s.image} size="800×600" className="aspect-[4/3]" />
+                    <Hatch label={s.image} src={s.imageSrc} className="aspect-[4/3]" />
                     <span className="p-6 flex-1 flex flex-col">
                       <span className="flex items-start justify-between gap-4">
                         <span className="text-[20px] font-bold text-ink">{s.name}</span>
