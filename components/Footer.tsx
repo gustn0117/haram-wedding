@@ -22,8 +22,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {/* Brand */}
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}>
-            <Image src="/logo-mark.png" alt="하람 로고" width={48} height={48}
-              className="w-12 h-12 object-contain mb-4" />
+            <Image src="/logo-mark.png" alt="하람 로고" width={32} height={32}
+              className="w-8 h-8 object-contain mb-3" />
             <p className="heading-en text-[20px] font-medium mb-2">HARAM</p>
             <p className="text-[10px] text-gray-500 tracking-[0.1em] mb-6">Wedding Management</p>
             <p className="text-[13px] text-gray-500 leading-[1.9]">

@@ -112,7 +112,7 @@ export default function AdminPage() {
         <div className="w-full max-w-sm">
           <div className="text-center mb-10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-mark.png" alt="하람 로고" className="w-16 h-16 object-contain mx-auto mb-4" />
+            <img src="/logo-mark.png" alt="하람 로고" className="w-11 h-11 object-contain mx-auto mb-3" />
             <p className="heading-en text-[40px] text-[#1a1a1a] tracking-[0.12em]">HARAM</p>
             <p className="text-[12px] text-gray-400 mt-2 tracking-wide">Admin Console</p>
           </div>
@@ -149,7 +149,7 @@ export default function AdminPage() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-mark.png" alt="" className="w-8 h-8 object-contain -mr-3" />
+            <img src="/logo-mark.png" alt="" className="w-6 h-6 object-contain -mr-4" />
             <p className="heading-en text-[22px] text-[#1a1a1a] tracking-[0.1em]">HARAM</p>
             <span className="text-[11px] text-gray-400 border-l border-gray-200 pl-6">문의 관리</span>
           </div>

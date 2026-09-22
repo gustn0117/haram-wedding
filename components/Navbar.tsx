@@ -42,9 +42,9 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 h-[72px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group" aria-label="하람 홈">
-            <Image src="/logo-mark.png" alt="하람 로고" width={36} height={36} priority
-              className="w-9 h-9 object-contain" />
+          <Link href="/" className="flex items-center gap-2 group" aria-label="하람 홈">
+            <Image src="/logo-mark.png" alt="하람 로고" width={26} height={26} priority
+              className="w-[26px] h-[26px] object-contain" />
             <span className={`heading-en text-[22px] font-medium transition-colors duration-300 ${
               bg ? 'text-[#1a1a1a]' : 'text-white'
             }`}>
