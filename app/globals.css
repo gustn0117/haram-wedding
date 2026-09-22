@@ -134,17 +134,6 @@ body {
   box-shadow: 0 24px 60px rgba(82,72,59,0.10);
 }
 
-/* Marquee */
-.marquee-track {
-  display: flex;
-  animation: marquee 50s linear infinite;
-  width: max-content;
-}
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
 /* Scroll progress */
 .scroll-progress {
   position: fixed;

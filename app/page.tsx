@@ -44,22 +44,6 @@ export default function Home() {
         </svg>
       </div>
 
-      {/* ────── MARQUEE ────── */}
-      <div className="py-6 border-y border-gray-100 overflow-hidden">
-        <div className="marquee-track">
-          {[...Array(2)].map((_, k) => (
-            <div key={k} className="flex items-center gap-12 px-6">
-              {['Concierge', 'Photobooth', 'Professional Host', 'Wedding Management', 'Premium Service', 'Concierge', 'Photobooth', 'Professional Host'].map((t, i) => (
-                <span key={i} className="flex items-center gap-12">
-                  <span className="heading-en text-[15px] text-gray-300 whitespace-nowrap">{t}</span>
-                  <span className="w-1.5 h-1.5 bg-sage/40 rotate-45 shrink-0" />
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* ────── QUOTE BREAK ────── */}
       <section className="relative py-36 md:py-48 overflow-hidden hero-corner-ornament">
         <div className="absolute inset-0">
