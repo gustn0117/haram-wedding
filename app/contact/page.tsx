@@ -153,10 +153,15 @@ export default function ContactPage() {
                 <label className="block text-[11px] text-gray-500 mb-2">서비스</label>
                 <select name="service" value={form.service} onChange={handleChange} className={inputClass + ' appearance-none'}>
                   <option value="">선택해주세요</option>
-                  <option value="concierge">컨시어지</option>
-                  <option value="photobooth">포토부스</option>
-                  <option value="host">전문사회</option>
-                  <option value="package">패키지</option>
+                  <option value="concierge">예식 컨시어지 (예식도우미)</option>
+                  <option value="host">예식사회자</option>
+                  <option value="vocal">축가</option>
+                  <option value="photobooth">웨딩 포토부스</option>
+                  <option value="marketing">웨딩홀 마케팅</option>
+                  <option value="program">예식 취합 프로그램</option>
+                  <option value="package">여러 서비스 함께</option>
+                  <option value="partnership">예식장 제휴</option>
+                  <option value="careers">채용 지원</option>
                 </select>
               </div>
               <div>

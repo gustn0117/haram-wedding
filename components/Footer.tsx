@@ -55,8 +55,11 @@ export default function Footer() {
             <p className="text-[10px] text-[#b89d6a] tracking-[0.1em] mb-2">Services</p>
             {[
               { href: '/concierge', label: '예식 컨시어지' },
-              { href: '/photobooth', label: '웨딩 포토부스' },
               { href: '/host', label: '예식사회자' },
+              { href: '/vocal', label: '축가' },
+              { href: '/photobooth', label: '웨딩 포토부스' },
+              { href: '/marketing', label: '웨딩홀 마케팅' },
+              { href: '/program', label: '예식 취합 프로그램' },
               { href: '/partnership', label: '예식장 제휴' },
               { href: '/careers', label: '인재 채용' },
               { href: '/contact', label: '문의하기' },

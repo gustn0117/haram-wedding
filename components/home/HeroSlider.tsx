@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Hatch from '@/components/Hatch';
 import { IconChevronLeft, IconChevronRight } from '@/components/icons';
-import { ESTIMATE_HREF } from '@/lib/nav';
+import { CONTACT_HREF } from '@/lib/nav';
 
 type Slide = {
   tab: string;
@@ -20,39 +20,48 @@ type Slide = {
 const SLIDES: Slide[] = [
   {
     tab: '하람 통합 운영',
-    hint: '네 가지 서비스, 한 팀',
-    title: ['결혼식 현장,', '처음부터 끝까지 하람이 맡습니다'],
-    body: '예식도우미, 예식 컨시어지, 웨딩 포토부스, 예식사회자를 한 팀으로 운영합니다. 필요한 서비스만 골라 신청하세요.',
-    primary: { href: ESTIMATE_HREF, label: '무료 견적 받기' },
-    secondary: { href: '/about', label: '하람 알아보기' },
+    hint: '여섯 가지 서비스, 한 파트너',
+    title: ['예식의 흐름을 다듬고,', '공간의 품격을 완성합니다'],
+    body: '컨시어지, 사회, 축가, 포토부스부터 마케팅과 운영 프로그램까지. 하람이 예식장의 운영 파트너가 됩니다.',
+    primary: { href: '/services', label: '서비스 둘러보기' },
+    secondary: { href: CONTACT_HREF, label: '상담 문의' },
     image: '메인 비주얼 · 호텔 웨딩홀 전경',
   },
   {
     tab: '예식 컨시어지',
-    hint: '예식도우미 · 현장 운영',
-    title: ['하객이 도착한 순간부터', '퇴장할 때까지 챙깁니다'],
-    body: '예식장과 제휴한 전문 예식도우미가 하객 안내, 신부대기실, 식순 진행, 돌발 상황까지 현장을 책임집니다.',
+    hint: '교육 이수 예식도우미',
+    title: ['예식장의 하루를,', '하나의 흐름으로'],
+    body: '항공·호텔 서비스 계열 인력 중 자체 교육을 통과한 예식도우미만 투입합니다. 하객 안내부터 퇴장까지 현장 전체를 맡습니다.',
     primary: { href: '/concierge', label: '예식 컨시어지 보기' },
     secondary: { href: '/partnership', label: '예식장 제휴 문의' },
     image: '예식도우미 하객 안내 장면',
   },
   {
+    tab: '사회 · 축가',
+    hint: '큐 시트에 맞춘 진행과 라이브',
+    title: ['예식의 흐름을 만드는', '목소리와 단 한 곡'],
+    body: '대본을 함께 다듬는 예식사회자와, 곡목과 키를 미리 맞추는 라이브 축가. 음향팀과 1초 단위로 맞물려 진행합니다.',
+    primary: { href: '/host', label: '예식사회자 보기' },
+    secondary: { href: '/vocal', label: '축가 보기' },
+    image: '예식사회자 · 축가 진행 장면',
+  },
+  {
     tab: '웨딩 포토부스',
-    hint: '맞춤 프레임 · 즉석 인화',
-    title: ['하객이 줄 서서 찍는', '웨딩 포토부스'],
-    body: '예식 컨셉에 맞춘 프레임 디자인, 무제한 촬영, 즉석 인화와 디지털 원본까지. 전문 스태프가 현장을 지킵니다.',
+    hint: '스태프 상주 · 즉석 인화',
+    title: ['식이 끝나도 손에 남는,', '그날의 한 장'],
+    body: '운영 스태프가 상주해 촬영 안내부터 즉석 인화, 소모품 관리까지 맡습니다. 건당 운영과 월 대여 중 고를 수 있습니다.',
     primary: { href: '/photobooth', label: '웨딩 포토부스 보기' },
-    secondary: { href: ESTIMATE_HREF, label: '견적 문의' },
+    secondary: { href: CONTACT_HREF, label: '상담 문의' },
     image: '포토부스 설치 · 하객 촬영 장면',
   },
   {
-    tab: '예식사회자',
-    hint: '사전 미팅 · 리허설 참여',
-    title: ['두 사람의 이야기로', '진행하는 예식'],
-    body: '사전 미팅으로 두 분의 이야기를 듣고 식순을 함께 구성합니다. 리허설부터 당일 분위기까지 예식사회자가 이끕니다.',
-    primary: { href: '/host', label: '예식사회자 보기' },
-    secondary: { href: ESTIMATE_HREF, label: '견적 문의' },
-    image: '예식사회자 진행 장면',
+    tab: '예식장 솔루션',
+    hint: '마케팅 · 취합 프로그램',
+    title: ['홀을 채우는 일부터', '흩어진 예식 정보까지'],
+    body: '예약률을 올리는 웨딩홀 마케팅과, 예약·식순·스태프 정보를 한 화면에 모으는 예식 취합 프로그램을 운영합니다.',
+    primary: { href: '/marketing', label: '웨딩홀 마케팅 보기' },
+    secondary: { href: '/program', label: '예식 취합 프로그램 보기' },
+    image: '웨딩홀 운영 · 관리 화면',
   },
 ];
 
@@ -136,6 +145,7 @@ export default function HeroSlider() {
             {index === 0 ? (
               <h1 className="text-[36px] sm:text-[44px] lg:text-[60px] font-bold leading-[1.18] tracking-[-0.035em] max-w-[14em] break-keep">
                 {slide.title[0]}<br />{slide.title[1]}
+                <span className="sr-only"> — 하람 예식도우미, 예식 컨시어지, 예식사회자, 축가, 웨딩 포토부스</span>
               </h1>
             ) : (
               <h2 className="text-[36px] sm:text-[44px] lg:text-[60px] font-bold leading-[1.18] tracking-[-0.035em] max-w-[14em] break-keep">
@@ -176,7 +186,7 @@ export default function HeroSlider() {
             <span className="font-semibold">{slide.tab}</span>
             <span className="text-white/50">{index + 1} / {SLIDES.length}</span>
           </div>
-          <div role="tablist" aria-label="슬라이드 선택" className="grid grid-cols-4 gap-2 md:gap-6">
+          <div role="tablist" aria-label="슬라이드 선택" className="grid grid-cols-5 gap-2 md:gap-6">
             {SLIDES.map((s, i) => {
               const active = i === index;
               return (

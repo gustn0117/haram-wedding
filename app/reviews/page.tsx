@@ -1,7 +1,7 @@
 import PageHero from '@/components/page/PageHero';
 import CtaBand from '@/components/page/CtaBand';
 import ReviewList from '@/components/page/ReviewList';
-import { ESTIMATE_HREF } from '@/lib/nav';
+import { CONTACT_HREF } from '@/lib/nav';
 
 export default function ReviewsPage() {
   return (
@@ -15,9 +15,9 @@ export default function ReviewsPage() {
       <ReviewList />
       <CtaBand
         title="다음 후기의 주인공이 되어 주세요"
-        description="예식장과 날짜를 알려주시면 필요한 서비스 구성과 견적을 안내해 드립니다."
-        href={ESTIMATE_HREF}
-        label="무료 견적 받기"
+        description="예식장과 날짜를 알려주시면 필요한 서비스 구성을 안내해 드립니다."
+        href={CONTACT_HREF}
+        label="상담 문의"
       />
     </main>
   );

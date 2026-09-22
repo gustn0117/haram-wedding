@@ -60,120 +60,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ────── SERVICES ────── */}
-      <section id="services" className="py-28 md:py-40 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
-            className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
-            <div>
-              <span className="tag">Services</span>
-              <h2 className="text-[28px] md:text-[40px] font-extralight leading-[1.4] mt-4 tracking-tight">
-                하람이 제공하는 서비스
-              </h2>
-            </div>
-            <Link href="/contact" className="btn-dark-outline self-start md:self-auto">
-              <span>전체 문의</span><Arr />
-            </Link>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              { href: '/photobooth', img: '/images/hotel-white/main-service-photobooth.png', title: '포토부스', sub: 'Photobooth', desc: '하객에게 추억을, 부부에게 감동을 선물합니다' },
-              { href: '/host', img: '/images/hotel-white/main-service-host.png', title: '전문사회', sub: 'Host', desc: '격식과 감동 사이, 완벽한 균형의 MC' },
-              { href: '/concierge', img: '/images/hotel-white/main-service-concierge.png', title: '컨시어지', sub: 'Concierge · B2B', desc: '예식장과 제휴하여 현장 운영을 책임집니다' },
-            ].map((card, i) => (
-              <motion.div key={card.href} initial="hidden" whileInView="show"
-                viewport={{ once: true }} custom={i * 0.1} variants={fade}>
-                <Link href={card.href} className="block group">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-gray-100 mb-5">
-                    <Image src={card.img} alt={card.title} fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    {/* Corner ornament on card */}
-                    <div className="absolute top-4 left-4 w-8 h-8 border-t border-l border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-[#b89d6a]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <p className="heading-en text-[12px] text-white/50 mb-2">{card.sub}</p>
-                      <h3 className="text-[22px] text-white font-light">{card.title}</h3>
-                    </div>
-                  </div>
-                  <p className="text-[13px] text-gray-400 leading-[1.8] mb-3">{card.desc}</p>
-                  <span className="inline-flex items-center gap-2 text-[12px] text-[#b89d6a] group-hover:gap-3 transition-all">
-                    자세히 보기 <Arr />
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ────── PACKAGE ────── */}
-      <section className="py-28 md:py-40 px-6 bg-[#FAF8F5] relative bg-noise">
-        <div className="max-w-5xl mx-auto relative z-10">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
-            className="text-center mb-16">
-            <span className="tag">Package</span>
-            <h2 className="text-[28px] md:text-[38px] font-extralight leading-[1.4] mt-4 tracking-tight">
-              통합 패키지 서비스
-            </h2>
-            <p className="text-[14px] text-gray-400 mt-4 max-w-lg mx-auto leading-relaxed">
-              포토부스, 전문사회를 함께 이용하시면 하나의 팀이 현장 전체를 관리하여<br className="hidden md:inline" />
-              더 높은 퀄리티와 효율성을 경험하실 수 있습니다
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              {
-                title: '포토부스 단독',
-                items: ['맞춤 디자인 프레임', '무제한 촬영 + 즉석 인화', '전문 스태프 운영', '디지털 데이터 제공', '소품 세트 포함'],
-              },
-              {
-                title: '전문사회 단독',
-                items: ['사전 미팅 & 스토리 파악', '맞춤형 식순 구성', '리허설 참여', '음향·조명 연동 관리', '당일 현장 진행'],
-              },
-              {
-                title: '통합 패키지',
-                highlight: true,
-                items: ['포토부스 + 전문사회 전체 포함', '하나의 팀이 통합 운영', '현장 커뮤니케이션 일원화', '패키지 할인 적용', '우선 예약 배정'],
-              },
-            ].map((pkg, i) => (
-              <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
-                custom={i * 0.08} variants={fade}
-                className={`p-8 md:p-10 card-inner-glow group ${
-                  pkg.highlight
-                    ? 'bg-[#1a1a1a] text-white'
-                    : 'bg-white border border-gray-100'
-                }`}>
-                {pkg.highlight && (
-                  <span className="inline-block px-3 py-1 bg-[#b89d6a] text-white text-[10px] tracking-wide mb-4">RECOMMEND</span>
-                )}
-                <h3 className="text-[18px] font-normal mb-6">{pkg.title}</h3>
-                <ul className="space-y-3 mb-8">
-                  {pkg.items.map((item, j) => (
-                    <li key={j} className={`flex items-start gap-3 text-[13px] leading-[1.7] ${
-                      pkg.highlight ? 'text-white/60' : 'text-gray-400'
-                    }`}>
-                      <svg className={`w-4 h-4 shrink-0 mt-[2px] ${pkg.highlight ? 'text-[#b89d6a]' : 'text-[#b89d6a]/60'}`}
-                        viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                        <path d="M3 8l4 4 6-7" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/contact" className={`inline-flex items-center gap-2 text-[12px] ${
-                  pkg.highlight ? 'text-[#b89d6a] hover:text-white' : 'text-[#b89d6a]'
-                } transition-colors`}>
-                  상담 문의 <Arr />
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ────── QUOTE BREAK ────── */}
       <section className="relative py-36 md:py-48 overflow-hidden hero-corner-ornament">
         <div className="absolute inset-0">
@@ -208,12 +94,11 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { n: '01', title: '현장 중심의 실전 경험', desc: '수많은 예식 현장에서 쌓은 경험으로 어떤 변수에도 흔들리지 않는 안정적인 서비스를 제공합니다.' },
-              { n: '02', title: '통합 서비스 원스톱 관리', desc: '포토부스, 전문사회를 하나의 팀이 관리하고, 예식장 제휴 컨시어지로 현장을 완성합니다.' },
-              { n: '03', title: '맞춤형 운영 설계', desc: '예식장 구조, 하객 규모, 부부의 취향을 반영한 1:1 맞춤형 운영 매뉴얼을 설계합니다.' },
-              { n: '04', title: '검증된 파트너십', desc: '다수의 예식장과 정식 제휴를 맺고, 높은 고객 만족도를 유지하고 있습니다.' },
+              { n: 'I', title: '운영을 시스템으로 다룹니다', desc: '경험을 예식장 전용 운영 매뉴얼로 만들고, 큐 시트와 응대 스크립트, 월간 운영 데이터로 관리합니다. 인력이 바뀌어도 같은 결과가 나옵니다.' },
+              { n: 'II', title: '흐름의 디테일에 집중합니다', desc: '입장, 축가, 퇴장 큐를 1초 단위로 설계하고, 현장 매니저 한 명이 음향·조명·사회 큐를 함께 맞춥니다.' },
+              { n: 'III', title: '장기적 관점에서 동행합니다', desc: '최소 3개월 단위로 함께하며 분기별 운영 리포트와 권고안을 드리고, 매뉴얼과 운영 자산을 예식장에 인계합니다.' },
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.08} variants={fade}

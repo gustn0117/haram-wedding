@@ -3,7 +3,7 @@ import Hatch from '@/components/Hatch';
 import PageHero from '@/components/page/PageHero';
 import Section from '@/components/page/Section';
 import CtaBand from '@/components/page/CtaBand';
-import { ESTIMATE_HREF } from '@/lib/nav';
+import { CONTACT_HREF } from '@/lib/nav';
 
 const BENEFITS = [
   { title: '고객 만족도와 재추천', desc: '전문 매니저의 현장 관리로 예식장 이용 고객의 만족도가 올라가고, 입소문으로 이어집니다.' },
@@ -70,8 +70,8 @@ export default function PartnershipPage() {
 
       <CtaBand
         title="제휴 상담을 신청하세요"
-        description="예식장 규모와 월간 예식 건수를 알려주시면 맞춤 견적을 드립니다. 1회 체험 운영도 가능합니다."
-        href={ESTIMATE_HREF}
+        description="예식장 규모와 월간 예식 건수를 알려주시면 구성과 조건을 안내해 드립니다. 최소 3개월 단위 협업을 권장하며, 1회 체험 운영도 가능합니다."
+        href={CONTACT_HREF}
         label="제휴 상담 신청"
       />
     </main>

@@ -34,7 +34,7 @@ export const HOME: SitePage = {
   title: '하람 | 예식도우미 · 예식 컨시어지 · 웨딩 포토부스 · 예식사회자',
   name: '하람 웨딩 매니지먼트',
   description:
-    '하람은 예식도우미, 예식 컨시어지, 웨딩 포토부스, 예식사회자(전문사회)를 한 팀으로 운영하는 프리미엄 예식 매니지먼트입니다. 서울·경기·수원 및 전국 예식장 현장 운영을 책임집니다.',
+    '하람은 예식도우미(예식 컨시어지), 예식사회자, 축가, 웨딩 포토부스부터 웨딩홀 마케팅과 예식 취합 프로그램까지 한 파트너가 맡는 예식장 운영 파트너입니다.',
   keywords: [
     ...CORE_KEYWORDS,
     '하람',
@@ -49,6 +49,8 @@ export const HOME: SitePage = {
     '결혼식 사회자',
     '웨딩 MC',
     '전문사회',
+    '결혼식 축가',
+    '웨딩홀 마케팅',
     '수원 예식도우미',
     '경기 예식도우미',
     'HARAM',
@@ -65,7 +67,7 @@ export const CONCIERGE: SitePage = {
   title: '예식 컨시어지 · 예식도우미 | 하람 웨딩 컨시어지',
   name: '예식 컨시어지 · 예식도우미',
   description:
-    '하람 예식 컨시어지는 예식장과 직접 제휴해 전문 예식도우미가 하객 안내, 신부대기실 케어, 식순 조율, 돌발 상황 대응까지 현장 운영 전체를 책임지는 B2B 웨딩 컨시어지 서비스입니다.',
+    '하람 예식 컨시어지(예도)는 항공·호텔 서비스 계열 인력 중 자체 교육을 이수한 예식도우미만 투입해 하객 안내부터 퇴장까지 예식장 현장 운영을 맡는 서비스입니다. 웨딩홀 전용 관리 프로그램과 직원 전용 계정을 함께 제공합니다.',
   keywords: [
     '예식 컨시어지',
     '예식도우미',
@@ -92,7 +94,7 @@ export const PHOTOBOOTH: SitePage = {
   title: '웨딩 포토부스 | 결혼식 포토부스 대여 · 즉석 인화 - 하람',
   name: '웨딩 포토부스',
   description:
-    '하람 웨딩 포토부스는 예식 컨셉 맞춤 프레임 디자인, 무제한 촬영·고품질 즉석 인화, 전문 스태프 상주, 디지털 원본 제공까지 포함된 프리미엄 결혼식 포토부스 대여 서비스입니다.',
+    '하람 웨딩 포토부스는 운영 스태프가 상주해 촬영 안내, 즉석 인화, 소모품 관리까지 맡는 결혼식 포토부스입니다. 건당 운영과 월 대여 중 선택할 수 있고 촬영 데이터는 클라우드에 백업됩니다.',
   keywords: [
     '웨딩 포토부스',
     '결혼식 포토부스',
@@ -117,7 +119,7 @@ export const HOST: SitePage = {
   title: '예식사회자 · 결혼식 사회자 | 전문 웨딩 MC - 하람',
   name: '예식사회자 (전문사회)',
   description:
-    '하람 예식사회자는 사전 미팅으로 두 분의 이야기를 파악하고 식순 구성, 리허설 참여, 현장 분위기 리딩까지 책임지는 전문 결혼식 사회자(웨딩 MC) 서비스입니다.',
+    '하람 예식사회자는 대본을 횟수 제한 없이 비대면으로 협의하고, 큐 시트에 맞춰 음향팀과 1초 단위로 맞물려 입장부터 퇴장까지 진행하는 전문 결혼식 사회자입니다.',
   keywords: [
     '예식사회자',
     '예식 사회자',
@@ -142,11 +144,11 @@ export const CONTACT: SitePage = {
   title: '상담 문의 | 예식도우미 · 웨딩 포토부스 · 예식사회자 - 하람',
   name: '하람 상담 문의',
   description:
-    '예식도우미·예식 컨시어지 제휴, 웨딩 포토부스 대여, 예식사회자 섭외 상담. 전화 010-7930-1332 또는 온라인 문의로 맞춤 견적을 받아보세요.',
+    '예식도우미·예식 컨시어지 제휴, 웨딩 포토부스 대여, 예식사회자 섭외 상담. 전화 010-7930-1332 또는 온라인 문의로 상담을 받아보세요.',
   keywords: [
     '예식도우미 문의',
     '예식 컨시어지 제휴',
-    '웨딩 포토부스 견적',
+    '웨딩 포토부스 문의',
     '예식사회자 섭외',
     '결혼식 사회자 비용',
     '하람 문의',
@@ -205,8 +207,8 @@ export const CAREERS: SitePage = {
   title: '인재 채용 | 예식도우미 · 포토부스 스태프 · 예식사회자 모집 - 하람',
   name: '인재 채용',
   description:
-    '하람과 함께할 예식도우미(컨시어지 매니저), 웨딩 포토부스 스태프, 예식사회자를 모집합니다. 입사 후 4주 집중 교육을 거쳐 예식 현장에 배치됩니다.',
-  keywords: ['예식도우미 채용', '예식도우미 알바', '웨딩 도우미 모집', '포토부스 스태프 채용', '예식사회자 모집'],
+    '하람과 함께할 예식도우미(컨시어지 매니저), 웨딩 포토부스 스태프, 예식사회자, 축가 보컬리스트를 모집합니다. 항공·호텔 서비스 계열 지망생과 경험자 우대, 자체 교육과 실무 평가 후 현장에 배치됩니다.',
+  keywords: ['예식도우미 채용', '예식도우미 알바', '웨딩 도우미 모집', '포토부스 스태프 채용', '예식사회자 모집', '축가 알바'],
   image: '/images/hotel-white/concierge-guest-flow.png',
   imageAlt: '하람 인재 채용',
   updated: '2026-09-22',
@@ -214,8 +216,67 @@ export const CAREERS: SitePage = {
   priority: 0.6,
 };
 
-export const SERVICES = [CONCIERGE, PHOTOBOOTH, HOST];
-export const PAGES = [HOME, ...SERVICES, ABOUT, PARTNERSHIP, REVIEWS, CAREERS, CONTACT];
+export const VOCAL: SitePage = {
+  path: '/vocal',
+  title: '결혼식 축가 | 라이브 웨딩 축가 보컬리스트 - 하람',
+  name: '축가',
+  description:
+    '하람 축가는 가창력 있는 보컬리스트가 신랑신부와 곡목, 키, 편곡을 미리 협의해 본식에서 라이브로 부르는 결혼식 축가 서비스입니다. 음향팀 사운드 체크까지 함께 운영합니다.',
+  keywords: ['결혼식 축가', '웨딩 축가', '축가 업체', '라이브 축가', '축가 보컬리스트', '하람 축가'],
+  image: '/images/hotel-white/main-quote-hotel-ballroom.png',
+  imageAlt: '하람 결혼식 축가',
+  updated: '2026-09-22',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+  serviceType: '결혼식 축가',
+};
+
+export const MARKETING: SitePage = {
+  path: '/marketing',
+  title: '웨딩홀 마케팅 | 예식장 예약률을 올리는 월 단위 운영 - 하람',
+  name: '웨딩홀 마케팅',
+  description:
+    '하람 웨딩홀 마케팅은 홀 콘텐츠 제작, 채널 운영과 광고 집행, 문의 응대 동선 설계, 월간 성과 리포트까지 예식장 예약률을 올리는 월 단위 마케팅 운영 서비스입니다.',
+  keywords: ['웨딩홀 마케팅', '예식장 마케팅', '웨딩홀 광고', '예식장 홍보', '웨딩홀 콘텐츠'],
+  image: '/images/hotel-white/main-intro-hotel-hall.png',
+  imageAlt: '하람 웨딩홀 마케팅',
+  updated: '2026-09-22',
+  changeFrequency: 'monthly',
+  priority: 0.7,
+  serviceType: '웨딩홀 마케팅',
+};
+
+export const PROGRAM: SitePage = {
+  path: '/program',
+  title: '예식 취합 프로그램 | 웨딩홀 관리 프로그램 - 하람',
+  name: '예식 취합 프로그램',
+  description:
+    '예약, 식순, 담당 스태프, 협력 업체 정보를 한 화면에서 관리하는 웨딩홀 관리 프로그램입니다. 홀 개수 제한 없이 회차별 진행 현황과 큐 시트를 공유합니다.',
+  keywords: ['웨딩홀 관리 프로그램', '예식장 관리 프로그램', '예식 관리 시스템', '큐시트 프로그램', '예식 취합 프로그램'],
+  image: '/images/hotel-white/concierge-timeline.png',
+  imageAlt: '하람 예식 취합 프로그램',
+  updated: '2026-09-22',
+  changeFrequency: 'monthly',
+  priority: 0.7,
+  serviceType: '웨딩홀 관리 프로그램',
+};
+
+export const SERVICES_INDEX: SitePage = {
+  path: '/services',
+  title: '서비스 | 예식도우미 · 예식사회자 · 축가 · 웨딩 포토부스 - 하람',
+  name: '서비스',
+  description:
+    '예식 컨시어지(예식도우미), 예식사회자, 축가, 웨딩 포토부스, 웨딩홀 마케팅, 예식 취합 프로그램. 하람이 운영하는 여섯 가지 서비스를 한눈에 보세요.',
+  keywords: ['예식도우미', '예식사회자', '결혼식 축가', '웨딩 포토부스', '웨딩홀 마케팅', '웨딩홀 관리 프로그램'],
+  image: '/images/hotel-white/concierge-hero.png',
+  imageAlt: '하람 서비스',
+  updated: '2026-09-22',
+  changeFrequency: 'monthly',
+  priority: 0.9,
+};
+
+export const SERVICE_PAGES = [CONCIERGE, HOST, VOCAL, PHOTOBOOTH, MARKETING, PROGRAM];
+export const PAGES = [HOME, SERVICES_INDEX, ...SERVICE_PAGES, ABOUT, PARTNERSHIP, REVIEWS, CAREERS, CONTACT];
 
 export const absUrl = (path: string) => (path === '/' ? SITE_URL : `${SITE_URL}${path}`);
 
@@ -320,7 +381,7 @@ export const siteJsonLd = [
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: '하람 웨딩 서비스',
-      itemListElement: SERVICES.map((s) => ({
+      itemListElement: SERVICE_PAGES.map((s) => ({
         '@type': 'Offer',
         itemOffered: { '@type': 'Service', name: s.name, url: absUrl(s.path) },
       })),

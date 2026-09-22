@@ -2,12 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ESTIMATE_HREF, PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
+import { CONTACT_HREF, PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
 import { IconArrowUp, IconBuilding, IconChat, IconDocument, IconPhone, IconUsers } from '@/components/icons';
 
 const QUICK = [
   { href: '/partnership', label: '예식장 제휴', Icon: IconBuilding },
-  { href: ESTIMATE_HREF, label: '견적 문의', Icon: IconDocument },
+  { href: CONTACT_HREF, label: '상담 문의', Icon: IconDocument },
   { href: '/reviews', label: '고객 후기', Icon: IconChat },
   { href: '/careers', label: '인재 채용', Icon: IconUsers },
 ];
@@ -47,18 +47,6 @@ export default function QuickDock() {
         </div>
       </aside>
 
-      {/* 데스크톱: 오른쪽 아래 견적 배지 */}
-      <Link href={ESTIMATE_HREF}
-        className="hidden lg:flex fixed right-0 bottom-0 z-40 items-center gap-3 pl-3 pr-6 py-3 rounded-tl-[36px] bg-ink text-white shadow-[0_-8px_32px_rgba(28,29,33,0.18)] hover:bg-[#2a2b30] transition-colors">
-        <span className="w-12 h-12 rounded-full bg-gold-light text-ink flex items-center justify-center">
-          <IconDocument className="w-6 h-6" />
-        </span>
-        <span className="leading-tight">
-          <span className="block text-[12px] font-semibold text-gold-light">1분이면 끝나요</span>
-          <span className="block text-[16px] font-bold">무료 견적 받기</span>
-        </span>
-      </Link>
-
       {/* 모바일: 하단 고정 바 */}
       <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 bg-white border-t border-line pb-[env(safe-area-inset-bottom)]">
         <div className="grid grid-cols-[1fr_1.4fr] gap-2 p-2">
@@ -67,9 +55,9 @@ export default function QuickDock() {
             <IconPhone className="w-5 h-5 text-gold-deep" />
             전화 상담
           </a>
-          <Link href={ESTIMATE_HREF}
+          <Link href={CONTACT_HREF}
             className="flex items-center justify-center h-12 rounded-xl bg-ink text-white text-[15px] font-semibold">
-            무료 견적 받기
+            문의하기
           </Link>
         </div>
       </div>
