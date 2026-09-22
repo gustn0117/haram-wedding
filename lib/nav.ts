@@ -8,6 +8,5 @@ export const MAIN_MENU = [
   { href: '/about', label: '하람소개' },
   { href: '/services', label: '서비스', dropdown: true },
   { href: '/partnership', label: '제휴 안내' },
-  { href: '/reviews', label: '고객후기' },
   { href: '/contact', label: '문의하기' },
 ];

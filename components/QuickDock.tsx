@@ -3,12 +3,11 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CONTACT_HREF, PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
-import { IconArrowUp, IconBuilding, IconChat, IconDocument, IconPhone, IconUsers } from '@/components/icons';
+import { IconArrowUp, IconBuilding, IconDocument, IconPhone, IconUsers } from '@/components/icons';
 
 const QUICK = [
   { href: '/partnership', label: '예식장 제휴', Icon: IconBuilding },
   { href: CONTACT_HREF, label: '상담 문의', Icon: IconDocument },
-  { href: '/reviews', label: '고객 후기', Icon: IconChat },
   { href: '/careers', label: '인재 채용', Icon: IconUsers },
 ];
 

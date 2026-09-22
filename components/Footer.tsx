@@ -6,7 +6,6 @@ import { SERVICES } from '@/lib/services';
 const INFO_LINKS = [
   { href: '/about', label: '하람소개' },
   { href: '/partnership', label: '예식장 제휴' },
-  { href: '/reviews', label: '고객후기' },
   { href: '/careers', label: '인재 채용' },
   { href: '/contact', label: '문의하기' },
 ];

@@ -236,10 +236,7 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
 
       {reviews.length > 0 && (
         <Wrap tone="mist">
-          <div className="flex items-end justify-between gap-6 mb-8 md:mb-10">
-            <h2 className="text-[24px] md:text-[30px] font-bold tracking-[-0.03em] text-ink">이용 후기</h2>
-            <Link href="/reviews" className="text-[14px] font-semibold text-ink/60 hover:text-ink underline underline-offset-4">후기 전체 보기</Link>
-          </div>
+          <H2>이용 후기</H2>
           <ul className="grid md:grid-cols-3 gap-4">
             {reviews.map((r) => (
               <li key={r.author + r.text.slice(0, 10)} className="bg-white rounded-2xl border border-line p-6 flex flex-col">

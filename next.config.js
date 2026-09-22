@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  async redirects() {
+    return [{ source: '/reviews', destination: '/', permanent: true }];
+  },
   images: {
     remotePatterns: [
       {

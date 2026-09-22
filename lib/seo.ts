@@ -188,20 +188,6 @@ export const PARTNERSHIP: SitePage = {
   priority: 0.8,
 };
 
-export const REVIEWS: SitePage = {
-  path: '/reviews',
-  title: '고객후기 | 예식도우미 · 웨딩 포토부스 · 예식사회자 후기 - 하람',
-  name: '고객후기',
-  description:
-    '하람 예식 컨시어지, 웨딩 포토부스, 예식사회자를 이용한 신랑신부와 제휴 예식장의 실제 후기를 모았습니다.',
-  keywords: ['하람 후기', '예식도우미 후기', '웨딩 포토부스 후기', '결혼식 사회자 후기', '예식 컨시어지 후기'],
-  image: '/images/editorial-2026/details.png',
-  imageAlt: '하람 고객후기',
-  updated: '2026-09-22',
-  changeFrequency: 'weekly',
-  priority: 0.7,
-};
-
 export const CAREERS: SitePage = {
   path: '/careers',
   title: '인재 채용 | 예식도우미 · 포토부스 스태프 · 예식사회자 모집 - 하람',
@@ -276,7 +262,7 @@ export const SERVICES_INDEX: SitePage = {
 };
 
 export const SERVICE_PAGES = [CONCIERGE, HOST, VOCAL, PHOTOBOOTH, MARKETING, PROGRAM];
-export const PAGES = [HOME, SERVICES_INDEX, ...SERVICE_PAGES, ABOUT, PARTNERSHIP, REVIEWS, CAREERS, CONTACT];
+export const PAGES = [HOME, SERVICES_INDEX, ...SERVICE_PAGES, ABOUT, PARTNERSHIP, CAREERS, CONTACT];
 
 export const absUrl = (path: string) => (path === '/' ? SITE_URL : `${SITE_URL}${path}`);
 
