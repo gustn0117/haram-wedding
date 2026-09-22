@@ -45,11 +45,11 @@ export default function HostPage() {
           </motion.div>
           <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
             className="text-[36px] md:text-[56px] text-white font-extralight leading-[1.2] tracking-tight">
-            전문사회
+            예식사회자 · 전문사회
           </motion.h1>
           <motion.p initial="hidden" animate="show" custom={0.2} variants={fade}
             className="text-[15px] text-white/50 mt-4 max-w-md leading-relaxed">
-            격식과 감동 사이, 완벽한 균형을 잡는 전문 MC
+            격식과 감동 사이, 완벽한 균형을 잡는 결혼식 사회자 · 웨딩 MC
           </motion.p>
         </div>
       </section>

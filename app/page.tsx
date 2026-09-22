@@ -1,6 +1,9 @@
 'use client';
 
 import Image from 'next/image';
+import { HOME_FAQ } from '@/lib/faq';
+import { faqJsonLd } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { useRef, useState } from 'react';
@@ -32,6 +35,7 @@ export default function Home() {
 
   return (
     <main>
+      <JsonLd data={faqJsonLd(HOME_FAQ)} />
       <div className="scroll-progress" style={{ transform: `scaleX(${progress})` }} />
 
       {/* ────── HERO ────── */}
@@ -56,6 +60,7 @@ export default function Home() {
           <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
             className="heading-en text-[56px] md:text-[90px] lg:text-[120px] text-white font-light tracking-[0.12em] leading-[1] mb-4">
             HARAM
+            <span className="sr-only"> 하람 — 예식도우미 · 예식 컨시어지 · 웨딩 포토부스 · 예식사회자</span>
           </motion.h1>
 
           <motion.p initial="hidden" animate="show" custom={0.18} variants={fade}
@@ -66,6 +71,9 @@ export default function Home() {
           <motion.p initial="hidden" animate="show" custom={0.25} variants={fade}
             className="text-[15px] md:text-[17px] text-white/50 font-light mb-12 max-w-md mx-auto leading-relaxed">
             예식의 품질은 현장에서 결정됩니다
+            <span className="block mt-3 text-[13px] md:text-[14px] text-white/35 tracking-wide">
+              예식도우미 · 예식 컨시어지 · 웨딩 포토부스 · 예식사회자
+            </span>
           </motion.p>
 
           <motion.div initial="hidden" animate="show" custom={0.35} variants={fade}
@@ -396,13 +404,7 @@ export default function Home() {
           </motion.div>
 
           <div className="space-y-3">
-            {[
-              { q: '예약은 얼마나 전에 해야 하나요?', a: '결혼식 2~3개월 전에 예약하시는 것을 권장합니다. 인기 시즌(봄, 가을)에는 더 일찍 예약해 주시면 원활한 준비가 가능합니다.' },
-              { q: '서비스를 개별로 이용할 수 있나요?', a: '물론입니다. 포토부스, 전문사회를 각각 개별로 이용하실 수 있으며, 통합 패키지로 함께 이용하시면 할인이 적용됩니다.' },
-              { q: '지방 예식장에서도 이용 가능한가요?', a: '서울, 경기 외 지역도 진행 가능합니다. 상담 시 예식장 위치를 알려주시면 진행 가능 여부와 세부 사항을 안내해 드립니다.' },
-              { q: '예식장이 정해지지 않았는데 상담받을 수 있나요?', a: '가능합니다. 예식장 결정 전이라도 미리 상담받으시면 서비스 구성과 예산 계획에 도움을 드릴 수 있습니다.' },
-              { q: '취소나 날짜 변경이 가능한가요?', a: '가능한 범위 내에서 유연하게 대응해 드립니다. 자세한 변경·취소 정책은 상담 시 안내드립니다.' },
-            ].map((item, i) => (
+            {HOME_FAQ.map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.04} variants={fade}
                 className="bg-white p-7 md:p-8 faq-item group hover:shadow-sm transition-shadow">

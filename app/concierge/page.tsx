@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { CONCIERGE_FAQ } from '@/lib/faq';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 import { useRef, useState } from 'react';
@@ -89,6 +90,7 @@ export default function ConciergePage() {
           <motion.h1 initial="hidden" animate="show" custom={0.12} variants={fade}
             className="heading-en text-[50px] md:text-[80px] lg:text-[100px] text-white font-light tracking-[0.1em] leading-[1] mb-4">
             Concierge
+            <span className="sr-only"> 하람 예식 컨시어지 · 예식도우미</span>
           </motion.h1>
 
           <motion.p initial="hidden" animate="show" custom={0.2} variants={fade}
@@ -98,7 +100,7 @@ export default function ConciergePage() {
 
           <motion.p initial="hidden" animate="show" custom={0.28} variants={fade}
             className="text-[15px] md:text-[18px] text-white/50 font-light max-w-xl mx-auto leading-[1.8]">
-            예식장과 직접 제휴하여<br className="md:hidden" /> 현장 운영의 모든 것을 책임집니다
+            예식장과 직접 제휴한 예식 컨시어지 · 전문 예식도우미가<br className="md:hidden" /> 현장 운영의 모든 것을 책임집니다
           </motion.p>
 
           <motion.div initial="hidden" animate="show" custom={0.4} variants={fade}
@@ -645,15 +647,7 @@ export default function ConciergePage() {
           </motion.div>
 
           <div className="space-y-3">
-            {[
-              { q: '개인 고객도 직접 신청할 수 있나요?', a: '컨시어지는 예식장 전용 B2B 서비스로, 개인 신청은 받지 않습니다. 하람과 제휴된 예식장에서 예식을 진행하시면 자연스럽게 컨시어지 서비스를 받으실 수 있습니다.' },
-              { q: '제휴 비용은 어떻게 책정되나요?', a: '예식장 규모, 월간 예식 건수, 필요 서비스 범위에 따라 맞춤 견적을 제공합니다. 월 정액제와 건별 과금제 중 선택할 수 있으며, 상담을 통해 상세히 안내해 드립니다.' },
-              { q: '기존 운영 인력과의 역할 분담은 어떻게 하나요?', a: '제휴 초기 현장 답사와 매뉴얼 설계 단계에서 예식장 내부 인력과의 역할 분담을 사전에 명확히 설계합니다. 중복 없이 효율적으로 운영되며, 내부 직원분들과의 협업 교육도 진행합니다.' },
-              { q: '최소 계약 기간이 있나요?', a: '기본 3개월 단위로 계약하며, 이후 월 단위 연장이 가능합니다. 도입을 고민 중이시라면, 1회 체험 운영도 가능하니 부담 없이 상담해 주세요.' },
-              { q: '지방 예식장도 제휴 가능한가요?', a: '서울, 경기 외 지역도 제휴 가능합니다. 현장 답사 후 운영 가능 여부와 매니저 배치 계획을 안내해 드립니다. 현재 수도권 외 부산, 대전 지역에서도 운영 중입니다.' },
-              { q: '컨시어지 매니저는 어떤 교육을 받나요?', a: '모든 매니저는 입사 후 4주간 집중 교육을 받습니다. 예식 현장 운영, 하객 응대, 돌발 상황 대응, 의전 매너 등의 전문 커리큘럼을 이수한 후 현장에 배치됩니다.' },
-              { q: '하람의 다른 서비스(포토부스, 전문사회)와 함께 이용할 수 있나요?', a: '물론입니다. 포토부스, 전문사회와 컨시어지를 통합 운영하면 하나의 팀이 현장 전체를 관리하므로 퀄리티와 효율성이 더욱 높아집니다. 통합 패키지 할인도 제공됩니다.' },
-            ].map((item, i) => (
+            {CONCIERGE_FAQ.map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.04} variants={fade}
                 className="bg-white p-7 md:p-8 faq-item group hover:shadow-sm transition-shadow">

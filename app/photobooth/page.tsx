@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { PHOTOBOOTH_FAQ } from '@/lib/faq';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -45,11 +46,11 @@ export default function PhotoboothPage() {
           </motion.div>
           <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
             className="text-[36px] md:text-[56px] text-white font-extralight leading-[1.2] tracking-tight">
-            포토부스
+            웨딩 포토부스
           </motion.h1>
           <motion.p initial="hidden" animate="show" custom={0.2} variants={fade}
             className="text-[15px] text-white/50 mt-4 max-w-md leading-relaxed">
-            하객에게 추억을, 부부에게 감동을 선물하는 프리미엄 포토부스
+            하객에게 추억을, 부부에게 감동을 선물하는 프리미엄 결혼식 포토부스
           </motion.p>
         </div>
       </section>
@@ -315,12 +316,7 @@ export default function PhotoboothPage() {
           </motion.div>
 
           <div className="space-y-3">
-            {[
-              { q: '촬영 매수에 제한이 있나요?', a: '기본 서비스는 무제한 촬영입니다. 예식 시간 동안 원하시는 만큼 자유롭게 촬영하실 수 있습니다.' },
-              { q: '설치 공간은 어느 정도 필요한가요?', a: '최소 2m x 2m 공간이면 설치 가능합니다. 예식장 로비, 대기실, 포토존 등 원하시는 위치에 설치해 드립니다.' },
-              { q: '디자인 수정은 몇 번까지 가능한가요?', a: '기본 2회 수정이 포함되어 있으며, 추가 수정도 상담을 통해 가능합니다. 만족하실 때까지 함께 맞춰드립니다.' },
-              { q: '야외 예식에서도 사용할 수 있나요?', a: '가능합니다. 야외용 장비와 텐트형 부스를 별도로 준비하고 있습니다. 사전 현장 답사를 통해 최적의 세팅을 안내해 드립니다.' },
-            ].map((item, i) => (
+            {PHOTOBOOTH_FAQ.map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.04} variants={fade}
                 className="bg-white p-7 md:p-8 faq-item group hover:shadow-sm transition-shadow">
