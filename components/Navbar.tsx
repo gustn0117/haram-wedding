@@ -46,7 +46,7 @@ export default function Navbar() {
       <header
         className={`site-header fixed inset-x-0 top-0 z-50 transition-[transform,background-color,box-shadow] duration-300 ${
           scrolled ? 'md:-translate-y-9' : ''
-        } ${overlay ? 'bg-transparent' : 'bg-white shadow-[0_1px_0_#e7e5e0]'}`}
+        } ${overlay ? 'bg-transparent' : 'bg-white/95 backdrop-blur-xl shadow-[0_1px_0_#ddd5c9]'}`}
       >
         {/* 유틸리티 바 */}
         <div className={`hidden md:block h-9 border-b ${overlay ? 'border-white/10 bg-black/20' : 'border-line bg-white'}`}>

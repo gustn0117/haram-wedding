@@ -39,7 +39,7 @@ export default function Home() {
 
       {/* ────── DIVIDER ────── */}
       <div className="ornament-divider">
-        <svg className="w-4 h-4 text-[#b89d6a]/25" viewBox="0 0 16 16" fill="currentColor">
+        <svg className="w-4 h-4 text-sage/35" viewBox="0 0 16 16" fill="currentColor">
           <path d="M8 0l2 6h6l-5 3.5 2 6.5-5-4-5 4 2-6.5L0 6h6z" />
         </svg>
       </div>
@@ -52,7 +52,7 @@ export default function Home() {
               {['Concierge', 'Photobooth', 'Professional Host', 'Wedding Management', 'Premium Service', 'Concierge', 'Photobooth', 'Professional Host'].map((t, i) => (
                 <span key={i} className="flex items-center gap-12">
                   <span className="heading-en text-[15px] text-gray-300 whitespace-nowrap">{t}</span>
-                  <span className="w-1.5 h-1.5 bg-[#b89d6a]/30 rotate-45 shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-sage/40 rotate-45 shrink-0" />
                 </span>
               ))}
             </div>
@@ -63,9 +63,9 @@ export default function Home() {
       {/* ────── QUOTE BREAK ────── */}
       <section className="relative py-36 md:py-48 overflow-hidden hero-corner-ornament">
         <div className="absolute inset-0">
-          <Image src="/images/hotel-white/main-quote-hotel-ballroom.png"
+          <Image src="/images/editorial-2026/details.png"
             alt="Wedding" fill className="object-cover" />
-          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-sage-deep/65" />
         </div>
         <div className="hero-pattern" />
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
@@ -74,11 +74,11 @@ export default function Home() {
             하객의 첫인상은<br />공간이 아니라 사람이 만듭니다
           </p>
           <div className="flex items-center justify-center gap-4 mt-10">
-            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#b89d6a]/30" />
-            <svg className="w-4 h-4 text-[#b89d6a]/25" viewBox="0 0 16 16" fill="currentColor">
+            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-gold-light/50" />
+            <svg className="w-4 h-4 text-gold-light/50" viewBox="0 0 16 16" fill="currentColor">
               <path d="M8 0l2 6h6l-5 3.5 2 6.5-5-4-5 4 2-6.5L0 6h6z" />
             </svg>
-            <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#b89d6a]/30" />
+            <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-gold-light/50" />
           </div>
         </motion.div>
       </section>
@@ -102,8 +102,8 @@ export default function Home() {
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.08} variants={fade}
-                className="p-8 md:p-10 border border-gray-100 card-lift card-inner-glow group hover:border-[#b89d6a]/30">
-                <span className="heading-en text-[32px] text-gray-100 group-hover:text-[#b89d6a]/20 transition-colors">{item.n}</span>
+                className="p-8 md:p-10 rounded-[28px] border border-line bg-white card-lift card-inner-glow group hover:border-sage/45">
+                <span className="heading-en text-[32px] text-sage/20 group-hover:text-sage/45 transition-colors">{item.n}</span>
                 <h3 className="text-[16px] font-normal mt-4 mb-3">{item.title}</h3>
                 <p className="text-[13px] text-gray-400 leading-[1.9]">{item.desc}</p>
               </motion.div>
@@ -113,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* ────── PROCESS ────── */}
-      <section className="py-28 md:py-40 px-6 bg-[#FAF8F5] relative bg-noise">
+      <section className="py-28 md:py-40 px-6 bg-mist relative bg-noise">
         <div className="max-w-4xl mx-auto relative z-10">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
             className="text-center mb-16">
@@ -132,8 +132,8 @@ export default function Home() {
             ].map((item, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.1} variants={fade}
-                className={`text-center py-12 px-6 group hover:bg-white/60 transition-all duration-500 ${i < 3 ? 'md:border-r border-b md:border-b-0 border-gray-200/60' : ''}`}>
-                <span className="heading-en text-[28px] text-[#b89d6a]/30 group-hover:text-[#b89d6a]/60 transition-colors">{item.step}</span>
+                className={`text-center py-12 px-6 group hover:bg-white/70 transition-all duration-500 ${i < 3 ? 'md:border-r border-b md:border-b-0 border-line' : ''}`}>
+                <span className="heading-en text-[28px] text-sage/40 group-hover:text-gold-deep transition-colors">{item.step}</span>
                 <h4 className="text-[17px] font-normal mt-3 mb-2">{item.title}</h4>
                 <p className="text-[12px] text-gray-400 leading-[1.8]">{item.desc}</p>
               </motion.div>
@@ -161,10 +161,10 @@ export default function Home() {
             ].map((t, i) => (
               <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.1} variants={fade}
-                className="p-8 bg-[#FAF8F5] group testimonial-premium card-inner-glow">
+                className="p-8 rounded-[28px] bg-mist group testimonial-premium card-inner-glow">
                 <div className="flex gap-0.5 mb-5">
                   {[...Array(5)].map((_, j) => (
-                    <svg key={j} className="w-3.5 h-3.5 text-[#b89d6a]" viewBox="0 0 16 16" fill="currentColor">
+                    <svg key={j} className="w-3.5 h-3.5 text-gold" viewBox="0 0 16 16" fill="currentColor">
                       <path d="M8 1.5l1.85 3.75 4.15.6-3 2.93.71 4.12L8 10.88 4.29 12.9l.71-4.12-3-2.93 4.15-.6L8 1.5z" />
                     </svg>
                   ))}
@@ -181,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* ────── FAQ ────── */}
-      <section className="py-28 md:py-40 px-6 bg-[#FAF8F5]">
+      <section className="py-28 md:py-40 px-6 bg-mist">
         <div className="max-w-3xl mx-auto">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
             className="text-center mb-16">
@@ -197,10 +197,10 @@ export default function Home() {
                 custom={i * 0.04} variants={fade}
                 className="bg-white p-7 md:p-8 faq-item group hover:shadow-sm transition-shadow">
                 <h4 className="text-[15px] font-normal mb-4 flex items-start gap-3">
-                  <span className="heading-en text-[#b89d6a] shrink-0 text-[15px]">Q.</span>
+                  <span className="heading-en text-gold-deep shrink-0 text-[15px]">Q.</span>
                   {item.q}
                 </h4>
-                <div className="pl-7 border-l-2 border-[#b89d6a]/15">
+                <div className="pl-7 border-l-2 border-sage/25">
                   <p className="text-[13px] text-gray-400 leading-[1.9]">{item.a}</p>
                 </div>
               </motion.div>
@@ -210,17 +210,17 @@ export default function Home() {
       </section>
 
       {/* ────── CTA ────── */}
-      <section className="relative py-32 md:py-44 px-6 overflow-hidden bg-[#111] dark-pattern hero-side-lines">
+      <section className="relative py-32 md:py-44 px-6 overflow-hidden bg-sage-deep dark-pattern hero-side-lines">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/images/hotel-white/main-cta-wedding-details.png"
+          <Image src="/images/editorial-2026/details.png"
             alt="" fill className="object-cover" />
         </div>
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
           className="max-w-2xl mx-auto relative text-center z-10">
           <div className="flex items-center justify-center gap-4 mb-8">
-            <span className="w-8 h-[1px] bg-[#b89d6a]/30" />
+            <span className="w-8 h-[1px] bg-gold-light/45" />
             <span className="tag">Contact</span>
-            <span className="w-8 h-[1px] bg-[#b89d6a]/30" />
+            <span className="w-8 h-[1px] bg-gold-light/45" />
           </div>
           <h2 className="text-[28px] md:text-[42px] text-white font-extralight leading-[1.5] mt-5 mb-6 tracking-tight">
             특별한 날, 하람과 함께하세요
@@ -228,11 +228,11 @@ export default function Home() {
           <p className="text-[14px] text-white/40 mb-10">
             간단한 문의만으로도 맞춤 상담을 시작할 수 있습니다
           </p>
-          <p className="heading-en text-[36px] md:text-[48px] text-[#b89d6a] mb-12 stat-glow">
+          <p className="heading-en text-[36px] md:text-[48px] text-gold-light mb-12 stat-glow">
             010-7930-1332
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/contact" className="btn-gold bg-[#b89d6a] hover:bg-[#a38856]">
+            <Link href="/contact" className="btn-gold bg-gold hover:bg-gold-deep">
               <span>문의하기</span><Arr />
             </Link>
             <a href="tel:010-7930-1332" className="btn-ghost">

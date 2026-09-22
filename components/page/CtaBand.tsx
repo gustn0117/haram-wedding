@@ -5,7 +5,7 @@ type Props = { title: string; description: string; href: string; label: string }
 
 export default function CtaBand({ title, description, href, label }: Props) {
   return (
-    <section className="bg-ink text-white">
+    <section className="bg-sage-deep text-white">
       <div className="max-w-[1200px] mx-auto px-6 py-16 md:py-20 flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
         <div className="flex-1">
           <h2 className="text-[24px] md:text-[30px] font-bold tracking-[-0.03em] leading-[1.35] break-keep">{title}</h2>

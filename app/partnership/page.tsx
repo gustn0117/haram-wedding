@@ -28,7 +28,7 @@ export default function PartnershipPage() {
         title="예식장 현장 운영, 하람에 맡기세요"
         description="예식장 전용 B2B 예식 컨시어지입니다. 제휴 예식장에는 교육받은 예식도우미가 전담으로 배치됩니다."
         image="제휴 예식장 · 로비 전경"
-        imageSrc="/images/hotel-white/concierge-hero.png"
+        imageSrc="/images/editorial-2026/concierge-desk.png"
       />
 
       <Section title="제휴하면 달라지는 것">
@@ -59,7 +59,7 @@ export default function PartnershipPage() {
         <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 items-center">
           <Hatch
             label="하객 동선을 안내하는 예식장 입구"
-            src="/images/hotel-white/concierge-guest-flow.png"
+            src="/images/editorial-2026/concierge-desk.png"
             className="aspect-[3/2] rounded-2xl"
           />
           <div>

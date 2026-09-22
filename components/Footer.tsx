@@ -14,7 +14,7 @@ const fade = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111] text-white dark-pattern">
+    <footer className="bg-sage-deep text-white dark-pattern">
       {/* Gold accent line */}
       <div className="footer-gold-line" />
 
@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Company */}
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.05} variants={fade}
             className="text-[12px] text-gray-500 space-y-2.5">
-            <p className="text-[10px] text-[#b89d6a] tracking-[0.1em] mb-4">Company</p>
+            <p className="text-[10px] text-gold-light tracking-[0.1em] mb-4">Company</p>
             <p>상호명: 하람 · 대표: 김영진</p>
             <p>사업자등록번호: 412-21-01283</p>
             <p>통신판매업: 2025-용인기흥-01511</p>
@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Contact */}
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fade}
             className="text-[12px] text-gray-500 space-y-2.5">
-            <p className="text-[10px] text-[#b89d6a] tracking-[0.1em] mb-4">Contact</p>
+            <p className="text-[10px] text-gold-light tracking-[0.1em] mb-4">Contact</p>
             <p>경기도 수원시 영통구</p>
             <p className="heading-en text-[18px] text-white/70 !mt-4">010-7930-1332</p>
             <p className="text-[11px] text-gray-600">평일 10시 ~ 18시</p>
@@ -52,7 +52,7 @@ export default function Footer() {
           {/* Links */}
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.15} variants={fade}
             className="flex flex-col gap-3">
-            <p className="text-[10px] text-[#b89d6a] tracking-[0.1em] mb-2">Services</p>
+            <p className="text-[10px] text-gold-light tracking-[0.1em] mb-2">Services</p>
             {[
               { href: '/concierge', label: '예식 컨시어지' },
               { href: '/host', label: '예식사회자' },
@@ -65,7 +65,7 @@ export default function Footer() {
               { href: '/contact', label: '문의하기' },
             ].map((link) => (
               <Link key={link.href} href={link.href}
-                className="text-[12px] text-gray-500 hover:text-[#b89d6a] transition-colors w-fit">
+                className="text-[12px] text-gray-400 hover:text-gold-light transition-colors w-fit">
                 {link.label}
               </Link>
             ))}
@@ -78,7 +78,7 @@ export default function Footer() {
           <p className="text-[10px] text-gray-600">&copy; 2025 HARAM. All Rights Reserved.</p>
           <div className="flex gap-6">
             <a href="https://www.instagram.com/haram_wedding" target="_blank" rel="noopener noreferrer"
-              className="text-[10px] text-gray-600 hover:text-[#b89d6a] transition-colors flex items-center gap-1.5">
+              className="text-[10px] text-gray-500 hover:text-gold-light transition-colors flex items-center gap-1.5">
               <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="5" />
@@ -87,7 +87,7 @@ export default function Footer() {
               Instagram
             </a>
             <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer"
-              className="text-[10px] text-gray-600 hover:text-[#b89d6a] transition-colors">Blog</a>
+              className="text-[10px] text-gray-500 hover:text-gold-light transition-colors">Blog</a>
           </div>
         </div>
       </div>

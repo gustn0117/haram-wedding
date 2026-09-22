@@ -20,7 +20,7 @@ export default function QuickDock() {
     <>
       {/* 데스크톱: 오른쪽 퀵메뉴 */}
       <aside aria-label="바로가기" className="hidden lg:block fixed right-0 top-1/2 -translate-y-1/2 z-40 w-[92px]">
-        <div className="bg-white shadow-[-8px_8px_32px_rgba(28,29,33,0.10)] rounded-l-2xl overflow-hidden">
+        <div className="bg-white/95 backdrop-blur-xl shadow-[-8px_8px_32px_rgba(82,72,59,0.12)] rounded-l-[24px] overflow-hidden border border-r-0 border-line">
           <p className="bg-gold text-white text-[12px] font-bold text-center py-2.5 tracking-[0.02em]">바로가기</p>
           <ul>
             {QUICK.map(({ href, label, Icon }) => (

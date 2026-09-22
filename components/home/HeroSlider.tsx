@@ -27,7 +27,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/services', label: '서비스 둘러보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
     image: '화이트 플라워로 장식한 호텔 웨딩홀 전경',
-    imageSrc: '/images/hotel-white/main-quote-hotel-ballroom.png',
+    imageSrc: '/images/editorial-2026/home-hero.png',
   },
   {
     tab: '예식 컨시어지',
@@ -37,7 +37,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/concierge', label: '예식 컨시어지 보기' },
     secondary: { href: '/partnership', label: '예식장 제휴 문의' },
     image: '예식장 로비의 안내 동선과 플라워 장식',
-    imageSrc: '/images/hotel-white/concierge-hero.png',
+    imageSrc: '/images/editorial-2026/concierge-desk.png',
   },
   {
     tab: '사회 · 축가',
@@ -47,7 +47,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/host', label: '예식사회자 보기' },
     secondary: { href: '/vocal', label: '축가 보기' },
     image: '웨딩홀 무대의 사회자용 마이크와 큐시트',
-    imageSrc: '/images/hotel-white/host-hero.png',
+    imageSrc: '/images/editorial-2026/host-vocal.png',
   },
   {
     tab: '웨딩 포토부스',
@@ -57,7 +57,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/photobooth', label: '웨딩 포토부스 보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
     image: '웨딩홀에 설치한 포토부스와 인화 사진',
-    imageSrc: '/images/hotel-white/photobooth-hero.png',
+    imageSrc: '/images/editorial-2026/photobooth.png',
   },
   {
     tab: '예식장 솔루션',
@@ -67,7 +67,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/marketing', label: '웨딩홀 마케팅 보기' },
     secondary: { href: '/program', label: '예식 취합 프로그램 보기' },
     image: '예식장 운영 서류와 체크리스트',
-    imageSrc: '/images/hotel-white/contact-hero.png',
+    imageSrc: '/images/editorial-2026/operations.png',
   },
 ];
 
@@ -102,7 +102,7 @@ export default function HeroSlider() {
     <section
       aria-roledescription="carousel"
       aria-label="하람 주요 서비스"
-      className="relative h-[max(640px,min(92svh,880px))] overflow-hidden bg-ink text-white"
+      className="relative h-[max(640px,min(92svh,880px))] overflow-hidden bg-sage-deep text-white"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -137,9 +137,9 @@ export default function HeroSlider() {
       </AnimatePresence>
 
       {/* 가독성용 음영 */}
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,20,22,0.72)_0%,rgba(20,20,22,0.3)_50%,rgba(20,20,22,0)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/55 to-transparent" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/35 to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(53,62,52,0.86)_0%,rgba(53,62,52,0.54)_43%,rgba(53,62,52,0.08)_78%,rgba(53,62,52,0)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#354034]/60 to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#354034]/35 to-transparent" />
 
       {/* 문구 */}
       <div className="relative h-full max-w-[1200px] mx-auto px-6 flex flex-col justify-center pt-24 md:pt-28 pb-40 md:pb-44">

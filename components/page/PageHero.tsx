@@ -12,9 +12,9 @@ type Props = {
 /** 서브페이지 상단 — 헤더 높이만큼 비우고 제목을 아래쪽에 둔다 */
 export default function PageHero({ title, description, crumb, image, imageSrc }: Props) {
   return (
-    <section className="relative bg-ink text-white pt-16 md:pt-[112px]">
+    <section className="relative bg-sage-deep text-white pt-16 md:pt-[112px]">
       <Hatch label={image} src={imageSrc} className="absolute inset-0" priority />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,20,22,0.8)_0%,rgba(20,20,22,0.35)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(53,62,52,0.88)_0%,rgba(53,62,52,0.5)_58%,rgba(53,62,52,0.2)_100%)]" />
       <div className="relative max-w-[1200px] mx-auto px-6 pt-20 pb-14 md:pt-28 md:pb-16">
         <nav aria-label="현재 위치" className="text-[13px] text-white/50">
           <Link href="/" className="hover:text-white transition-colors">홈</Link>

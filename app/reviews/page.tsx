@@ -11,7 +11,7 @@ export default function ReviewsPage() {
         title="하람과 함께한 예식 이야기"
         description="신랑신부와 제휴 예식장이 남긴 후기입니다."
         image="웨딩 링과 예식 준비 소품"
-        imageSrc="/images/hotel-white/main-cta-wedding-details.png"
+        imageSrc="/images/editorial-2026/details.png"
       />
       <ReviewList />
       <CtaBand

@@ -27,7 +27,7 @@ export default function ServicesPage() {
         title="예식의 흐름부터 예식장 운영까지"
         description="컨시어지, 사회, 축가, 포토부스, 마케팅, 운영 프로그램까지 한 파트너가 맡습니다. 필요한 것만 골라 이용하세요."
         image="서비스 대표 이미지 · 예식 현장"
-        imageSrc="/images/hotel-white/concierge-cta.png"
+        imageSrc="/images/editorial-2026/home-hero.png"
       />
 
       {GROUPS.map((g, gi) => (

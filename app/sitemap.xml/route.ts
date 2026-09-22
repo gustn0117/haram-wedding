@@ -4,27 +4,23 @@ import { xmlEscape } from '@/lib/xml';
 // 이미지 사이트맵 — 구글/네이버 이미지 검색 노출용 (캡션에 핵심 키워드)
 const IMAGES: Record<string, { src: string; caption: string }[]> = {
   [HOME.path]: [
-    { src: '/images/hotel-white/main-intro-hotel-hall.png', caption: '하람 예식도우미가 운영하는 호텔 웨딩홀' },
-    { src: '/images/hotel-white/main-service-concierge.png', caption: '하람 예식 컨시어지' },
-    { src: '/images/hotel-white/main-service-photobooth.png', caption: '하람 웨딩 포토부스' },
-    { src: '/images/hotel-white/main-service-host.png', caption: '하람 예식사회자' },
-    { src: '/images/hotel-white/main-quote-hotel-ballroom.png', caption: '하람 웨딩 매니지먼트 호텔 연회장' },
+    { src: '/images/editorial-2026/home-hero.png', caption: '자연광이 드는 현대적인 웨딩홀' },
+    { src: '/images/editorial-2026/concierge-desk.png', caption: '하람 예식 컨시어지 안내 데스크' },
+    { src: '/images/editorial-2026/photobooth.png', caption: '하람 웨딩 포토부스' },
+    { src: '/images/editorial-2026/host-vocal.png', caption: '예식사회자와 축가를 위한 웨딩홀 무대' },
+    { src: '/images/editorial-2026/details.png', caption: '하람 웨딩 매니지먼트 예식 디테일' },
   ],
   [CONCIERGE.path]: [
-    { src: '/images/hotel-white/concierge-hero.png', caption: '예식 컨시어지 · 예식도우미 현장' },
-    { src: '/images/hotel-white/concierge-about.png', caption: '하람 예식 컨시어지 서비스' },
-    { src: '/images/hotel-white/concierge-guest-flow.png', caption: '예식도우미 하객 안내' },
-    { src: '/images/hotel-white/concierge-timeline.png', caption: '예식 컨시어지 식순 관리' },
+    { src: '/images/editorial-2026/concierge-desk.png', caption: '하람 예식 컨시어지 안내 데스크' },
+    { src: '/images/editorial-2026/operations.png', caption: '예식 컨시어지 운영 도구' },
   ],
   [PHOTOBOOTH.path]: [
-    { src: '/images/hotel-white/photobooth-hero.png', caption: '하람 웨딩 포토부스' },
-    { src: '/images/hotel-white/photobooth-about.png', caption: '결혼식 포토부스 즉석 인화' },
+    { src: '/images/editorial-2026/photobooth.png', caption: '하람 웨딩 포토부스와 즉석 인화' },
   ],
   [HOST.path]: [
-    { src: '/images/hotel-white/host-hero.png', caption: '하람 예식사회자 · 전문사회' },
-    { src: '/images/hotel-white/host-about.png', caption: '결혼식 사회자 웨딩 MC' },
+    { src: '/images/editorial-2026/host-vocal.png', caption: '예식사회자와 축가를 위한 웨딩홀 무대' },
   ],
-  [CONTACT.path]: [{ src: '/images/hotel-white/contact-hero.png', caption: '하람 예식 상담 문의' }],
+  [CONTACT.path]: [{ src: '/images/editorial-2026/details.png', caption: '하람 예식 상담 문의' }],
 };
 
 function urlEntry(page: SitePage) {

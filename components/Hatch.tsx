@@ -19,7 +19,7 @@ export default function Hatch({
   priority = false,
 }: Props) {
   return (
-    <div className={`${/\babsolute\b/.test(className) ? '' : 'relative'} overflow-hidden bg-[#ecebe8] ${className}`}>
+    <div className={`${/\babsolute\b/.test(className) ? '' : 'relative'} overflow-hidden bg-mist ${className}`}>
       <Image
         src={src}
         alt={label}

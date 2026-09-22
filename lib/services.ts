@@ -66,8 +66,8 @@ export const SERVICES: Service[] = [
       { when: '예식 당일', what: '현장 전체 운영, 종료 후 디브리프' },
     ],
     image: '예식장 안내 데스크와 운영 체크리스트',
-    imageSrc: '/images/hotel-white/main-service-concierge.png',
-    heroImageSrc: '/images/hotel-white/concierge-hero.png',
+    imageSrc: '/images/editorial-2026/concierge-desk.png',
+    heroImageSrc: '/images/editorial-2026/concierge-desk.png',
   },
   {
     slug: 'host',
@@ -111,8 +111,8 @@ export const SERVICES: Service[] = [
       { when: '예식 당일', what: '본식 진행, 종료 직후 디브리프' },
     ],
     image: '웨딩홀 마이크와 사회자 큐시트',
-    imageSrc: '/images/hotel-white/main-service-host.png',
-    heroImageSrc: '/images/hotel-white/host-hero.png',
+    imageSrc: '/images/editorial-2026/host-vocal.png',
+    heroImageSrc: '/images/editorial-2026/host-vocal.png',
   },
   {
     slug: 'vocal',
@@ -156,8 +156,8 @@ export const SERVICES: Service[] = [
       { when: '예식 당일', what: '본식 라이브 공연' },
     ],
     image: '웨딩홀 무대와 공연용 마이크',
-    imageSrc: '/images/hotel-white/host-about.png',
-    heroImageSrc: '/images/hotel-white/host-hero.png',
+    imageSrc: '/images/editorial-2026/host-vocal.png',
+    heroImageSrc: '/images/editorial-2026/host-vocal.png',
   },
   {
     slug: 'photobooth',
@@ -193,8 +193,8 @@ export const SERVICES: Service[] = [
       { when: '매월', what: '정기 점검, 데이터 백업, 정산' },
     ],
     image: '웨딩 포토부스와 즉석 인화 사진',
-    imageSrc: '/images/hotel-white/main-service-photobooth.png',
-    heroImageSrc: '/images/hotel-white/photobooth-hero.png',
+    imageSrc: '/images/editorial-2026/photobooth.png',
+    heroImageSrc: '/images/editorial-2026/photobooth.png',
   },
   {
     slug: 'marketing',
@@ -232,8 +232,8 @@ export const SERVICES: Service[] = [
       { when: '월말', what: '성과 리포트, 다음 달 운영안 확정' },
     ],
     image: '플라워 장식이 놓인 웨딩홀 전경',
-    imageSrc: '/images/hotel-white/main-intro-hotel-hall.png',
-    heroImageSrc: '/images/hotel-white/main-quote-hotel-ballroom.png',
+    imageSrc: '/images/editorial-2026/intro-vertical.png',
+    heroImageSrc: '/images/editorial-2026/home-hero.png',
   },
   {
     slug: 'program',
@@ -271,8 +271,8 @@ export const SERVICES: Service[] = [
       { when: '매월', what: '상시 운영, 데이터 백업' },
     ],
     image: '예식 운영 서류와 체크리스트',
-    imageSrc: '/images/hotel-white/concierge-about.png',
-    heroImageSrc: '/images/hotel-white/contact-hero.png',
+    imageSrc: '/images/editorial-2026/operations.png',
+    heroImageSrc: '/images/editorial-2026/operations.png',
   },
 ];
 

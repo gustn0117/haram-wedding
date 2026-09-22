@@ -128,7 +128,7 @@ export default function AdminPage() {
               value={password}
               onChange={(e) => { setPassword(e.target.value); setError(''); }}
               onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
-              className="w-full px-4 py-3 bg-[#FAF8F5] border border-gray-100 text-[14px] focus:outline-none focus:border-[#b89d6a]/40 mb-3"
+              className="w-full px-4 py-3 bg-mist border border-line text-[14px] focus:outline-none focus:border-gold/50 mb-3"
               placeholder="비밀번호를 입력하세요"
               autoFocus
             />
@@ -137,7 +137,7 @@ export default function AdminPage() {
             )}
             <button
               onClick={handleLogin}
-              className="w-full py-3 bg-[#1a1a1a] text-white text-[13px] hover:bg-[#b89d6a] transition-colors"
+              className="w-full py-3 bg-ink text-white text-[13px] hover:bg-gold-deep transition-colors"
             >
               로그인
             </button>
@@ -160,7 +160,7 @@ export default function AdminPage() {
           </div>
           <div className="flex items-center gap-4">
             {unreadCount > 0 && (
-              <span className="px-3 py-1 bg-[#b89d6a] text-white text-[11px] rounded-full">
+              <span className="px-3 py-1 bg-gold text-white text-[11px] rounded-full">
                 {unreadCount}건 미확인
               </span>
             )}
@@ -219,14 +219,14 @@ export default function AdminPage() {
                 onClick={() => setSelected(inq)}
                 className={`w-full text-left p-5 border transition-all ${
                   selected?.id === inq.id
-                    ? 'border-[#b89d6a] bg-white shadow-sm'
+                    ? 'border-gold bg-white shadow-sm'
                     : 'border-gray-200 bg-white hover:border-gray-300'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     {!inq.is_read && (
-                      <span className="w-2 h-2 bg-[#b89d6a] rounded-full shrink-0" />
+                      <span className="w-2 h-2 bg-gold rounded-full shrink-0" />
                     )}
                     <span className="text-[14px] font-normal">{inq.name}</span>
                   </div>
@@ -237,7 +237,7 @@ export default function AdminPage() {
                 <p className="text-[12px] text-gray-400 truncate">{inq.message}</p>
                 <div className="flex items-center gap-2 mt-2">
                   {inq.service && (
-                    <span className="text-[10px] px-2 py-0.5 bg-[#FAF8F5] text-[#b89d6a]">
+                    <span className="text-[10px] px-2 py-0.5 bg-mist text-gold-deep">
                       {serviceLabels[inq.service] || inq.service}
                     </span>
                   )}
@@ -264,7 +264,7 @@ export default function AdminPage() {
                       className={`px-4 py-2 text-[11px] border transition-colors ${
                         selected.is_read
                           ? 'border-gray-200 text-gray-400 hover:bg-gray-50'
-                          : 'border-[#b89d6a] text-[#b89d6a] hover:bg-[#b89d6a]/5'
+                          : 'border-gold text-gold-deep hover:bg-gold/5'
                       }`}
                     >
                       {selected.is_read ? '미확인으로 변경' : '확인 완료'}
@@ -278,7 +278,7 @@ export default function AdminPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 p-5 bg-[#FAF8F5]">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 p-5 bg-mist">
                   <div>
                     <p className="text-[10px] text-gray-400 mb-1">전화번호</p>
                     <p className="text-[13px]">{selected.phone}</p>
@@ -309,7 +309,7 @@ export default function AdminPage() {
                 <div className="mt-8 pt-6 border-t border-gray-100 flex gap-3">
                   <a
                     href={`tel:${selected.phone}`}
-                    className="px-5 py-3 bg-[#1a1a1a] text-white text-[12px] hover:bg-[#b89d6a] transition-colors inline-flex items-center gap-2"
+                    className="px-5 py-3 bg-ink text-white text-[12px] hover:bg-gold-deep transition-colors inline-flex items-center gap-2"
                   >
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.12.96.35 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.56 2.81.68a2 2 0 011.72 2.03z" strokeLinecap="round" strokeLinejoin="round" />

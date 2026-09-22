@@ -12,25 +12,25 @@ const ROLES = [
     title: '예식도우미 (컨시어지 매니저)',
     desc: '제휴 예식장에서 하객 안내, 축의금 접수대, 신부대기실, 식순 진행을 담당합니다.',
     tasks: ['하객 동선 안내와 접수대 운영', '신부대기실과 양가 부모님 의전', '식순 타임라인 확인과 업체 소통'],
-    imageSrc: '/images/hotel-white/main-service-concierge.png',
+    imageSrc: '/images/editorial-2026/concierge-desk.png',
   },
   {
     title: '웨딩 포토부스 스태프',
     desc: '포토부스 설치와 철수, 하객 촬영 안내, 즉석 인화를 담당합니다.',
     tasks: ['부스 설치와 장비 점검', '하객 촬영 안내와 소품 관리', '인화물과 디지털 파일 관리'],
-    imageSrc: '/images/hotel-white/main-service-photobooth.png',
+    imageSrc: '/images/editorial-2026/photobooth.png',
   },
   {
     title: '예식사회자',
     desc: '신랑신부와 대본을 협의하고, 큐 시트에 맞춰 본식 진행을 맡습니다.',
     tasks: ['대본 작성과 비대면 협의', '큐 시트 기반 음향팀 동기화', '입장부터 퇴장까지 본식 진행'],
-    imageSrc: '/images/hotel-white/main-service-host.png',
+    imageSrc: '/images/editorial-2026/host-vocal.png',
   },
   {
     title: '축가 보컬리스트',
     desc: '신랑신부와 곡목과 키를 협의하고, 본식에서 라이브 축가를 부릅니다.',
     tasks: ['곡목, 키, 편곡 사전 협의', '음향팀과 사운드 체크', '본식 라이브 공연'],
-    imageSrc: '/images/hotel-white/host-quote.png',
+    imageSrc: '/images/editorial-2026/host-vocal.png',
   },
 ];
 
@@ -42,7 +42,7 @@ export default function CareersPage() {
         title="예식 현장을 함께 만들 사람을 찾습니다"
         description="예식도우미, 웨딩 포토부스 스태프, 예식사회자, 축가 보컬리스트를 모집합니다. 항공·호텔 등 서비스 계열 지망생과 경험자를 우대합니다."
         image="웨딩 플라워로 꾸민 예식장 로비"
-        imageSrc="/images/hotel-white/concierge-cta.png"
+        imageSrc="/images/editorial-2026/home-hero.png"
       />
 
       <Section title="모집 분야">
@@ -87,7 +87,7 @@ export default function CareersPage() {
           </p>
           <Hatch
             label="현장 교육에 사용하는 예식 운영 체크리스트"
-            src="/images/hotel-white/concierge-timeline.png"
+            src="/images/editorial-2026/operations.png"
             className="aspect-[3/2] rounded-2xl"
           />
         </div>

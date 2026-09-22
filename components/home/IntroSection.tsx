@@ -18,7 +18,7 @@ export default function IntroSection() {
       <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,720px)_minmax(0,1fr)] lg:min-h-[640px]">
         <Hatch
           label="플라워 장식이 놓인 웨딩홀 입구"
-          src="/images/hotel-white/main-intro-hotel-hall.png"
+          src="/images/editorial-2026/intro-vertical.png"
           className="hidden lg:block"
         />
 
@@ -52,7 +52,7 @@ export default function IntroSection() {
 
         <Hatch
           label="웨딩 포토부스와 인화 사진"
-          src="/images/hotel-white/photobooth-about.png"
+          src="/images/editorial-2026/photobooth.png"
           className="hidden lg:block"
         />
       </div>
