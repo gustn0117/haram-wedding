@@ -229,7 +229,7 @@ export const siteJsonLd = [
     name: BRAND,
     alternateName: ['HARAM', '하람 웨딩', 'Haram Wedding'],
     url: SITE_URL,
-    logo: `${SITE_URL}/apple-icon`,
+    logo: `${SITE_URL}/logo.png`,
     description: HOME.description,
     telephone: PHONE,
     address,

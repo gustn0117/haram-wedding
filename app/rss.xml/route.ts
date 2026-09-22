@@ -31,7 +31,7 @@ ${p.keywords.map((k) => `      <category>${xmlEscape(k)}</category>`).join('\n')
     <lastBuildDate>${rfc822(pages[0].updated)}</lastBuildDate>
     <atom:link href="${SITE_URL}${RSS_PATH}" rel="self" type="application/rss+xml" />
     <image>
-      <url>${SITE_URL}/apple-icon</url>
+      <url>${SITE_URL}/logo.png</url>
       <title>${xmlEscape(HOME.title)}</title>
       <link>${SITE_URL}</link>
     </image>
