@@ -158,8 +158,64 @@ export const CONTACT: SitePage = {
   priority: 0.7,
 };
 
+export const ABOUT: SitePage = {
+  path: '/about',
+  title: '하람소개 | 예식 현장 매니지먼트 하람',
+  name: '하람소개',
+  description:
+    '하람은 예식도우미, 예식 컨시어지, 웨딩 포토부스, 예식사회자를 한 팀으로 운영하는 예식 현장 매니지먼트 회사입니다. 경기도 수원을 기반으로 전국 예식장에서 활동합니다.',
+  keywords: ['하람', '하람 웨딩', '예식 매니지먼트', '예식도우미 업체', '웨딩 컨시어지 회사'],
+  image: '/images/hotel-white/main-intro-hotel-hall.png',
+  imageAlt: '하람 소개',
+  updated: '2026-09-22',
+  changeFrequency: 'monthly',
+  priority: 0.7,
+};
+
+export const PARTNERSHIP: SitePage = {
+  path: '/partnership',
+  title: '예식장 제휴 안내 | 예식 컨시어지 · 예식도우미 도입 - 하람',
+  name: '예식장 제휴 안내',
+  description:
+    '예식장 전용 B2B 예식 컨시어지 제휴 안내. 제휴 상담, 현장 답사, 전용 매뉴얼 설계, 전담 예식도우미 배치까지 하람이 예식장 현장 운영을 맡습니다.',
+  keywords: ['예식장 제휴', '예식 컨시어지 제휴', '예식도우미 파견', '웨딩홀 운영 대행', '예식장 인력'],
+  image: '/images/hotel-white/concierge-about.png',
+  imageAlt: '하람 예식장 제휴',
+  updated: '2026-09-22',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+};
+
+export const REVIEWS: SitePage = {
+  path: '/reviews',
+  title: '고객후기 | 예식도우미 · 웨딩 포토부스 · 예식사회자 후기 - 하람',
+  name: '고객후기',
+  description:
+    '하람 예식 컨시어지, 웨딩 포토부스, 예식사회자를 이용한 신랑신부와 제휴 예식장의 실제 후기를 모았습니다.',
+  keywords: ['하람 후기', '예식도우미 후기', '웨딩 포토부스 후기', '결혼식 사회자 후기', '예식 컨시어지 후기'],
+  image: '/images/hotel-white/main-quote-hotel-ballroom.png',
+  imageAlt: '하람 고객후기',
+  updated: '2026-09-22',
+  changeFrequency: 'weekly',
+  priority: 0.7,
+};
+
+export const CAREERS: SitePage = {
+  path: '/careers',
+  title: '인재 채용 | 예식도우미 · 포토부스 스태프 · 예식사회자 모집 - 하람',
+  name: '인재 채용',
+  description:
+    '하람과 함께할 예식도우미(컨시어지 매니저), 웨딩 포토부스 스태프, 예식사회자를 모집합니다. 입사 후 4주 집중 교육을 거쳐 예식 현장에 배치됩니다.',
+  keywords: ['예식도우미 채용', '예식도우미 알바', '웨딩 도우미 모집', '포토부스 스태프 채용', '예식사회자 모집'],
+  image: '/images/hotel-white/concierge-guest-flow.png',
+  imageAlt: '하람 인재 채용',
+  updated: '2026-09-22',
+  changeFrequency: 'weekly',
+  priority: 0.6,
+};
+
 export const SERVICES = [CONCIERGE, PHOTOBOOTH, HOST];
-export const PAGES = [HOME, ...SERVICES, CONTACT];
+export const PAGES = [HOME, ...SERVICES, ABOUT, PARTNERSHIP, REVIEWS, CAREERS, CONTACT];
 
 export const absUrl = (path: string) => (path === '/' ? SITE_URL : `${SITE_URL}${path}`);
 
@@ -181,7 +237,7 @@ export function pageMetadata(page: SitePage): Metadata {
       url,
       title: page.title,
       description: page.description,
-      images: [{ url: page.image, width: 1672, height: 941, alt: page.imageAlt }],
+      images: [{ url: page.image, alt: page.imageAlt }],
     },
     twitter: {
       card: 'summary_large_image',

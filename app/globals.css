@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
 
 html {
@@ -11,7 +12,7 @@ html {
 body {
   background: #fff;
   color: #1a1a1a;
-  font-family: 'Noto Sans KR', -apple-system, sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, 'Noto Sans KR', -apple-system, sans-serif;
   font-weight: 300;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
@@ -432,4 +433,32 @@ body {
 .footer-gold-line {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(184,157,106,0.3), transparent);
+}
+
+/* ═══════════ IMAGE PLACEHOLDER (빗금) ═══════════ */
+
+.hatch {
+  background-color: #ecebe8;
+  background-image: repeating-linear-gradient(135deg, rgba(28, 29, 33, 0.09) 0 1px, transparent 1px 11px);
+}
+.hatch-dark {
+  background-color: #33343a;
+  background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0 1px, transparent 1px 12px);
+}
+
+/* ═══════════ HERO SLIDE PROGRESS ═══════════ */
+
+@keyframes slide-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.slide-progress {
+  transform-origin: left;
+  animation: slide-progress var(--slide-duration, 6500ms) linear forwards;
+}
+.slide-progress[data-paused='true'] {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide-progress { animation: none; transform: scaleX(1); }
 }

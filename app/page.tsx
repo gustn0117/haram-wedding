@@ -5,8 +5,10 @@ import { HOME_FAQ } from '@/lib/faq';
 import { faqJsonLd } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { useState } from 'react';
+import HeroSlider from '@/components/home/HeroSlider';
+import IntroSection from '@/components/home/IntroSection';
 
 const fade = {
   hidden: { opacity: 0, y: 24 },
@@ -23,12 +25,6 @@ const Arr = () => (
 );
 
 export default function Home() {
-  const heroRef = useRef(null);
-  const { scrollYProgress: heroP } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const heroY = useTransform(heroP, [0, 1], ['0%', '25%']);
-  const heroOp = useTransform(heroP, [0, 0.6], [1, 0]);
-  const heroSc = useTransform(heroP, [0, 1], [1, 1.1]);
-
   const { scrollYProgress } = useScroll();
   const [progress, setProgress] = useState(0);
   useMotionValueEvent(scrollYProgress, 'change', (v) => setProgress(v));
@@ -38,101 +34,8 @@ export default function Home() {
       <JsonLd data={faqJsonLd(HOME_FAQ)} />
       <div className="scroll-progress" style={{ transform: `scaleX(${progress})` }} />
 
-      {/* ────── HERO ────── */}
-      <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-black hero-corner-ornament">
-        <motion.div className="absolute inset-0" style={{ y: heroY, scale: heroSc }}>
-          <Image src="https://framerusercontent.com/images/CWkUc0kVkEmNhMQZVago8hE.png"
-            alt="HARAM Wedding" fill className="object-cover" priority />
-        </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70" />
-        <div className="hero-pattern" />
-        <div className="hero-vignette" />
-        <div className="hero-noise" />
-
-        <motion.div className="relative z-10 text-center px-6" style={{ opacity: heroOp }}>
-          <motion.div initial="hidden" animate="show" custom={0} variants={fade}
-            className="flex items-center justify-center gap-4 mb-8">
-            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[#b89d6a]/40" />
-            <span className="tag">Wedding Management</span>
-            <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[#b89d6a]/40" />
-          </motion.div>
-
-          <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
-            className="heading-en text-[56px] md:text-[90px] lg:text-[120px] text-white font-light tracking-[0.12em] leading-[1] mb-4">
-            HARAM
-            <span className="sr-only"> 하람 — 예식도우미 · 예식 컨시어지 · 웨딩 포토부스 · 예식사회자</span>
-          </motion.h1>
-
-          <motion.p initial="hidden" animate="show" custom={0.18} variants={fade}
-            className="heading-en text-[13px] md:text-[15px] text-white/30 tracking-[0.4em] uppercase mb-10">
-            Precious Person in Heaven
-          </motion.p>
-
-          <motion.p initial="hidden" animate="show" custom={0.25} variants={fade}
-            className="text-[15px] md:text-[17px] text-white/50 font-light mb-12 max-w-md mx-auto leading-relaxed">
-            예식의 품질은 현장에서 결정됩니다
-            <span className="block mt-3 text-[13px] md:text-[14px] text-white/35 tracking-wide">
-              예식도우미 · 예식 컨시어지 · 웨딩 포토부스 · 예식사회자
-            </span>
-          </motion.p>
-
-          <motion.div initial="hidden" animate="show" custom={0.35} variants={fade}
-            className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="btn-gold">
-              <span>상담 문의</span><Arr />
-            </Link>
-            <Link href="#services" className="btn-ghost">
-              <span>서비스 보기</span><Arr />
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div initial="hidden" animate="show" custom={0.5} variants={fade}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center">
-          <svg className="w-5 h-8 text-white/20 mb-2" viewBox="0 0 20 32" fill="none">
-            <rect x="1" y="1" width="18" height="30" rx="9" stroke="currentColor" strokeWidth={1} />
-            <line x1="10" y1="8" x2="10" y2="14" stroke="currentColor" strokeWidth={1} strokeLinecap="round" className="animate-pulse" />
-          </svg>
-          <span className="heading-en text-[9px] text-white/15 tracking-[0.25em] uppercase">Scroll</span>
-        </motion.div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-[1]" />
-      </section>
-
-      {/* ────── INTRO ────── */}
-      <section className="py-28 md:py-40 px-6 relative">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}>
-            <div className="relative">
-              <div className="aspect-[4/5] relative overflow-hidden img-reveal">
-                <Image src="/images/hotel-white/main-intro-hotel-hall.png"
-                  alt="Wedding" fill className="object-cover" />
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#b89d6a]/15 -z-10" />
-              <div className="absolute -top-3 -left-3 w-16 h-16 border-t border-l border-[#b89d6a]/20" />
-            </div>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fade}>
-            <span className="tag">About Haram</span>
-            <h2 className="text-[28px] md:text-[38px] font-extralight leading-[1.5] mt-5 mb-8 tracking-tight">
-              결혼식다운 결혼식을 만듭니다
-            </h2>
-            <p className="text-[15px] text-gray-500 leading-[1.9] mb-6">
-              결혼식의 완성도는 기획이나 설명이 아니라 당일 현장이 얼마나 정리되어 있느냐에 달려 있습니다.
-            </p>
-            <p className="text-[15px] text-gray-500 leading-[1.9] mb-10">
-              하람은 결혼식 당일 현장에서 발생하는 흐름, 동선, 분위기, 변수를
-              <span className="text-[#1a1a1a] font-normal"> 경험을 바탕으로 관리하는 회사</span>입니다.
-            </p>
-
-            <Link href="/contact" className="btn-dark-outline">
-              <span>자세히 알아보기</span><Arr />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSlider />
+      <IntroSection />
 
       {/* ────── DIVIDER ────── */}
       <div className="ornament-divider">

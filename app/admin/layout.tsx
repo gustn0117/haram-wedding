@@ -17,7 +17,8 @@ export default function AdminLayout({
     <div className="admin-layout">
       <style>{`
         .admin-layout ~ footer,
-        nav { display: none !important; }
+        .site-header,
+        .mobile-dock-spacer { display: none !important; }
       `}</style>
       {children}
     </div>
