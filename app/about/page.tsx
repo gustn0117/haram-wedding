@@ -6,6 +6,7 @@ import CtaBand from '@/components/page/CtaBand';
 import { IconArrowUpRight } from '@/components/icons';
 import { CONTACT_HREF, PHONE_DISPLAY } from '@/lib/nav';
 import { SERVICES } from '@/lib/services';
+import { SERVICE_AREAS } from '@/lib/seo';
 
 const PILLARS = [
   {
@@ -107,7 +108,21 @@ export default function AboutPage() {
         </ul>
       </Section>
 
-      <Section title="회사 정보" tone="mist">
+      <Section title="운영 지역" description="경기도 수원시 영통구에 기반을 두고, 전국 예식장에서 현장을 운영합니다." tone="mist">
+        <ul className="flex flex-wrap gap-2">
+          {SERVICE_AREAS.map((area) => (
+            <li key={area} className="h-10 px-4 rounded-full bg-white border border-line flex items-center text-[15px] font-medium text-ink">
+              {area}
+            </li>
+          ))}
+        </ul>
+        <p className="mt-6 text-[15px] leading-[1.8] text-ink/60 break-keep max-w-[46em]">
+          서울과 경기 전역은 상시 운영하며, 대전과 부산에서도 제휴 예식장을 운영하고 있습니다.
+          목록에 없는 지역도 예식장 위치를 알려주시면 진행 가능 여부를 안내해 드립니다.
+        </p>
+      </Section>
+
+      <Section title="회사 정보">
         <dl className="border-t-2 border-ink max-w-[760px]">
           {COMPANY.map(([k, v]) => (
             <div key={k} className="grid grid-cols-[120px_1fr] md:grid-cols-[180px_1fr] border-b border-line py-4 text-[15px]">

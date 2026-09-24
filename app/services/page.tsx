@@ -5,6 +5,8 @@ import CtaBand from '@/components/page/CtaBand';
 import { IconArrowUpRight } from '@/components/icons';
 import { CONTACT_HREF } from '@/lib/nav';
 import { SERVICES, type Service } from '@/lib/services';
+import { SERVICES_FAQ } from '@/lib/faq';
+import { SERVICE_AREAS } from '@/lib/seo';
 
 const GROUPS: { title: string; description: string; filter: (s: Service) => boolean }[] = [
   {
@@ -56,6 +58,26 @@ export default function ServicesPage() {
           </div>
         </section>
       ))}
+
+      <section className="bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 py-16 md:py-24">
+          <h2 className="text-[24px] md:text-[30px] font-bold tracking-[-0.03em] text-ink">자주 묻는 질문</h2>
+          <div className="mt-10 border-t border-ink max-w-[880px]">
+            {SERVICES_FAQ.map((f) => (
+              <details key={f.q} className="group border-b border-line">
+                <summary className="flex items-center justify-between gap-6 py-5 cursor-pointer list-none text-[16px] font-semibold text-ink [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <span className="shrink-0 w-6 h-6 rounded-full border border-line flex items-center justify-center text-ink/50 group-open:rotate-45 transition-transform" aria-hidden>+</span>
+                </summary>
+                <p className="pb-6 pr-10 text-[15px] leading-[1.8] text-ink/65 break-keep">{f.a}</p>
+              </details>
+            ))}
+          </div>
+          <p className="mt-10 text-[15px] leading-[1.8] text-ink/55 break-keep max-w-[880px]">
+            운영 지역: {SERVICE_AREAS.join(' · ')} 등 전국 예식장에서 진행합니다.
+          </p>
+        </div>
+      </section>
 
       <CtaBand
         title="어떤 구성이 맞을지 모르겠다면"

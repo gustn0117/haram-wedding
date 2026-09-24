@@ -5,8 +5,10 @@ import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import QuickDock from '@/components/QuickDock';
 import {
+  BASE_REGION,
   BRAND,
   HOME,
+  PHONE,
   NAVER_SITE_VERIFICATION,
   SITE_URL,
   pageMetadata,
@@ -44,6 +46,15 @@ export const metadata: Metadata = {
   },
   verification: {
     other: { 'naver-site-verification': NAVER_SITE_VERIFICATION },
+  },
+  other: {
+    // 지역 검색용 메타
+    'geo.region': BASE_REGION.regionCode,
+    'geo.placename': BASE_REGION.locality,
+    'business:contact_data:locality': BASE_REGION.locality,
+    'business:contact_data:region': BASE_REGION.region,
+    'business:contact_data:country_name': '대한민국',
+    'business:contact_data:phone_number': PHONE,
   },
   category: 'wedding',
 };
