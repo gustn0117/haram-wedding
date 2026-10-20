@@ -33,9 +33,8 @@ export default function Navbar() {
     <>
       <header className="site-header sticky top-0 z-50 bg-white border-b border-line">
         <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="하람 홈">
-            <Image src="/logo-mark.png" alt="" width={30} height={30} className="w-[30px] h-[30px] object-contain" />
-            <span className="text-[19px] font-extrabold tracking-[-0.03em] text-ink">하람</span>
+          <Link href="/" className="flex items-center shrink-0" aria-label="하람 홈">
+            <Image src="/logo-mark.png" alt="하람" width={44} height={44} priority className="w-11 h-11 object-contain" />
           </Link>
 
           <nav aria-label="주요 메뉴" className="hidden lg:flex items-center gap-9 mx-auto">
