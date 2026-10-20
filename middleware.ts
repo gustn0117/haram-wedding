@@ -15,6 +15,9 @@ export function middleware(request: NextRequest) {
 
   const { pathname, search } = request.nextUrl;
 
+  // IndexNow 인증 키 파일은 호스트와 무관하게 public/ 의 파일을 그대로 내보낸다
+  if (/^\/[0-9a-f]{32}\.txt$/.test(pathname)) return NextResponse.next();
+
   // 전용 사이트에는 본사 전용 경로를 노출하지 않는다
   if (pathname.startsWith('/sites/') || pathname.startsWith('/admin')) {
     return NextResponse.rewrite(new URL('/sites/not-found', request.url));
