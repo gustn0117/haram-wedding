@@ -10,8 +10,8 @@ html {
 }
 
 body {
-  background: #fffdf9;
-  color: #34332e;
+  background: #ffffff;
+  color: #1a1a1a;
   font-family: 'Pretendard Variable', Pretendard, 'Noto Sans KR', -apple-system, sans-serif;
   font-weight: 400;
   letter-spacing: -0.01em;
@@ -20,7 +20,7 @@ body {
 }
 
 ::selection {
-  background: #b87962;
+  background: #1f3f78;
   color: #fff;
 }
 
@@ -439,4 +439,23 @@ body {
 }
 @media (prefers-reduced-motion: reduce) {
   .slide-progress { animation: none; transform: scaleX(1); }
+}
+
+/* ═══════════ 만나교회 계열 공통 ═══════════ */
+
+/* 섹션 제목 위에 붙는 파란 소제목 */
+.eyebrow-blue {
+  color: #1f3f78;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+/* 본문 기본 글자 굵기 */
+.site-heading {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
 }

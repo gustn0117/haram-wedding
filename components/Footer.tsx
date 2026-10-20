@@ -15,7 +15,7 @@ const INFO_LINKS = [
 // 짙은 세이지(#4a5241) 위 대비: 흰색 85% 6.4:1, 65% 4.5:1 — 본문은 65% 이상만 쓴다
 export default function Footer() {
   return (
-    <footer className="bg-sage-ink text-white">
+    <footer className="bg-ink text-white">
       <div className="max-w-[1200px] mx-auto px-6 pt-16 md:pt-20 pb-10">
         <div className="grid grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-x-8 gap-y-12">
           {/* 브랜드 */}
@@ -60,7 +60,7 @@ export default function Footer() {
           {/* 고객센터 */}
           <div className="col-span-2 md:col-span-1">
             <p className="text-[14px] font-bold text-white">고객센터</p>
-            <a href={PHONE_TEL} className="mt-4 block text-[28px] font-bold tracking-[-0.01em] tabular-nums text-white hover:text-gold-light transition-colors">
+            <a href={PHONE_TEL} className="mt-4 block text-[28px] font-bold tracking-[-0.01em] tabular-nums text-white hover:text-mint transition-colors">
               {PHONE_DISPLAY}
             </a>
             <p className="mt-1 text-[14px] text-white/75">평일 10:00 – 18:00</p>

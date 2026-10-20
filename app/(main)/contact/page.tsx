@@ -49,12 +49,12 @@ export default function ContactPage() {
     setSubmitting(false);
   };
 
-  const inputClass = 'w-full px-5 py-4 rounded-2xl bg-mist border border-line text-[14px] focus:outline-none focus:border-gold/50 transition-all duration-300 focus:bg-white';
+  const inputClass = 'w-full px-5 py-4 bg-mist border border-line text-[15px] focus:outline-none focus:border-navy transition-colors focus:bg-white';
 
   return (
     <main>
       {/* HERO */}
-      <section className="relative h-[50vh] md:h-[60vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-sage-deep hero-corner-ornament">
+      <section className="relative h-[50vh] md:h-[60vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-ink hero-corner-ornament">
         <div className="absolute inset-0">
           <Image src="/images/editorial-2026/details.webp"
             alt="자연광 아래 놓인 웨딩 링과 예식 준비 소품" fill className="object-cover" />
@@ -65,7 +65,7 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <motion.div initial="hidden" animate="show" custom={0} variants={fade}
             className="flex items-center gap-3 mb-4">
-            <span className="w-8 h-[1px] bg-gold/50" />
+            <span className="w-8 h-[1px] bg-navy/50" />
             <span className="tag">Contact</span>
           </motion.div>
           <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
@@ -81,7 +81,7 @@ export default function ContactPage() {
 
       {/* CONTACT INFO */}
       <section className="py-16 md:py-20 px-6">
-        <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 border border-line rounded-[28px] overflow-hidden bg-white">
+        <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 border border-line overflow-hidden bg-white">
           {[
             {
               icon: (
@@ -128,10 +128,10 @@ export default function ContactPage() {
       <section className="py-20 md:py-28 px-6 bg-mist relative bg-noise">
         <div className="max-w-xl mx-auto relative z-10">
           <motion.form initial="hidden" whileInView="show" viewport={{ once: true }} custom={0} variants={fade}
-            onSubmit={handleSubmit} className="bg-white p-8 md:p-12 rounded-[28px] border border-line card-inner-glow">
+            onSubmit={handleSubmit} className="bg-white p-8 md:p-12 border border-line card-inner-glow">
 
             <div className="flex items-center gap-3 mb-3">
-              <span className="w-6 h-[1px] bg-gold/50" />
+              <span className="w-6 h-[1px] bg-navy/50" />
               <span className="tag">Inquiry Form</span>
             </div>
             <h3 className="text-[24px] font-extralight mt-3 mb-10 tracking-tight">문의 양식</h3>
@@ -214,7 +214,7 @@ export default function ContactPage() {
               <motion.details key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.05} variants={fade}
                 className="group border-b border-gray-100">
-                <summary className="cursor-pointer py-6 text-[15px] flex justify-between items-center hover:text-gold-deep transition-colors">
+                <summary className="cursor-pointer py-6 text-[15px] flex justify-between items-center hover:text-navy transition-colors">
                   {faq.q}
                   <span className="text-gold/60 ml-4 shrink-0 group-open:rotate-45 transition-transform text-[16px]">+</span>
                 </summary>

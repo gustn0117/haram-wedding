@@ -23,11 +23,11 @@ export default function InsightsPage() {
             {INSIGHTS.map((post) => (
               <li key={post.slug}>
                 <Link href={`/insights/${post.slug}`}
-                  className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-line hover:border-ink/30 transition-colors">
+                  className="group flex flex-col h-full bg-white overflow-hidden border border-line hover:border-ink/30 transition-colors">
                   <Hatch label={post.imageAlt} src={post.image} className="aspect-[4/3]" />
                   <span className="p-6 flex-1 flex flex-col">
                     <span className="flex items-center gap-2 text-[13px] text-ink/50">
-                      <span className="font-semibold text-gold-deep">{post.audience}</span>
+                      <span className="font-semibold text-navy">{post.audience}</span>
                       <span aria-hidden>·</span>
                       <time dateTime={post.published} className="tabular-nums">{post.published.replace(/-/g, '.')}</time>
                       <span aria-hidden>·</span>

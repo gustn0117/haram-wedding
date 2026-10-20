@@ -33,7 +33,7 @@ export default function PhotoboothHome() {
       <Section id="how" title="운영 방식" lead="예식장 사정에 맞게 고를 수 있습니다." tone="surface">
         <ul className="grid md:grid-cols-3 gap-4">
           {service.options?.map((o) => (
-            <li key={o.name} className="bg-[var(--site-bg)] rounded-2xl border border-[var(--site-line)] p-6">
+            <li key={o.name} className="bg-[var(--site-bg)] border border-[var(--site-line)] p-6">
               <h3 className="text-[18px] font-bold break-keep">{o.name}</h3>
               <p className="mt-2 text-[15px] leading-[1.65] text-[var(--site-muted)] break-keep">{o.desc}</p>
             </li>
@@ -50,10 +50,10 @@ export default function PhotoboothHome() {
 
       <Section title="현장은 이렇게 꾸며집니다" tone="surface">
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+          <div className="relative aspect-[4/3] overflow-hidden">
             <Image src="/images/editorial-2026/photobooth.webp" alt="예식장에 설치한 웨딩 포토부스" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+          <div className="relative aspect-[4/3] overflow-hidden">
             <Image src="/images/editorial-2026/details.webp" alt="포토부스 인화물과 예식 디테일" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
         </div>

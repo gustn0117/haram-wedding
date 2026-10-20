@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Hatch from '@/components/Hatch';
+import Image from 'next/image';
 
 type Props = {
   title: string;
@@ -9,21 +9,30 @@ type Props = {
   imageSrc: string;
 };
 
-/** 서브페이지 상단 — 헤더 높이만큼 비우고 제목을 아래쪽에 둔다 */
+/** 서브페이지 상단 — 좁은 이미지 띠 + 그 아래 breadcrumb·제목·가로선 */
 export default function PageHero({ title, description, crumb, image, imageSrc }: Props) {
   return (
-    <section className="relative bg-sage-deep text-white pt-16 md:pt-[112px]">
-      <Hatch label={image} src={imageSrc} className="absolute inset-0" priority />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(53,62,52,0.88)_0%,rgba(53,62,52,0.5)_58%,rgba(53,62,52,0.2)_100%)]" />
-      <div className="relative max-w-[1200px] mx-auto px-6 pt-20 pb-14 md:pt-28 md:pb-16">
-        <nav aria-label="현재 위치" className="text-[13px] text-white/50">
-          <Link href="/" className="hover:text-white transition-colors">홈</Link>
-          <span className="mx-2 text-white/25">/</span>
-          <span className="text-white/80">{crumb}</span>
-        </nav>
-        <h1 className="mt-4 text-[34px] md:text-[48px] font-bold tracking-[-0.035em] leading-[1.2] break-keep">{title}</h1>
-        <p className="mt-4 text-[16px] md:text-[18px] leading-[1.7] text-white/70 max-w-[34em] break-keep">{description}</p>
+    <>
+      <div className="relative h-[180px] md:h-[260px] bg-ink">
+        <Image src={imageSrc} alt={image} fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-ink/45" />
       </div>
-    </section>
+
+      <div className="max-w-[1280px] mx-auto px-6">
+        <nav aria-label="현재 위치" className="flex items-center gap-2 pt-7 text-[13px] text-ink/50">
+          <Link href="/" aria-label="홈" className="hover:text-ink transition-colors">
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} aria-hidden>
+              <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+          <span aria-hidden className="text-ink/25">›</span>
+          <span className="text-ink/70">{crumb}</span>
+        </nav>
+
+        <h1 className="site-heading mt-6 text-[30px] md:text-[42px] text-ink break-keep">{title}</h1>
+        <p className="mt-4 text-[16px] md:text-[17px] leading-[1.75] text-ink/60 break-keep max-w-[46em]">{description}</p>
+        <div className="mt-8 border-t-2 border-ink" />
+      </div>
+    </>
   );
 }

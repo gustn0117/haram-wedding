@@ -41,7 +41,7 @@ export default function ServicesPage() {
               {SERVICES.filter(g.filter).map((s) => (
                 <li key={s.slug}>
                   <Link href={s.path}
-                    className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-line hover:border-ink/30 transition-colors">
+                    className="group flex flex-col h-full bg-white overflow-hidden border border-line hover:border-ink/30 transition-colors">
                     <Hatch label={s.image} src={s.imageSrc} className="aspect-[4/3]" />
                     <span className="p-6 flex-1 flex flex-col">
                       <span className="flex items-start justify-between gap-4">

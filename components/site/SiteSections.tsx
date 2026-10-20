@@ -14,27 +14,27 @@ export function Hero({
   secondary?: { href: string; label: string };
 }) {
   return (
-    <section className="relative">
-      <div className="max-w-[1120px] mx-auto px-6 pt-16 pb-14 md:pt-24 md:pb-20 grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-16 items-center">
-        <div>
-          <p className="text-[14px] font-semibold text-[var(--site-accent)]">{eyebrow}</p>
-          <h1 className="mt-4 text-[34px] md:text-[52px] font-bold leading-[1.18] tracking-[-0.035em] break-keep">{title}</h1>
-          <p className="mt-6 text-[16px] md:text-[18px] leading-[1.8] text-[var(--site-muted)] break-keep max-w-[32em]">{body}</p>
-          <div className="mt-9 flex flex-wrap gap-3">
+    <section className="relative bg-[#1a1a1a] text-white">
+      <div className="relative h-[min(72vh,620px)] min-h-[440px] overflow-hidden">
+        <Image src={image} alt={imageAlt} fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,14,18,0.84)_0%,rgba(12,14,18,0.45)_58%,rgba(12,14,18,0.15)_100%)]" />
+
+        <div className="relative h-full max-w-[1280px] mx-auto px-6 flex flex-col justify-center pb-20 md:pb-24">
+          <p className="text-[14px] md:text-[15px] font-bold text-white/85">{eyebrow}</p>
+          <h1 className="site-heading mt-4 text-[32px] sm:text-[42px] lg:text-[52px] break-keep max-w-[20em]">{title}</h1>
+          <p className="mt-5 text-[16px] md:text-[17px] leading-[1.8] text-white/75 break-keep max-w-[34em]">{body}</p>
+          <div className="mt-8 flex flex-wrap gap-2.5">
             <Link href={primary.href}
-              className="inline-flex items-center h-[52px] px-7 rounded-full bg-[var(--site-accent)] text-[var(--site-accent-ink)] text-[15px] font-bold hover:opacity-90 transition-opacity">
+              className="inline-flex items-center h-[50px] px-7 bg-[var(--site-accent)] text-[var(--site-accent-ink)] text-[15px] font-bold hover:opacity-90 transition-opacity">
               {primary.label}
             </Link>
             {secondary && (
               <Link href={secondary.href}
-                className="inline-flex items-center h-[52px] px-7 rounded-full border border-[var(--site-line)] text-[15px] font-semibold hover:border-[var(--site-ink)] transition-colors">
+                className="inline-flex items-center h-[50px] px-7 border border-white/50 text-[15px] font-bold hover:bg-white hover:text-[var(--site-ink)] transition-colors">
                 {secondary.label}
               </Link>
             )}
           </div>
-        </div>
-        <div className="relative aspect-[4/3] lg:aspect-[5/6] rounded-[28px] overflow-hidden bg-[var(--site-surface)]">
-          <Image src={image} alt={imageAlt} fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
         </div>
       </div>
     </section>
@@ -43,8 +43,9 @@ export function Hero({
 
 export function Band({ facts }: { facts: Service['facts'] }) {
   return (
-    <section className="bg-[var(--site-surface)]">
-      <div className="max-w-[1120px] mx-auto px-6 py-10 md:py-12 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+    <section className="bg-[var(--site-bg)]">
+      <div className="max-w-[1280px] mx-auto px-6">
+        <div className="relative -mt-12 md:-mt-16 bg-[var(--site-bg)] shadow-[0_10px_40px_rgba(16,24,40,0.10)] px-6 md:px-10 py-8 md:py-10 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 divide-[var(--site-line)]">
         {facts.map((f) => (
           <div key={f.label}>
             <p className="text-[13px] text-[var(--site-muted)]">{f.label}</p>
@@ -52,6 +53,7 @@ export function Band({ facts }: { facts: Service['facts'] }) {
             <p className="mt-1 text-[13px] text-[var(--site-muted)] break-keep">{f.note}</p>
           </div>
         ))}
+        </div>
       </div>
     </section>
   );
@@ -68,8 +70,8 @@ export function Section({
 }) {
   return (
     <section id={id} className={tone === 'surface' ? 'bg-[var(--site-surface)]' : 'bg-[var(--site-bg)]'}>
-      <div className="max-w-[1120px] mx-auto px-6 py-16 md:py-24">
-        <h2 className="text-[26px] md:text-[34px] font-bold tracking-[-0.03em] leading-[1.3] break-keep">{title}</h2>
+      <div className="max-w-[1280px] mx-auto px-6 py-16 md:py-24">
+        <h2 className="site-heading text-[24px] md:text-[32px] break-keep">{title}</h2>
         {lead && <p className="mt-3 text-[16px] leading-[1.75] text-[var(--site-muted)] break-keep max-w-[42em]">{lead}</p>}
         <div className="mt-10 md:mt-12">{children}</div>
       </div>
@@ -96,7 +98,7 @@ export function Flow({ steps }: { steps: Service['flow'] }) {
   return (
     <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {steps.map((s, i) => (
-        <li key={s.when} className="rounded-2xl border border-[var(--site-line)] p-6 bg-[var(--site-bg)]">
+        <li key={s.when} className="border border-[var(--site-line)] p-6 bg-[var(--site-bg)]">
           <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[var(--site-accent-soft)] text-[var(--site-accent)] text-[14px] font-bold tabular-nums">
             {i + 1}
           </span>
@@ -127,13 +129,13 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
 export function ContactBand({ title, body }: { title: string; body: string }) {
   return (
     <section className="bg-[var(--site-accent)] text-[var(--site-accent-ink)]">
-      <div className="max-w-[1120px] mx-auto px-6 py-16 md:py-20 flex flex-col md:flex-row md:items-center gap-8">
+      <div className="max-w-[1280px] mx-auto px-6 py-16 md:py-20 flex flex-col md:flex-row md:items-center gap-8">
         <div className="flex-1">
           <h2 className="text-[24px] md:text-[32px] font-bold tracking-[-0.03em] leading-[1.35] break-keep">{title}</h2>
           <p className="mt-3 text-[16px] opacity-85 break-keep">{body}</p>
         </div>
         <Link href="/contact"
-          className="inline-flex items-center justify-center h-[56px] px-8 rounded-full bg-white text-[var(--site-ink)] text-[16px] font-bold hover:opacity-90 transition-opacity">
+          className="inline-flex items-center justify-center h-[56px] px-8 bg-white text-[var(--site-ink)] text-[16px] font-bold hover:opacity-90 transition-opacity">
           문의 남기기
         </Link>
       </div>

@@ -33,24 +33,24 @@ export default function SiteShell({
 
   return (
     <div style={vars} className="site-root min-h-screen flex flex-col bg-[var(--site-bg)] text-[var(--site-ink)]">
-      <header className="sticky top-0 z-40 bg-[var(--site-bg)]/95 backdrop-blur border-b border-[var(--site-line)]">
-        <div className="max-w-[1120px] mx-auto px-6 h-[68px] flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label={`${site.name} 홈`}>
-            <Image src="/logo-mark.png" alt="" width={26} height={26} className="w-[26px] h-[26px] object-contain" />
-            <span className="text-[18px] font-bold tracking-[-0.02em]">{site.name}</span>
+      <header className="sticky top-0 z-40 bg-[var(--site-bg)] border-b border-[var(--site-line)]">
+        <div className="max-w-[1280px] mx-auto px-6 h-[72px] flex items-center gap-6">
+          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label={`${site.name} 홈`}>
+            <Image src="/logo-mark.png" alt="" width={30} height={30} className="w-[30px] h-[30px] object-contain" />
+            <span className="text-[19px] font-extrabold tracking-[-0.03em]">{site.name}</span>
           </Link>
 
-          <nav aria-label="주요 메뉴" className="hidden md:flex items-center gap-7 ml-auto">
+          <nav aria-label="주요 메뉴" className="hidden md:flex items-center gap-9 mx-auto">
             {nav.map((item) => (
               <Link key={item.href} href={item.href}
-                className="text-[15px] font-medium text-[var(--site-muted)] hover:text-[var(--site-ink)] transition-colors">
+                className="text-[17px] font-bold tracking-[-0.02em] hover:text-[var(--site-accent)] transition-colors">
                 {item.label}
               </Link>
             ))}
           </nav>
 
           <a href={PHONE_TEL}
-            className="ml-auto md:ml-0 inline-flex items-center h-10 px-5 rounded-full bg-[var(--site-accent)] text-[var(--site-accent-ink)] text-[14px] font-semibold tabular-nums hover:opacity-90 transition-opacity">
+            className="ml-auto md:ml-0 inline-flex items-center h-11 px-6 bg-[var(--site-accent)] text-[var(--site-accent-ink)] text-[15px] font-bold tabular-nums hover:opacity-90 transition-opacity">
             <span className="hidden sm:inline">상담&nbsp;</span>{PHONE_DISPLAY}
           </a>
         </div>
@@ -60,7 +60,7 @@ export default function SiteShell({
           <ul className="flex items-center gap-5 px-6 h-12 whitespace-nowrap">
             {nav.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-[14px] font-medium text-[var(--site-muted)]">
+                <Link href={item.href} className="text-[15px] font-bold text-[var(--site-muted)]">
                   {item.label}
                 </Link>
               </li>

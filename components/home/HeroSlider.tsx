@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import Hatch from '@/components/Hatch';
+import Image from 'next/image';
+import { useReducedMotion } from 'framer-motion';
 import { IconChevronLeft, IconChevronRight } from '@/components/icons';
 import { CONTACT_HREF } from '@/lib/nav';
 
@@ -80,14 +80,18 @@ export default function HeroSlider() {
 
   const go = useCallback((next: number) => setIndex((next + SLIDES.length) % SLIDES.length), []);
 
-  // 탭이 백그라운드로 가면 멈춘다
   useEffect(() => {
     const onVis = () => setPaused(document.hidden);
     document.addEventListener('visibilitychange', onVis);
     return () => document.removeEventListener('visibilitychange', onVis);
   }, []);
 
-  // 모바일 스와이프
+  useEffect(() => {
+    if (paused || reduceMotion) return;
+    const timer = setTimeout(() => go(index + 1), DURATION);
+    return () => clearTimeout(timer);
+  }, [index, paused, reduceMotion, go]);
+
   const [touchX, setTouchX] = useState<number | null>(null);
   const onTouchEnd = (x: number) => {
     if (touchX === null) return;
@@ -102,7 +106,7 @@ export default function HeroSlider() {
     <section
       aria-roledescription="carousel"
       aria-label="하람 주요 서비스"
-      className="relative h-[max(640px,min(92svh,880px))] overflow-hidden bg-sage-deep text-white"
+      className="relative bg-ink text-white"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -110,127 +114,104 @@ export default function HeroSlider() {
       onTouchStart={(e) => setTouchX(e.touches[0].clientX)}
       onTouchEnd={(e) => onTouchEnd(e.changedTouches[0].clientX)}
     >
-      {/* 배경 이미지 */}
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={index}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: reduceMotion ? 0 : 0.9, ease: 'easeOut' }}
-        >
-          <motion.div
-            className="absolute inset-0"
-            initial={{ scale: reduceMotion ? 1 : 1.06 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: reduceMotion ? 0 : DURATION / 1000 + 1, ease: 'linear' }}
-          >
-            <Hatch
-              label={slide.image}
-              src={slide.imageSrc}
-              className="absolute inset-0"
-              priority={index === 0}
-            />
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
+      <div className="relative h-[min(78vh,680px)] min-h-[480px] overflow-hidden">
+        {SLIDES.map((s, i) => (
+          <div key={s.tab} aria-hidden={i !== index}
+            className={`absolute inset-0 transition-opacity duration-700 ${i === index ? 'opacity-100' : 'opacity-0'}`}>
+            <Image src={s.imageSrc} alt={i === index ? s.image : ''} fill priority={i === 0} sizes="100vw" className="object-cover" />
+          </div>
+        ))}
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,16,26,0.82)_0%,rgba(12,16,26,0.45)_55%,rgba(12,16,26,0.15)_100%)]" />
 
-      {/* 가독성용 음영 */}
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(53,62,52,0.86)_0%,rgba(53,62,52,0.54)_43%,rgba(53,62,52,0.08)_78%,rgba(53,62,52,0)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#354034]/60 to-transparent" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#354034]/35 to-transparent" />
-
-      {/* 문구 */}
-      <div className="relative h-full max-w-[1200px] mx-auto px-6 flex flex-col justify-center pt-24 md:pt-28 pb-40 md:pb-44">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={index}
-            initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
-            transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
-            aria-live={paused ? 'polite' : 'off'}
-          >
-            <p className="text-[14px] md:text-[15px] font-semibold text-gold-light mb-5">{slide.tab}</p>
+        <div className="relative h-full max-w-[1280px] mx-auto px-6 flex flex-col justify-center pb-24 md:pb-28">
+          <div aria-live={paused ? 'polite' : 'off'} className="max-w-[46rem]">
+            <p className="flex items-center gap-3 text-[14px] md:text-[15px] font-bold text-white/85">
+              {slide.tab}
+              <span className="w-px h-3.5 bg-white/40" aria-hidden />
+              <span className="font-medium text-white/65">{slide.hint}</span>
+            </p>
             {index === 0 ? (
-              <h1 className="text-[36px] sm:text-[44px] lg:text-[60px] font-bold leading-[1.18] tracking-[-0.035em] max-w-[14em] break-keep">
+              <h1 className="site-heading mt-4 text-[32px] sm:text-[42px] lg:text-[54px] break-keep">
                 {slide.title[0]}<br />{slide.title[1]}
                 <span className="sr-only"> — 하람 예식도우미, 예식 컨시어지, 예식사회자, 축가, 웨딩 포토부스</span>
               </h1>
             ) : (
-              <h2 className="text-[36px] sm:text-[44px] lg:text-[60px] font-bold leading-[1.18] tracking-[-0.035em] max-w-[14em] break-keep">
+              <h2 className="site-heading mt-4 text-[32px] sm:text-[42px] lg:text-[54px] break-keep">
                 {slide.title[0]}<br />{slide.title[1]}
               </h2>
             )}
-            <p className="mt-6 text-[16px] md:text-[18px] leading-[1.7] text-white/75 max-w-[30em] break-keep font-normal">
-              {slide.body}
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <p className="mt-5 text-[16px] md:text-[17px] leading-[1.75] text-white/75 break-keep max-w-[34em]">{slide.body}</p>
+            <div className="mt-8 flex flex-wrap gap-2.5">
               <Link href={slide.primary.href}
-                className="inline-flex items-center h-[52px] px-7 rounded-full bg-gold-light text-ink text-[15px] font-bold hover:bg-white transition-colors">
+                className="inline-flex items-center h-[50px] px-7 bg-navy text-white text-[15px] font-bold hover:bg-navy-deep transition-colors">
                 {slide.primary.label}
               </Link>
               <Link href={slide.secondary.href}
-                className="inline-flex items-center h-[52px] px-7 rounded-full border border-white/40 text-white text-[15px] font-semibold hover:bg-white/10 hover:border-white transition-colors">
+                className="inline-flex items-center h-[50px] px-7 border border-white/50 text-[15px] font-bold hover:bg-white hover:text-ink transition-colors">
                 {slide.secondary.label}
               </Link>
             </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* 좌우 화살표 */}
-      <button type="button" aria-label="이전 슬라이드" onClick={() => go(index - 1)}
-        className="hidden min-[1400px]:flex absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/30 items-center justify-center text-white/80 hover:bg-white hover:text-ink hover:border-white transition-colors">
-        <IconChevronLeft />
-      </button>
-      <button type="button" aria-label="다음 슬라이드" onClick={() => go(index + 1)}
-        className="hidden min-[1400px]:flex absolute right-[116px] top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/30 items-center justify-center text-white/80 hover:bg-white hover:text-ink hover:border-white transition-colors">
-        <IconChevronRight />
-      </button>
-
-      {/* 서비스 탭 (페이지네이션 겸 진행 표시) */}
-      <div className="absolute inset-x-0 bottom-0">
-        <div className="max-w-[1200px] mx-auto px-6 pb-7 md:pb-10">
-          <div className="flex items-center justify-between md:hidden mb-3 text-[13px] tabular-nums">
-            <span className="font-semibold">{slide.tab}</span>
-            <span className="text-white/50">{index + 1} / {SLIDES.length}</span>
-          </div>
-          <div role="tablist" aria-label="슬라이드 선택" className="grid grid-cols-5 gap-2 md:gap-6">
-            {SLIDES.map((s, i) => {
-              const active = i === index;
-              return (
-                <button key={s.tab} type="button" role="tab" aria-selected={active} aria-label={s.tab}
-                  onClick={() => go(i)}
-                  className="group text-left pt-0 md:pt-0">
-                  <span className="relative block h-[2px] bg-white/20 overflow-hidden">
-                    {active ? (
-                      <span
-                        key={`p-${index}`}
-                        className="slide-progress absolute inset-0 bg-gold-light"
-                        style={{ ['--slide-duration' as string]: `${DURATION}ms` }}
-                        data-paused={paused}
-                        onAnimationEnd={() => go(index + 1)}
-                      />
-                    ) : i < index ? (
-                      <span className="absolute inset-0 bg-white/45" />
-                    ) : null}
-                  </span>
-                  <span className="hidden md:flex items-baseline gap-3 pt-4">
-                    <span className={`text-[13px] font-semibold tabular-nums transition-colors ${active ? 'text-gold-light' : 'text-white/40'}`}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <span>
-                      <span className={`block text-[16px] font-bold transition-colors ${active ? 'text-white' : 'text-white/55 group-hover:text-white/85'}`}>{s.tab}</span>
-                      <span className={`block mt-1 text-[13px] transition-colors ${active ? 'text-white/60' : 'text-white/35'}`}>{s.hint}</span>
-                    </span>
-                  </span>
-                </button>
-              );
-            })}
           </div>
         </div>
+
+        {/* 좌우 원형 버튼 */}
+        <div className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-3 z-10">
+          <button type="button" aria-label="이전 슬라이드" onClick={() => go(index - 1)}
+            className="w-12 h-12 rounded-full border border-white/45 flex items-center justify-center text-white hover:bg-white hover:text-ink transition-colors">
+            <IconChevronLeft />
+          </button>
+          <button type="button" aria-label="다음 슬라이드" onClick={() => go(index + 1)}
+            className="w-12 h-12 rounded-full border border-white/45 flex items-center justify-center text-white hover:bg-white hover:text-ink transition-colors">
+            <IconChevronRight />
+          </button>
+        </div>
+
+        {/* 점 + 일시정지 */}
+        <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 bottom-7 md:bottom-8 flex items-center gap-3 z-10 max-w-[1280px]">
+          <div role="tablist" aria-label="슬라이드 선택" className="flex items-center gap-2.5">
+            {SLIDES.map((s, i) => (
+              <button key={s.tab} type="button" role="tab" aria-selected={i === index} aria-label={s.tab}
+                onClick={() => go(i)}
+                className={`w-2.5 h-2.5 rounded-full border border-white transition-colors ${i === index ? 'bg-white' : 'bg-transparent'}`} />
+            ))}
+          </div>
+          <button type="button" onClick={() => setPaused((v) => !v)}
+            aria-label={paused ? '자동 넘김 시작' : '자동 넘김 멈춤'}
+            className="ml-1 w-7 h-7 flex items-center justify-center text-white/80 hover:text-white transition-colors">
+            {paused ? (
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M8 5v14l11-7z" /></svg>
+            ) : (
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* 히어로에 걸치는 바로가기 띠 */}
+      <div className="relative max-w-[1280px] mx-auto px-6">
+        <ul className="relative -mt-14 md:-mt-16 bg-white shadow-[0_10px_40px_rgba(16,24,40,0.10)] grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-line">
+          {[
+            { href: '/partnership', title: '예식장 제휴', desc: '현장 운영을 통째로 맡기고 싶다면', icon: 'building' },
+            { href: '/services', title: '서비스 안내', desc: '컨시어지 · 사회 · 축가 · 포토부스', icon: 'grid' },
+            { href: CONTACT_HREF, title: '상담 문의', desc: '예식 날짜와 조건을 알려주세요', icon: 'chat' },
+          ].map((item) => (
+            <li key={item.href}>
+              <Link href={item.href} className="flex items-center gap-4 p-5 md:p-7 hover:bg-mist transition-colors">
+                <span className="shrink-0 w-12 h-12 rounded-full bg-navy-light flex items-center justify-center text-navy">
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    {item.icon === 'building' && <path d="M4 21V7l8-4 8 4v14M9 21v-5h6v5M3 21h18" />}
+                    {item.icon === 'grid' && <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" />}
+                    {item.icon === 'chat' && <path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.1A8 8 0 1 1 20 12" />}
+                  </svg>
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-[17px] font-extrabold text-ink tracking-[-0.02em]">{item.title}</span>
+                  <span className="block mt-1 text-[14px] text-ink/55 break-keep">{item.desc}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

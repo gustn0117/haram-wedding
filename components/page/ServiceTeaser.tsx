@@ -34,14 +34,14 @@ export default function ServiceTeaser({ site, service }: { site: Site; service: 
             </dl>
 
             <a href={href}
-              className="mt-10 inline-flex items-center gap-2 h-[56px] px-7 rounded-full bg-ink text-white text-[16px] font-bold hover:bg-gold-deep transition-colors">
+              className="mt-10 inline-flex items-center gap-2 h-[56px] px-7 rounded-full bg-ink text-white text-[16px] font-bold hover:bg-navy-deep transition-colors">
               {site.name} 사이트에서 자세히 보기
               <IconArrowUpRight className="w-5 h-5" />
             </a>
             <p className="mt-3 text-[13px] text-ink/45">{site.host}</p>
           </div>
 
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-mist">
+          <div className="relative aspect-[4/3]  overflow-hidden bg-mist">
             <Image src={service.imageSrc} alt={service.image} fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
           </div>
         </div>

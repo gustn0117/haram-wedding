@@ -45,7 +45,7 @@ function Signature({ s }: { s: Service }) {
         <H2 note="자체 교육 과정 이수자만 현장에 투입합니다">인력 제공부터 배치까지</H2>
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {s.pipeline.map((p, i) => (
-            <li key={p.title} className="relative bg-white rounded-2xl border border-line p-6">
+            <li key={p.title} className="relative bg-white border border-line p-6">
               <span className="text-[13px] font-bold text-gold-deep tabular-nums">{i + 1}단계</span>
               <h3 className="mt-2 text-[19px] font-bold text-ink">{p.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{p.desc}</p>
@@ -95,7 +95,7 @@ function Signature({ s }: { s: Service }) {
         <H2 note="예식장 사정에 맞게 고를 수 있습니다">운영 방식</H2>
         <ul className="grid md:grid-cols-3 gap-4">
           {s.options.map((o) => (
-            <li key={o.name} className="bg-white rounded-2xl border border-line p-6">
+            <li key={o.name} className="bg-white border border-line p-6">
               <h3 className="text-[18px] font-bold text-ink break-keep">{o.name}</h3>
               <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{o.desc}</p>
             </li>
@@ -113,7 +113,7 @@ function Signature({ s }: { s: Service }) {
           {s.funnel.map((f, i) => (
             <li key={f.stage} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
               <span
-                className={`shrink-0 h-11 flex items-center px-4 rounded-lg text-[15px] font-semibold ${i === s.funnel!.length - 1 ? 'bg-gold text-white' : 'bg-ink text-white'}`}
+                className={`shrink-0 h-11 flex items-center px-4 text-[15px] font-semibold ${i === s.funnel!.length - 1 ? 'bg-gold text-white' : 'bg-ink text-white'}`}
                 style={{ width: `min(100%, ${100 - i * 12}%)`, maxWidth: `${340 - i * 44}px`, minWidth: '140px' }}>
                 {f.stage}
               </span>
@@ -129,7 +129,7 @@ function Signature({ s }: { s: Service }) {
     return (
       <Wrap tone="mist">
         <H2 note="주말 하루, 홀 2개 예시 화면">회차 통합 현황</H2>
-        <div className="max-w-[880px] bg-white rounded-2xl border border-line overflow-hidden">
+        <div className="max-w-[880px] bg-white border border-line overflow-hidden">
           <table className="w-full text-[15px]">
             <thead className="bg-mist/60 text-[13px] text-ink/50">
               <tr>
@@ -146,7 +146,7 @@ function Signature({ s }: { s: Service }) {
                   <td className="px-5 py-3.5 text-ink/75">{l.hall}</td>
                   <td className="px-5 py-3.5 text-ink/75">{l.staff}</td>
                   <td className="px-5 py-3.5 text-right">
-                    <span className={`inline-block text-[12px] font-semibold px-2.5 py-1 rounded-md ${STATE_STYLE[l.state]}`}>{l.state}</span>
+                    <span className={`inline-block text-[12px] font-semibold px-2.5 py-1 ${STATE_STYLE[l.state]}`}>{l.state}</span>
                   </td>
                 </tr>
               ))}
@@ -187,7 +187,7 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
             </p>
             <p className="mt-6 text-[16px] md:text-[17px] leading-[1.85] text-ink/65 break-keep">{s.summary}</p>
           </div>
-          <Hatch label={s.image} src={s.imageSrc} className="aspect-[4/3] rounded-2xl" />
+          <Hatch label={s.image} src={s.imageSrc} className="aspect-[4/3] " />
         </div>
 
         <dl className="mt-14 grid grid-cols-2 lg:grid-cols-4 border-y-2 border-ink">
@@ -239,7 +239,7 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
           <H2>이용 후기</H2>
           <ul className="grid md:grid-cols-3 gap-4">
             {reviews.map((r) => (
-              <li key={r.author + r.text.slice(0, 10)} className="bg-white rounded-2xl border border-line p-6 flex flex-col">
+              <li key={r.author + r.text.slice(0, 10)} className="bg-white border border-line p-6 flex flex-col">
                 <p className="text-[15px] leading-[1.8] text-ink/80 break-keep flex-1">{r.text}</p>
                 <p className="mt-5 pt-4 border-t border-line text-[14px]">
                   <span className="font-bold text-ink">{r.author}</span>
@@ -274,7 +274,7 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
         <ul className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {others.map((o) => (
             <li key={o.slug}>
-              <Link href={o.path} className="group relative flex flex-col h-full bg-white rounded-2xl border border-line p-5 hover:border-ink/30 transition-colors">
+              <Link href={o.path} className="group relative flex flex-col h-full bg-white border border-line p-5 hover:border-ink/30 transition-colors">
                 <span className="text-[16px] font-bold text-ink pr-6">{o.name}</span>
                 <span className="mt-1.5 text-[13px] leading-[1.55] text-ink/50 break-keep">{o.short}</span>
                 <IconArrowUpRight className="absolute top-5 right-5 w-4 h-4 text-ink/25 group-hover:text-ink transition-colors" />

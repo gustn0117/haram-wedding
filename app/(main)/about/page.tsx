@@ -64,7 +64,7 @@ export default function AboutPage() {
           <Hatch
             label="예식 운영 체크리스트와 현장 비품"
             src="/images/editorial-2026/operations.webp"
-            className="aspect-[3/2] rounded-2xl"
+            className="aspect-[3/2] "
           />
         </div>
       </Section>
@@ -72,18 +72,18 @@ export default function AboutPage() {
       <Section title="하람을 선택하는 이유" tone="mist">
         <ul className="grid md:grid-cols-3 gap-4">
           {PILLARS.map((p) => (
-            <li key={p.title} className="bg-white rounded-2xl border border-line p-6 md:p-7 flex flex-col">
+            <li key={p.title} className="bg-white border border-line p-6 md:p-7 flex flex-col">
               <h3 className="text-[19px] font-bold text-ink break-keep">{p.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{p.desc}</p>
               <ul className="mt-5 space-y-2 text-[14px] text-ink/75 flex-1">
                 {p.points.map((pt) => (
                   <li key={pt} className="flex gap-2.5 break-keep">
-                    <span className="mt-[9px] w-1 h-1 rounded-full bg-gold shrink-0" />
+                    <span className="mt-[9px] w-1 h-1 rounded-full bg-navy shrink-0" />
                     {pt}
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 pt-4 border-t border-line text-[14px] font-semibold text-gold-deep break-keep">{p.result}</p>
+              <p className="mt-6 pt-4 border-t border-line text-[14px] font-semibold text-navy break-keep">{p.result}</p>
             </li>
           ))}
         </ul>
@@ -93,7 +93,7 @@ export default function AboutPage() {
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {SERVICES.map((s) => (
             <li key={s.slug}>
-              <Link href={s.path} className="group flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-line hover:border-ink/30 transition-colors">
+              <Link href={s.path} className="group flex flex-col h-full bg-white overflow-hidden border border-line hover:border-ink/30 transition-colors">
                 <Hatch label={s.image} src={s.imageSrc} className="aspect-[4/3]" />
                 <span className="p-6 flex-1 flex flex-col">
                   <span className="flex items-start justify-between gap-4">

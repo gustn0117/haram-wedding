@@ -31,17 +31,17 @@ export default function SiteContactForm({ service, serviceLabel }: { service: st
   };
 
   const field =
-    'w-full h-[52px] px-4 rounded-xl bg-[var(--site-bg)] border border-[var(--site-line)] text-[15px] outline-none focus:border-[var(--site-accent)] transition-colors';
+    'w-full h-[52px] px-4 bg-[var(--site-bg)] border border-[var(--site-line)] text-[15px] outline-none focus:border-[var(--site-accent)] transition-colors';
 
   if (status === 'done') {
     return (
-      <div className="rounded-2xl border border-[var(--site-line)] bg-[var(--site-bg)] p-8 text-center">
+      <div className="border border-[var(--site-line)] bg-[var(--site-bg)] p-8 text-center">
         <p className="text-[18px] font-bold">문의가 접수되었습니다</p>
         <p className="mt-2 text-[15px] text-[var(--site-muted)] break-keep">
           평일 10:00–18:00에 순서대로 연락드립니다. 급하시면 {PHONE_DISPLAY}로 전화 주세요.
         </p>
         <button type="button" onClick={() => setStatus('idle')}
-          className="mt-6 inline-flex items-center h-11 px-5 rounded-full border border-[var(--site-line)] text-[14px] font-semibold">
+          className="mt-6 inline-flex items-center h-11 px-5 border border-[var(--site-line)] text-[14px] font-bold">
           문의 하나 더 남기기
         </button>
       </div>
@@ -49,7 +49,7 @@ export default function SiteContactForm({ service, serviceLabel }: { service: st
   }
 
   return (
-    <form onSubmit={submit} className="rounded-2xl border border-[var(--site-line)] bg-[var(--site-surface)] p-6 md:p-8">
+    <form onSubmit={submit} className="border border-[var(--site-line)] bg-[var(--site-surface)] p-6 md:p-8">
       <p className="text-[14px] text-[var(--site-muted)]">
         문의 분야 <span className="font-semibold text-[var(--site-ink)]">{serviceLabel}</span>
       </p>
@@ -77,7 +77,7 @@ export default function SiteContactForm({ service, serviceLabel }: { service: st
         <span className="block text-[14px] font-medium mb-2">문의 내용 <span className="text-[var(--site-accent)]">*</span></span>
         <textarea name="message" value={form.message} onChange={change} required rows={5}
           placeholder="예식장 이름과 하객 규모를 함께 알려주시면 더 정확히 안내해 드립니다."
-          className="w-full p-4 rounded-xl bg-[var(--site-bg)] border border-[var(--site-line)] text-[15px] leading-[1.7] outline-none focus:border-[var(--site-accent)] transition-colors resize-y" />
+          className="w-full p-4 bg-[var(--site-bg)] border border-[var(--site-line)] text-[15px] leading-[1.7] outline-none focus:border-[var(--site-accent)] transition-colors resize-y" />
       </label>
 
       {status === 'error' && (
@@ -88,10 +88,10 @@ export default function SiteContactForm({ service, serviceLabel }: { service: st
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
         <button type="submit" disabled={status === 'sending'}
-          className="inline-flex items-center h-[52px] px-7 rounded-full bg-[var(--site-accent)] text-[var(--site-accent-ink)] text-[15px] font-bold disabled:opacity-60 hover:opacity-90 transition-opacity">
+          className="inline-flex items-center h-[52px] px-7 bg-[var(--site-accent)] text-[var(--site-accent-ink)] text-[15px] font-bold disabled:opacity-60 hover:opacity-90 transition-opacity">
           {status === 'sending' ? '보내는 중…' : '문의 보내기'}
         </button>
-        <a href={PHONE_TEL} className="inline-flex items-center h-[52px] px-7 rounded-full border border-[var(--site-line)] text-[15px] font-semibold tabular-nums">
+        <a href={PHONE_TEL} className="inline-flex items-center h-[52px] px-7 border border-[var(--site-line)] text-[15px] font-bold tabular-nums">
           전화 {PHONE_DISPLAY}
         </a>
       </div>

@@ -48,7 +48,7 @@ export default function CareersPage() {
       <Section title="모집 분야">
         <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {ROLES.map((r) => (
-            <li key={r.title} className="rounded-2xl border border-line overflow-hidden flex flex-col">
+            <li key={r.title} className="border border-line overflow-hidden flex flex-col">
               <Hatch label={r.title} src={r.imageSrc} className="aspect-[8/5]" />
               <div className="p-6 flex-1">
                 <h3 className="text-[19px] font-bold text-ink break-keep">{r.title}</h3>
@@ -56,7 +56,7 @@ export default function CareersPage() {
                 <ul className="mt-5 space-y-2 text-[14px] text-ink/75">
                   {r.tasks.map((t) => (
                     <li key={t} className="flex gap-2.5 break-keep">
-                      <span className="mt-[9px] w-1 h-1 rounded-full bg-gold shrink-0" />
+                      <span className="mt-[9px] w-1 h-1 rounded-full bg-navy shrink-0" />
                       {t}
                     </li>
                   ))}
@@ -70,8 +70,8 @@ export default function CareersPage() {
       <Section title="선발부터 배치까지" description="자체 교육 과정을 이수하고 현장 실무 평가를 통과한 인원만 현장에 투입합니다." tone="mist">
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {PIPELINE.map((p, i) => (
-            <li key={p.title} className="bg-white rounded-2xl border border-line p-6">
-              <span className="text-[13px] font-bold text-gold-deep tabular-nums">{i + 1}단계</span>
+            <li key={p.title} className="bg-white border border-line p-6">
+              <span className="text-[13px] font-bold text-navy tabular-nums">{i + 1}단계</span>
               <h3 className="mt-2 text-[19px] font-bold text-ink">{p.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{p.desc}</p>
             </li>
@@ -88,7 +88,7 @@ export default function CareersPage() {
           <Hatch
             label="현장 교육에 사용하는 예식 운영 체크리스트"
             src="/images/editorial-2026/operations.webp"
-            className="aspect-[3/2] rounded-2xl"
+            className="aspect-[3/2] "
           />
         </div>
       </Section>

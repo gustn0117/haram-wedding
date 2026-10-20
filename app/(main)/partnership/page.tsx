@@ -45,8 +45,8 @@ export default function PartnershipPage() {
       <Section title="도입 절차" description="상담부터 운영 시작까지 네 단계로 진행합니다." tone="mist">
         <ol className="grid md:grid-cols-4 gap-4">
           {STEPS.map((s, i) => (
-            <li key={s.title} className="bg-white rounded-2xl p-6 border border-line flex flex-col">
-              <span className="text-[13px] font-bold text-gold-deep tabular-nums">{i + 1}단계</span>
+            <li key={s.title} className="bg-white p-6 border border-line flex flex-col">
+              <span className="text-[13px] font-bold text-navy tabular-nums">{i + 1}단계</span>
               <h3 className="mt-2 text-[19px] font-bold text-ink">{s.title}</h3>
               <p className="mt-3 text-[15px] leading-[1.65] text-ink/60 break-keep flex-1">{s.desc}</p>
               <p className="mt-5 pt-4 border-t border-line text-[13px] text-ink/50 break-keep">{s.out}</p>
@@ -60,7 +60,7 @@ export default function PartnershipPage() {
           <Hatch
             label="하객 동선을 안내하는 예식장 입구"
             src="/images/editorial-2026/concierge-desk.webp"
-            className="aspect-[3/2] rounded-2xl"
+            className="aspect-[3/2] "
           />
           <div>
             <p className="text-[16px] md:text-[17px] leading-[1.8] text-ink/70 break-keep">

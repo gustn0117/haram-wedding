@@ -33,7 +33,7 @@ function Body({ blocks }: { blocks: Block[] }) {
             <ul key={i} className="my-6 space-y-3">
               {block.items.map((item) => (
                 <li key={item} className="flex gap-3 text-[16px] leading-[1.8] text-ink/75 break-keep">
-                  <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                  <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-navy shrink-0" />
                   {item}
                 </li>
               ))}
@@ -42,7 +42,7 @@ function Body({ blocks }: { blocks: Block[] }) {
         }
         if (block.type === 'quote') {
           return (
-            <blockquote key={i} className="my-10 border-l-2 border-gold pl-6 text-[18px] md:text-[20px] leading-[1.7] font-medium text-ink break-keep">
+            <blockquote key={i} className="my-10 border-l-2 border-navy pl-6 text-[18px] md:text-[20px] leading-[1.7] font-medium text-ink break-keep">
               {block.text}
             </blockquote>
           );
@@ -80,7 +80,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
             </h1>
             <p className="mt-5 text-[17px] leading-[1.7] text-ink/60 break-keep">{post.summary}</p>
             <p className="mt-6 flex flex-wrap items-center gap-2 text-[14px] text-ink/50">
-              <span className="font-semibold text-gold-deep">{post.audience}</span>
+              <span className="font-semibold text-navy">{post.audience}</span>
               <span aria-hidden>·</span>
               <time dateTime={post.published} className="tabular-nums">{post.published.replace(/-/g, '.')}</time>
               <span aria-hidden>·</span>
@@ -90,7 +90,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
         </header>
 
         <div className="max-w-[760px] mx-auto px-6">
-          <Hatch label={post.imageAlt} src={post.image} priority className="aspect-[16/9] rounded-2xl -mt-4" />
+          <Hatch label={post.imageAlt} src={post.image} priority className="aspect-[16/9] -mt-4" />
           <div className="py-12 md:py-16">
             <Body blocks={post.body} />
           </div>
@@ -105,8 +105,8 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
               {others.map((p) => (
                 <li key={p.slug}>
                   <Link href={`/insights/${p.slug}`}
-                    className="block h-full bg-white rounded-2xl border border-line p-6 hover:border-ink/30 transition-colors">
-                    <span className="text-[13px] font-semibold text-gold-deep">{p.audience}</span>
+                    className="block h-full bg-white border border-line p-6 hover:border-ink/30 transition-colors">
+                    <span className="text-[13px] font-semibold text-navy">{p.audience}</span>
                     <span className="mt-2 block text-[18px] font-bold text-ink leading-[1.4] break-keep">{p.title}</span>
                     <span className="mt-2 block text-[15px] leading-[1.6] text-ink/60 break-keep">{p.summary}</span>
                   </Link>
