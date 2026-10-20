@@ -78,12 +78,12 @@ export default function AboutPage() {
               <ul className="mt-5 space-y-2 text-[14px] text-ink/75 flex-1">
                 {p.points.map((pt) => (
                   <li key={pt} className="flex gap-2.5 break-keep">
-                    <span className="mt-[9px] w-1 h-1 rounded-full bg-navy shrink-0" />
+                    <span className="mt-[9px] w-1 h-1 rounded-full bg-brand-deep shrink-0" />
                     {pt}
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 pt-4 border-t border-line text-[14px] font-semibold text-navy break-keep">{p.result}</p>
+              <p className="mt-6 pt-4 border-t border-line text-[14px] font-semibold text-brand-deep break-keep">{p.result}</p>
             </li>
           ))}
         </ul>

@@ -60,7 +60,7 @@ export default function Footer() {
           {/* 고객센터 */}
           <div className="col-span-2 md:col-span-1">
             <p className="text-[14px] font-bold text-white">고객센터</p>
-            <a href={PHONE_TEL} className="mt-4 block text-[28px] font-bold tracking-[-0.01em] tabular-nums text-white hover:text-mint transition-colors">
+            <a href={PHONE_TEL} className="mt-4 block text-[28px] font-bold tracking-[-0.01em] tabular-nums text-white hover:text-brand transition-colors">
               {PHONE_DISPLAY}
             </a>
             <p className="mt-1 text-[14px] text-white/75">평일 10:00 – 18:00</p>

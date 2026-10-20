@@ -19,7 +19,7 @@ export default function QuickDock() {
           <IconArrowUp className="w-5 h-5" />
         </button>
         <Link href={CONTACT_HREF}
-          className="w-[76px] h-[76px] rounded-full bg-mint text-white shadow-[0_10px_28px_rgba(47,183,154,0.35)] flex flex-col items-center justify-center gap-1 hover:bg-mint-deep transition-colors">
+          className="w-[76px] h-[76px] rounded-full bg-brand-deep text-white shadow-[0_10px_28px_rgba(135,101,38,0.30)] flex flex-col items-center justify-center gap-1 hover:bg-brand-darker transition-colors">
           <IconChat className="w-6 h-6" />
           <span className="text-[12px] font-bold">문의하기</span>
         </Link>
@@ -29,10 +29,10 @@ export default function QuickDock() {
         <div className="grid grid-cols-[1fr_1.4fr] gap-2 p-2">
           <a href={PHONE_TEL} aria-label={`전화 상담 ${PHONE_DISPLAY}`}
             className="flex items-center justify-center gap-2 h-12 border border-line text-[15px] font-bold text-ink">
-            <IconPhone className="w-5 h-5 text-navy" />
+            <IconPhone className="w-5 h-5 text-brand-deep" />
             전화 상담
           </a>
-          <Link href={CONTACT_HREF} className="flex items-center justify-center h-12 bg-navy text-white text-[15px] font-bold">
+          <Link href={CONTACT_HREF} className="flex items-center justify-center h-12 bg-brand-deep text-white text-[15px] font-bold">
             문의하기
           </Link>
         </div>

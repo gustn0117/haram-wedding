@@ -143,7 +143,7 @@ export default function HeroSlider() {
             <p className="mt-5 text-[16px] md:text-[17px] leading-[1.75] text-white/75 break-keep max-w-[34em]">{slide.body}</p>
             <div className="mt-8 flex flex-wrap gap-2.5">
               <Link href={slide.primary.href}
-                className="inline-flex items-center h-[50px] px-7 bg-navy text-white text-[15px] font-bold hover:bg-navy-deep transition-colors">
+                className="inline-flex items-center h-[50px] px-7 bg-brand-deep text-white text-[15px] font-bold hover:bg-brand-darker transition-colors">
                 {slide.primary.label}
               </Link>
               <Link href={slide.secondary.href}
@@ -197,7 +197,7 @@ export default function HeroSlider() {
           ].map((item) => (
             <li key={item.href}>
               <Link href={item.href} className="flex items-center gap-4 p-5 md:p-7 hover:bg-mist transition-colors">
-                <span className="shrink-0 w-12 h-12 rounded-full bg-navy-light flex items-center justify-center text-navy">
+                <span className="shrink-0 w-12 h-12 rounded-full bg-brand-light flex items-center justify-center text-brand-deep">
                   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                     {item.icon === 'building' && <path d="M4 21V7l8-4 8 4v14M9 21v-5h6v5M3 21h18" />}
                     {item.icon === 'grid' && <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" />}

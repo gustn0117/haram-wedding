@@ -41,10 +41,10 @@ export default function Navbar() {
             {MAIN_MENU.map((link) => (
               <Link key={link.href} href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}
                 className={`relative py-2 text-[17px] font-bold tracking-[-0.02em] transition-colors ${
-                  isActive(link.href) ? 'text-navy' : 'text-ink hover:text-navy'
+                  isActive(link.href) ? 'text-brand-deep' : 'text-ink hover:text-brand-deep'
                 }`}>
                 {link.label}
-                {isActive(link.href) && <span className="absolute -bottom-0.5 inset-x-0 h-[2px] bg-navy" />}
+                {isActive(link.href) && <span className="absolute -bottom-0.5 inset-x-0 h-[2px] bg-brand-deep" />}
               </Link>
             ))}
           </nav>
@@ -56,12 +56,12 @@ export default function Navbar() {
                 <Link href={l.href} className="hover:text-ink transition-colors">{l.label}</Link>
               </span>
             ))}
-            <a href={PHONE_TEL} className="font-bold text-ink tabular-nums hover:text-navy transition-colors">{PHONE_DISPLAY}</a>
+            <a href={PHONE_TEL} className="font-bold text-ink tabular-nums hover:text-brand-deep transition-colors">{PHONE_DISPLAY}</a>
           </div>
 
           <button type="button" onClick={() => setMenuOpen(true)}
             aria-label="전체 메뉴 열기" aria-expanded={menuOpen}
-            className="ml-auto lg:ml-3 flex items-center gap-1.5 shrink-0 text-ink hover:text-navy transition-colors">
+            className="ml-auto lg:ml-3 flex items-center gap-1.5 shrink-0 text-ink hover:text-brand-deep transition-colors">
             <span className="flex flex-col gap-[5px]" aria-hidden>
               <span className="block w-[22px] h-[2px] bg-current" />
               <span className="block w-[16px] h-[2px] bg-current" />
@@ -79,7 +79,7 @@ export default function Navbar() {
             className="hidden md:block flex-1 bg-ink/50" />
 
           <div className="w-full md:w-[520px] bg-white h-full overflow-y-auto">
-            <div className="bg-navy text-white px-6 md:px-9 py-8">
+            <div className="bg-brand-deep text-white px-6 md:px-9 py-8">
               <div className="flex items-start justify-between gap-6">
                 <div>
                   <p className="text-[22px] font-extrabold tracking-[-0.03em]">하람 전체 메뉴</p>
@@ -97,11 +97,11 @@ export default function Navbar() {
 
             <div className="px-6 md:px-9 py-8 space-y-9">
               <section>
-                <h2 className="text-[15px] font-extrabold text-navy border-b border-line pb-3">서비스</h2>
+                <h2 className="text-[15px] font-extrabold text-brand-deep border-b border-line pb-3">서비스</h2>
                 <ul className="mt-4 grid grid-cols-2 gap-x-6">
                   {SERVICES.map((s) => (
                     <li key={s.slug}>
-                      <Link href={s.path} className="block py-2.5 text-[15px] font-medium text-ink hover:text-navy transition-colors">
+                      <Link href={s.path} className="block py-2.5 text-[15px] font-medium text-ink hover:text-brand-deep transition-colors">
                         {s.name}
                       </Link>
                     </li>
@@ -110,12 +110,12 @@ export default function Navbar() {
               </section>
 
               <section>
-                <h2 className="text-[15px] font-extrabold text-navy border-b border-line pb-3">전문 사이트</h2>
+                <h2 className="text-[15px] font-extrabold text-brand-deep border-b border-line pb-3">전문 사이트</h2>
                 <ul className="mt-4 space-y-2">
                   {SITES.map((site) => (
                     <li key={site.slug}>
                       <a href={`https://${site.host}`}
-                        className="flex items-center justify-between gap-4 py-3 px-4 bg-mist hover:bg-navy-light transition-colors">
+                        className="flex items-center justify-between gap-4 py-3 px-4 bg-mist hover:bg-brand-light transition-colors">
                         <span>
                           <span className="block text-[15px] font-bold text-ink">{site.name}</span>
                           <span className="block mt-0.5 text-[13px] text-ink/50">{site.host}</span>
@@ -130,11 +130,11 @@ export default function Navbar() {
               </section>
 
               <section>
-                <h2 className="text-[15px] font-extrabold text-navy border-b border-line pb-3">회사</h2>
+                <h2 className="text-[15px] font-extrabold text-brand-deep border-b border-line pb-3">회사</h2>
                 <ul className="mt-4 grid grid-cols-2 gap-x-6">
                   {[...MAIN_MENU.filter((m) => m.href !== '/services'), ...UTIL_LINKS].map((l) => (
                     <li key={l.href}>
-                      <Link href={l.href} className="block py-2.5 text-[15px] font-medium text-ink hover:text-navy transition-colors">
+                      <Link href={l.href} className="block py-2.5 text-[15px] font-medium text-ink hover:text-brand-deep transition-colors">
                         {l.label}
                       </Link>
                     </li>

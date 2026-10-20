@@ -49,7 +49,7 @@ export default function ContactPage() {
     setSubmitting(false);
   };
 
-  const inputClass = 'w-full px-5 py-4 bg-mist border border-line text-[15px] focus:outline-none focus:border-navy transition-colors focus:bg-white';
+  const inputClass = 'w-full px-5 py-4 bg-mist border border-line text-[15px] focus:outline-none focus:border-brand-deep transition-colors focus:bg-white';
 
   return (
     <main>
@@ -65,7 +65,7 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <motion.div initial="hidden" animate="show" custom={0} variants={fade}
             className="flex items-center gap-3 mb-4">
-            <span className="w-8 h-[1px] bg-navy/50" />
+            <span className="w-8 h-[1px] bg-brand-deep/50" />
             <span className="tag">Contact</span>
           </motion.div>
           <motion.h1 initial="hidden" animate="show" custom={0.1} variants={fade}
@@ -131,7 +131,7 @@ export default function ContactPage() {
             onSubmit={handleSubmit} className="bg-white p-8 md:p-12 border border-line card-inner-glow">
 
             <div className="flex items-center gap-3 mb-3">
-              <span className="w-6 h-[1px] bg-navy/50" />
+              <span className="w-6 h-[1px] bg-brand-deep/50" />
               <span className="tag">Inquiry Form</span>
             </div>
             <h3 className="text-[24px] font-extralight mt-3 mb-10 tracking-tight">문의 양식</h3>
@@ -214,7 +214,7 @@ export default function ContactPage() {
               <motion.details key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.05} variants={fade}
                 className="group border-b border-gray-100">
-                <summary className="cursor-pointer py-6 text-[15px] flex justify-between items-center hover:text-navy transition-colors">
+                <summary className="cursor-pointer py-6 text-[15px] flex justify-between items-center hover:text-brand-deep transition-colors">
                   {faq.q}
                   <span className="text-gold/60 ml-4 shrink-0 group-open:rotate-45 transition-transform text-[16px]">+</span>
                 </summary>

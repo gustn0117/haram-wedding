@@ -7,10 +7,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // 만나교회 계열: 흰 바탕 · 남색 포인트 · 민트 보조
+        // 하람 로고 금색을 포인트로. 흰 배경 위 글자·버튼에는 deep 단계만 쓴다
+        // (로고색 #dec08a 는 흰 배경 대비 1.75 로 글자에 못 씀)
         ink: '#1a1a1a',
-        navy: { DEFAULT: '#1f3f78', light: '#eaf0fa', deep: '#16305c' },
-        mint: { DEFAULT: '#2fb79a', light: '#e4f6f1', deep: '#1f8a74' },
+        brand: {
+          DEFAULT: '#dec08a', // 로고색 — 어두운 면 위 강조, 테두리, 채움
+          mid: '#a77c2f',
+          deep: '#876526',    // 흰 배경 위 글자·버튼 (대비 5.36)
+          darker: '#67501f',  // hover
+          light: '#f7f0e3',   // 연한 배경
+        },
+        navy: { DEFAULT: '#876526', light: '#f7f0e3', deep: '#67501f' },
+        mint: { DEFAULT: '#876526', light: '#f7f0e3', deep: '#67501f' },
         mist: '#f5f6f8',
         line: '#e3e5e9',
         // 이전 토큰 — 아직 남은 화면이 참조한다

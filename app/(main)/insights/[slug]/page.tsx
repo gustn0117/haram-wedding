@@ -33,7 +33,7 @@ function Body({ blocks }: { blocks: Block[] }) {
             <ul key={i} className="my-6 space-y-3">
               {block.items.map((item) => (
                 <li key={item} className="flex gap-3 text-[16px] leading-[1.8] text-ink/75 break-keep">
-                  <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-navy shrink-0" />
+                  <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-brand-deep shrink-0" />
                   {item}
                 </li>
               ))}
@@ -42,7 +42,7 @@ function Body({ blocks }: { blocks: Block[] }) {
         }
         if (block.type === 'quote') {
           return (
-            <blockquote key={i} className="my-10 border-l-2 border-navy pl-6 text-[18px] md:text-[20px] leading-[1.7] font-medium text-ink break-keep">
+            <blockquote key={i} className="my-10 border-l-2 border-brand-deep pl-6 text-[18px] md:text-[20px] leading-[1.7] font-medium text-ink break-keep">
               {block.text}
             </blockquote>
           );
@@ -80,7 +80,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
             </h1>
             <p className="mt-5 text-[17px] leading-[1.7] text-ink/60 break-keep">{post.summary}</p>
             <p className="mt-6 flex flex-wrap items-center gap-2 text-[14px] text-ink/50">
-              <span className="font-semibold text-navy">{post.audience}</span>
+              <span className="font-semibold text-brand-deep">{post.audience}</span>
               <span aria-hidden>·</span>
               <time dateTime={post.published} className="tabular-nums">{post.published.replace(/-/g, '.')}</time>
               <span aria-hidden>·</span>
@@ -106,7 +106,7 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
                 <li key={p.slug}>
                   <Link href={`/insights/${p.slug}`}
                     className="block h-full bg-white border border-line p-6 hover:border-ink/30 transition-colors">
-                    <span className="text-[13px] font-semibold text-navy">{p.audience}</span>
+                    <span className="text-[13px] font-semibold text-brand-deep">{p.audience}</span>
                     <span className="mt-2 block text-[18px] font-bold text-ink leading-[1.4] break-keep">{p.title}</span>
                     <span className="mt-2 block text-[15px] leading-[1.6] text-ink/60 break-keep">{p.summary}</span>
                   </Link>

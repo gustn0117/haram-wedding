@@ -34,7 +34,7 @@ export default function ServiceTeaser({ site, service }: { site: Site; service: 
             </dl>
 
             <a href={href}
-              className="mt-10 inline-flex items-center gap-2 h-[56px] px-7 rounded-full bg-ink text-white text-[16px] font-bold hover:bg-navy-deep transition-colors">
+              className="mt-10 inline-flex items-center gap-2 h-[56px] px-7 rounded-full bg-ink text-white text-[16px] font-bold hover:bg-brand-darker transition-colors">
               {site.name} 사이트에서 자세히 보기
               <IconArrowUpRight className="w-5 h-5" />
             </a>

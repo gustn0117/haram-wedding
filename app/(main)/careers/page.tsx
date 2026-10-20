@@ -56,7 +56,7 @@ export default function CareersPage() {
                 <ul className="mt-5 space-y-2 text-[14px] text-ink/75">
                   {r.tasks.map((t) => (
                     <li key={t} className="flex gap-2.5 break-keep">
-                      <span className="mt-[9px] w-1 h-1 rounded-full bg-navy shrink-0" />
+                      <span className="mt-[9px] w-1 h-1 rounded-full bg-brand-deep shrink-0" />
                       {t}
                     </li>
                   ))}
@@ -71,7 +71,7 @@ export default function CareersPage() {
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {PIPELINE.map((p, i) => (
             <li key={p.title} className="bg-white border border-line p-6">
-              <span className="text-[13px] font-bold text-navy tabular-nums">{i + 1}단계</span>
+              <span className="text-[13px] font-bold text-brand-deep tabular-nums">{i + 1}단계</span>
               <h3 className="mt-2 text-[19px] font-bold text-ink">{p.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{p.desc}</p>
             </li>

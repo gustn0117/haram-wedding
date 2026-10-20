@@ -46,7 +46,7 @@ export default function PartnershipPage() {
         <ol className="grid md:grid-cols-4 gap-4">
           {STEPS.map((s, i) => (
             <li key={s.title} className="bg-white p-6 border border-line flex flex-col">
-              <span className="text-[13px] font-bold text-navy tabular-nums">{i + 1}단계</span>
+              <span className="text-[13px] font-bold text-brand-deep tabular-nums">{i + 1}단계</span>
               <h3 className="mt-2 text-[19px] font-bold text-ink">{s.title}</h3>
               <p className="mt-3 text-[15px] leading-[1.65] text-ink/60 break-keep flex-1">{s.desc}</p>
               <p className="mt-5 pt-4 border-t border-line text-[13px] text-ink/50 break-keep">{s.out}</p>
