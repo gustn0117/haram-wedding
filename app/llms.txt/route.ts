@@ -1,5 +1,6 @@
 import { BRAND, PHONE, SERVICE_AREAS, SITE_URL, absUrl } from '@/lib/seo';
 import { SERVICES } from '@/lib/services';
+import { INSIGHTS } from '@/lib/insights';
 
 /**
  * llms.txt — 생성형 검색(AI 답변)이 사이트를 요약할 때 참고하는 평문 요약.
@@ -32,9 +33,15 @@ ${services}
 - 제휴는 최소 3개월 단위 협업을 권장하며, 1회 체험 운영도 가능합니다.
 - 가격은 홀 구성, 월간 예식 건수, 서비스 범위에 따라 상담으로 정합니다.
 
+## 칼럼
+
+${INSIGHTS.map((i) => `- [${i.title}](${absUrl(`/insights/${i.slug}`)}): ${i.summary}`).join('\n')}
+
 ## 페이지
 
 - [서비스 전체](${absUrl('/services')})
+- [자주 묻는 질문](${absUrl('/faq')})
+- [칼럼](${absUrl('/insights')})
 - [하람소개](${absUrl('/about')})
 - [예식장 제휴 안내](${absUrl('/partnership')})
 - [인재 채용](${absUrl('/careers')})

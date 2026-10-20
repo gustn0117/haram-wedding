@@ -46,7 +46,7 @@ export default function AboutPage() {
         title="현장에 흐름을 입히는, 예식장의 운영 파트너"
         description="예식의 인상은 공간이 아니라 흐름에서 결정됩니다. 하람은 그 흐름을 설계하고 운영합니다."
         image="화이트 플라워로 장식한 호텔 웨딩홀"
-        imageSrc="/images/editorial-2026/home-hero.png"
+        imageSrc="/images/editorial-2026/home-hero.webp"
       />
 
       <Section title="하람이 하는 일">
@@ -63,7 +63,7 @@ export default function AboutPage() {
           </div>
           <Hatch
             label="예식 운영 체크리스트와 현장 비품"
-            src="/images/editorial-2026/operations.png"
+            src="/images/editorial-2026/operations.webp"
             className="aspect-[3/2] rounded-2xl"
           />
         </div>

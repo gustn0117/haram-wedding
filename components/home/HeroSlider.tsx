@@ -27,7 +27,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/services', label: '서비스 둘러보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
     image: '화이트 플라워로 장식한 호텔 웨딩홀 전경',
-    imageSrc: '/images/editorial-2026/home-hero.png',
+    imageSrc: '/images/editorial-2026/home-hero.webp',
   },
   {
     tab: '예식 컨시어지',
@@ -37,7 +37,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/concierge', label: '예식 컨시어지 보기' },
     secondary: { href: '/partnership', label: '예식장 제휴 문의' },
     image: '예식장 로비의 안내 동선과 플라워 장식',
-    imageSrc: '/images/editorial-2026/concierge-desk.png',
+    imageSrc: '/images/editorial-2026/concierge-desk.webp',
   },
   {
     tab: '사회 · 축가',
@@ -47,7 +47,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/host', label: '예식사회자 보기' },
     secondary: { href: '/vocal', label: '축가 보기' },
     image: '웨딩홀 무대의 사회자용 마이크와 큐시트',
-    imageSrc: '/images/editorial-2026/host-vocal.png',
+    imageSrc: '/images/editorial-2026/host-vocal.webp',
   },
   {
     tab: '웨딩 포토부스',
@@ -57,7 +57,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/photobooth', label: '웨딩 포토부스 보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
     image: '웨딩홀에 설치한 포토부스와 인화 사진',
-    imageSrc: '/images/editorial-2026/photobooth.png',
+    imageSrc: '/images/editorial-2026/photobooth.webp',
   },
   {
     tab: '예식장 솔루션',
@@ -67,7 +67,7 @@ const SLIDES: Slide[] = [
     primary: { href: '/marketing', label: '웨딩홀 마케팅 보기' },
     secondary: { href: '/program', label: '예식 취합 프로그램 보기' },
     image: '예식장 운영 서류와 체크리스트',
-    imageSrc: '/images/editorial-2026/operations.png',
+    imageSrc: '/images/editorial-2026/operations.webp',
   },
 ];
 

@@ -34,3 +34,10 @@ export const SERVICES_FAQ: FaqItem[] = [
   { q: '얼마나 미리 신청해야 하나요?', a: '예식 2~3개월 전 신청을 권장합니다. 봄과 가을 성수기에는 더 일찍 문의해 주시면 원하는 날짜에 배정하기 수월합니다. 예식사회자와 축가는 예식 2주 전부터 사전 협의를 시작합니다.' },
   { q: '예식장 제휴는 어떻게 진행되나요?', a: '제휴 상담, 현장 답사, 예식장 전용 매뉴얼 설계, 전담 인력 배치 순으로 진행합니다. 최소 3개월 단위 협업을 권장하며 1회 체험 운영도 가능합니다.' },
 ];
+
+// FAQ 페이지 — 서비스별 질문을 한곳에 모은다 (중복 없이 그룹으로 구분)
+export const ALL_FAQ: { title: string; items: FaqItem[] }[] = [
+  { title: '서비스 전반', items: SERVICES_FAQ },
+  { title: '예식 컨시어지 · 예식도우미', items: CONCIERGE_FAQ },
+  { title: '웨딩 포토부스', items: PHOTOBOOTH_FAQ },
+];

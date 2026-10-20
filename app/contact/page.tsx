@@ -56,7 +56,7 @@ export default function ContactPage() {
       {/* HERO */}
       <section className="relative h-[50vh] md:h-[60vh] flex items-end pb-16 md:pb-24 overflow-hidden bg-sage-deep hero-corner-ornament">
         <div className="absolute inset-0">
-          <Image src="/images/editorial-2026/details.png"
+          <Image src="/images/editorial-2026/details.webp"
             alt="자연광 아래 놓인 웨딩 링과 예식 준비 소품" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-sage-deep/80 via-sage-deep/45 to-sage-deep/15" />
         </div>

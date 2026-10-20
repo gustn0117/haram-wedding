@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { FaqItem } from '@/lib/faq';
+import type { Insight } from '@/lib/insights';
 
 export const SITE_URL = 'https://haramevent.kr';
 export const SITE_NAME = '하람 (HARAM)';
@@ -60,7 +61,7 @@ export const HOME: SitePage = {
     '경기 예식도우미',
     'HARAM',
   ],
-  image: '/images/editorial-2026/home-hero.png',
+  image: '/images/editorial-2026/home-hero-og.jpg',
   imageAlt: '자연광과 플라워로 꾸민 현대적인 웨딩홀',
   updated: '2026-09-24',
   changeFrequency: 'weekly',
@@ -86,7 +87,7 @@ export const CONCIERGE: SitePage = {
     '예식 매니지먼트',
     '하람 컨시어지',
   ],
-  image: '/images/editorial-2026/concierge-desk.png',
+  image: '/images/editorial-2026/concierge-desk-og.jpg',
   imageAlt: '하람 예식 컨시어지 안내 데스크',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -111,7 +112,7 @@ export const PHOTOBOOTH: SitePage = {
     '웨딩 포토북',
     '하람 포토부스',
   ],
-  image: '/images/editorial-2026/photobooth.png',
+  image: '/images/editorial-2026/photobooth-og.jpg',
   imageAlt: '하람 웨딩 포토부스',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -136,7 +137,7 @@ export const HOST: SitePage = {
     '결혼식 전문사회',
     '하람 전문사회',
   ],
-  image: '/images/editorial-2026/host-vocal.png',
+  image: '/images/editorial-2026/host-vocal-og.jpg',
   imageAlt: '예식사회자와 축가를 위한 웨딩홀 무대',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -158,7 +159,7 @@ export const CONTACT: SitePage = {
     '결혼식 사회자 비용',
     '하람 문의',
   ],
-  image: '/images/editorial-2026/details.png',
+  image: '/images/editorial-2026/details-og.jpg',
   imageAlt: '하람 상담 문의',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -172,7 +173,7 @@ export const ABOUT: SitePage = {
   description:
     '하람은 예식도우미, 예식 컨시어지, 웨딩 포토부스, 예식사회자를 한 팀으로 운영하는 예식 현장 매니지먼트 회사입니다. 경기도 수원을 기반으로 전국 예식장에서 활동합니다.',
   keywords: ['하람', '하람 웨딩', '예식 매니지먼트', '예식도우미 업체', '웨딩 컨시어지 회사'],
-  image: '/images/editorial-2026/intro-vertical.png',
+  image: '/images/editorial-2026/intro-vertical-og.jpg',
   imageAlt: '하람 소개',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -186,7 +187,7 @@ export const PARTNERSHIP: SitePage = {
   description:
     '예식장 전용 B2B 예식 컨시어지 제휴 안내. 제휴 상담, 현장 답사, 전용 매뉴얼 설계, 전담 예식도우미 배치까지 하람이 예식장 현장 운영을 맡습니다.',
   keywords: ['예식장 제휴', '예식 컨시어지 제휴', '예식도우미 파견', '웨딩홀 운영 대행', '예식장 인력'],
-  image: '/images/editorial-2026/concierge-desk.png',
+  image: '/images/editorial-2026/concierge-desk-og.jpg',
   imageAlt: '하람 예식장 제휴',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -200,7 +201,7 @@ export const CAREERS: SitePage = {
   description:
     '하람과 함께할 예식도우미(컨시어지 매니저), 웨딩 포토부스 스태프, 예식사회자, 축가 보컬리스트를 모집합니다. 항공·호텔 서비스 계열 지망생과 경험자 우대, 자체 교육과 실무 평가 후 현장에 배치됩니다.',
   keywords: ['예식도우미 채용', '예식도우미 알바', '웨딩 도우미 모집', '포토부스 스태프 채용', '예식사회자 모집', '축가 알바'],
-  image: '/images/editorial-2026/operations.png',
+  image: '/images/editorial-2026/operations-og.jpg',
   imageAlt: '하람 인재 채용',
   updated: '2026-09-24',
   changeFrequency: 'weekly',
@@ -214,7 +215,7 @@ export const VOCAL: SitePage = {
   description:
     '가창력 있는 보컬리스트가 신랑신부와 곡목, 키, 편곡을 미리 협의해 본식에서 라이브로 부르는 결혼식 축가입니다. 세트당 1~2곡, 음향팀 사운드 체크까지 함께 운영합니다. 서울·경기·수원 예식장 출장.',
   keywords: ['결혼식 축가', '웨딩 축가', '축가 업체', '라이브 축가', '축가 보컬리스트', '하람 축가'],
-  image: '/images/editorial-2026/host-vocal.png',
+  image: '/images/editorial-2026/host-vocal-og.jpg',
   imageAlt: '하람 결혼식 축가',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -229,7 +230,7 @@ export const MARKETING: SitePage = {
   description:
     '하람 웨딩홀 마케팅은 홀 콘텐츠 제작, 채널 운영과 광고 집행, 문의 응대 동선 설계, 월간 성과 리포트까지 예식장 예약률을 올리는 월 단위 마케팅 운영 서비스입니다.',
   keywords: ['웨딩홀 마케팅', '예식장 마케팅', '웨딩홀 광고', '예식장 홍보', '웨딩홀 콘텐츠'],
-  image: '/images/editorial-2026/home-hero.png',
+  image: '/images/editorial-2026/home-hero-og.jpg',
   imageAlt: '하람 웨딩홀 마케팅',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -244,7 +245,7 @@ export const PROGRAM: SitePage = {
   description:
     '예약, 식순, 담당 스태프, 협력 업체 정보를 한 화면에서 관리하는 웨딩홀 관리 프로그램입니다. 홀 개수 제한 없이 회차별 진행 현황과 큐 시트를 공유합니다.',
   keywords: ['웨딩홀 관리 프로그램', '예식장 관리 프로그램', '예식 관리 시스템', '큐시트 프로그램', '예식 취합 프로그램'],
-  image: '/images/editorial-2026/operations.png',
+  image: '/images/editorial-2026/operations-og.jpg',
   imageAlt: '하람 예식 취합 프로그램',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
@@ -259,15 +260,53 @@ export const SERVICES_INDEX: SitePage = {
   description:
     '예식 컨시어지(예식도우미), 예식사회자, 축가, 웨딩 포토부스, 웨딩홀 마케팅, 예식 취합 프로그램. 하람이 운영하는 여섯 가지 서비스를 한눈에 보세요.',
   keywords: ['예식도우미', '예식사회자', '결혼식 축가', '웨딩 포토부스', '웨딩홀 마케팅', '웨딩홀 관리 프로그램'],
-  image: '/images/editorial-2026/home-hero.png',
+  image: '/images/editorial-2026/home-hero-og.jpg',
   imageAlt: '하람 서비스',
   updated: '2026-09-24',
   changeFrequency: 'monthly',
   priority: 0.9,
 };
 
+export const INSIGHTS_INDEX: SitePage = {
+  path: '/insights',
+  title: '칼럼 | 예식장 운영과 예식 준비 이야기 - 하람',
+  name: '칼럼',
+  description:
+    '예식도우미와 예식 컨시어지의 차이, 예식사회자 섭외 기준, 주말 회차 운영까지. 예식 현장에서 나온 이야기를 정리합니다.',
+  keywords: ['예식장 운영', '예식도우미', '예식 컨시어지', '예식사회자 섭외', '웨딩홀 운영'],
+  image: '/images/editorial-2026/operations-og.jpg',
+  imageAlt: '하람 칼럼',
+  updated: '2026-10-20',
+  changeFrequency: 'weekly',
+  priority: 0.8,
+};
+
+export const FAQ_PAGE: SitePage = {
+  path: '/faq',
+  title: '자주 묻는 질문 | 예식도우미 · 포토부스 · 사회자 - 하람',
+  name: '자주 묻는 질문',
+  description:
+    '신청 방법, 운영 지역, 비용 산정, 예식장 제휴 절차까지 하람에 가장 많이 들어오는 질문과 답변을 모았습니다.',
+  keywords: ['하람 FAQ', '예식도우미 비용', '웨딩 포토부스 대여 문의', '예식사회자 섭외', '예식장 제휴'],
+  image: '/images/editorial-2026/details-og.jpg',
+  imageAlt: '하람 자주 묻는 질문',
+  updated: '2026-10-20',
+  changeFrequency: 'monthly',
+  priority: 0.8,
+};
+
 export const SERVICE_PAGES = [CONCIERGE, HOST, VOCAL, PHOTOBOOTH, MARKETING, PROGRAM];
-export const PAGES = [HOME, SERVICES_INDEX, ...SERVICE_PAGES, ABOUT, PARTNERSHIP, CAREERS, CONTACT];
+export const PAGES = [
+  HOME,
+  SERVICES_INDEX,
+  ...SERVICE_PAGES,
+  ABOUT,
+  PARTNERSHIP,
+  INSIGHTS_INDEX,
+  FAQ_PAGE,
+  CAREERS,
+  CONTACT,
+];
 
 export const absUrl = (path: string) => (path === '/' ? SITE_URL : `${SITE_URL}${path}`);
 
@@ -420,5 +459,69 @@ export function faqJsonLd(items: FaqItem[]) {
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
+  };
+}
+
+// ───────── 칼럼 ─────────
+
+export function insightMetadata(post: Insight): Metadata {
+  const url = absUrl(`/insights/${post.slug}`);
+  return {
+    title: { absolute: `${post.title} | 하람 칼럼` },
+    description: post.summary,
+    keywords: post.keywords,
+    alternates: {
+      canonical: url,
+      types: { 'application/rss+xml': [{ url: RSS_PATH, title: `${BRAND} 소식` }] },
+    },
+    openGraph: {
+      type: 'article',
+      locale: 'ko_KR',
+      siteName: SITE_NAME,
+      url,
+      title: post.title,
+      description: post.summary,
+      publishedTime: post.published,
+      modifiedTime: post.updated,
+      images: [{ url: post.image, alt: post.imageAlt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+      images: [post.image],
+    },
+  };
+}
+
+export function articleJsonLd(post: Insight) {
+  const url = absUrl(`/insights/${post.slug}`);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: post.title,
+    description: post.summary,
+    url,
+    mainEntityOfPage: url,
+    datePublished: post.published,
+    dateModified: post.updated,
+    inLanguage: 'ko-KR',
+    keywords: post.keywords.join(', '),
+    image: absUrl(post.image),
+    author: { '@id': ORG_ID },
+    publisher: { '@id': ORG_ID },
+  };
+}
+
+export function insightBreadcrumbJsonLd(post: Insight) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: BRAND, item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: '칼럼', item: absUrl('/insights') },
+      { '@type': 'ListItem', position: 3, name: post.title, item: absUrl(`/insights/${post.slug}`) },
+    ],
   };
 }

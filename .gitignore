@@ -35,3 +35,8 @@ yarn-error.log*
 *.swp
 *.swo
 .superpowers/
+
+# 외부 공개 금지 자료
+HARAM Wedding Concierge — 견적서.pdf
+*.pdf
+하람로고.png
