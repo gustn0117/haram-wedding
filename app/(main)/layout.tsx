@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import JsonLd from '@/components/JsonLd';
 import QuickDock from '@/components/QuickDock';
+import Analytics from '@/components/Analytics';
 import {
   BASE_REGION,
   BRAND,
@@ -74,6 +75,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <QuickDock />
+        <Analytics />
         {/* 모바일 하단 고정 바 높이만큼 여백 */}
         <div className="mobile-dock-spacer h-[68px] lg:hidden" />
       </body>
