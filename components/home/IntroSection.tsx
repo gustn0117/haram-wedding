@@ -1,10 +1,8 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import {
-  IconArrowUpRight, IconBuilding, IconCamera, IconChart, IconChat,
+  IconBuilding, IconCamera, IconChart, IconChat,
   IconClipboard, IconDocument, IconMic, IconMusic, IconSparkle, IconUsers,
 } from '@/components/icons';
-import { INSIGHTS } from '@/lib/insights';
 import { CONTACT_HREF } from '@/lib/nav';
 import { SERVICES, type ServiceSlug } from '@/lib/services';
 
@@ -26,8 +24,6 @@ const SHORTCUTS = [
 ];
 
 export default function IntroSection() {
-  const [lead, ...rest] = INSIGHTS;
-
   return (
     <>
       {/* 미션 */}
@@ -62,61 +58,6 @@ export default function IntroSection() {
         </div>
       </section>
 
-      {/* 소식 */}
-      <section className="bg-mist">
-        <div className="max-w-[1280px] mx-auto px-6 py-16 md:py-24">
-          <div className="flex items-end justify-between gap-6">
-            <h2 className="site-heading text-[24px] md:text-[32px] text-ink">예식 현장의 이야기를 전합니다.</h2>
-            <Link href="/insights" className="hidden sm:inline-flex items-center gap-2 text-[15px] font-bold text-ink hover:text-brand-deep transition-colors">
-              자세히보기
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} aria-hidden>
-                <path d="M4 12h15m0 0-5-5m5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          </div>
-
-          <div className="mt-10 grid lg:grid-cols-[1.25fr_1fr] gap-4">
-            <Link href={`/insights/${lead.slug}`} className="group block bg-white">
-              <span className="relative block aspect-[16/10] overflow-hidden">
-                <Image src={lead.image} alt={lead.imageAlt} fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
-              </span>
-              <span className="block p-6 md:p-8">
-                <span className="text-[13px] font-bold text-brand-deep">{lead.audience}</span>
-                <span className="mt-2 block text-[20px] md:text-[24px] font-extrabold tracking-[-0.03em] text-ink leading-[1.35] break-keep">
-                  {lead.title}
-                </span>
-                <span className="mt-3 block text-[15px] leading-[1.7] text-ink/60 break-keep">{lead.summary}</span>
-                <time dateTime={lead.published} className="mt-5 block text-[13px] text-ink/40 tabular-nums">
-                  {lead.published.replace(/-/g, '.')}
-                </time>
-              </span>
-            </Link>
-
-            <ul className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              {rest.map((post) => (
-                <li key={post.slug}>
-                  <Link href={`/insights/${post.slug}`} className="group flex flex-col justify-between h-full bg-white p-6 md:p-7 hover:bg-brand-light transition-colors">
-                    <span>
-                      <span className="text-[13px] font-bold text-brand-deep">{post.audience}</span>
-                      <span className="mt-2 flex items-start justify-between gap-4">
-                        <span className="text-[18px] font-extrabold tracking-[-0.02em] text-ink leading-[1.4] break-keep">{post.title}</span>
-                        <IconArrowUpRight className="w-5 h-5 shrink-0 mt-1 text-ink/25 group-hover:text-brand-deep transition-colors" />
-                      </span>
-                    </span>
-                    <time dateTime={post.published} className="mt-6 block text-[13px] text-ink/40 tabular-nums">
-                      {post.published.replace(/-/g, '.')}
-                    </time>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <Link href="/insights" className="sm:hidden mt-8 flex items-center justify-center h-12 bg-white text-[15px] font-bold text-ink">
-            칼럼 전체 보기
-          </Link>
-        </div>
-      </section>
     </>
   );
 }

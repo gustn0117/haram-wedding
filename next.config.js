@@ -2,7 +2,11 @@
 const nextConfig = {
   output: 'standalone',
   async redirects() {
-    return [{ source: '/reviews', destination: '/', permanent: true }];
+    return [
+      { source: '/reviews', destination: '/', permanent: true },
+      { source: '/insights', destination: '/', permanent: true },
+      { source: '/insights/:slug', destination: '/', permanent: true },
+    ];
   },
   images: {
     remotePatterns: [

@@ -1,6 +1,5 @@
 import { CONCIERGE, CONTACT, HOME, HOST, PAGES, PHOTOBOOTH, absUrl, type SitePage } from '@/lib/seo';
 import { xmlEscape } from '@/lib/xml';
-import { INSIGHTS } from '@/lib/insights';
 
 // 이미지 사이트맵 — 구글/네이버 이미지 검색 노출용 (캡션에 핵심 키워드)
 const IMAGES: Record<string, { src: string; caption: string }[]> = {
@@ -43,36 +42,9 @@ function urlEntry(page: SitePage) {
   </url>`;
 }
 
-// 칼럼 글도 같은 형식으로 싣는다
-const insightEntries = () =>
-  INSIGHTS.map((post) => ({
-    path: `/insights/${post.slug}`,
-    updated: post.updated,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-    image: post.image,
-    imageAlt: post.imageAlt,
-  }));
-
 export function GET() {
-  const insights = insightEntries()
-    .map(
-      (post) => `
-  <url>
-    <loc>${absUrl(post.path)}</loc>
-    <lastmod>${post.updated}</lastmod>
-    <changefreq>${post.changeFrequency}</changefreq>
-    <priority>${post.priority.toFixed(1)}</priority>
-    <image:image>
-      <image:loc>${absUrl(post.image)}</image:loc>
-      <image:caption>${xmlEscape(post.imageAlt)}</image:caption>
-    </image:image>
-  </url>`,
-    )
-    .join('');
-
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${PAGES.map(urlEntry).join('')}${insights}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${PAGES.map(urlEntry).join('')}
 </urlset>
 `;
   return new Response(xml, {

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import type { FaqItem } from '@/lib/faq';
-import type { Insight } from '@/lib/insights';
 
 export const SITE_URL = 'https://haramevent.kr';
 export const SITE_NAME = '하람 (HARAM)';
@@ -267,20 +266,6 @@ export const SERVICES_INDEX: SitePage = {
   priority: 0.9,
 };
 
-export const INSIGHTS_INDEX: SitePage = {
-  path: '/insights',
-  title: '칼럼 | 예식장 운영과 예식 준비 이야기 - 하람',
-  name: '칼럼',
-  description:
-    '예식도우미와 예식 컨시어지의 차이, 예식사회자 섭외 기준, 주말 회차 운영까지. 예식 현장에서 나온 이야기를 정리합니다.',
-  keywords: ['예식장 운영', '예식도우미', '예식 컨시어지', '예식사회자 섭외', '웨딩홀 운영'],
-  image: '/images/editorial-2026/operations-og.jpg',
-  imageAlt: '하람 칼럼',
-  updated: '2026-10-20',
-  changeFrequency: 'weekly',
-  priority: 0.8,
-};
-
 export const FAQ_PAGE: SitePage = {
   path: '/faq',
   title: '자주 묻는 질문 | 예식도우미 · 포토부스 · 사회자 - 하람',
@@ -302,7 +287,6 @@ export const PAGES = [
   ...SERVICE_PAGES,
   ABOUT,
   PARTNERSHIP,
-  INSIGHTS_INDEX,
   FAQ_PAGE,
   CAREERS,
   CONTACT,
@@ -459,69 +443,5 @@ export function faqJsonLd(items: FaqItem[]) {
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
-  };
-}
-
-// ───────── 칼럼 ─────────
-
-export function insightMetadata(post: Insight): Metadata {
-  const url = absUrl(`/insights/${post.slug}`);
-  return {
-    title: { absolute: `${post.title} | 하람 칼럼` },
-    description: post.summary,
-    keywords: post.keywords,
-    alternates: {
-      canonical: url,
-      types: { 'application/rss+xml': [{ url: RSS_PATH, title: `${BRAND} 소식` }] },
-    },
-    openGraph: {
-      type: 'article',
-      locale: 'ko_KR',
-      siteName: SITE_NAME,
-      url,
-      title: post.title,
-      description: post.summary,
-      publishedTime: post.published,
-      modifiedTime: post.updated,
-      images: [{ url: post.image, alt: post.imageAlt }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.summary,
-      images: [post.image],
-    },
-  };
-}
-
-export function articleJsonLd(post: Insight) {
-  const url = absUrl(`/insights/${post.slug}`);
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    '@id': `${url}#article`,
-    headline: post.title,
-    description: post.summary,
-    url,
-    mainEntityOfPage: url,
-    datePublished: post.published,
-    dateModified: post.updated,
-    inLanguage: 'ko-KR',
-    keywords: post.keywords.join(', '),
-    image: absUrl(post.image),
-    author: { '@id': ORG_ID },
-    publisher: { '@id': ORG_ID },
-  };
-}
-
-export function insightBreadcrumbJsonLd(post: Insight) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: BRAND, item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: '칼럼', item: absUrl('/insights') },
-      { '@type': 'ListItem', position: 3, name: post.title, item: absUrl(`/insights/${post.slug}`) },
-    ],
   };
 }

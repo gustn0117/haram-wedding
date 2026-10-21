@@ -98,7 +98,7 @@ export default function ContactPage() {
                   <path d="M22 7l-10 6L2 7" />
                 </svg>
               ),
-              label: '이메일', value: 'contact@haram.kr', sub: '전화 문의 권장',
+              label: '이메일', value: 'haram_evt@naver.com', sub: '전화 문의 권장',
             },
             {
               icon: (
