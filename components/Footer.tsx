@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
+import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
 import { SERVICES } from '@/lib/services';
 
 const INFO_LINKS = [
@@ -63,6 +63,9 @@ export default function Footer() {
               {PHONE_DISPLAY}
             </a>
             <p className="mt-1 text-[14px] text-white/75">평일 10:00 – 18:00</p>
+            <a href={EMAIL_HREF} className="mt-3 block text-[15px] text-white/85 hover:text-brand transition-colors">
+              {EMAIL}
+            </a>
             <div className="mt-6 flex gap-2">
               <a href="https://www.instagram.com/haram_wedding" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full border border-white/30 text-[13px] text-white/85 hover:border-white hover:text-white transition-colors">

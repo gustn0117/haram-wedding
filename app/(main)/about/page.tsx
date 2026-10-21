@@ -4,7 +4,7 @@ import PageHero from '@/components/page/PageHero';
 import Section from '@/components/page/Section';
 import CtaBand from '@/components/page/CtaBand';
 import { IconArrowUpRight } from '@/components/icons';
-import { CONTACT_HREF, PHONE_DISPLAY } from '@/lib/nav';
+import { CONTACT_HREF, EMAIL, PHONE_DISPLAY } from '@/lib/nav';
 import { SERVICES } from '@/lib/services';
 import { SERVICE_AREAS } from '@/lib/seo';
 
@@ -36,6 +36,7 @@ const COMPANY = [
   ['통신판매업', '2025-용인기흥-01511'],
   ['소재지', '경기도 수원시 영통구'],
   ['고객센터', `${PHONE_DISPLAY} (평일 10:00 – 18:00)`],
+  ['이메일', EMAIL],
 ];
 
 export default function AboutPage() {

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
+import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
 
 type Status = 'idle' | 'sending' | 'done' | 'error';
 
@@ -93,6 +93,9 @@ export default function SiteContactForm({ service, serviceLabel }: { service: st
         </button>
         <a href={PHONE_TEL} className="inline-flex items-center h-[52px] px-7 border border-[var(--site-line)] text-[15px] font-bold tabular-nums">
           전화 {PHONE_DISPLAY}
+        </a>
+        <a href={EMAIL_HREF} className="inline-flex items-center h-[52px] px-7 border border-[var(--site-line)] text-[15px] font-bold">
+          {EMAIL}
         </a>
       </div>
     </form>

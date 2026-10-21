@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
+import { EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
 import type { Site } from '@/lib/sites';
 
 export type SiteNavItem = { href: string; label: string };
@@ -81,6 +81,9 @@ export default function SiteShell({
                 {PHONE_DISPLAY}
               </a>
               <p className="mt-1 text-[14px] text-white/70">평일 10:00 – 18:00</p>
+              <a href={EMAIL_HREF} className="mt-3 block text-[15px] text-white/85 hover:text-white transition-colors">
+                {EMAIL}
+              </a>
             </div>
 
             <nav aria-label="사이트 메뉴" className="flex flex-col gap-3">

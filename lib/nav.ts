@@ -1,6 +1,9 @@
 export const PHONE_DISPLAY = '010-7930-1332';
 export const PHONE_TEL = 'tel:01079301332';
 
+export const EMAIL = 'haram_evt@naver.com';
+export const EMAIL_HREF = 'mailto:haram_evt@naver.com';
+
 export const CONTACT_HREF = '/contact';
 
 /** 상단 메뉴 — '서비스'는 SERVICES 목록을 드롭다운으로 펼친다 */

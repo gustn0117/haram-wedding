@@ -1,4 +1,4 @@
-import { BRAND, PHONE, SERVICE_AREAS, SITE_URL, absUrl } from '@/lib/seo';
+import { BRAND, EMAIL, PHONE, SERVICE_AREAS, SITE_URL, absUrl } from '@/lib/seo';
 import { SERVICES } from '@/lib/services';
 
 /**
@@ -17,6 +17,7 @@ export function GET() {
 - 사업자: 하람 (대표 김영진, 사업자등록번호 412-21-01283)
 - 소재지: 경기도 수원시 영통구
 - 상담: ${PHONE.replace('+82-', '0')} (평일 10:00–18:00)
+- 이메일: ${EMAIL}
 - 운영 지역: ${SERVICE_AREAS.join(', ')}
 - 홈페이지: ${SITE_URL}
 

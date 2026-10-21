@@ -5,6 +5,7 @@ export const SITE_URL = 'https://haramevent.kr';
 export const SITE_NAME = '하람 (HARAM)';
 export const BRAND = '하람';
 export const PHONE = '+82-10-7930-1332';
+export const EMAIL = 'haram_evt@naver.com';
 export const RSS_PATH = '/rss.xml';
 export const NAVER_SITE_VERIFICATION = 'b70ad554a7856cbcad58c8650f95a7bd76e7e93d';
 
@@ -369,6 +370,7 @@ export const siteJsonLd = [
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: PHONE,
+      email: EMAIL,
       contactType: 'customer service',
       areaServed: 'KR',
       availableLanguage: ['Korean'],
@@ -383,6 +385,7 @@ export const siteJsonLd = [
     image: absUrl(HOME.image),
     url: SITE_URL,
     telephone: PHONE,
+    email: EMAIL,
     priceRange: '₩₩',
     address,
     areaServed,
