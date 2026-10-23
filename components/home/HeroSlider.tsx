@@ -122,9 +122,11 @@ export default function HeroSlider() {
             <Image src={s.imageSrc} alt={i === index ? s.image : ''} fill priority={i === 0} sizes="100vw" className="object-cover" />
           </div>
         ))}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,16,26,0.55)_0%,rgba(12,16,26,0.45)_45%,rgba(12,16,26,0.68)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,13,20,0.68)_0%,rgba(10,13,20,0.58)_45%,rgba(10,13,20,0.78)_100%)]" />
+        {/* 문구 뒤쪽만 한 겹 더 눌러 글자가 사진에 묻히지 않게 한다 */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_55%_at_50%_45%,rgba(8,10,16,0.45)_0%,rgba(8,10,16,0)_100%)]" />
 
-        <div className="relative h-full max-w-[1280px] mx-auto px-6 flex flex-col items-center justify-center text-center pb-24 md:pb-28">
+        <div className="relative h-full max-w-[1280px] mx-auto px-6 flex flex-col items-center justify-center text-center pb-14 md:pb-16">
           {/* key 가 바뀌면 등장 애니메이션이 다시 재생된다 */}
           <div key={index} aria-live={paused ? 'polite' : 'off'} className="max-w-[46rem]">
             {slide.hint && (
