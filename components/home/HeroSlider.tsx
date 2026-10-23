@@ -23,8 +23,8 @@ type Slide = {
 const SLIDES: Slide[] = [
   {
     tab: '하람 소개',
-    title: ['예식의 모든 분야를 직접 운영하는', '웨딩 종합기업, 하람'],
-    body: '예식도우미와 컨시어지, 사회와 축가, 웨딩 포토부스, 웨딩홀 마케팅과 운영 프로그램까지. 다른 업체에 넘기지 않고 하람이 직접 맡습니다.',
+    title: ['한 번뿐인 하루를', '한 팀이 끝까지'],
+    body: '예식도우미와 컨시어지, 사회와 축가, 웨딩 포토부스까지. 결혼식에 필요한 모든 분야를 하람이 직접 맡습니다.',
     primary: { href: '/services', label: '서비스 둘러보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
     image: '화이트 플라워로 장식한 호텔 웨딩홀 전경',
@@ -122,29 +122,32 @@ export default function HeroSlider() {
             <Image src={s.imageSrc} alt={i === index ? s.image : ''} fill priority={i === 0} sizes="100vw" className="object-cover" />
           </div>
         ))}
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,16,26,0.82)_0%,rgba(12,16,26,0.45)_55%,rgba(12,16,26,0.15)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(12,16,26,0.55)_0%,rgba(12,16,26,0.45)_45%,rgba(12,16,26,0.68)_100%)]" />
 
-        <div className="relative h-full max-w-[1280px] mx-auto px-6 flex flex-col justify-center pb-24 md:pb-28">
-          <div aria-live={paused ? 'polite' : 'off'} className="max-w-[46rem]">
+        <div className="relative h-full max-w-[1280px] mx-auto px-6 flex flex-col items-center justify-center text-center pb-24 md:pb-28">
+          {/* key 가 바뀌면 등장 애니메이션이 다시 재생된다 */}
+          <div key={index} aria-live={paused ? 'polite' : 'off'} className="max-w-[46rem]">
             {slide.hint && (
-              <p className="flex items-center gap-3 mb-4 text-[14px] md:text-[15px] font-bold text-white/85">
+              <p className="hero-rise flex items-center justify-center gap-3 mb-4 text-[14px] md:text-[15px] font-semibold text-white/85">
                 {slide.tab}
                 <span className="w-px h-3.5 bg-white/40" aria-hidden />
-                <span className="font-medium text-white/65">{slide.hint}</span>
+                <span className="font-normal text-white/65">{slide.hint}</span>
               </p>
             )}
             {index === 0 ? (
-              <h1 className="site-heading text-[32px] sm:text-[42px] lg:text-[54px] break-keep">
+              <h1 className="hero-rise hero-title text-[34px] sm:text-[46px] lg:text-[58px] break-keep" style={{ animationDelay: '60ms' }}>
                 {slide.title[0]}<br />{slide.title[1]}
                 <span className="sr-only"> — 예식도우미, 예식 컨시어지, 예식사회자, 축가, 웨딩 포토부스, 웨딩홀 마케팅</span>
               </h1>
             ) : (
-              <h2 className="site-heading text-[32px] sm:text-[42px] lg:text-[54px] break-keep">
+              <h2 className="hero-rise hero-title text-[34px] sm:text-[46px] lg:text-[58px] break-keep" style={{ animationDelay: '60ms' }}>
                 {slide.title[0]}<br />{slide.title[1]}
               </h2>
             )}
-            <p className="mt-5 text-[16px] md:text-[17px] leading-[1.75] text-white/75 break-keep max-w-[34em]">{slide.body}</p>
-            <div className="mt-8 flex flex-wrap gap-2.5">
+            <p className="hero-rise mt-6 mx-auto text-[16px] md:text-[17px] leading-[1.8] text-white/80 break-keep max-w-[34em]" style={{ animationDelay: '160ms' }}>
+              {slide.body}
+            </p>
+            <div className="hero-rise mt-9 flex flex-wrap justify-center gap-2.5" style={{ animationDelay: '260ms' }}>
               <Link href={slide.primary.href}
                 className="inline-flex items-center h-[50px] px-7 bg-brand-deep text-white text-[15px] font-bold hover:bg-brand-darker transition-colors">
                 {slide.primary.label}
