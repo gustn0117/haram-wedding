@@ -27,8 +27,8 @@ const SLIDES: Slide[] = [
     body: '예식도우미와 컨시어지, 사회와 축가, 웨딩 포토부스까지. 결혼식에 필요한 모든 분야를 하람이 직접 맡습니다.',
     primary: { href: '/services', label: '서비스 둘러보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
-    image: '화이트 플라워로 장식한 호텔 웨딩홀 전경',
-    imageSrc: '/images/editorial-2026/home-hero.webp',
+    image: '예식 직전의 웨딩홀과 음향 콘솔',
+    imageSrc: '/images/editorial-2026/host-stage.webp',
   },
   {
     tab: '예식 컨시어지',
