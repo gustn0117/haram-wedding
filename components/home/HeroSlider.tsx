@@ -23,7 +23,7 @@ type Slide = {
 const SLIDES: Slide[] = [
   {
     tab: '하람 소개',
-    title: ['결혼식의 모든 것을 맡는', '웨딩 종합 운영 전문기업'],
+    title: ['결혼식의 모든 것을 맡는', '웨딩 종합 매니지먼트'],
     body: '예식도우미와 컨시어지, 사회와 축가, 웨딩 포토부스까지 하람이 직접 운영합니다. 인력과 진행, 장비, 마케팅을 따로 계약할 필요가 없습니다.',
     primary: { href: '/services', label: '서비스 둘러보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
