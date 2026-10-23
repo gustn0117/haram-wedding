@@ -513,3 +513,58 @@ body {
   .hero-line > span,
   .hero-kenburns { animation: none; }
 }
+
+/* ═══════════ 히어로 로고 드로잉 ═══════════ */
+
+.hero-logo {
+  display: block;
+  height: auto;
+  overflow: visible;
+}
+.hero-logo path {
+  fill: #e8cfa0;
+  fill-opacity: 0;
+  stroke: #e8cfa0;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  /* 선을 긋고 → 안을 채우고 → 윤곽선을 지운다 */
+  animation:
+    hero-draw 1.5s cubic-bezier(0.65, 0.05, 0.3, 1) forwards,
+    hero-ink 0.9s ease-out forwards,
+    hero-unstroke 0.7s ease-out forwards;
+}
+.hero-logo path:nth-child(1) { animation-delay: 0.25s, 1.75s, 2.1s; }
+.hero-logo path:nth-child(2) { animation-delay: 0.85s, 2.25s, 2.6s; }
+.hero-logo path:nth-child(3) { animation-delay: 1.9s, 2.3s, 2.6s; }
+
+@keyframes hero-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes hero-ink {
+  from { fill-opacity: 0; }
+  to { fill-opacity: 1; }
+}
+@keyframes hero-unstroke {
+  from { stroke-opacity: 1; }
+  to { stroke-opacity: 0; }
+}
+
+/* 로고 아래 한 줄 */
+.hero-tagline {
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo path {
+    animation: none;
+    fill-opacity: 1;
+    stroke-opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
