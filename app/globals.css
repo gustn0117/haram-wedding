@@ -526,7 +526,8 @@ body {
 .hero-pen {
   fill: none;
   stroke: #fff;
-  stroke-linecap: round;
+  /* 둥근 끝은 획이 시작될 때 점처럼 보여서 쓰지 않는다 */
+  stroke-linecap: butt;
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
@@ -539,7 +540,7 @@ body {
 .hero-pen-finish {
   fill: #fff;
   opacity: 0;
-  animation: hero-ink 0.5s ease-out 2.75s forwards;
+  animation: hero-ink 0.45s ease-out 2.6s forwards;
 }
 
 .hero-logo-fill {
