@@ -8,8 +8,10 @@ import { IconChevronLeft, IconChevronRight } from '@/components/icons';
 import { CONTACT_HREF } from '@/lib/nav';
 
 type Slide = {
+  /** 하단 점 버튼의 설명 — 화면에는 보이지 않는다 */
   tab: string;
-  hint: string;
+  /** 제목 위 작은 라벨. 없으면 표시하지 않는다 */
+  hint?: string;
   title: [string, string];
   body: string;
   primary: { href: string; label: string };
@@ -20,10 +22,9 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    tab: '하람 통합 운영',
-    hint: '여섯 가지 서비스, 한 파트너',
-    title: ['예식의 흐름을 다듬고,', '공간의 품격을 완성합니다'],
-    body: '컨시어지, 사회, 축가, 포토부스부터 마케팅과 운영 프로그램까지. 하람이 예식장의 운영 파트너가 됩니다.',
+    tab: '하람 소개',
+    title: ['예식의 모든 분야를 직접 운영하는', '웨딩 종합기업, 하람'],
+    body: '예식도우미와 컨시어지, 사회와 축가, 웨딩 포토부스, 웨딩홀 마케팅과 운영 프로그램까지. 다른 업체에 넘기지 않고 하람이 직접 맡습니다.',
     primary: { href: '/services', label: '서비스 둘러보기' },
     secondary: { href: CONTACT_HREF, label: '상담 문의' },
     image: '화이트 플라워로 장식한 호텔 웨딩홀 전경',
@@ -125,18 +126,20 @@ export default function HeroSlider() {
 
         <div className="relative h-full max-w-[1280px] mx-auto px-6 flex flex-col justify-center pb-24 md:pb-28">
           <div aria-live={paused ? 'polite' : 'off'} className="max-w-[46rem]">
-            <p className="flex items-center gap-3 text-[14px] md:text-[15px] font-bold text-white/85">
-              {slide.tab}
-              <span className="w-px h-3.5 bg-white/40" aria-hidden />
-              <span className="font-medium text-white/65">{slide.hint}</span>
-            </p>
+            {slide.hint && (
+              <p className="flex items-center gap-3 mb-4 text-[14px] md:text-[15px] font-bold text-white/85">
+                {slide.tab}
+                <span className="w-px h-3.5 bg-white/40" aria-hidden />
+                <span className="font-medium text-white/65">{slide.hint}</span>
+              </p>
+            )}
             {index === 0 ? (
-              <h1 className="site-heading mt-4 text-[32px] sm:text-[42px] lg:text-[54px] break-keep">
+              <h1 className="site-heading text-[32px] sm:text-[42px] lg:text-[54px] break-keep">
                 {slide.title[0]}<br />{slide.title[1]}
-                <span className="sr-only"> — 하람 예식도우미, 예식 컨시어지, 예식사회자, 축가, 웨딩 포토부스</span>
+                <span className="sr-only"> — 예식도우미, 예식 컨시어지, 예식사회자, 축가, 웨딩 포토부스, 웨딩홀 마케팅</span>
               </h1>
             ) : (
-              <h2 className="site-heading mt-4 text-[32px] sm:text-[42px] lg:text-[54px] break-keep">
+              <h2 className="site-heading text-[32px] sm:text-[42px] lg:text-[54px] break-keep">
                 {slide.title[0]}<br />{slide.title[1]}
               </h2>
             )}
