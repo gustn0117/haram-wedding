@@ -119,7 +119,8 @@ export default function HeroSlider() {
         {SLIDES.map((s, i) => (
           <div key={s.tab} aria-hidden={i !== index}
             className={`absolute inset-0 transition-opacity duration-700 ${i === index ? 'opacity-100' : 'opacity-0'}`}>
-            <Image src={s.imageSrc} alt={i === index ? s.image : ''} fill priority={i === 0} sizes="100vw" className="object-cover" />
+            <Image src={s.imageSrc} alt={i === index ? s.image : ''} fill priority={i === 0} sizes="100vw"
+              className={`object-cover ${i === index ? 'hero-kenburns' : ''}`} key={`${s.tab}-${i === index ? index : 'idle'}`} />
           </div>
         ))}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,13,20,0.68)_0%,rgba(10,13,20,0.58)_45%,rgba(10,13,20,0.78)_100%)]" />
@@ -137,19 +138,21 @@ export default function HeroSlider() {
               </p>
             )}
             {index === 0 ? (
-              <h1 className="hero-rise hero-title text-[34px] sm:text-[46px] lg:text-[58px] break-keep" style={{ animationDelay: '60ms' }}>
-                {slide.title[0]}<br />{slide.title[1]}
+              <h1 className="hero-title text-[34px] sm:text-[46px] lg:text-[58px] break-keep">
+                <span className="hero-line"><span style={{ animationDelay: '80ms' }}>{slide.title[0]}</span></span>
+                <span className="hero-line"><span className="hero-accent" style={{ animationDelay: '220ms' }}>{slide.title[1]}</span></span>
                 <span className="sr-only"> — 예식도우미, 예식 컨시어지, 예식사회자, 축가, 웨딩 포토부스, 웨딩홀 마케팅</span>
               </h1>
             ) : (
-              <h2 className="hero-rise hero-title text-[34px] sm:text-[46px] lg:text-[58px] break-keep" style={{ animationDelay: '60ms' }}>
-                {slide.title[0]}<br />{slide.title[1]}
+              <h2 className="hero-title text-[34px] sm:text-[46px] lg:text-[58px] break-keep">
+                <span className="hero-line"><span style={{ animationDelay: '80ms' }}>{slide.title[0]}</span></span>
+                <span className="hero-line"><span className="hero-accent" style={{ animationDelay: '220ms' }}>{slide.title[1]}</span></span>
               </h2>
             )}
-            <p className="hero-rise mt-6 mx-auto text-[16px] md:text-[17px] leading-[1.8] text-white/80 break-keep max-w-[34em]" style={{ animationDelay: '160ms' }}>
+            <p className="hero-rise mt-6 mx-auto text-[16px] md:text-[17px] leading-[1.8] text-white/80 break-keep max-w-[34em]" style={{ animationDelay: '420ms' }}>
               {slide.body}
             </p>
-            <div className="hero-rise mt-9 flex flex-wrap justify-center gap-2.5" style={{ animationDelay: '260ms' }}>
+            <div className="hero-rise mt-9 flex flex-wrap justify-center gap-2.5" style={{ animationDelay: '560ms' }}>
               <Link href={slide.primary.href}
                 className="inline-flex items-center h-[50px] px-7 bg-brand-deep text-white text-[15px] font-bold hover:bg-brand-darker transition-colors">
                 {slide.primary.label}
