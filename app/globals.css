@@ -539,7 +539,7 @@ body {
 .hero-pen-finish {
   fill: #fff;
   opacity: 0;
-  animation: hero-ink 0.5s ease-out 2.7s forwards;
+  animation: hero-ink 0.5s ease-out 2.75s forwards;
 }
 
 .hero-logo-fill {
