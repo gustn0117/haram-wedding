@@ -110,9 +110,9 @@ export const SERVICES: Service[] = [
       { when: 'D-3', what: '큐 시트를 음향팀과 맞춤' },
       { when: '예식 당일', what: '본식 진행, 종료 직후 디브리프' },
     ],
-    image: '웨딩홀 마이크와 사회자 큐시트',
-    imageSrc: '/images/editorial-2026/host-vocal.webp',
-    heroImageSrc: '/images/editorial-2026/host-vocal.webp',
+    image: '예식장 음향 콘솔과 진행 모니터',
+    imageSrc: '/images/editorial-2026/host-stage.webp',
+    heroImageSrc: '/images/editorial-2026/host-stage.webp',
   },
   {
     slug: 'vocal',
