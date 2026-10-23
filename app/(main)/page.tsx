@@ -1,9 +1,11 @@
-import HeroSlider from '@/components/home/HeroSlider';
+import Hero from '@/components/home/Hero';
+import IntroSection from '@/components/home/IntroSection';
 
 export default function Home() {
   return (
     <main>
-      <HeroSlider />
+      <Hero />
+      <IntroSection />
     </main>
   );
 }
