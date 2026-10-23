@@ -521,24 +521,30 @@ body {
   height: auto;
   overflow: visible;
 }
-.hero-logo path {
+
+/* 채우기 — 선이 다 그려진 뒤 차오른다 */
+.hero-logo-fill {
   fill: #e8cfa0;
   fill-opacity: 0;
+  animation: hero-ink 1s ease-out 2.3s forwards;
+}
+
+/* 선 그리기 — 조각마다 순서대로 */
+.hero-logo-line {
+  fill: none;
   stroke: #e8cfa0;
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  /* 선을 긋고 → 안을 채우고 → 윤곽선을 지운다 */
   animation:
-    hero-draw 1.5s cubic-bezier(0.65, 0.05, 0.3, 1) forwards,
-    hero-ink 0.9s ease-out forwards,
-    hero-unstroke 0.7s ease-out forwards;
+    hero-draw 1.6s cubic-bezier(0.6, 0.05, 0.3, 1) forwards,
+    hero-unstroke 0.8s ease-out 2.6s forwards;
 }
-.hero-logo path:nth-child(1) { animation-delay: 0.25s, 1.75s, 2.1s; }
-.hero-logo path:nth-child(2) { animation-delay: 0.85s, 2.25s, 2.6s; }
-.hero-logo path:nth-child(3) { animation-delay: 1.9s, 2.3s, 2.6s; }
+.hero-logo-line:nth-of-type(2) { animation-delay: 0.3s, 2.6s; }
+.hero-logo-line:nth-of-type(3) { animation-delay: 1.5s, 2.6s; }
+.hero-logo-line:nth-of-type(4) { animation-delay: 1.8s, 2.6s; }
 
 @keyframes hero-draw {
   from { stroke-dashoffset: 1; }
@@ -561,10 +567,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-logo path {
-    animation: none;
-    fill-opacity: 1;
-    stroke-opacity: 0;
-    stroke-dashoffset: 0;
-  }
+  .hero-logo-fill { animation: none; fill-opacity: 1; }
+  .hero-logo-line { animation: none; stroke-opacity: 0; }
 }
