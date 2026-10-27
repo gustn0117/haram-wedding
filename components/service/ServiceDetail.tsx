@@ -7,6 +7,7 @@ import { CONTACT_HREF } from '@/lib/nav';
 import { REVIEWS, type Review } from '@/lib/reviews';
 import { SERVICES, type Service } from '@/lib/services';
 import type { FaqItem } from '@/lib/faq';
+import { GUIDES } from '@/lib/guides';
 
 const REVIEW_KEY: Partial<Record<Service['slug'], Review['service']>> = {
   concierge: '예식 컨시어지',
@@ -164,6 +165,7 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
   const reviewKey = REVIEW_KEY[s.slug];
   const reviews = reviewKey ? REVIEWS.filter((r) => r.service === reviewKey).slice(0, 3) : [];
   const others = SERVICES.filter((o) => o.slug !== s.slug);
+  const guide = GUIDES[s.slug];
 
   return (
     <main>
@@ -268,8 +270,47 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
         </Wrap>
       )}
 
+      {guide && (
+        <Wrap tone={faq?.length ? 'mist' : 'white'}>
+          <article className="max-w-[760px]">
+            <p className="text-[13px] font-bold text-brand-deep">읽을거리</p>
+            <h2 className="site-heading mt-3 text-[24px] md:text-[30px] text-ink break-keep">{guide.title}</h2>
+            <p className="mt-4 text-[16px] leading-[1.8] text-ink/60 break-keep">{guide.lead}</p>
+
+            <div className="mt-8">
+              {guide.body.map((block, i) => {
+                if (block.type === 'h3') {
+                  return (
+                    <h3 key={i} className="mt-9 mb-3 text-[18px] md:text-[20px] font-extrabold tracking-[-0.02em] text-ink break-keep">
+                      {block.text}
+                    </h3>
+                  );
+                }
+                if (block.type === 'list') {
+                  return (
+                    <ul key={i} className="my-5 space-y-2.5">
+                      {block.items.map((item) => (
+                        <li key={item} className="flex gap-3 text-[16px] leading-[1.8] text-ink/75 break-keep">
+                          <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                }
+                return (
+                  <p key={i} className="my-4 text-[16px] leading-[1.9] text-ink/75 break-keep">
+                    {block.text}
+                  </p>
+                );
+              })}
+            </div>
+          </article>
+        </Wrap>
+      )}
+
       {/* 다른 서비스 — 바로 위 섹션과 배경이 겹치지 않게 번갈아 둔다 */}
-      <Wrap tone={faq?.length || !reviews.length ? 'mist' : 'white'}>
+      <Wrap tone={guide ? (faq?.length ? 'white' : 'mist') : faq?.length || !reviews.length ? 'mist' : 'white'}>
         <H2>함께 이용하는 서비스</H2>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {others.map((o) => (

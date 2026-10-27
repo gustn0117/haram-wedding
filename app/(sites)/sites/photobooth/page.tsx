@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import JsonLd from '@/components/JsonLd';
-import { Band, CheckList, ContactBand, Faq, Flow, Hero, Section } from '@/components/site/SiteSections';
+import { Band, CheckList, ContactBand, Faq, Flow, GuideArticle, Hero, Section } from '@/components/site/SiteSections';
+import { GUIDES } from '@/lib/guides';
 import { PHOTOBOOTH_FAQ } from '@/lib/faq';
 import { faqJsonLd } from '@/lib/seo';
 import { serviceBySlug } from '@/lib/services';
@@ -65,6 +66,8 @@ export default function PhotoboothHome() {
       <Section id="faq" title="자주 묻는 질문">
         <Faq items={PHOTOBOOTH_FAQ} />
       </Section>
+
+      {GUIDES.photobooth && <GuideArticle guide={GUIDES.photobooth} />}
 
       <ContactBand
         title="예식 날짜가 정해졌다면 먼저 물어보세요"
