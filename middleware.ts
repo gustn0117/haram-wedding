@@ -8,7 +8,28 @@ for (const site of SITES) {
 }
 
 /** 서브도메인으로 들어온 요청을 /sites/<slug>/... 로 넘긴다. */
+/** 검색 로봇 방문을 서버 로그에 남긴다 (docker logs haram-wedding | grep crawler) */
+const CRAWLERS: [string, string][] = [
+  ['Yeti', '네이버'],
+  ['Googlebot', '구글'],
+  ['bingbot', '빙'],
+  ['Daumoa', '다음'],
+  ['Applebot', '애플'],
+  ['GPTBot', 'GPT'],
+  ['PerplexityBot', 'Perplexity'],
+  ['ClaudeBot', 'Claude'],
+];
+
+function logCrawler(request: NextRequest) {
+  const ua = request.headers.get('user-agent') ?? '';
+  const hit = CRAWLERS.find(([token]) => ua.includes(token));
+  if (!hit) return;
+  const host = request.headers.get('host') ?? '-';
+  console.log(`[crawler] ${new Date().toISOString()} ${hit[1]} ${host}${request.nextUrl.pathname}`);
+}
+
 export function middleware(request: NextRequest) {
+  logCrawler(request);
   const host = request.headers.get('host')?.split(':')[0].toLowerCase();
   const slug = host ? HOST_TO_SLUG.get(host) : undefined;
   if (!slug) return NextResponse.next();
