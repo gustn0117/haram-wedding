@@ -1,10 +1,19 @@
 import { BRAND, CORE_KEYWORDS, HOME, PAGES, RSS_PATH, SITE_URL, absUrl } from '@/lib/seo';
 import { xmlEscape } from '@/lib/xml';
+import { STORIES } from '@/lib/stories';
 
 const rfc822 = (date: string) => new Date(`${date}T09:00:00+09:00`).toUTCString();
 
 export function GET() {
+  const posts = STORIES.map((post) => ({
+    title: post.title,
+    path: `/stories/${post.slug}`,
+    description: post.summary,
+    keywords: post.keywords,
+    updated: post.published,
+  }));
   const pages = [
+    ...posts,
     ...[...PAGES].map((p) => ({
       title: p.title,
       path: p.path,

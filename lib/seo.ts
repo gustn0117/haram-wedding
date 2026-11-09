@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { FaqItem } from '@/lib/faq';
+import type { Story } from '@/lib/stories';
 
 export const SITE_URL = 'https://haramevent.kr';
 export const SITE_NAME = '하람 (HARAM)';
@@ -281,11 +282,26 @@ export const FAQ_PAGE: SitePage = {
   priority: 0.8,
 };
 
+export const STORIES_INDEX: SitePage = {
+  path: '/stories',
+  title: '칼럼 | 예식장 운영과 예식 준비 이야기 - 하람',
+  name: '칼럼',
+  description:
+    '현장 인력 배치, 큐 시트 정합, 성수기 운영까지. 예식장과 예비부부가 실제로 묻는 주제를 하람이 정리합니다.',
+  keywords: ['예식장 운영', '예식 현장 운영', '웨딩홀 운영', '예식 준비', '예식도우미 인원'],
+  image: '/images/editorial-2026/operations-og.jpg',
+  imageAlt: '하람 칼럼',
+  updated: '2026-11-09',
+  changeFrequency: 'weekly',
+  priority: 0.8,
+};
+
 export const SERVICE_PAGES = [CONCIERGE, HOST, VOCAL, PHOTOBOOTH, MARKETING, PROGRAM];
 export const PAGES = [
   HOME,
   SERVICES_INDEX,
   ...SERVICE_PAGES,
+  STORIES_INDEX,
   ABOUT,
   PARTNERSHIP,
   FAQ_PAGE,
@@ -446,5 +462,69 @@ export function faqJsonLd(items: FaqItem[]) {
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
+  };
+}
+
+// ───────── 칼럼 ─────────
+
+export function storyMetadata(post: Story): Metadata {
+  const url = absUrl(`/stories/${post.slug}`);
+  return {
+    title: { absolute: `${post.title} | 하람 칼럼` },
+    description: post.summary,
+    keywords: post.keywords,
+    alternates: {
+      canonical: url,
+      types: { 'application/rss+xml': [{ url: RSS_PATH, title: `${BRAND} 소식` }] },
+    },
+    openGraph: {
+      type: 'article',
+      locale: 'ko_KR',
+      siteName: SITE_NAME,
+      url,
+      title: post.title,
+      description: post.summary,
+      publishedTime: post.published,
+      modifiedTime: post.updated,
+      images: [{ url: post.image, alt: post.imageAlt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+      images: [post.image],
+    },
+  };
+}
+
+export function articleJsonLd(post: Story) {
+  const url = absUrl(`/stories/${post.slug}`);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: post.title,
+    description: post.summary,
+    url,
+    mainEntityOfPage: url,
+    datePublished: post.published,
+    dateModified: post.updated,
+    inLanguage: 'ko-KR',
+    keywords: post.keywords.join(', '),
+    image: absUrl(post.image),
+    author: { '@id': `${SITE_URL}#organization` },
+    publisher: { '@id': `${SITE_URL}#organization` },
+  };
+}
+
+export function storyBreadcrumbJsonLd(post: Story) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: BRAND, item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: '칼럼', item: absUrl('/stories') },
+      { '@type': 'ListItem', position: 3, name: post.title, item: absUrl(`/stories/${post.slug}`) },
+    ],
   };
 }

@@ -11,6 +11,7 @@ export const MAIN_MENU = [
   { href: '/about', label: '하람소개' },
   { href: '/services', label: '서비스', dropdown: true },
   { href: '/partnership', label: '제휴 안내' },
+  { href: '/stories', label: '칼럼' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: '문의하기' },
 ];

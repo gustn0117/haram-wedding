@@ -5,6 +5,7 @@ import { HOME_FAQ } from '@/lib/faq';
 import { CONTACT_HREF, PHONE_DISPLAY, PHONE_TEL } from '@/lib/nav';
 import { SERVICE_AREAS } from '@/lib/seo';
 import { SERVICES } from '@/lib/services';
+import { STORIES } from '@/lib/stories';
 
 /** 홈 본문 — 서비스 설명, 운영 지역, 자주 묻는 질문 */
 export default function HomeContent() {
@@ -84,6 +85,45 @@ export default function HomeContent() {
             <Image src="/images/editorial-2026/concierge-desk.webp" alt="예식장 안내 데스크와 운영 체크리스트"
               fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
+        </div>
+      </section>
+
+      {/* 최근 칼럼 */}
+      <section className="bg-white">
+        <div className="max-w-[1280px] mx-auto px-6 py-16 md:py-24">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="site-heading text-[24px] md:text-[32px] text-ink break-keep">예식 현장에서 나온 이야기</h2>
+              <p className="mt-3 text-[16px] leading-[1.75] text-ink/60 break-keep">
+                인력 배치, 큐 시트, 성수기 운영까지 실제로 부딪히는 주제를 정리합니다.
+              </p>
+            </div>
+            <Link href="/stories" className="inline-flex items-center gap-2 text-[15px] font-bold text-ink hover:text-brand-deep transition-colors">
+              칼럼 전체 보기
+              <IconArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <ul className="mt-10 grid md:grid-cols-3 gap-4">
+            {STORIES.slice(0, 3).map((post) => (
+              <li key={post.slug}>
+                <Link href={`/stories/${post.slug}`} className="group flex flex-col h-full border border-line hover:border-ink/30 transition-colors overflow-hidden">
+                  <span className="relative block aspect-[16/10]">
+                    <Image src={post.image} alt={post.imageAlt} fill sizes="(min-width: 768px) 30vw, 100vw" className="object-cover" />
+                  </span>
+                  <span className="flex-1 p-6">
+                    <span className="flex items-center gap-2 text-[13px] text-ink/50">
+                      <span className="font-bold text-brand-deep">{post.audience}</span>
+                      <span aria-hidden>·</span>
+                      <time dateTime={post.published} className="tabular-nums">{post.published.replace(/-/g, '.')}</time>
+                    </span>
+                    <span className="mt-3 block text-[18px] font-extrabold tracking-[-0.02em] text-ink leading-[1.4] break-keep">{post.title}</span>
+                    <span className="mt-2 block text-[15px] leading-[1.65] text-ink/60 break-keep">{post.summary}</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
