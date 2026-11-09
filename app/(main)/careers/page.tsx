@@ -4,35 +4,10 @@ import Section from '@/components/page/Section';
 import CtaBand from '@/components/page/CtaBand';
 import { CONTACT_HREF } from '@/lib/nav';
 import { serviceBySlug } from '@/lib/services';
+import { ROLES } from '@/lib/roles';
 
 const PIPELINE = serviceBySlug('concierge').pipeline!;
 
-const ROLES = [
-  {
-    title: '예식도우미 (컨시어지 매니저)',
-    desc: '제휴 예식장에서 하객 안내, 축의금 접수대, 신부대기실, 식순 진행을 담당합니다.',
-    tasks: ['하객 동선 안내와 접수대 운영', '신부대기실과 양가 부모님 의전', '식순 타임라인 확인과 업체 소통'],
-    imageSrc: '/images/editorial-2026/concierge-desk.webp',
-  },
-  {
-    title: '웨딩 포토부스 스태프',
-    desc: '포토부스 설치와 철수, 하객 촬영 안내, 즉석 인화를 담당합니다.',
-    tasks: ['부스 설치와 장비 점검', '하객 촬영 안내와 소품 관리', '인화물과 디지털 파일 관리'],
-    imageSrc: '/images/editorial-2026/photobooth.webp',
-  },
-  {
-    title: '예식사회자',
-    desc: '신랑신부와 대본을 협의하고, 큐 시트에 맞춰 본식 진행을 맡습니다.',
-    tasks: ['대본 작성과 비대면 협의', '큐 시트 기반 음향팀 동기화', '입장부터 퇴장까지 본식 진행'],
-    imageSrc: '/images/editorial-2026/host-vocal.webp',
-  },
-  {
-    title: '축가 보컬리스트',
-    desc: '신랑신부와 곡목과 키를 협의하고, 본식에서 라이브 축가를 부릅니다.',
-    tasks: ['곡목, 키, 편곡 사전 협의', '음향팀과 사운드 체크', '본식 라이브 공연'],
-    imageSrc: '/images/editorial-2026/host-vocal.webp',
-  },
-];
 
 export default function CareersPage() {
   return (
@@ -52,7 +27,7 @@ export default function CareersPage() {
               <Hatch label={r.title} src={r.imageSrc} className="aspect-[8/5]" />
               <div className="p-6 flex-1">
                 <h3 className="text-[19px] font-bold text-ink break-keep">{r.title}</h3>
-                <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{r.desc}</p>
+                <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{r.description}</p>
                 <ul className="mt-5 space-y-2 text-[14px] text-ink/75">
                   {r.tasks.map((t) => (
                     <li key={t} className="flex gap-2.5 break-keep">
@@ -91,6 +66,63 @@ export default function CareersPage() {
             className="aspect-[3/2] "
           />
         </div>
+      </Section>
+
+      <Section title="지원 절차" description="서류 검토부터 현장 배치까지 보통 2~4주가 걸립니다." tone="mist">
+        <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { step: '지원', desc: '문의 양식이나 전화로 이름과 연락처, 지원 분야를 남깁니다.' },
+            { step: '면접', desc: '담당자가 연락드려 경험과 가능한 요일, 희망 지역을 확인합니다.' },
+            { step: '교육', desc: '예식 운영 매뉴얼과 응대 표준을 배우는 교육 과정을 이수합니다.' },
+            { step: '배치', desc: '현장 실무 평가를 통과하면 홀 구성과 회차에 맞춰 배치됩니다.' },
+          ].map((item, i) => (
+            <li key={item.step} className="bg-white border border-line p-6">
+              <span className="text-[13px] font-bold text-brand-deep tabular-nums">{i + 1}단계</span>
+              <h3 className="mt-2 text-[19px] font-bold text-ink">{item.step}</h3>
+              <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{item.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
+
+      <Section title="이런 분과 일하고 싶습니다">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+          <div>
+            <h3 className="text-[18px] font-bold text-ink">지원 자격</h3>
+            <ul className="mt-4 space-y-2.5">
+              {[
+                '주말 예식 근무가 가능한 분',
+                '하객 응대에 거부감이 없는 분',
+                '정해진 시간과 순서를 지키는 것을 중요하게 생각하는 분',
+                '예식 현장 경험이 없어도 교육을 끝까지 이수할 의지가 있는 분',
+              ].map((t) => (
+                <li key={t} className="flex gap-3 text-[15px] leading-[1.7] text-ink/75 break-keep">
+                  <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-[18px] font-bold text-ink">우대 사항</h3>
+            <ul className="mt-4 space-y-2.5">
+              {[
+                '항공·호텔 등 서비스 계열 전공자 또는 경험자',
+                '웨딩홀, 컨벤션, 행사 현장 근무 경험',
+                '수원·용인·성남·화성 등 경기권 거주',
+                '포토부스 장비나 음향 장비를 다뤄본 경험',
+              ].map((t) => (
+                <li key={t} className="flex gap-3 text-[15px] leading-[1.7] text-ink/75 break-keep">
+                  <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <p className="mt-8 text-[15px] leading-[1.8] text-ink/55 break-keep max-w-[46em]">
+          근무 지역과 가능한 요일은 지원 후 상담에서 조율합니다. 분야별 모집 인원과 일정은 예식 일정에 따라 달라지므로 문의해 주세요.
+        </p>
       </Section>
 
       <CtaBand

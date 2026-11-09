@@ -273,7 +273,7 @@ export const FAQ_PAGE: SitePage = {
   title: '자주 묻는 질문 | 예식도우미 · 포토부스 · 사회자 - 하람',
   name: '자주 묻는 질문',
   description:
-    '신청 방법, 운영 지역, 비용 산정, 예식장 제휴 절차까지 하람에 가장 많이 들어오는 질문과 답변을 모았습니다.',
+    '누가 신청할 수 있는지, 어느 지역까지 가는지, 비용은 어떻게 정해지는지, 예식장 제휴는 어떻게 진행되는지. 예식 컨시어지와 사회, 축가, 포토부스에 대해 가장 많이 들어오는 질문 37개를 모았습니다.',
   keywords: ['하람 FAQ', '예식도우미 비용', '웨딩 포토부스 대여 문의', '예식사회자 섭외', '예식장 제휴'],
   image: '/images/editorial-2026/details-og.jpg',
   imageAlt: '하람 자주 묻는 질문',
@@ -287,7 +287,7 @@ export const STORIES_INDEX: SitePage = {
   title: '칼럼 | 예식장 운영과 예식 준비 이야기 - 하람',
   name: '칼럼',
   description:
-    '현장 인력 배치, 큐 시트 정합, 성수기 운영까지. 예식장과 예비부부가 실제로 묻는 주제를 하람이 정리합니다.',
+    '하객 수에 따른 인력 배치, 담당자 인수인계, 포토부스 대기 줄, 큐 시트 정합, 성수기 주말 준비까지. 예식장과 예비부부가 현장에서 실제로 부딪히는 주제를 하람이 정리합니다.',
   keywords: ['예식장 운영', '예식 현장 운영', '웨딩홀 운영', '예식 준비', '예식도우미 인원'],
   image: '/images/editorial-2026/operations-og.jpg',
   imageAlt: '하람 칼럼',
@@ -526,5 +526,35 @@ export function storyBreadcrumbJsonLd(post: Story) {
       { '@type': 'ListItem', position: 2, name: '칼럼', item: absUrl('/stories') },
       { '@type': 'ListItem', position: 3, name: post.title, item: absUrl(`/stories/${post.slug}`) },
     ],
+  };
+}
+
+// ───────── 채용 ─────────
+
+/**
+ * 구인 구조화 데이터. 모집이 상시라 마감일(validThrough)은 넣지 않는다.
+ * datePosted 는 채용 페이지의 수정일을 그대로 쓴다.
+ */
+export function jobPostingJsonLd(role: { title: string; description: string; datePosted: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'JobPosting',
+    title: role.title,
+    description: role.description,
+    datePosted: role.datePosted,
+    employmentType: ['PART_TIME', 'CONTRACTOR'],
+    hiringOrganization: { '@type': 'Organization', name: BRAND, sameAs: SITE_URL, logo: `${SITE_URL}/logo.png` },
+    jobLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'KR',
+        addressRegion: '경기도',
+        addressLocality: '수원시 영통구',
+      },
+    },
+    applicantLocationRequirements: { '@type': 'Country', name: '대한민국' },
+    directApply: true,
+    url: absUrl('/careers'),
   };
 }

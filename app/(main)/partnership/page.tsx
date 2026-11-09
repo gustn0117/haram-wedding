@@ -73,6 +73,36 @@ export default function PartnershipPage() {
         </div>
       </Section>
 
+      <Section title="도입 전에 확인하는 것" description="상담에서 아래 내용을 함께 확인한 뒤 구성을 제안합니다." tone="mist">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+          {[
+            {
+              title: '예식장 조건',
+              items: ['홀 개수와 수용 인원', '주말 평균 회차와 간격', '입구에서 홀까지의 동선', '식사 공간이 같은 층인지'],
+            },
+            {
+              title: '현재 운영 방식',
+              items: ['현장 인력을 어떻게 채우고 있는지', '반복되는 컴플레인 구간', '협력 업체와의 연락 방식', '담당자 변경 주기'],
+            },
+          ].map((group) => (
+            <div key={group.title}>
+              <h3 className="text-[18px] font-bold text-ink">{group.title}</h3>
+              <ul className="mt-4 space-y-2.5">
+                {group.items.map((t) => (
+                  <li key={t} className="flex gap-3 text-[15px] leading-[1.7] text-ink/75 break-keep">
+                    <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p className="mt-8 text-[15px] leading-[1.8] text-ink/55 break-keep max-w-[46em]">
+          최소 3개월 단위 협업을 권장합니다. 도입을 고민 중이시라면 1회 체험 운영으로 현장 운영 방식을 먼저 보셔도 됩니다.
+        </p>
+      </Section>
+
       <CtaBand
         title="제휴 상담을 신청하세요"
         description="예식장 규모와 월간 예식 건수를 알려주시면 구성과 조건을 안내해 드립니다. 최소 3개월 단위 협업을 권장하며, 1회 체험 운영도 가능합니다."

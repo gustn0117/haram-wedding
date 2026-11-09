@@ -48,6 +48,27 @@ export default function ServiceTeaser({ site, service }: { site: Site; service: 
       </section>
 
       <section className="bg-mist">
+        <div className="max-w-[1280px] mx-auto px-6 py-16 md:py-24">
+          <h2 className="site-heading text-[24px] md:text-[30px] text-ink break-keep">어떤 경우에 맞나요</h2>
+          <ul className="mt-10 grid md:grid-cols-3 gap-4">
+            {[
+              { title: '하객이 기다리는 시간이 아깝다면', desc: '식전 대기 시간에 하객이 직접 찍고 바로 가져갑니다. 포토존이 있으면 로비 분위기가 달라집니다.' },
+              { title: '예식 기념품을 남기고 싶다면', desc: '즉석 인화물은 하객이 그대로 가져가고, 촬영 원본은 클라우드로 전달받습니다.' },
+              { title: '예식장에 상시로 두고 싶다면', desc: '월 대여로 장비를 두고 주말마다 운영합니다. 정기 점검과 매뉴얼 인계가 포함됩니다.' },
+            ].map((item) => (
+              <li key={item.title} className="bg-white border border-line p-6">
+                <h3 className="text-[17px] font-bold text-ink break-keep">{item.title}</h3>
+                <p className="mt-2 text-[15px] leading-[1.7] text-ink/60 break-keep">{item.desc}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-[15px] leading-[1.8] text-ink/55 break-keep max-w-[46em]">
+            운영 스태프가 상주해 촬영 안내부터 인화, 소모품 관리까지 맡습니다. 설치 위치와 프레임 디자인, 인화 수량은 상담에서 함께 정합니다.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white">
         <div className="max-w-[1200px] mx-auto px-6 py-14 md:py-16 flex flex-col md:flex-row md:items-center gap-6">
           <p className="flex-1 text-[16px] md:text-[18px] leading-[1.7] text-ink/70 break-keep">
             다른 서비스와 함께 이용하면 같은 팀이 현장 전체를 맡습니다.

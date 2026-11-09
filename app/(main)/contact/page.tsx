@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { EMAIL } from '@/lib/nav';
+import { SERVICES_FAQ } from '@/lib/faq';
+
+const CONTACT_FAQ = SERVICES_FAQ.slice(0, 4);
 
 const fade = {
   hidden: { opacity: 0, y: 24 },
@@ -194,6 +197,51 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* 상담 안내 */}
+      <section className="py-16 md:py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="site-heading text-[24px] md:text-[32px] text-ink text-center">상담은 이렇게 진행됩니다</h2>
+          <ol className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { step: '문의 접수', desc: '아래 양식이나 전화로 예식장과 날짜를 알려주세요.' },
+              { step: '담당자 연락', desc: '평일 10시부터 18시 사이에 순서대로 연락드립니다.' },
+              { step: '구성 제안', desc: '하객 규모와 필요한 서비스에 맞춰 구성을 제안합니다.' },
+              { step: '일정 확정', desc: '구성이 정해지면 담당 인력과 일정을 배정합니다.' },
+            ].map((item, i) => (
+              <li key={item.step} className="border border-line p-6">
+                <span className="text-[13px] font-bold text-brand-deep tabular-nums">{i + 1}단계</span>
+                <h3 className="mt-2 text-[18px] font-bold text-ink">{item.step}</h3>
+                <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{item.desc}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="mt-12 grid md:grid-cols-2 gap-x-12 gap-y-8">
+            <div>
+              <h3 className="text-[18px] font-bold text-ink">미리 알려주시면 좋은 것</h3>
+              <ul className="mt-4 space-y-2.5">
+                {['예식장 이름과 지역', '예식 날짜와 시간', '예상 하객 규모', '필요한 서비스 (컨시어지·사회·축가·포토부스)'].map((t) => (
+                  <li key={t} className="flex gap-3 text-[15px] leading-[1.7] text-ink/75 break-keep">
+                    <span className="mt-[11px] w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-[18px] font-bold text-ink">예식장 담당자시라면</h3>
+              <p className="mt-4 text-[15px] leading-[1.8] text-ink/70 break-keep">
+                홀 개수와 주말 평균 회차, 현재 인력을 어떻게 채우고 있는지 알려주시면 상담이 빨라집니다.
+                제휴는 현장 답사 후 전용 매뉴얼을 설계하는 순서로 진행하며, 1회 체험 운영도 가능합니다.
+              </p>
+              <Link href="/partnership" className="mt-5 inline-flex items-center h-11 px-5 border border-ink text-[15px] font-bold text-ink hover:bg-ink hover:text-white transition-colors">
+                제휴 안내 보기
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-2xl mx-auto">
@@ -206,12 +254,7 @@ export default function ContactPage() {
           </motion.div>
 
           <div>
-            {[
-              { q: '전체 서비스를 함께 이용할 수 있나요?', a: '네, 컨시어지, 포토부스, 전문사회를 패키지로 함께 이용하실 수 있으며, 할인이 적용됩니다.' },
-              { q: '예약은 얼마나 전에 해야 하나요?', a: '결혼식 2-3개월 전에 예약하시는 것을 권장합니다.' },
-              { q: '예식장이 정해지지 않았는데 상담받을 수 있나요?', a: '물론입니다! 예식장 선택 전에 상담받으시면 하람과 잘 맞는 예식장을 함께 찾을 수 있습니다.' },
-              { q: '취소나 날짜 변경이 가능한가요?', a: '가능한 범위 내에서 응해드립니다. 자세한 정책은 상담 시 안내드립니다.' },
-            ].map((faq, i) => (
+            {CONTACT_FAQ.map((faq, i) => (
               <motion.details key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
                 custom={i * 0.05} variants={fade}
                 className="group border-b border-gray-100">
