@@ -1,4 +1,4 @@
-import { CONCIERGE, CONTACT, HOME, HOST, PAGES, PHOTOBOOTH, absUrl, type SitePage } from '@/lib/seo';
+import { CONCIERGE, CONTACT, HOME, HOST, PAGES, PHOTOBOOTH, PROGRAM, absUrl, type SitePage } from '@/lib/seo';
 import { xmlEscape } from '@/lib/xml';
 import { STORIES } from '@/lib/stories';
 
@@ -20,6 +20,14 @@ const IMAGES: Record<string, { src: string; caption: string }[]> = {
   ],
   [HOST.path]: [
     { src: '/images/editorial-2026/host-vocal.webp', caption: '예식사회자와 축가를 위한 웨딩홀 무대' },
+  ],
+  [PROGRAM.path]: [
+    { src: '/images/program/dashboard.webp', caption: '웨딩홀 관리 프로그램 직원 대시보드 화면' },
+    { src: '/images/program/couple.webp', caption: '예식 관리 프로그램 신랑신부 전용 페이지' },
+    { src: '/images/program/weddings.webp', caption: '웨딩홀 CRM 예식 목록과 진행 단계 관리' },
+    { src: '/images/program/wedding.webp', caption: '예식 상세 화면과 7단계 진행 관리' },
+    { src: '/images/program/wedding-info.webp', caption: '예식 정보 항목별 작성 현황 확인 화면' },
+    { src: '/images/program/calendar.webp', caption: '홀별 예식과 리허설 일정 캘린더' },
   ],
   [CONTACT.path]: [{ src: '/images/editorial-2026/details.webp', caption: '하람 예식 상담 문의' }],
 };

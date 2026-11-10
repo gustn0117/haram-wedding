@@ -5,6 +5,14 @@ export type ServiceSlug = 'concierge' | 'host' | 'vocal' | 'photobooth' | 'marke
 export type Fact = { label: string; value: string; note: string };
 export type Step = { when: string; what: string };
 export type Bar = { label: string; value: number };
+/** 실제 사용 화면 캡처 — wide: 단독 가로, tall: 세로(모바일), grid: 2열 */
+export type Screen = {
+  src: string;
+  shape: 'wide' | 'tall' | 'grid';
+  title: string;
+  desc: string;
+  alt: string;
+};
 
 export type Service = {
   slug: ServiceSlug;
@@ -25,6 +33,8 @@ export type Service = {
   options?: { name: string; desc: string }[];
   funnel?: { stage: string; work: string }[];
   ledger?: { time: string; hall: string; staff: string; state: '완료' | '진행' | '대기' }[];
+  /** 실제 사용 화면 */
+  screens?: Screen[];
   image: string;
   imageSrc: string;
   heroImageSrc: string;
@@ -250,12 +260,49 @@ export const SERVICES: Service[] = [
       { label: '문자 발송', value: '한 번에 300명', note: '이름·예식일 자동 치환' },
       { label: '권한', value: '역할별 분리', note: '오너·관리자·스태프, 예약실·진행팀' },
     ],
-    ledger: [
-      { time: '11:00', hall: '그랜드홀', staff: '김 · 이', state: '완료' },
-      { time: '13:00', hall: '그랜드홀', staff: '김 · 박', state: '진행' },
-      { time: '13:30', hall: '채플홀', staff: '정 · 최', state: '진행' },
-      { time: '15:00', hall: '그랜드홀', staff: '김 · 이', state: '대기' },
-      { time: '15:30', hall: '채플홀', staff: '정 · 한', state: '대기' },
+    screens: [
+      {
+        src: '/images/program/dashboard.webp',
+        shape: 'wide',
+        title: '직원 대시보드',
+        desc: '다음 예식까지 남은 일수, 공지, 다가오는 예식을 한 화면에서 봅니다.',
+        alt: '웨딩홀 관리 프로그램 직원 대시보드 — 다음 예식 D-day와 공지, 다가오는 예식 목록',
+      },
+      {
+        src: '/images/program/couple.webp',
+        shape: 'tall',
+        title: '신랑신부 전용 페이지',
+        desc: '회원가입 없이 전용 링크로 들어와 남은 일수와 해야 할 일을 확인하고 정보를 직접 입력합니다.',
+        alt: '예식 관리 프로그램 신랑신부 전용 페이지 — 예식까지 남은 일수와 정보 입력·리허설 예약 체크리스트',
+      },
+      {
+        src: '/images/program/weddings.webp',
+        shape: 'grid',
+        title: '예식 목록',
+        desc: '다가오는 예식과 지난 예식, 취소 건을 월별로 나눠 보고 진행 단계와 정보 제출 여부로 거릅니다.',
+        alt: '웨딩홀 CRM 예식 목록 화면 — 월별 예식 건수와 담당자, 진행 단계, 정보 제출 여부',
+      },
+      {
+        src: '/images/program/wedding.webp',
+        shape: 'grid',
+        title: '예식 상세 · 진행 단계',
+        desc: '예식등록부터 완료까지 7단계로 지금 어디인지 표시하고 대본·리허설·문자·계약을 한 건에 묶습니다.',
+        alt: '예식 상세 화면 — 예식등록·정보요청·정보회수·콘텐츠준비·신랑신부검토·예식진행·완료 7단계 진행 표시',
+      },
+      {
+        src: '/images/program/wedding-info.webp',
+        shape: 'grid',
+        title: '예식 정보 확인',
+        desc: '주례·사회자, 영상, 화촉, 입장, 축가 같은 항목별 작성 상태를 보고 비어 있는 것만 추려 봅니다.',
+        alt: '예식 정보 확인 화면 — 주례·사회자, 식전 영상, 화촉·혼주석, 입장 진행 등 항목별 작성 현황',
+      },
+      {
+        src: '/images/program/calendar.webp',
+        shape: 'grid',
+        title: '예식 캘린더',
+        desc: '홀별로 예식과 리허설 일정을 월간·주간으로 보고 시간이 겹치는 회차를 미리 확인합니다.',
+        alt: '웨딩홀 예식 캘린더 화면 — 홀별 예식과 리허설 일정을 월간 달력으로 표시',
+      },
     ],
     included: [
       '계약·입금·예식 정보·대본·리허설·문자 기록 통합 관리',

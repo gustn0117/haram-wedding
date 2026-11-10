@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Hatch from '@/components/Hatch';
 import PageHero from '@/components/page/PageHero';
 import CtaBand from '@/components/page/CtaBand';
 import { IconArrowUpRight } from '@/components/icons';
 import { CONTACT_HREF } from '@/lib/nav';
 import { REVIEWS, type Review } from '@/lib/reviews';
-import { SERVICES, type Service } from '@/lib/services';
+import { SERVICES, type Service, type Screen } from '@/lib/services';
 import type { FaqItem } from '@/lib/faq';
 import { GUIDES } from '@/lib/guides';
 
@@ -35,6 +36,89 @@ function H2({ children, note }: { children: React.ReactNode; note?: string }) {
       <h2 className="text-[24px] md:text-[30px] font-bold tracking-[-0.03em] text-ink">{children}</h2>
       {note && <p className="text-[14px] text-ink/45">{note}</p>}
     </div>
+  );
+}
+
+function ScreenCard({
+  screen,
+  frame,
+  sizes,
+  priority = false,
+}: {
+  screen: Screen;
+  frame: string;
+  sizes: string;
+  priority?: boolean;
+}) {
+  const isTall = screen.shape === 'tall';
+  return (
+    <figure className="flex flex-col w-full bg-white border border-line overflow-hidden">
+      <div className={`relative bg-mist ${frame} ${isTall ? 'flex items-center justify-center p-6' : ''}`}>
+        {isTall ? (
+          // 세로 화면은 기기처럼 좁게 세워 전체가 보이게 한다
+          <div className="relative h-full max-h-[460px] aspect-[860/1816] bg-white shadow-[0_2px_20px_rgba(26,26,26,0.14)]">
+            <Image src={screen.src} alt={screen.alt} fill sizes={sizes} className="object-cover" />
+          </div>
+        ) : (
+          <Image
+            src={screen.src}
+            alt={screen.alt}
+            fill
+            sizes={sizes}
+            priority={priority}
+            className="object-cover object-top"
+          />
+        )}
+      </div>
+      <figcaption className="px-5 py-4 border-t border-line">
+        <p className="text-[15px] font-bold text-ink break-keep">{screen.title}</p>
+        <p className="mt-1 text-[14px] leading-[1.6] text-ink/55 break-keep">{screen.desc}</p>
+      </figcaption>
+    </figure>
+  );
+}
+
+/** 실제 사용 화면 캡처 */
+function Screens({ s }: { s: Service }) {
+  if (!s.screens?.length) return null;
+  const wide = s.screens.find((x) => x.shape === 'wide');
+  const tall = s.screens.find((x) => x.shape === 'tall');
+  const grid = s.screens.filter((x) => x.shape === 'grid');
+
+  return (
+    <Wrap tone="mist">
+      <H2 note="개인정보가 보이는 부분은 가렸습니다">실제 사용 화면</H2>
+
+      {(wide || tall) && (
+        <div className="grid lg:grid-cols-[1.6fr_1fr] gap-4 items-stretch">
+          {wide && (
+            <ScreenCard
+              screen={wide}
+              frame="aspect-[1440/810]"
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              priority
+            />
+          )}
+          {tall && (
+            <ScreenCard
+              screen={tall}
+              frame="aspect-[3/4] sm:aspect-[4/3] lg:aspect-auto lg:flex-1 lg:min-h-[300px]"
+              sizes="(min-width: 1024px) 200px, (min-width: 640px) 240px, 220px"
+            />
+          )}
+        </div>
+      )}
+
+      {grid.length > 0 && (
+        <ul className="mt-4 grid sm:grid-cols-2 gap-4">
+          {grid.map((g) => (
+            <li key={g.src} className="flex">
+              <ScreenCard screen={g} frame="aspect-[1024/768]" sizes="(min-width: 640px) 46vw, 100vw" />
+            </li>
+          ))}
+        </ul>
+      )}
+    </Wrap>
   );
 }
 
@@ -202,6 +286,8 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
           ))}
         </dl>
       </Wrap>
+
+      <Screens s={s} />
 
       <Signature s={s} />
 
