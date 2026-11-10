@@ -160,7 +160,7 @@ export default function AdminPage() {
           </div>
           <div className="flex items-center gap-4">
             {unreadCount > 0 && (
-              <span className="px-3 py-1 bg-gold text-white text-[11px] rounded-full">
+              <span className="px-3 py-1 bg-brand-deep text-white text-[11px] rounded-full">
                 {unreadCount}건 미확인
               </span>
             )}
@@ -219,14 +219,14 @@ export default function AdminPage() {
                 onClick={() => setSelected(inq)}
                 className={`w-full text-left p-5 border transition-all ${
                   selected?.id === inq.id
-                    ? 'border-gold bg-white shadow-sm'
+                    ? 'border-brand bg-white shadow-sm'
                     : 'border-gray-200 bg-white hover:border-gray-300'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     {!inq.is_read && (
-                      <span className="w-2 h-2 bg-gold rounded-full shrink-0" />
+                      <span className="w-2 h-2 bg-brand-deep rounded-full shrink-0" />
                     )}
                     <span className="text-[14px] font-normal">{inq.name}</span>
                   </div>
@@ -264,7 +264,7 @@ export default function AdminPage() {
                       className={`px-4 py-2 text-[11px] border transition-colors ${
                         selected.is_read
                           ? 'border-gray-200 text-gray-400 hover:bg-gray-50'
-                          : 'border-gold text-brand-deep hover:bg-brand-deep/5'
+                          : 'border-brand text-brand-deep hover:bg-brand-deep/5'
                       }`}
                     >
                       {selected.is_read ? '미확인으로 변경' : '확인 완료'}

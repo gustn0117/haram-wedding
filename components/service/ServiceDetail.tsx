@@ -9,6 +9,7 @@ import { REVIEWS, type Review } from '@/lib/reviews';
 import { SERVICES, type Service, type Screen } from '@/lib/services';
 import type { FaqItem } from '@/lib/faq';
 import { GUIDES } from '@/lib/guides';
+import { ProgramEnvironment, ProgramStages, ProgramWorkspace } from '@/components/service/ProgramSections';
 
 const REVIEW_KEY: Partial<Record<Service['slug'], Review['service']>> = {
   concierge: '예식 컨시어지',
@@ -17,7 +18,7 @@ const REVIEW_KEY: Partial<Record<Service['slug'], Review['service']>> = {
 };
 
 const STATE_STYLE = {
-  완료: 'border border-gold text-gold-deep',
+  완료: 'border border-brand text-brand-deep',
   진행: 'bg-ink text-white',
   대기: 'border border-line text-ink/45',
 };
@@ -131,7 +132,7 @@ function Signature({ s }: { s: Service }) {
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {s.pipeline.map((p, i) => (
             <li key={p.title} className="relative bg-white border border-line p-6">
-              <span className="text-[13px] font-bold text-gold-deep tabular-nums">{i + 1}단계</span>
+              <span className="text-[13px] font-bold text-brand-deep tabular-nums">{i + 1}단계</span>
               <h3 className="mt-2 text-[19px] font-bold text-ink">{p.title}</h3>
               <p className="mt-2 text-[15px] leading-[1.65] text-ink/60 break-keep">{p.desc}</p>
             </li>
@@ -158,7 +159,7 @@ function Signature({ s }: { s: Service }) {
                 <td className="py-2.5">
                   <div className="flex items-center gap-4">
                     <div className="relative flex-1 h-3 rounded-full bg-white">
-                      <div className="absolute inset-y-0 left-0 rounded-full bg-ink group-hover:bg-gold-deep transition-colors"
+                      <div className="absolute inset-y-0 left-0 rounded-full bg-ink group-hover:bg-brand-deep transition-colors"
                         style={{ width: `${(r.value / m.max) * 100}%` }} />
                     </div>
                     <span className="w-14 text-right font-bold text-ink tabular-nums">
@@ -198,7 +199,7 @@ function Signature({ s }: { s: Service }) {
           {s.funnel.map((f, i) => (
             <li key={f.stage} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
               <span
-                className={`shrink-0 h-11 flex items-center px-4 text-[15px] font-semibold ${i === s.funnel!.length - 1 ? 'bg-gold text-white' : 'bg-ink text-white'}`}
+                className={`shrink-0 h-11 flex items-center px-4 text-[15px] font-semibold ${i === s.funnel!.length - 1 ? 'bg-brand-deep text-white' : 'bg-ink text-white'}`}
                 style={{ width: `min(100%, ${100 - i * 12}%)`, maxWidth: `${340 - i * 44}px`, minWidth: '140px' }}>
                 {f.stage}
               </span>
@@ -265,7 +266,7 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
       <Wrap>
         <div className="grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16">
           <div>
-            <span className="inline-block text-[13px] font-semibold text-gold-deep bg-mist rounded-full px-3 py-1">
+            <span className="inline-block text-[13px] font-semibold text-brand-deep bg-mist rounded-full px-3 py-1">
               {s.audience === '예식장' ? '예식장 전용' : '신랑신부 · 예식장'}
             </span>
             <p className="mt-6 text-[26px] md:text-[32px] font-bold leading-[1.35] tracking-[-0.03em] text-ink break-keep">
@@ -299,7 +300,7 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
             <ul className="border-t border-ink">
               {s.included.map((item) => (
                 <li key={item} className="flex gap-3 py-4 border-b border-line text-[16px] text-ink/80 break-keep">
-                  <svg className="w-5 h-5 mt-0.5 shrink-0 text-gold-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
+                  <svg className="w-5 h-5 mt-0.5 shrink-0 text-brand-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden>
                     <path d="m5 12.5 4.5 4.5L19 7.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                   {item}
@@ -312,8 +313,8 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
             <ol className="relative border-l-2 border-line ml-1.5">
               {s.flow.map((f) => (
                 <li key={f.when} className="relative pl-7 pb-7 last:pb-0">
-                  <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-gold" />
-                  <p className="text-[14px] font-bold text-gold-deep tabular-nums">{f.when}</p>
+                  <span className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-brand" />
+                  <p className="text-[14px] font-bold text-brand-deep tabular-nums">{f.when}</p>
                   <p className="mt-1 text-[16px] text-ink/80 break-keep">{f.what}</p>
                 </li>
               ))}
@@ -321,6 +322,14 @@ export default function ServiceDetail({ service: s, faq }: { service: Service; f
           </div>
         </div>
       </Wrap>
+
+      {s.slug === 'program' && (
+        <>
+          <ProgramStages />
+          <ProgramWorkspace />
+          <ProgramEnvironment />
+        </>
+      )}
 
       {reviews.length > 0 && (
         <Wrap tone="mist">

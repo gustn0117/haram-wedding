@@ -62,7 +62,7 @@ export default function ContactPage() {
         <div className="absolute inset-0">
           <Image src="/images/editorial-2026/details.webp"
             alt="자연광 아래 놓인 웨딩 링과 예식 준비 소품" fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-sage-deep/80 via-sage-deep/45 to-sage-deep/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/45 to-ink/15" />
         </div>
         <div className="hero-pattern" />
         <div className="hero-vignette" />
@@ -117,7 +117,7 @@ export default function ContactPage() {
             <motion.div key={i} initial="hidden" whileInView="show" viewport={{ once: true }}
               custom={i * 0.08} variants={fade}
               className={`text-center py-12 px-6 hover:bg-mist transition-colors group ${i < 2 ? 'md:border-r border-b md:border-b-0 border-line' : ''}`}>
-              <div className="w-10 h-10 rounded-full bg-mist group-hover:bg-sage-light flex items-center justify-center mx-auto mb-4 transition-colors text-sage/60 group-hover:text-sage-deep">
+              <div className="w-10 h-10 rounded-full bg-mist group-hover:bg-brand-light flex items-center justify-center mx-auto mb-4 transition-colors text-ink/40 group-hover:text-brand-deep">
                 {item.icon}
               </div>
               <p className="tag text-[10px] mb-3">{item.label}</p>
@@ -260,7 +260,7 @@ export default function ContactPage() {
                 className="group border-b border-gray-100">
                 <summary className="cursor-pointer py-6 text-[15px] flex justify-between items-center hover:text-brand-deep transition-colors">
                   {faq.q}
-                  <span className="text-gold/60 ml-4 shrink-0 group-open:rotate-45 transition-transform text-[16px]">+</span>
+                  <span className="text-ink/40 ml-4 shrink-0 group-open:rotate-45 transition-transform text-[16px]">+</span>
                 </summary>
                 <p className="pb-6 text-[13px] text-gray-400 leading-[1.9]">{faq.a}</p>
               </motion.details>
