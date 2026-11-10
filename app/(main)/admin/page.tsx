@@ -20,7 +20,7 @@ const serviceLabels: Record<string, string> = {
   vocal: '축가',
   photobooth: '웨딩 포토부스',
   marketing: '웨딩홀 마케팅',
-  program: '예식 취합 프로그램',
+  program: '예식 관리 프로그램',
   package: '여러 서비스',
   partnership: '예식장 제휴',
   careers: '채용 지원',

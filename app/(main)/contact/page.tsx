@@ -162,7 +162,7 @@ export default function ContactPage() {
                   <option value="vocal">축가</option>
                   <option value="photobooth">웨딩 포토부스</option>
                   <option value="marketing">웨딩홀 마케팅</option>
-                  <option value="program">예식 취합 프로그램</option>
+                  <option value="program">예식 관리 프로그램</option>
                   <option value="package">여러 서비스 함께</option>
                   <option value="partnership">예식장 제휴</option>
                   <option value="careers">채용 지원</option>
